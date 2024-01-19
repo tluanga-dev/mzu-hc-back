@@ -30,10 +30,22 @@ class ItemTypeSerializerTest(TestCase):
         ItemCategory.objects.create(name='Test Category', abbreviation='TC', description='Test Description')
         ItemType.objects.create(name='Test Name', abbreviation='TN', description='Test Description', example='Test Example', category=ItemCategory.objects.get(id=1))
 
+   
+
     def test_serializer_data(self):
         itemtype = ItemType.objects.get(id=1)
         serializer = ItemTypeSerializer(itemtype)
-        expected_data = {'id': 1, 'name': 'Test Name', 'abbreviation': 'TN', 'description': 'Test Description', 'example': 'Test Example', 'category': 1, 'is_active': True, 'created_on': itemtype.created_on, 'updated_on': itemtype.updated_on}
+        expected_data = {
+            'id': 1, 
+            'name': 'Test Name', 
+            'abbreviation': 'TN', 
+            'description': 'Test Description', 
+            'example': 'Test Example', 
+            'category': 1, 
+            'is_active': True, 
+            'created_on': itemtype.created_on.isoformat().replace('+00:00', 'Z'),  # Replace this line
+            'updated_on': itemtype.updated_on.isoformat().replace('+00:00', 'Z')  # And this line
+        }
         self.assertEqual(serializer.data, expected_data)
 
 class ItemTypeViewSetTest(TestCase):
