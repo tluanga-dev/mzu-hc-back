@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'features.item.unit_of_measurement',
     'features.item.item_category',
+    'features.item.item_type'
   
 ]
 
