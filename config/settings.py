@@ -39,9 +39,15 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'rest_framework_swagger',
     'rest_framework',
+    # --------Items---------
     'features.item.unit_of_measurement',
     'features.item.item_category',
-    'features.item.item_type'
+    'features.item.item_type',
+    'features.item.item',
+    'features.item.medicine_dosage_duration',
+
+    # --------Transactions---------
+    'features.transaction.item_stock_info',
   
 ]
 

@@ -139,13 +139,7 @@ class _Item {
   late String name;
   late String description;
   late _ItemType? type;
-  late _UnitOfMeasurement? unitOfMeasurement;
-  @Backlink(#item)
-  late Iterable<_ItemBatch> batches;
-  @Backlink(#item)
-  late Iterable<_MedicineDosage> medicineDosage;
-  @Backlink(#item)
-  late Iterable<_MedicineDosageDuration> medicineDosageDuration;
+
 
   late _ItemStockInfo? itemStockInfo;
 
