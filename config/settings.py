@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'features.item.item_category',
     'features.item.item_type',
     'features.item.item',
-    'features.item.medicine_dosage_duration',
+
 
     # --------Transactions---------
     'features.transaction.item_stock_info',

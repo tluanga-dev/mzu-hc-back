@@ -2,7 +2,7 @@ import uuid
 from django.db import models
 
 from features.item.item_type.models import ItemType
-from features.transaction.item_stock_info.models import ItemStockInfo
+
 
 class Item(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

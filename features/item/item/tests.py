@@ -1,51 +1,37 @@
-# Python
+# tests.py
+
 from django.test import TestCase
 from rest_framework.test import APIClient
 from rest_framework import status
-from django.urls import reverse
-from .models import Item
+from .models import Item, ItemType
 from .serializers import ItemSerializer
-from .views import ItemViewSet
 
-class ModelTestCase(TestCase):
-    """This class defines the test suite for the Item model."""
-
+class ItemModelTestCase(TestCase):
     def setUp(self):
-        """Define the test client and other test variables."""
-        self.item_name = "Test item"
-        self.item = Item(name=self.item_name)
+        self.item_type = ItemType.objects.create(name="Test Type")
+        self.item = Item.objects.create(name="Test Item", description="Test Description", type=self.item_type)
 
-    def test_model_can_create_an_item(self):
-        """Test the item model can create an item."""
-        old_count = Item.objects.count()
-        self.item.save()
-        new_count = Item.objects.count()
-        self.assertNotEqual(old_count, new_count)
+    def test_item_creation(self):
+        self.assertEqual(Item.objects.count(), 1)
+        self.assertEqual(Item.objects.get().name, "Test Item")
 
-class ViewTestCase(TestCase):
-    """Test suite for the api views."""
-
+class ItemViewSetTestCase(TestCase):
     def setUp(self):
-        """Define the test client and other test variables."""
         self.client = APIClient()
-        self.item_data = {'name': 'Test item'}
-        self.response = self.client.post(
-            reverse('item:create'),
-            self.item_data,
-            format="json")
+        self.item_type = ItemType.objects.create(name="Test Type")
+        self.item = Item.objects.create(name="Test Item", description="Test Description", type=self.item_type)
 
-    def test_api_can_create_an_item(self):
-        """Test the api has item creation capability."""
-        self.assertEqual(self.response.status_code, status.HTTP_201_CREATED)
+    def test_item_list(self):
+        response = self.client.get('/item/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
 
-# class SerializerTestCase(TestCase):
-#     """Test suite for the item serializer."""
+class ItemSerializerTestCase(TestCase):
+    def setUp(self):
+        self.item_type = ItemType.objects.create(name="Test Type")
+        self.item = Item.objects.create(name="Test Item", description="Test Description", type=self.item_type)
+        self.serializer = ItemSerializer(instance=self.item)
 
-#     def setUp(self):
-#         """Define the test client and other test variables."""
-#         self.item_data = {'name': 'Test item'}
-#         self.serializer_data = ItemSerializer().data
-
-#     def test_serializer_has_item_field(self):
-#         """Test the serializer has an 'item' field."""
-#         self.assertEqual('name' in self.serializer_data.fields, True)
+    def test_contains_expected_fields(self):
+        data = self.serializer.data
+        self.assertCountEqual(data.keys(), ['id', 'name', 'description', 'type', 'is_active', 'created_on', 'updated_on'])
