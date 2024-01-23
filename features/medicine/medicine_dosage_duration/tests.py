@@ -51,25 +51,33 @@ class MedicineDosageDurationViewSetTestCase(BaseTestCase):
         self.assertEqual(response.data, serializer.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    # def test_get_single_medicine_dosage_duration(self):
-    #     url = reverse('medicine_dosage_duration-detail', kwargs={'pk': self.medicine_dosage_duration.pk})
-    #     response = self.client.get(url)
-    #     serializer = MedicineDosageDurationSerializer(self.medicine_dosage_duration)
-    #     self.assertEqual(response.data, serializer.data)
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
+    def test_get_single_medicine_dosage_duration(self):
+        url = reverse('medicinedosageduration-detail', kwargs={'pk': self.medicine_dosage_duration.pk})
+        response = self.client.get(url)
+        serializer = MedicineDosageDurationSerializer(self.medicine_dosage_duration)
+        self.assertEqual(response.data, serializer.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    # def test_create_medicine_dosage_duration(self):
-    #     data = {/* add necessary fields here */}
-    #     response = self.client.post(self.url, data)
-    #     self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+    def test_create_medicine_dosage_duration(self):
+        data = {
+            'days': 7,
+            'name': 'One Week',
+            'medicine_dosage': self.medicine_dosage.pk
+        }
+        response = self.client.post(self.url, data)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
-    # def test_update_medicine_dosage_duration(self):
-    #     data = {/* add necessary fields here */}
-    #     url = reverse('medicine_dosage_duration-detail', kwargs={'pk': self.medicine_dosage_duration.pk})
-    #     response = self.client.put(url, data)
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
+    def test_update_medicine_dosage_duration(self):
+        data = {
+            'days': 7,
+            'name': 'One Week',
+            'medicine_dosage': self.medicine_dosage.pk
+        }
+        url = reverse('medicinedosageduration-detail', kwargs={'pk': self.medicine_dosage_duration.pk})
+        response = self.client.put(url, data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    # def test_delete_medicine_dosage_duration(self):
-    #     url = reverse('medicine_dosage_duration-detail', kwargs={'pk': self.medicine_dosage_duration.pk})
-    #     response = self.client.delete(url)
-    #     self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+    def test_delete_medicine_dosage_duration(self):
+        url = reverse('medicinedosageduration-detail', kwargs={'pk': self.medicine_dosage_duration.pk})
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
