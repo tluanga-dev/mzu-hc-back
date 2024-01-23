@@ -9,12 +9,12 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ("medicine_dosage", "0001_initial"),
+        ("item", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name="MedicineDosageDuration",
+            name="MedicineDosage",
             fields=[
                 (
                     "id",
@@ -25,15 +25,16 @@ class Migration(migrations.Migration):
                         serialize=False,
                     ),
                 ),
-                ("days", models.IntegerField()),
+                ("quantity_in_one_take", models.IntegerField()),
+                ("how_many_times_in_a_day", models.IntegerField()),
                 ("name", models.CharField(max_length=255)),
                 ("updated_on", models.DateTimeField(auto_now=True)),
                 (
-                    "medicine_dosage",
+                    "item",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        related_name="durations",
-                        to="medicine_dosage.medicinedosage",
+                        related_name="dosages",
+                        to="item.item",
                     ),
                 ),
             ],
