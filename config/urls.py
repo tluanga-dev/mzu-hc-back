@@ -5,6 +5,7 @@ from features.item.item.views import ItemViewSet
 from features.item.unit_of_measurement.views import UnitOfMeasurementViewSet
 from features.item.item_category.views import ItemCategoryViewSet
 from features.item.item_type.views import ItemTypeViewSet
+from features.medicine.medicine_dosage_duration.views import MedicineDosageDurationViewSet
 
 # --------Transactions---------
 from features.transaction.item_stock_info.views import ItemStockInfoViewSet
@@ -18,6 +19,9 @@ router.register(r'item/item_category', ItemCategoryViewSet)
 router.register(r'item/item_type', ItemTypeViewSet)
 router.register(r'transaction/item_stock_info', ItemStockInfoViewSet)
 router.register(r'item', ItemViewSet)
+
+# --------Medicine---------
+router.register(r'medicine/medicine_dosage_duration', MedicineDosageDurationViewSet)
 
 
 schema_view = get_swagger_view(title='API Docs')
