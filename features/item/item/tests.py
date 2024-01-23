@@ -46,6 +46,7 @@ class ItemViewSetTestCase(BaseTestCase):
     def setUp(self):
         super().setUp()
         Item.objects.all().delete()
+        # ---We need to delete all Item objects created before
         self.item = Item.objects.create(
             name="Test Item",
             description="Test Description",
