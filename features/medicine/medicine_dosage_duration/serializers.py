@@ -6,4 +6,8 @@ from .models import MedicineDosageDuration
 class MedicineDosageDurationSerializer(serializers.ModelSerializer):
     class Meta:
         model = MedicineDosageDuration
-        fields = ['id', 'days', 'name', 'item', 'updated_on']
+        fields = ['id', 'days', 'name', 'medicine_dosage', 'updated_on']
+
+
+
+    
