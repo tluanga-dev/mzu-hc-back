@@ -52,6 +52,9 @@ INSTALLED_APPS = [
 
     # --------Transactions---------
     'features.transaction.item_stock_info',
+
+    # --------Suppliers---------
+    'features.supplier',
   
 ]
 

@@ -31,6 +31,9 @@ from features.medicine.medicine_dosage_duration.views import MedicineDosageDurat
 # --------Transactions---------
 from features.transaction.item_stock_info.views import ItemStockInfoViewSet
 
+# --------Suppliers---------
+from features.supplier.views import SupplierViewSet
+
 
 router = DefaultRouter()
 router.register(r'item/units-of-measurement', UnitOfMeasurementViewSet)
@@ -42,6 +45,9 @@ router.register(r'item', ItemViewSet)
 # --------Medicine---------
 router.register(r'medicine/medicine_dosage_duration', MedicineDosageDurationViewSet)
 router.register(r'medicine/medicine_dosage', MedicineDosageViewSet)
+
+# --------Suppliers---------
+router.register(r'supplier', SupplierViewSet)
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include(router.urls)),

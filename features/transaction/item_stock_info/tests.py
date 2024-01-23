@@ -77,7 +77,7 @@ class ItemStockInfoTestCase(BaseTestCase):
       
         }
         response = self.client.put(url, data)
-        print('---response',response.data)
+       
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_delete_item_stock_info(self):
@@ -96,11 +96,11 @@ class ItemStockInfoTestCase(BaseTestCase):
             unit_of_measurement=self.unit_of_measurement,
             is_active=True
         )
-        print('---new_item',new_item)
+        
 
         # Check that an ItemStockInfo instance was created for the new Item instance
         item_stock_info = ItemStockInfo.objects.filter(item=new_item)
-        print('---item_stock_info',item_stock_info)
+        
         self.assertTrue(item_stock_info.exists())
 
         # Check that the quantity of the new ItemStockInfo instance is 0
