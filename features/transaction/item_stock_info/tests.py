@@ -35,74 +35,73 @@ class ItemStockInfoTestCase(BaseTestCase):
         self.assertNotEqual(self.item_stock_info.updated_on, old_updated_on)
 
 
-    # # -------Test the serializer------
+    # -------Test the serializer------
     
-    # def test_contains_expected_fields(self):
-    #     data = self.serializer.data
-    #     self.assertCountEqual(data.keys(), ['id', 'quantity', 'item', 'updated_on'])
+    def test_contains_expected_fields(self):
+        data = self.serializer.data
+        self.assertCountEqual(data.keys(), ['id', 'quantity', 'item', 'updated_on'])
 
-    # def test_quantity_field_content(self):
-    #     data = self.serializer.data
-    #     self.assertEqual(data['quantity'], self.item_stock_info.quantity)
+    def test_quantity_field_content(self):
+        data = self.serializer.data
+        self.assertEqual(data['quantity'], self.item_stock_info.quantity)
 
-    # def test_item_field_content(self):
-    #     data = self.serializer.data
-    #     self.assertEqual(data['item'], self.item_stock_info.item.id)  # assuming item is serialized as its id
+    def test_item_field_content(self):
+        data = self.serializer.data
+        self.assertEqual(data['item'], self.item_stock_info.item.id)  # assuming item is serialized as its id
 
-    # # -------Test the viewset------
-    # def test_get_all_item_stock_infos(self):
-    #     response = self.client.get(self.url)
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
+    # -------Test the viewset------
+    def test_get_all_item_stock_infos(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    # def test_get_single_item_stock_info(self):
-    #     url = reverse('itemstockinfo-detail', kwargs={'pk': self.item_stock_info.pk})  # replace 'itemstockinfo-detail' with the actual name of the URL pattern
-    #     response = self.client.get(url)
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
+    def test_get_single_item_stock_info(self):
+        url = reverse('itemstockinfo-detail', kwargs={'pk': self.item_stock_info.pk})  # replace 'itemstockinfo-detail' with the actual name of the URL pattern
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    # def test_create_item_stock_info(self):
-    #     ItemStockInfo.objects.all().delete()
-    #     data = {
-    #         'quantity': 20,
-    #         'item': self.item.id,
-    #     }
-    #     response = self.client.post(self.url, data)
+    def test_create_item_stock_info(self):
+        ItemStockInfo.objects.all().delete()
+        data = {
+            'quantity': 20,
+            'item': self.item.id,
+        }
+        response = self.client.post(self.url, data)
         
-    #     self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
-    # def test_update_item_stock_info(self):
-    #     url = reverse('itemstockinfo-detail', kwargs={'pk': self.item_stock_info.pk})  # replace 'itemstockinfo-detail' with the actual name of the URL pattern
-    #     data = {
-    #         'quantity': 30,
-    #         'item': self.item.id,
+    def test_update_item_stock_info(self):
+        url = reverse('itemstockinfo-detail', kwargs={'pk': self.item_stock_info.pk})  # replace 'itemstockinfo-detail' with the actual name of the URL pattern
+        data = {
+            'quantity': 30,
+            'item': self.item.id,
       
-    #     }
-    #     response = self.client.put(url, data)
-    #     print('---response',response.data)
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
+        }
+        response = self.client.put(url, data)
+        print('---response',response.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    # def test_delete_item_stock_info(self):
-    #     url = reverse('itemstockinfo-detail', kwargs={'pk': self.item_stock_info.pk})  # replace 'itemstockinfo-detail' with the actual name of the URL pattern
-    #     response = self.client.delete(url)
-    #     self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+    def test_delete_item_stock_info(self):
+        url = reverse('itemstockinfo-detail', kwargs={'pk': self.item_stock_info.pk})  # replace 'itemstockinfo-detail' with the actual name of the URL pattern
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
     
-    # def test_item_stock_info_created(self):
-    #     # Create a new Item instance
-    #     Item.objects.all().delete()
-    #     ItemStockInfo.objects.all().delete()
-    #     new_item = Item.objects.create(
-    #         name="New Test Item",
-    #         description="New Test Description",
-    #         type=self.item_type,
-    #         unit_of_measurement=self.unit_of_measurement,
-    #         is_active=True
-    #     )
-    #     print('---new_item',new_item)
+    def test_item_stock_info_created(self):
+        # Create a new Item instance
+       
+        new_item = Item.objects.create(
+            name="New Test Item",
+            description="New Test Description",
+            type=self.item_type,
+            unit_of_measurement=self.unit_of_measurement,
+            is_active=True
+        )
+        print('---new_item',new_item)
 
         # Check that an ItemStockInfo instance was created for the new Item instance
-        # item_stock_info = ItemStockInfo.objects.filter(item=new_item)
-        # print('---item_stock_info',item_stock_info)
-        # self.assertTrue(item_stock_info.exists())
+        item_stock_info = ItemStockInfo.objects.filter(item=new_item)
+        print('---item_stock_info',item_stock_info)
+        self.assertTrue(item_stock_info.exists())
 
-        # # Check that the quantity of the new ItemStockInfo instance is 0
-        # self.assertEqual(item_stock_info.first().quantity, 0)
+        # Check that the quantity of the new ItemStockInfo instance is 0
+        self.assertEqual(item_stock_info.first().quantity, 0)
