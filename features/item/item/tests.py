@@ -45,6 +45,7 @@ class ItemSerializerTestCase(BaseTestCase):
 class ItemViewSetTestCase(BaseTestCase):
     def setUp(self):
         super().setUp()
+        self.client = APIClient()
         Item.objects.all().delete()
         # ---We need to delete all Item objects created before
         self.item = Item.objects.create(
@@ -59,8 +60,5 @@ class ItemViewSetTestCase(BaseTestCase):
     def test_item_list(self):
         response = self.client.get('/item/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        print('-------------------')
-        print(response.data)
-        print('length of response.data',response.data.__len__() )
-        print('-------------------')
+ 
         self.assertEqual(len(response.data), 1)
