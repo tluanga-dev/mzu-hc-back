@@ -19,6 +19,8 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 from features.item.item.views import ItemViewSet
+from features.item.item_batch.views import ItemBatchViewSet
+
 
 from features.item.unit_of_measurement.views import UnitOfMeasurementViewSet
 from features.item.item_category.views import ItemCategoryViewSet
@@ -40,7 +42,9 @@ router.register(r'item/units-of-measurement', UnitOfMeasurementViewSet)
 router.register(r'item/item_category', ItemCategoryViewSet)
 router.register(r'item/item_type', ItemTypeViewSet)
 router.register(r'transaction/item_stock_info', ItemStockInfoViewSet)
-router.register(r'item', ItemViewSet)
+router.register(r'item', ItemViewSet, basename='item')
+router.register(r'item/(?P<item_id>[0-9a-f-]+)', ItemBatchViewSet, basename='item')
+
 
 # --------Medicine---------
 router.register(r'medicine/medicine_dosage_duration', MedicineDosageDurationViewSet)
@@ -50,5 +54,6 @@ router.register(r'medicine/medicine_dosage', MedicineDosageViewSet)
 router.register(r'supplier', SupplierViewSet)
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('item/<uuid:item_id>/batches', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),
     path('', include(router.urls)),
 ]

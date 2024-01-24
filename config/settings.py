@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'features.item.item_category',
     'features.item.item_type',
     'features.item.item',
+    'features.item.item_batch',
 
     # ------Medicine---------
     'features.medicine.medicine_dosage_duration',

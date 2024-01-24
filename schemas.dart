@@ -165,8 +165,7 @@ class _ItemBatch {
   late DateTime dateOfExpiry;
   late _Item? item;
   late bool isActive;
-  @Backlink(#batch)
-  late Iterable<_TransactionItem> transactionItem;
+  
   late DateTime createdOn;
   late DateTime updatedOn;
 }

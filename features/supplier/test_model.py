@@ -55,7 +55,7 @@ class SupplierModelTest(TestCase):
 
     def test_object_name_is_name(self):
         supplier = Supplier.objects.get(id=1)
-        print('supplier name',supplier.name)
+     
         expected_object_name = f'{supplier.name}'
-        print('expected_object_name',expected_object_name)
+   
         self.assertEqual(expected_object_name, str(supplier.name))
