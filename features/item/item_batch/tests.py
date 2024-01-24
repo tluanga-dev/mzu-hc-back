@@ -44,12 +44,29 @@ class ItemBatchViewSetTestCase(BaseTestCase):
        
         self.item_batches_url = reverse('item-batches', kwargs={'item_id': str(self.item.id)})
      
-        print(self.item_batches_url)
+        
     def test_item_batches_by_item_id(self):
         response = self.client.get(self.item_batches_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)
-        print(response.data)
+       
+
+
+    def test_retrieve_batch(self):
+        print('item batch id', self.item_batch.batch_id)
+        # # Get the URL for the item batch
+        # item_batch_url = reverse('item-batch-detail', kwargs={'item_id': str(self.item.id), 'batch_id': str(self.item_batch.id)})
+        # print('item batch url',item_batch_url)
+        # # Send a GET request to the item batch URL
+        # response = self.client.get(item_batch_url)
+
+        # # Check that the response status code is 200 (OK)
+        # self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        # # Check that the response data matches the item batch data
+        # self.assertEqual(response.data['id'], str(self.item_batcht.id))
+        # self.assertEqual(response.data['item'], str(self.item.id))
+        # Add more assertions for other fields of the item batch
 
 # class ItemBatchSerializerTest(TestCase):
 #     def setUp(self):

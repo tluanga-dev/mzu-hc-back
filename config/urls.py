@@ -54,6 +54,9 @@ router.register(r'medicine/medicine_dosage', MedicineDosageViewSet)
 router.register(r'supplier', SupplierViewSet)
 urlpatterns = [
     path("admin/", admin.site.urls),
+    # --to get all batches of an item
     path('item/<uuid:item_id>/batches', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),
+    # --to get a specific batch of an item
+    path('item/<uuid:item_id>/batch=<uuid:batch_id>/', ItemBatchViewSet.as_view({'get': 'retrieve_batch'}), name='item-batch-detail'),
     path('', include(router.urls)),
 ]

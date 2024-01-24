@@ -56,6 +56,9 @@ INSTALLED_APPS = [
 
     # --------Suppliers---------
     'features.supplier',
+
+    # --------Utilities---------
+    'features.id_manager',
   
 ]
 
