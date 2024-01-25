@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from features.id_manager.views import IdManagerViewSet
 
 from features.item.item.views import ItemViewSet
 from features.item.item_batch.views import ItemBatchViewSet
@@ -52,6 +53,9 @@ router.register(r'medicine/medicine_dosage', MedicineDosageViewSet)
 
 # --------Suppliers---------
 router.register(r'supplier', SupplierViewSet)
+
+# --------Utilities---------
+router.register(r'id_manager', IdManagerViewSet)
 urlpatterns = [
     path("admin/", admin.site.urls),
     # --to get all batches of an item

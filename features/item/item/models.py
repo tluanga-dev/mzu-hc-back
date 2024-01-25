@@ -1,5 +1,6 @@
 import uuid
 from django.db import models
+from features.id_manager.models import IdManager
 
 from features.item.item_type.models import ItemType
 from features.item.unit_of_measurement.models import UnitOfMeasurement
@@ -23,6 +24,7 @@ class Item(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255)
+    item_code = models.CharField(max_length=255, blank=False, null=False, unique=True)
     description = models.TextField()
     type = models.ForeignKey(ItemType, null=True, on_delete=models.SET_NULL)
     unit_of_measurement = models.ForeignKey(UnitOfMeasurement, on_delete=models.CASCADE)
@@ -30,6 +32,14 @@ class Item(models.Model):
     is_active = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+
+
+    def save(self, *args, **kwargs):
+        if not self.item_code and self.type:
+            category_abbreviation = self.type.category.abbreviation
+            # self.item_code = IdManager.generateId(category_abbreviation)
+
+        super().save(*args, **kwargs)
 
     class Meta:
         app_label = 'item'
