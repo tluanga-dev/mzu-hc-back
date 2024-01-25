@@ -37,7 +37,7 @@ class Item(models.Model):
     def save(self, *args, **kwargs):
         if not self.item_code and self.type:
             category_abbreviation = self.type.category.abbreviation
-            # self.item_code = IdManager.generateId(category_abbreviation)
+            self.item_code = IdManager.generateId(category_abbreviation)
 
         super().save(*args, **kwargs)
 

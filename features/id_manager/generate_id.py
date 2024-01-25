@@ -9,7 +9,7 @@ def generate_next_id(last_id):
     # Increment the numeric part
     
     new_numeric_part = str(int(numeric_part) + 1).zfill(4)
-    print('new_numeric_part', new_numeric_part)
+   
     # Check if numeric part reaches '999' and increment the letter part
     if new_numeric_part == '10000':
         letter_part = increment_letter_part(letter_part)

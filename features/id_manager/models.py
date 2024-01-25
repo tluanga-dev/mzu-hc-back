@@ -22,10 +22,9 @@ class IdManager(models.Model):
             # step 1, get the latest id
             latest_id = id_manager.latest_id
          
-            print('latest_id', latest_id)
             # step 2, generate the next id
             next_id = generate_next_id(latest_id)
-            print('next_id', next_id)
+           
             # step 3, update the latest id
             id_manager.latest_id = next_id
             # step 4, update  updated_on
