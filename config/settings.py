@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'features.medicine.medicine_dosage',
 
 
-    # --------Transactions---------
+    # --------Inventory-Transactions---------
+    'features.inventory_transaction',
   
 
     # --------Suppliers---------
