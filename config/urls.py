@@ -32,7 +32,7 @@ from features.medicine.medicine_dosage.views import MedicineDosageViewSet
 from features.medicine.medicine_dosage_duration.views import MedicineDosageDurationViewSet
 
 # --------Transactions---------
-from features.transaction.item_stock_info.views import ItemStockInfoViewSet
+
 
 # --------Suppliers---------
 from features.supplier.views import SupplierViewSet
@@ -42,7 +42,7 @@ router = DefaultRouter()
 router.register(r'item/units-of-measurement', UnitOfMeasurementViewSet)
 router.register(r'item/item_category', ItemCategoryViewSet)
 router.register(r'item/item_type', ItemTypeViewSet)
-router.register(r'transaction/item_stock_info', ItemStockInfoViewSet)
+
 router.register(r'item', ItemViewSet, basename='item')
 router.register(r'item/(?P<item_id>[0-9a-f-]+)', ItemBatchViewSet, basename='item')
 
