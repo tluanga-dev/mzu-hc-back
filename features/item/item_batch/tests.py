@@ -52,8 +52,8 @@ class ItemBatchViewSetTestCase(BaseTestCase):
        
 
 
-    def test_retrieve_batch(self):
-        print('item batch id', self.item_batch.batch_id)
+    # def test_retrieve_batch(self):
+    #     print('item batch id', self.item_batch.batch_id)
         # # Get the URL for the item batch
         # item_batch_url = reverse('item-batch-detail', kwargs={'item_id': str(self.item.id), 'batch_id': str(self.item_batch.id)})
         # print('item batch url',item_batch_url)

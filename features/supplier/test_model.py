@@ -5,7 +5,7 @@ class SupplierModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         # Set up non-modified objects used by all test methods
-        Supplier.objects.create(name='Test Supplier', contact=1234567890.0, email='test@example.com', 
+        Supplier.objects.create(name='Test Supplier', contact_no=1234567890.0, email='test@example.com', 
                                 address='Test Address', remarks='Test Remarks', is_active=True)
 
     def test_name_label(self):
@@ -13,10 +13,11 @@ class SupplierModelTest(TestCase):
         field_label = supplier._meta.get_field('name').verbose_name
         self.assertEqual(field_label, 'name')
 
-    def test_contact_label(self):
+    def test_contact_no_label(self):
         supplier = Supplier.objects.get(id=1)
-        field_label = supplier._meta.get_field('contact').verbose_name
-        self.assertEqual(field_label, 'contact')
+        field_label = supplier._meta.get_field('contact_no').verbose_name
+       
+        self.assertEqual(field_label,'contact no')
 
     def test_email_label(self):
         supplier = Supplier.objects.get(id=1)

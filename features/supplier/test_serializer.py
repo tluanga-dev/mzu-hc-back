@@ -7,7 +7,7 @@ class SupplierSerializerTest(TestCase):
     def setUp(self):
         self.supplier_attributes = {
             'name': 'Test Supplier',
-            'contact': 1234567890.0,
+            'contact_no': 1234567890.0,
             'email': 'test@example.com',
             'address': 'Test Address',
             'remarks': 'Test Remarks',
@@ -23,7 +23,7 @@ class SupplierSerializerTest(TestCase):
         self.assertEqual(set(self.serializer_data.keys()), set([
             'id',
             'name', 
-            'contact', 
+            'contact_no', 
             'email',
             'address',
             'remarks',
@@ -35,9 +35,9 @@ class SupplierSerializerTest(TestCase):
         data = SupplierSerializer(Supplier(name='Test Supplier')).data
         self.assertEqual(data['name'], 'Test Supplier')
 
-    def test_contact_field_content(self):
-        data = SupplierSerializer(Supplier(contact=1234567890.0)).data
-        self.assertEqual(data['contact'], 1234567890.0)
+    def test_contact_no_field_content(self):
+        data = SupplierSerializer(Supplier(contact_no=1234567890.0)).data
+        self.assertEqual(data['contact_no'], 1234567890.0)
 
     def test_email_field_content(self):
         data = SupplierSerializer(Supplier(email='test@example.com')).data
