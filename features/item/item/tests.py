@@ -14,16 +14,11 @@ from .serializers import ItemSerializer
 class ItemModelTestCase(BaseTestCase):
     def setUp(self):
         super().setUp()
-        self.item = Item.objects.create(
-            name="Test Item",
-            description="Test Description",
-            type=self.item_type,
-            unit_of_measurement=self.unit_of_measurement,
-            is_active=True
-        )
+       
        
     def test_create_item(self):
         Item.objects.all().delete()
+        IdManager.objects.all().delete()
         item = Item.objects.create(
             name='Test Item',
             description='This is a test item',
@@ -38,7 +33,7 @@ class ItemModelTestCase(BaseTestCase):
         self.assertTrue(item.is_active)
 
     def test_item_code_generation(self):
-        IdManager.objects.all().delete()
+        
         item = Item.objects.create(
             name='Test Item',
             description='This is a test item',
