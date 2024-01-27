@@ -1,3 +1,4 @@
+from django.forms import model_to_dict
 from rest_framework import serializers
 from features.supplier.models import Supplier
 
@@ -30,13 +31,16 @@ class IndentInventoryTransactionSerializer(InventoryTransactionBaseSerializer):
     supplyOrderDate = serializers.DateField()
     dateOfDeliverty = serializers.DateField()
 
+    # def get_supplier(self, obj):
+    #     supplier = obj.supplier
+    #     return {
+    #         'id': supplier.id,
+    #         'name': supplier.name,
+    #         # add other fields you want to include
+    #     }
+    
     def get_supplier(self, obj):
-        supplier = obj.supplier
-        return {
-            'id': supplier.id,
-            'name': supplier.name,
-            # add other fields you want to include
-        }
+        return model_to_dict(obj.supplier)
 
 
     class Meta(InventoryTransactionBaseSerializer.Meta):
