@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import IndentInventoryTransaction
+from .serializers import IndentInventoryTransactionSerializer
 
-# Create your views here.
+class IndentInventoryTransactionViewSet(viewsets.ModelViewSet):
+    queryset = IndentInventoryTransaction.objects.all()
+    serializer_class = IndentInventoryTransactionSerializer

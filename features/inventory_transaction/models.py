@@ -1,3 +1,5 @@
+from datetime import timezone
+import datetime
 from django.db import models
 
 from features.item.item_batch.models import ItemBatch
@@ -37,6 +39,7 @@ class InventoryTransaction(models.Model):
 class InventoryTransactionItem(models.Model):
     inventory_transaction = models.ForeignKey(InventoryTransaction, on_delete=models.CASCADE)
     item_batch = models.ForeignKey(ItemBatch, on_delete=models.CASCADE)
+    quantity = models.IntegerField(null=False, blank=False)
     is_active = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
@@ -45,12 +48,17 @@ class InventoryTransactionItem(models.Model):
         app_label = 'inventory_transaction'
 
 class IndentInventoryTransaction(InventoryTransaction):
-    quantity = models.IntegerField(blank=False, null=False)
     supplier=models.ForeignKey('supplier.Supplier', on_delete=models.CASCADE)
     supplyOrderNo=models.CharField(max_length=20, unique=True)
     supplyOrderDate=models.DateField()
     dateOfDeliverty=models.DateField()
 
+
+    def __str__(self):
+       
+        return f'IndentInventoryTransaction {self.iventory_transaction_id} - {self.inventory_transaction_type} - {self.remarks} - {self.date_time} - {self.status} - {self.supplyOrderNo} - {self.supplyOrderDate} - {self.dateOfDeliverty}'
+
+    
     class Meta:
         app_label = 'inventory_transaction'
       

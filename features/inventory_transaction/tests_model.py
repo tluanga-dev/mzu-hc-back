@@ -27,7 +27,6 @@ class IndentInventoryTransactionModelTest(BaseTestCase):
         self.indent_transaction = IndentInventoryTransaction.objects.create(
             inventory_transaction_type=InventoryTransaction.INDENT,
             iventory_transaction_id=IdManager.generateId(prefix='INDENT'),
-            quantity=10,
             supplier=self.supplier, 
             supplyOrderNo=IndentInventoryTransactionModelTest.counter, 
             supplyOrderDate=date.today(), 
@@ -45,12 +44,7 @@ class IndentInventoryTransactionModelTest(BaseTestCase):
         print('Indent Transaction')
    
 
-    def test_requested_quantity_label(self):
-        indenttransaction = IndentInventoryTransaction.objects.get(id=1)
-        print('Indent Transaction')
-        print(indenttransaction)
-        # field_label = indenttransaction._meta.get_field('quantity').verbose_name
-        self.assertEquals(field_label, 'quantity')
+   
 
     def test_supplier_label(self):
         indenttransaction = IndentInventoryTransaction.objects.get(id=1)
@@ -72,28 +66,43 @@ class IndentInventoryTransactionModelTest(BaseTestCase):
         field_label = indenttransaction._meta.get_field('dateOfDeliverty').verbose_name
         self.assertEquals(field_label, 'dateOfDeliverty')
 
-    # # -------test for the Transaction Item------
-    # def test_transaction_item_created(self):
-    #     self.item = Item.objects.create(
-    #         name="Test Item",
-    #         description="Test Description",
-    #         type=self.item_type,
-    #         unit_of_measurement=self.unit_of_measurement,
-    #         is_active=True
-    #     )
-    #     self.item_batch=ItemBatch.objects.create(
-    #         batch_id='B2',
-    #         description='Test Batch',
-    #         date_of_expiry=date.today(),
-    #         item=self.item
-    #     )
+    # -------test for the Transaction Item------
+    def test_transaction_item_created(self):
+        InventoryTransactionItem.objects.all().delete()
+        self.item = Item.objects.create(
+            name="Test Item",
+            description="Test Description",
+            type=self.item_type,
+            unit_of_measurement=self.unit_of_measurement,
+            is_active=True
+        )
+        self.item_batch=ItemBatch.objects.create(
+            batch_id='B2',
+            description='Test Batch',
+            date_of_expiry=date.today(),
+            item=self.item
+        )
      
-    #     self.transaction_item = InventoryTransactionItem.objects.create(
-    #         inventory_transaction=self.indent_transaction,
-    #         item_batch=self.item_batch,
-    #         transaction=self.indent_transaction
-    #     )
-    #     self.assertEqual(InventoryTransactionItem.objects.count(), 1)
+        self.transaction_item = InventoryTransactionItem.objects.create(
+            inventory_transaction=self.indent_transaction,
+            item_batch=self.item_batch,
+            quantity=10
+        )
+        print(self.transaction_item.inventory_transaction)
+        self.assertEqual(InventoryTransactionItem.objects.count(), 1)
         
-    #     indenttransaction = IndentInventoryTransaction.objects.get(id=1)
-    #     self.assertEqual(indenttransaction.transaction_item, None)      
+        indenttransaction_from_db = IndentInventoryTransaction.objects.get(id=1)
+
+        transaction_items = indenttransaction_from_db.inventorytransactionitem_set.all()
+
+        for item in transaction_items:
+            print(item.id, item.quantity)  # Or whatever fields you're interested in
+        # self.assertEqual(1,transaction_items.count)
+        # To get all InventoryTransactionItem objects related to self.indent_transaction,
+        #  you can use the reverse relation created by the ForeignKey in the InventoryTransactionItem model. 
+        # Here's how you can do it:
+
+
+        # transaction_items will be a Django QuerySet containing all
+        # InventoryTransactionItem objects that are associated with self.indent_transaction.
+        #You can iterate over this QuerySet to access each individual InventoryTransactionItem:
