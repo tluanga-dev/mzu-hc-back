@@ -61,7 +61,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         )
         self.indent_transaction = IndentInventoryTransaction.objects.create(
             inventory_transaction_type='indent',
-            inventory_transaction_id='INDENT1',
+            iventory_transaction_id='INDENT1',
             status='pending',
             supplier=self.supplier,
             supplyOrderNo='SO1',
@@ -69,6 +69,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
             dateOfDeliverty='2022-01-01'
         )
         
+
 
         self.transaction_item1 = InventoryTransactionItem.objects.create(
             inventory_transaction=self.indent_transaction,
@@ -94,13 +95,13 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
             item.pop('created_on', None)
             item.pop('updated_on', None)
         serialized_data.pop('date_time', None)
-        # print('------Serializer Data------')
-        # print(serializer.data) 
-        # print('------Expected Data------')
+        print('------Serializer Data------')
+        print(serializer.data) 
+        print('------Expected Data------')
         expected_data = {
             'id': self.indent_transaction.id,
             'inventory_transaction_type': 'indent',
-            'inventory_transaction_id': 'INDENT1',
+            'iventory_transaction_id': 'INDENT1',
             'status': 'pending',
             
             'supplier': {
@@ -139,7 +140,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
                 }
             ]
         }
-        # print(expected_data)
-        # print('-----')
+        print(expected_data)
+        print('-----')
         self.assertEqual(serializer.data, expected_data)
             
