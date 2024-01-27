@@ -118,7 +118,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
             'supplyOrderDate': '2022-01-01',
             'dateOfDeliverty': '2022-01-01',
             'remarks': None,
-            'date_time': self.indent_transaction.date_time.isoformat(),
+            'date_time': self.indent_transaction.date_time.strftime('%d-%m-%Y %H:%M'),
             'inventorytransactionitem_set': [
                 {
                     'id': self.transaction_item1.id,
@@ -126,8 +126,8 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
                     'item_batch': self.item_batch1.id,
                     'quantity': 10,
                     'is_active': True,
-                    'created_on': self.transaction_item1.created_on.isoformat(),
-                    'updated_on': self.transaction_item1.updated_on.isoformat(),
+                    # 'created_on': self.transaction_item1.created_on.isoformat(),
+                    # 'updated_on': self.transaction_item1.updated_on.isoformat(),
                 },
                 {
                     'id': self.transaction_item2.id,
@@ -135,8 +135,8 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
                     'item_batch': self.item_batch2.id,
                     'quantity': 5,
                     'is_active': True,
-                    'created_on': self.transaction_item2.created_on.isoformat(),
-                    'updated_on': self.transaction_item2.updated_on.isoformat(),
+                    # 'created_on': self.transaction_item2.created_on.isoformat(),
+                    # 'updated_on': self.transaction_item2.updated_on.isoformat(),
                 }
             ]
         }

@@ -73,6 +73,11 @@ class IndentInventoryTransactionSerializer(InventoryTransactionBaseSerializer):
     
     def get_inventorytransactionitem_set(self, obj):
         return [model_to_dict(item) for item in obj.inventorytransactionitem_set.all()]
+    
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['date_time'] = instance.date_time.strftime('%d-%m-%Y %H:%M')
+        return data
 
 
     class Meta(InventoryTransactionBaseSerializer.Meta):
