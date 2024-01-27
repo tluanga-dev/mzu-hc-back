@@ -27,7 +27,7 @@ class InventoryTransaction(models.Model):
     ]
 
     inventory_transaction_type = models.CharField(max_length=100, choices=TRANSACTION_TYPES)
-    iventory_transaction_id = models.CharField(max_length=20, unique=True)
+    inventory_transaction_id = models.CharField(max_length=20, unique=True)
     remarks=models.CharField(max_length=200, unique=False, blank=True, null=True) 
     date_time = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=10, default='pending')
@@ -56,7 +56,7 @@ class IndentInventoryTransaction(InventoryTransaction):
 
     def __str__(self):
        
-        return f'IndentInventoryTransaction {self.iventory_transaction_id} - {self.inventory_transaction_type} - {self.remarks} - {self.date_time} - {self.status} - {self.supplyOrderNo} - {self.supplyOrderDate} - {self.dateOfDeliverty}'
+        return f'IndentInventoryTransaction {self.inventory_transaction_id} - {self.inventory_transaction_type} - {self.remarks} - {self.date_time} - {self.status} - {self.supplyOrderNo} - {self.supplyOrderDate} - {self.dateOfDeliverty}'
 
     
     class Meta:

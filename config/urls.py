@@ -56,7 +56,7 @@ router.register(r'medicine/medicine_dosage', MedicineDosageViewSet)
 router.register(r'supplier', SupplierViewSet)
 
 #--------Transactions---------
-router.register(r'indenttransaction', IndentInventoryTransactionViewSet)
+router.register(r'transation/indenttransaction', IndentInventoryTransactionViewSet)
 
 # --------Utilities---------
 router.register(r'id_manager', IdManagerViewSet)

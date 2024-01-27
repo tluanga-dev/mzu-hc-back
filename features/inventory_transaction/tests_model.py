@@ -26,7 +26,7 @@ class IndentInventoryTransactionModelTest(BaseTestCase):
         InventoryTransactionItem.objects.all().delete() 
         self.indent_transaction = IndentInventoryTransaction.objects.create(
             inventory_transaction_type=InventoryTransaction.INDENT,
-            iventory_transaction_id=IdManager.generateId(prefix='INDENT'),
+            inventory_transaction_id=IdManager.generateId(prefix='INDENT'),
             supplier=self.supplier, 
             supplyOrderNo=IndentInventoryTransactionModelTest.counter, 
             supplyOrderDate=date.today(), 

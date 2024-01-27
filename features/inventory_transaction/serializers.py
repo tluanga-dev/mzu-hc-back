@@ -9,37 +9,26 @@ from .models import InventoryTransaction, InventoryTransactionItem, IndentInvent
 
 class InventoryTransactionItemSerializer(serializers.ModelSerializer):
 
-    # def to_representation(self, instance):
-    #     data = super().to_representation(instance)
-    #     # Format datetime fields here
-    #     data['created_on'] = instance.created_on
-    #     data['updated_on'] = instance.updated_on
-       
-    #     # Assuming data['created_on'] is a datetime.datetime object
-    #     datetime_obj = data['created_on']
-
-    #     # Format datetime object to exclude seconds and microseconds
-    #     data['created_on'] = datetime_obj.strftime('%Y-%m-%d %H:%M:%z')
-
-    #     # Assuming data['created_on'] is a datetime.datetime object
-    #     datetime_obj =  data['updated_on']
-
-    #     # Format datetime object to exclude seconds and microseconds
-    #     data['updated_on']= datetime_obj.strftime('%Y-%m-%d %H:%M:%z')
-
-    #      # Output: Formatted datetime string without seconds and microseconds
-    #     return data
-
     class Meta:
         model = InventoryTransactionItem
-        fields = '__all__'
+        fields = ['id', 'inventory_transaction', 'item_batch', 'quantity', 'is_active']
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data.pop('inventory_transaction', None)
+        return data
 
 class InventoryTransactionBaseSerializer(serializers.ModelSerializer):
     inventorytransactionitem_set = InventoryTransactionItemSerializer(many=True)
-   
+
     class Meta:
         model = InventoryTransaction
-        fields =  ['__all__' ,'inventorytransactionitem_set']
+        fields = ['__all__', 'inventorytransactionitem_set']
+
+    def validate(self, data):
+        if 'inventorytransactionitem_set' not in data or not data['inventorytransactionitem_set']:
+            raise serializers.ValidationError({"inventorytransactionitem_set": "This field is required."})
+        return data
 
     def create(self, validated_data):
         transaction_items_data = validated_data.pop('inventorytransactionitem_set')
@@ -54,8 +43,8 @@ class IndentInventoryTransactionSerializer(InventoryTransactionBaseSerializer):
     supplyOrderNo = serializers.CharField()
     supplyOrderDate = serializers.DateField()
     dateOfDeliverty = serializers.DateField()
-    inventorytransactionitem_set=serializers.SerializerMethodField()
-    
+    # inventorytransactionitem_set=serializers.SerializerMethodField()
+    inventory_transaction_item = serializers.SerializerMethodField(source='inventorytransactionitem_set')
 
     # def get_supplier(self, obj):
     #     supplier = obj.supplier
@@ -71,7 +60,7 @@ class IndentInventoryTransactionSerializer(InventoryTransactionBaseSerializer):
     # def get_inventory_transaction_items(self, obj):
     #     return model_to_dict(obj.inventorytransactionitem_set.all())
     
-    def get_inventorytransactionitem_set(self, obj):
+    def get_inventory_transaction_item(self, obj):
         return [model_to_dict(item) for item in obj.inventorytransactionitem_set.all()]
     
     def to_representation(self, instance):
@@ -79,7 +68,7 @@ class IndentInventoryTransactionSerializer(InventoryTransactionBaseSerializer):
         data['date_time'] = instance.date_time.strftime('%d-%m-%Y %H:%M')
         return data
 
-
+    
     class Meta(InventoryTransactionBaseSerializer.Meta):
         model = IndentInventoryTransaction
         # fields = InventoryTransactionBaseSerializer.Meta.fields + ['supplier', 'supplyOrderNo', 'supplyOrderDate', 'dateOfDeliverty']
