@@ -89,9 +89,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
  
          # Exclude 'date_time', 'created_on', and 'updated_on' fields from the comparison
         serialized_data = serializer.data
-        print('------Supplier------')
-        print(serialized_data['supplier'])
-        print('-------------------------------')
+        
 
         for item in serialized_data['inventorytransactionitem_set']:
             item.pop('created_on', None)
@@ -105,7 +103,17 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
             'inventory_transaction_type': 'indent',
             'iventory_transaction_id': 'INDENT1',
             'status': 'pending',
-            'supplier': str(self.supplier),
+            
+            'supplier': {
+                'id': 8, 
+                'name': 'Test Supplier',
+                'contact_no': '1234567890', 
+                'email': 'test@gmail.com', 
+                'address': 'Test Address', 
+                'remarks': None, 
+                'is_active': True
+            },
+
             'supplyOrderNo': 'SO1',
             'supplyOrderDate': '2022-01-01',
             'dateOfDeliverty': '2022-01-01',
@@ -134,5 +142,5 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         }
         print(expected_data)
         print('-----')
-        # self.assertEqual(serializer.data, expected_data)
+        self.assertEqual(serializer.data, expected_data)
             

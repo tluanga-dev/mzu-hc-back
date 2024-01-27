@@ -1,18 +1,42 @@
+from datetime import datetime
 from django.forms import model_to_dict
 from rest_framework import serializers
+from features.helper.format_date_time import format_datetime_with_timezone_offset
 from features.supplier.models import Supplier
 
 from features.supplier.serializers import SupplierSerializer
 from .models import InventoryTransaction, InventoryTransactionItem, IndentInventoryTransaction
 
 class InventoryTransactionItemSerializer(serializers.ModelSerializer):
+
+    # def to_representation(self, instance):
+    #     data = super().to_representation(instance)
+    #     # Format datetime fields here
+    #     data['created_on'] = instance.created_on
+    #     data['updated_on'] = instance.updated_on
+       
+    #     # Assuming data['created_on'] is a datetime.datetime object
+    #     datetime_obj = data['created_on']
+
+    #     # Format datetime object to exclude seconds and microseconds
+    #     data['created_on'] = datetime_obj.strftime('%Y-%m-%d %H:%M:%z')
+
+    #     # Assuming data['created_on'] is a datetime.datetime object
+    #     datetime_obj =  data['updated_on']
+
+    #     # Format datetime object to exclude seconds and microseconds
+    #     data['updated_on']= datetime_obj.strftime('%Y-%m-%d %H:%M:%z')
+
+    #      # Output: Formatted datetime string without seconds and microseconds
+    #     return data
+
     class Meta:
         model = InventoryTransactionItem
         fields = '__all__'
 
 class InventoryTransactionBaseSerializer(serializers.ModelSerializer):
     inventorytransactionitem_set = InventoryTransactionItemSerializer(many=True)
-
+   
     class Meta:
         model = InventoryTransaction
         fields =  ['__all__' ,'inventorytransactionitem_set']
@@ -30,6 +54,8 @@ class IndentInventoryTransactionSerializer(InventoryTransactionBaseSerializer):
     supplyOrderNo = serializers.CharField()
     supplyOrderDate = serializers.DateField()
     dateOfDeliverty = serializers.DateField()
+    inventorytransactionitem_set=serializers.SerializerMethodField()
+    
 
     # def get_supplier(self, obj):
     #     supplier = obj.supplier
@@ -41,6 +67,12 @@ class IndentInventoryTransactionSerializer(InventoryTransactionBaseSerializer):
     
     def get_supplier(self, obj):
         return model_to_dict(obj.supplier)
+    
+    # def get_inventory_transaction_items(self, obj):
+    #     return model_to_dict(obj.inventorytransactionitem_set.all())
+    
+    def get_inventorytransactionitem_set(self, obj):
+        return [model_to_dict(item) for item in obj.inventorytransactionitem_set.all()]
 
 
     class Meta(InventoryTransactionBaseSerializer.Meta):
