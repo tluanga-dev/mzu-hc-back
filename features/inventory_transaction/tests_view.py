@@ -72,8 +72,8 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
         # Add more assertions to check other fields of the created instance
     
     def test_get_indent_transactions(self):
-        os.system('clear')
-        print('\n\ntest_get_indent_transactions\n\n')
+     
+
         url = reverse('indent-inventory-transactions-list')
         data = {
             'supplier': self.supplier.id,
@@ -109,14 +109,13 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
         print('\n\ntest_get_indent_transactions\n\n')
         
         response = self.client.get(url)
-        print('-------response data-------')
-        print(response.data)
-        print(len(response.data))
+        # print('-------response data-------')
+        # print(response.data)
+        # print(len(response.data))
 
 
     def test_get_indent_transactions(self):
-        os.system('clear')
-        print('\n\ntest_get_indent_transactions\n\n')
+      
         url = reverse('indent-inventory-transactions-list')
         indent_transaction = IndentInventoryTransaction.objects.create(
         supplier=self.supplier,
@@ -130,6 +129,62 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
             )
         url = reverse('indent-inventory-transactions-detail', kwargs={'pk': indent_transaction.pk})
         response = self.client.get(url)
-        print(response.data)
+        
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['id'], indent_transaction.pk)
+
+    def test_filter_indentinventorytransaction(self):
+        
+        os.system('clear')
+        print('\n\ntest_filter_indent_transactions\n\n')
+        url = reverse('indent-inventory-transactions-list')
+        data = {
+            'id':1,
+            'supplier': self.supplier.id,
+            'supplyOrderNo': 'SO1',
+            'supplyOrderDate': '2022-01-01',
+            'dateOfDeliverty': '2022-01-01',
+            'inventorytransactionitem_set': [
+                {'item_batch': self.item_batch.id, 'quantity': 10, 'is_active': True},
+            ],
+            'inventory_transaction_type': 'indent',
+            'inventory_transaction_id': 'INDENT1',
+            'remarks': None,
+            'date_time': '2024-01-27 22:08:00',
+            'status': 'pending',
+        }
+        response = self.client.post(url, data, format='json')
+
+        data_2 = {
+            'id': 200,
+            'supplier': self.supplier.id,
+            'supplyOrderNo': 'SO12',
+            'supplyOrderDate': '2022-01-01',
+            'dateOfDeliverty': '2022-01-01',
+            'inventorytransactionitem_set': [
+                {'item_batch': self.item_batch.id, 'quantity': 10, 'is_active': True},
+            ],
+            'inventory_transaction_type': 'indent',
+            'inventory_transaction_id': 'INDENT2',
+            'remarks': 'This is supply order 2',
+            'date_time': '2024-01-27 22:08:00',
+            'status': 'pending',
+        }
+        response = self.client.post(url, data_2, format='json')
+
+        response = self.client.get(url)
+        print(response.data[1]['id'])
+        id=response.data[1]['id']
+        url = reverse('indent-inventory-transactions-detail', kwargs={'pk': id})
+        response = self.client.get(url)
+        print('-------response data without filter-------')
+        print(response.data)
+        print('\n\n')
+        print('-------response data with filter-------')
+
+        url = reverse('indent-inventory-transactions-list') + '?supplyOrderNo=SO12'
+        response2 = self.client.get(url)
+        print(response2.data)
+        # self.assertEqual(response.status_code, status.HTTP_200_OK)
+        # self.assertEqual(len(response.data), 1)  # Check that one instance is returned
+        # self.assertEqual(response.data[0]['supplyOrderNo'], 'SO12')  # Check that the returned instance has the correct supplyOrderNo
