@@ -90,7 +90,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
 
     def test_retrieve_indent_inventory_transaction(self):
         # --To clear terminal
-        os.system('clear')
+        # os.system('clear')
         print('\n-------test_retrieve_indent_inventory_transaction------- ')
         IndentInventoryTransaction.objects.all().delete()
         print('------data input to serializer------')
@@ -129,8 +129,8 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
                 'is_active': item.is_active,
             } for item in InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
         ]
-        os.system('clear')
-        print('\n\nexpected data, ',expected_data)
+   
+        # print('\n\nexpected data, ',expected_data)
         serializer_data = json.loads(json.dumps(serializer.data))
-        print('\n\nserializer data, ',serializer_data)
+        # print('\n\nserializer data, ',serializer_data)
         self.assertEqual(serializer_data, expected_data)
