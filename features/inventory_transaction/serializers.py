@@ -1,3 +1,4 @@
+from django.forms import model_to_dict
 from rest_framework import serializers
 from features.supplier.models import Supplier
 
@@ -11,21 +12,40 @@ class InventoryTransactionItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = InventoryTransactionItem
-        fields = ['id', 'inventory_transaction', 'item_batch', 'quantity', 'is_active', 'created_on', 'updated_on']
+        fields = [
+            'id', 
+            'inventory_transaction',
+            'item_batch',
+            'quantity',
+            'is_active', 
+            # 'created_on',
+            # 'updated_on',
+            ]
 
-    def to_representation(self, instance):
-        rep = super().to_representation(instance)
-        rep['date_time'] = instance.inventory_transaction.date_time.strftime('%d-%m-%Y %H:%M')
-        return rep
+    # def to_representation(self, instance):
+    #     rep = super().to_representation(instance)
+    #     rep['date_time'] = instance.inventory_transaction.date_time.strftime('%d-%m-%Y %H:%M')
+    #     return rep
 
 class IndentInventoryTransactionSerializer(serializers.ModelSerializer):
     inventorytransactionitem_set = serializers.ListSerializer(child=InventoryTransactionItemSerializer(), read_only=False)
-    supplier = serializers.PrimaryKeyRelatedField(queryset=Supplier.objects.all())
+    # supplier = serializers.PrimaryKeyRelatedField(queryset=Supplier.objects.all())
+
+    # supplier = SupplierSerializer(read_only=True)
+
+    def get_supplier(self, obj):
+        return model_to_dict(obj.supplier)
 
     class Meta:
         model = IndentInventoryTransaction
         fields = '__all__'
-        
+    
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['supplier'] = SupplierSerializer(instance.supplier).data
+        return representation
+
     def create(self, validated_data):
         print('validated_data',validated_data)
         transaction_items_data = validated_data.pop('inventorytransactionitem_set')

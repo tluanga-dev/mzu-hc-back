@@ -1,4 +1,5 @@
 from datetime import date
+import json
 import os
 from django.test import TestCase
 from features.base.base_test_setup_class import BaseTestCase
@@ -127,5 +128,8 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
                 'is_active': item.is_active,
             } for item in InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
         ]
-
-        # self.assertEqual(serializer.data, expected_data)
+        os.system('clear')
+        print('\n\nexpected data, ',expected_data)
+        serializer_data = json.loads(json.dumps(serializer.data))
+        print('\n\nserializer data, ',serializer_data)
+        self.assertEqual(serializer_data, expected_data)
