@@ -135,9 +135,11 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
 
     def test_filter_indentinventorytransaction(self):
         
-        os.system('clear')
-        print('\n\ntest_filter_indent_transactions\n\n')
+        
+       
         url = reverse('indent-inventory-transactions-list')
+        IndentInventoryTransaction.objects.all().delete()
+        InventoryTransactionItem.objects.all().delete()
         data = {
             'id':1,
             'supplier': self.supplier.id,
@@ -173,18 +175,71 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
         response = self.client.post(url, data_2, format='json')
 
         response = self.client.get(url)
-        print(response.data[1]['id'])
         id=response.data[1]['id']
         url = reverse('indent-inventory-transactions-detail', kwargs={'pk': id})
         response = self.client.get(url)
-        print('-------response data without filter-------')
-        print(response.data)
-        print('\n\n')
-        print('-------response data with filter-------')
-
+        # print('-------response data without filter-------')
+        # print(response.data)
+        # print('\n\n')
+        # print('-------response data with filter-------')
+        
         url = reverse('indent-inventory-transactions-list') + '?supplyOrderNo=SO12'
         response2 = self.client.get(url)
-        print(response2.data)
-        # self.assertEqual(response.status_code, status.HTTP_200_OK)
-        # self.assertEqual(len(response.data), 1)  # Check that one instance is returned
+       
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response2.data), 1)  # Check that one instance is returned
         # self.assertEqual(response.data[0]['supplyOrderNo'], 'SO12')  # Check that the returned instance has the correct supplyOrderNo
+
+
+    def test_filter_indentinventorytransaction_by_date(self):
+        
+        url = reverse('indent-inventory-transactions-list')
+        data = {
+            'id':1,
+            'supplier': self.supplier.id,
+            'supplyOrderNo': 'SO1',
+            'supplyOrderDate': '2022-01-01',
+            'dateOfDeliverty': '2022-01-01',
+            'inventorytransactionitem_set': [
+                {'item_batch': self.item_batch.id, 'quantity': 10, 'is_active': True},
+            ],
+            'inventory_transaction_type': 'indent',
+            'inventory_transaction_id': 'INDENT1',
+            'remarks': None,
+            'date_time': '2024-01-27 22:08:00',
+            'status': 'pending',
+        }
+        response = self.client.post(url, data, format='json')
+
+        data_2 = {
+            'id': 200,
+            'supplier': self.supplier.id,
+            'supplyOrderNo': 'SO12',
+            'supplyOrderDate': '2022-03-01',
+            'dateOfDeliverty': '2022-01-01',
+            'inventorytransactionitem_set': [
+                {'item_batch': self.item_batch.id, 'quantity': 10, 'is_active': True},
+            ],
+            'inventory_transaction_type': 'indent',
+            'inventory_transaction_id': 'INDENT2',
+            'remarks': 'This is supply order 2',
+            'date_time': '2024-01-27 22:08:00',
+            'status': 'pending',
+        }
+        response = self.client.post(url, data_2, format='json')
+
+        # Test filtering by an exact date
+        response = self.client.get(reverse('indent-inventory-transactions-list'), {'supplyOrderDate': '2022-01-01'})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data),1)
+        self.assertEqual(response.data[0]['supplyOrderDate'], '2022-01-01')
+
+        # Test filtering by a range of dates
+        response = self.client.get(reverse('indent-inventory-transactions-list'), {'supplyOrderDateFrom': '2022-02-01', 'supplyOrderDateTo': '2022-04-01'})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
+
+         # Test filtering by a range of dates
+        response = self.client.get(reverse('indent-inventory-transactions-list'), {'supplyOrderDateFrom': '2022-01-01', 'supplyOrderDateTo': '2022-04-01'})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 2)

@@ -91,11 +91,11 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
     def test_retrieve_indent_inventory_transaction(self):
         # --To clear terminal
         # os.system('clear')
-        print('\n-------test_retrieve_indent_inventory_transaction------- ')
+        # print('\n-------test_retrieve_indent_inventory_transaction------- ')
         IndentInventoryTransaction.objects.all().delete()
-        print('------data input to serializer------')
-        print(self.indent_transaction_data)
-        print('------------------------------------')
+        # print('------data input to serializer------')
+        # print(self.indent_transaction_data)
+        # print('------------------------------------')
         serializer = IndentInventoryTransactionSerializer(data=self.indent_transaction_data)
         if(serializer.is_valid()):
             serializer.save()
@@ -105,8 +105,8 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
 
         indent_transaction = IndentInventoryTransaction.objects.get(inventory_transaction_id='INDENT1')
         serializer = IndentInventoryTransactionSerializer(indent_transaction)
-        print('\n-------serializer data------- ')
-        print(serializer.data)
+        # print('\n-------serializer data------- ')
+        # print(serializer.data)
 
         expected_data = self.indent_transaction_data.copy()
         expected_data['id'] = indent_transaction.id
