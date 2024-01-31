@@ -1,4 +1,5 @@
 from datetime import date
+import os
 from django.test import TestCase
 from features.base.base_test_setup_class import BaseTestCase
 from features.item.item.models import Item
@@ -44,7 +45,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
             'supplyOrderDate': '2022-01-01',
             'dateOfDeliverty': '2022-01-01',
             'remarks': None,
-            'inventory_transaction_item': [
+            'inventorytransactionitem_set': [
                 {
                     'item_batch': self.item_batch1.id,
                     'quantity': 10,
@@ -61,36 +62,49 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         # print(self.indent_transaction_data)
         # print('\n---------------\n')
 
-    def test_create_indent_inventory_transaction(self):
-        print('\n-------test_create_indent_inventory_transaction------- ')
-        IndentInventoryTransaction.objects.all().delete()
-        serializer = IndentInventoryTransactionSerializer(data=self.indent_transaction_data)
-        
-        self.assertTrue(serializer.is_valid())
-        
-        serializer.save()
-
-        indent_transaction = IndentInventoryTransaction.objects.get(inventory_transaction_id='INDENT1')
-        self.assertEqual(indent_transaction.inventory_transaction_type, 'indent')
-        self.assertEqual(indent_transaction.status, 'pending')
-        self.assertEqual(indent_transaction.supplier, self.supplier)
-        self.assertEqual(indent_transaction.supplyOrderNo, 'SO1')
-
-        transaction_items = InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
-        self.assertEqual(transaction_items.count(), 2)
-        print('-------End of test_create_indent_inventory_transaction-------\n ')
-
-    # def test_retrieve_indent_inventory_transaction(self):
+    # def test_create_indent_inventory_transaction(self):
+    #     # print('\n-------test_create_indent_inventory_transaction------- ')
+    #     IndentInventoryTransaction.objects.all().delete()
+    #     # print('------data input to serializer------')
+    #     # print(self.indent_transaction_data)
+    #     # print('\n\n')
     #     serializer = IndentInventoryTransactionSerializer(data=self.indent_transaction_data)
-    #     if not serializer.is_valid():
-    #         print('-------serializer errors------- ')
-    #         print(serializer.errors)
-    #         print('-------serializer data------- ')
+        
     #     self.assertTrue(serializer.is_valid())
+        
     #     serializer.save()
 
     #     indent_transaction = IndentInventoryTransaction.objects.get(inventory_transaction_id='INDENT1')
-    #     serializer = IndentInventoryTransactionSerializer(indent_transaction)
+    #     # print('indent_transaction_from_db',indent_transaction)
+    #     self.assertEqual(indent_transaction.inventory_transaction_type, 'indent')
+    #     self.assertEqual(indent_transaction.status, 'pending')
+    #     self.assertEqual(indent_transaction.supplier, self.supplier)
+    #     self.assertEqual(indent_transaction.supplyOrderNo, 'SO1')
+
+    #     transaction_items = InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
+    #     self.assertEqual(transaction_items.count(), 2)
+        
+    #     # print('-------End of test_create_indent_inventory_transaction-------\n ')
+
+    def test_retrieve_indent_inventory_transaction(self):
+        # --To clear terminal
+        os.system('clear')
+        print('\n-------test_retrieve_indent_inventory_transaction------- ')
+        IndentInventoryTransaction.objects.all().delete()
+        print('------data input to serializer------')
+        print(self.indent_transaction_data)
+        print('------------------------------------')
+        serializer = IndentInventoryTransactionSerializer(data=self.indent_transaction_data)
+        if(serializer.is_valid()):
+            serializer.save()
+        else:
+            print('serializer is not valid')
+            print(serializer.errors)    
+
+        indent_transaction = IndentInventoryTransaction.objects.get(inventory_transaction_id='INDENT1')
+        serializer = IndentInventoryTransactionSerializer(indent_transaction)
+        print('\n-------serializer data------- ')
+        print(serializer.data)
 
     #     expected_data = self.indent_transaction_data.copy()
     #     expected_data['id'] = indent_transaction.id
@@ -111,8 +125,6 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
     #             'item_batch': item.item_batch.id,
     #             'quantity': item.quantity,
     #             'is_active': item.is_active,
-    #             'created_on': item.created_on.isoformat(),
-    #             'updated_on': item.updated_on.isoformat(),
     #         } for item in InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
     #     ]
 

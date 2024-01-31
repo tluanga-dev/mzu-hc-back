@@ -19,27 +19,17 @@ class InventoryTransactionItemSerializer(serializers.ModelSerializer):
         return rep
 
 class IndentInventoryTransactionSerializer(serializers.ModelSerializer):
-    inventory_transaction_item = serializers.ListSerializer(child=InventoryTransactionItemSerializer(), write_only=True)
+    inventorytransactionitem_set = serializers.ListSerializer(child=InventoryTransactionItemSerializer(), read_only=False)
     supplier = serializers.PrimaryKeyRelatedField(queryset=Supplier.objects.all())
-
 
     class Meta:
         model = IndentInventoryTransaction
-        fields = ['id', 'inventory_transaction_type', 'inventory_transaction_id', 'status', 'supplier', 'supplyOrderNo', 'supplyOrderDate', 'dateOfDeliverty', 'remarks', 'date_time', 'inventory_transaction_item']
-
-    def get_inventory_transaction_item(self, obj):
-        return InventoryTransactionItemSerializer(obj.inventorytransactionitem_set.all(), many=True).data
-
-    
+        fields = '__all__'
+        
     def create(self, validated_data):
-        # print('------Validated Data------')
-        # print(validated_data)
-        transaction_items_data = validated_data.pop('inventory_transaction_item', [])
-        # print('------Transaction Items Data------')
-        # print(transaction_items_data)
-        transaction = super().create(validated_data)
+        print('validated_data',validated_data)
+        transaction_items_data = validated_data.pop('inventorytransactionitem_set')
+        transaction = IndentInventoryTransaction.objects.create(**validated_data)
         for transaction_item_data in transaction_items_data:
-           result= InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
-        #    print('------Result------')
-        #    print(result)
+            InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
         return transaction
