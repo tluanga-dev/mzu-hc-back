@@ -32,7 +32,7 @@ class IndentInventoryTransactionSerializer(serializers.ModelSerializer):
     # supplier = serializers.PrimaryKeyRelatedField(queryset=Supplier.objects.all())
 
     # supplier = SupplierSerializer(read_only=True)
-
+    date_time = serializers.SerializerMethodField()
     def get_supplier(self, obj):
         return model_to_dict(obj.supplier)
 
@@ -53,3 +53,6 @@ class IndentInventoryTransactionSerializer(serializers.ModelSerializer):
         for transaction_item_data in transaction_items_data:
             InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
         return transaction
+    
+    def get_date_time(self, obj):
+        return obj.date_time.strftime('%d-%m-%Y %H:%M')

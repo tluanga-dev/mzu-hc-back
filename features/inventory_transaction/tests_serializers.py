@@ -23,10 +23,11 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
 
         self.supplier = Supplier.objects.create(
             name='Test Supplier',
-            contact_no='1234567890',
+            contact_no=1234567890,
             email='test@gmail.com',
             address='Test Address',
             is_active=True
+       
         )
         self.supplier.save()
         self.item_batch1=ItemBatch.objects.create(
@@ -112,7 +113,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         expected_data['supplier'] = {
             'id': self.supplier.id,
             'name': 'Test Supplier',
-            'contact_no': '1234567890',
+            'contact_no': 1234567890,
             'email': 'test@gmail.com',
             'address': 'Test Address',
             'remarks': None,

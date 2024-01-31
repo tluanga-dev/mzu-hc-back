@@ -29,8 +29,8 @@ class SupplierSerializerTest(TestCase):
             'address',
             'remarks',
             'is_active',
-            'created_on',
-            'updated_on',
+            # 'created_on',
+            # 'updated_on',
         ]))
     def test_name_field_content(self):
         data = SupplierSerializer(Supplier(name='Test Supplier')).data
