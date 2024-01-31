@@ -20,6 +20,8 @@ from rest_framework.routers import DefaultRouter
 from features.id_manager.views import IdManagerViewSet
 from features.inventory_transaction.views import IndentInventoryTransactionViewSet
 
+
+
 from features.item.item.views import ItemViewSet
 from features.item.item_batch.views import ItemBatchViewSet
 
@@ -56,7 +58,7 @@ router.register(r'medicine/medicine_dosage', MedicineDosageViewSet)
 router.register(r'supplier', SupplierViewSet)
 
 #--------Transactions---------
-router.register(r'indenttransaction', IndentInventoryTransactionViewSet)
+router.register(r'transaction/indent', IndentInventoryTransactionViewSet, basename='indent-inventory-transactions')
 
 # --------Utilities---------
 router.register(r'id_manager', IdManagerViewSet)

@@ -13,6 +13,7 @@ class SupplierSerializerTest(TestCase):
             'remarks': 'Test Remarks',
             'is_active': True
         }
+        
 
         self.supplier = Supplier.objects.create(**self.supplier_attributes)
         self.serializer_data = SupplierSerializer(self.supplier).data

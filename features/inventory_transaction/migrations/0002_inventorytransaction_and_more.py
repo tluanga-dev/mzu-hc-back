@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 (
-                    "iventory_transaction_id",
+                    "inventory_transaction_id",
                     models.CharField(max_length=20, unique=True),
                 ),
                 ("remarks", models.CharField(max_length=200, unique=True)),

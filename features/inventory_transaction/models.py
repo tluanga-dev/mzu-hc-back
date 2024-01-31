@@ -27,7 +27,7 @@ class InventoryTransaction(models.Model):
     ]
 
     inventory_transaction_type = models.CharField(max_length=100, choices=TRANSACTION_TYPES)
-    iventory_transaction_id = models.CharField(max_length=20, unique=True)
+    inventory_transaction_id = models.CharField(max_length=20, unique=True)
     remarks=models.CharField(max_length=200, unique=False, blank=True, null=True) 
     date_time = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=10, default='pending')
@@ -37,7 +37,11 @@ class InventoryTransaction(models.Model):
 
 
 class InventoryTransactionItem(models.Model):
-    inventory_transaction = models.ForeignKey(InventoryTransaction, on_delete=models.CASCADE)
+    inventory_transaction = models.ForeignKey(
+        InventoryTransaction, 
+        on_delete=models.CASCADE, 
+    related_name='inventorytransactionitem_set'
+    )
     item_batch = models.ForeignKey(ItemBatch, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False)
     is_active = models.BooleanField(default=True)
@@ -56,7 +60,7 @@ class IndentInventoryTransaction(InventoryTransaction):
 
     def __str__(self):
        
-        return f'IndentInventoryTransaction {self.iventory_transaction_id} - {self.inventory_transaction_type} - {self.remarks} - {self.date_time} - {self.status} - {self.supplyOrderNo} - {self.supplyOrderDate} - {self.dateOfDeliverty}'
+        return f'IndentInventoryTransaction {self.inventory_transaction_id} - {self.inventory_transaction_type} - {self.remarks} - {self.date_time} - {self.status} - {self.supplyOrderNo} - {self.supplyOrderDate} - {self.dateOfDeliverty}'
 
     
     class Meta:
