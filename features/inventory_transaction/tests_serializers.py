@@ -62,29 +62,29 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         # print(self.indent_transaction_data)
         # print('\n---------------\n')
 
-    # def test_create_indent_inventory_transaction(self):
-    #     # print('\n-------test_create_indent_inventory_transaction------- ')
-    #     IndentInventoryTransaction.objects.all().delete()
-    #     # print('------data input to serializer------')
-    #     # print(self.indent_transaction_data)
-    #     # print('\n\n')
-    #     serializer = IndentInventoryTransactionSerializer(data=self.indent_transaction_data)
+    def test_create_indent_inventory_transaction(self):
+        # print('\n-------test_create_indent_inventory_transaction------- ')
+        IndentInventoryTransaction.objects.all().delete()
+        # print('------data input to serializer------')
+        # print(self.indent_transaction_data)
+        # print('\n\n')
+        serializer = IndentInventoryTransactionSerializer(data=self.indent_transaction_data)
         
-    #     self.assertTrue(serializer.is_valid())
+        self.assertTrue(serializer.is_valid())
         
-    #     serializer.save()
+        serializer.save()
 
-    #     indent_transaction = IndentInventoryTransaction.objects.get(inventory_transaction_id='INDENT1')
-    #     # print('indent_transaction_from_db',indent_transaction)
-    #     self.assertEqual(indent_transaction.inventory_transaction_type, 'indent')
-    #     self.assertEqual(indent_transaction.status, 'pending')
-    #     self.assertEqual(indent_transaction.supplier, self.supplier)
-    #     self.assertEqual(indent_transaction.supplyOrderNo, 'SO1')
+        indent_transaction = IndentInventoryTransaction.objects.get(inventory_transaction_id='INDENT1')
+        # print('indent_transaction_from_db',indent_transaction)
+        self.assertEqual(indent_transaction.inventory_transaction_type, 'indent')
+        self.assertEqual(indent_transaction.status, 'pending')
+        self.assertEqual(indent_transaction.supplier, self.supplier)
+        self.assertEqual(indent_transaction.supplyOrderNo, 'SO1')
 
-    #     transaction_items = InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
-    #     self.assertEqual(transaction_items.count(), 2)
+        transaction_items = InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
+        self.assertEqual(transaction_items.count(), 2)
         
-    #     # print('-------End of test_create_indent_inventory_transaction-------\n ')
+        # print('-------End of test_create_indent_inventory_transaction-------\n ')
 
     def test_retrieve_indent_inventory_transaction(self):
         # --To clear terminal
@@ -106,26 +106,26 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         print('\n-------serializer data------- ')
         print(serializer.data)
 
-    #     expected_data = self.indent_transaction_data.copy()
-    #     expected_data['id'] = indent_transaction.id
-    #     expected_data['supplier'] = {
-    #         'id': self.supplier.id,
-    #         'name': 'Test Supplier',
-    #         'contact_no': '1234567890',
-    #         'email': 'test@gmail.com',
-    #         'address': 'Test Address',
-    #         'remarks': None,
-    #         'is_active': True
-    #     }
-    #     expected_data['date_time'] = indent_transaction.date_time.strftime('%d-%m-%Y %H:%M')
-    #     expected_data['inventory_transaction_item'] = [
-    #         {
-    #             'id': item.id,
-    #             'inventory_transaction': indent_transaction.id,
-    #             'item_batch': item.item_batch.id,
-    #             'quantity': item.quantity,
-    #             'is_active': item.is_active,
-    #         } for item in InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
-    #     ]
+        expected_data = self.indent_transaction_data.copy()
+        expected_data['id'] = indent_transaction.id
+        expected_data['supplier'] = {
+            'id': self.supplier.id,
+            'name': 'Test Supplier',
+            'contact_no': '1234567890',
+            'email': 'test@gmail.com',
+            'address': 'Test Address',
+            'remarks': None,
+            'is_active': True
+        }
+        expected_data['date_time'] = indent_transaction.date_time.strftime('%d-%m-%Y %H:%M')
+        expected_data['inventorytransactionitem_set'] = [
+            {
+                'id': item.id,
+                'inventory_transaction': indent_transaction.id,
+                'item_batch': item.item_batch.id,
+                'quantity': item.quantity,
+                'is_active': item.is_active,
+            } for item in InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
+        ]
 
-    #     self.assertEqual(serializer.data, expected_data)
+        # self.assertEqual(serializer.data, expected_data)
