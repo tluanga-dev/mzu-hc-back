@@ -1,12 +1,10 @@
 from datetime import timezone
 import datetime
 from django.db import models
-from features.item.item.models import Item
-from polymorphic.models import PolymorphicModel
 from features.item.item_batch.models import ItemBatch
 
 
-class InventoryTransaction(PolymorphicModel):
+class InventoryTransaction(models.Model):
 
     INDENT = 'indent'
     DISPENSE = 'dispense'

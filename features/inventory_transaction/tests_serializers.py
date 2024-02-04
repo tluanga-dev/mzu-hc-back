@@ -133,5 +133,5 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         print('\n\nexpected data, ',expected_data)
         serializer_data = json.loads(json.dumps(serializer.data))
         # print('\n\nserializer data, ',serializer_data)
-        del serializer_data['polymorphic_ctype']
+        # del serializer_data['polymorphic_ctype']
         self.assertEqual(serializer_data, expected_data)
