@@ -3,9 +3,22 @@ from rest_framework import serializers
 from features.supplier.models import Supplier
 
 from features.supplier.serializers import SupplierSerializer
-from .models import  InventoryTransactionItem, IndentInventoryTransaction
+from .models import  InventoryTransaction, InventoryTransactionItem, IndentInventoryTransaction
 
-
+class InventoryTransactionSerializer(serializers.ModelSerializer):
+    inventory_transaction_type = serializers.ChoiceField(choices=InventoryTransaction.TransactionTypes.choices)
+    inventory_transaction_id = serializers.CharField(read_only=True)
+    class Meta:
+        model = InventoryTransaction
+        fields = [
+            'id', 
+            'inventory_transaction_type',
+            'inventory_transaction_id',
+            'date_time',
+            'remarks',
+            'created_on',
+            'updated_on',
+            ]
 
 class InventoryTransactionItemSerializer(serializers.ModelSerializer):
     inventory_transaction = serializers.PrimaryKeyRelatedField(read_only=True)
@@ -18,8 +31,7 @@ class InventoryTransactionItemSerializer(serializers.ModelSerializer):
             'item_batch',
             'quantity',
             'is_active', 
-            # 'created_on',
-            # 'updated_on',
+          
             ]
 
     # def to_representation(self, instance):
@@ -27,7 +39,7 @@ class InventoryTransactionItemSerializer(serializers.ModelSerializer):
     #     rep['date_time'] = instance.inventory_transaction.date_time.strftime('%d-%m-%Y %H:%M')
     #     return rep
 
-class IndentInventoryTransactionSerializer(serializers.ModelSerializer):
+class IndentInventoryTransactionSerializer(InventoryTransactionSerializer):
     inventorytransactionitem_set = serializers.ListSerializer(child=InventoryTransactionItemSerializer(), read_only=False)
     # supplier = serializers.PrimaryKeyRelatedField(queryset=Supplier.objects.all())
 
@@ -47,9 +59,11 @@ class IndentInventoryTransactionSerializer(serializers.ModelSerializer):
         return representation
 
     def create(self, validated_data):
-        # print('validated_data',validated_data)
+        print('validated_data',validated_data)
         transaction_items_data = validated_data.pop('inventorytransactionitem_set')
+       
         transaction = IndentInventoryTransaction.objects.create(**validated_data)
+        
         for transaction_item_data in transaction_items_data:
             InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
         return transaction

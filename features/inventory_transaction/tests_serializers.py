@@ -3,10 +3,11 @@ import json
 import os
 from django.test import TestCase
 from features.base.base_test_setup_class import BaseTestCase
+from features.id_manager.models import IdManager
 from features.item.item.models import Item
 
 from features.supplier.models import Supplier
-from .models import  InventoryTransactionItem, IndentInventoryTransaction, ItemBatch
+from .models import  InventoryTransaction, InventoryTransactionItem, IndentInventoryTransaction, ItemBatch
 from .serializers import IndentInventoryTransactionSerializer
 
 class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
@@ -38,10 +39,9 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         )
         self.item_batch1.save()
 
+        
         self.indent_transaction_data = {
-            'inventory_transaction_type': 'indent',
-            'inventory_transaction_id': 'INDENT1',
-            'status': 'pending',
+            'inventory_transaction_type': InventoryTransaction.TransactionTypes.INDENT,
             'supplier': self.supplier.id,
             'supplyOrderNo': 'SO1',
             'supplyOrderDate': '2022-01-01',
@@ -67,19 +67,20 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
     def test_create_indent_inventory_transaction(self):
         # print('\n-------test_create_indent_inventory_transaction------- ')
         IndentInventoryTransaction.objects.all().delete()
-        # print('------data input to serializer------')
-        # print(self.indent_transaction_data)
-        # print('\n\n')
+        print('------data input to serializer------')
+        print(self.indent_transaction_data)
+        print('\n\n')
+        IndentInventoryTransaction.objects.all().delete()
         serializer = IndentInventoryTransactionSerializer(data=self.indent_transaction_data)
         
         self.assertTrue(serializer.is_valid())
         
         serializer.save()
-
-        indent_transaction = IndentInventoryTransaction.objects.get(inventory_transaction_id='INDENT1')
+        # indent_transaction = IndentInventoryTransaction.objects.get(inventory_transaction_id='INDENT1')
+        
+        indent_transaction = IndentInventoryTransaction.objects.all().first() 
         # print('indent_transaction_from_db',indent_transaction)
-        self.assertEqual(indent_transaction.inventory_transaction_type, 'indent')
-        self.assertEqual(indent_transaction.status, 'pending')
+        self.assertEqual(indent_transaction.inventory_transaction_type, InventoryTransaction.TransactionTypes.INDENT)
         self.assertEqual(indent_transaction.supplier, self.supplier)
         self.assertEqual(indent_transaction.supplyOrderNo, 'SO1')
 
@@ -93,6 +94,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         # os.system('clear')
         # print('\n-------test_retrieve_indent_inventory_transaction------- ')
         IndentInventoryTransaction.objects.all().delete()
+        InventoryTransaction.objects.all().delete()
         # print('------data input to serializer------')
         # print(self.indent_transaction_data)
         # print('------------------------------------')
@@ -103,7 +105,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
             print('serializer is not valid')
             print(serializer.errors)    
 
-        indent_transaction = IndentInventoryTransaction.objects.get(inventory_transaction_id='INDENT1')
+        indent_transaction = IndentInventoryTransaction.objects.all().first()
         serializer = IndentInventoryTransactionSerializer(indent_transaction)
         print('\n-------serializer data------- ')
         print(serializer.data)
@@ -129,9 +131,15 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
                 'is_active': item.is_active,
             } for item in InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
         ]
+        expected_data['inventory_transaction_type']='indent'
    
         print('\n\nexpected data, ',expected_data)
         serializer_data = json.loads(json.dumps(serializer.data))
         # print('\n\nserializer data, ',serializer_data)
-        # del serializer_data['polymorphic_ctype']
+        del serializer_data['inventory_transaction_id']
+        datas=InventoryTransaction.objects.all()
+        print('\n\n\nInventory Transaction data')
+        for data in datas:
+            print(data.inventory_transaction_type)
+        
         self.assertEqual(serializer_data, expected_data)

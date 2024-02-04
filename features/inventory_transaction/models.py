@@ -1,53 +1,58 @@
-from datetime import timezone
-import datetime
 from django.db import models
+from django.utils.translation import gettext_lazy as _
+from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
+from features.id_manager.models import IdManager
 from features.item.item_batch.models import ItemBatch
+import uuid
 
+class InventoryTransaction(TimeStampedAbstractModelClass):
+    class TransactionTypes(models.TextChoices):
+        INDENT = 'indent', _('Indent')
+        DISPENSE = 'dispense', _('Dispense')
+        DISPOSE = 'dispose', _('Dispose')
+        ITEM_RETURN_TO_SUPPLIER = 'itemReturnToSupplier', _('ItemReturnToSupplier')
+        ITEM_ISSUE = 'itemIssue', _('ItemIssue')
+        ITEM_ISSUE_RETURN = 'itemIssueReturn', _('ItemIssueReturn')
+        ITEM_TURN_REPLACEMENT_FROM_SUPPLIER = 'itemturnReplacementFromSupplier', _('ItemturnReplacementFromSupplier')
 
-class InventoryTransaction(models.Model):
+    CODES = {
+        'indent': 'INDT',
+        'dispense': 'DISP',
+        'dispose': 'DISO',
+        'itemReturnToSupplier': 'IRTS',
+        'itemIssue': 'ITIS',
+        'itemIssueReturn': 'IIRN',
+        'itemturnReplacementFromSupplier': 'ITRS',
+        }
 
-    INDENT = 'indent'
-    DISPENSE = 'dispense'
-    DISPOSE = 'dispose'
-    ITEM_RETURN_TO_SUPPLIER = 'itemReturnToSupplier'
-    ITEM_ISSUE = 'itemIssue'
-    ITEM_ISSUE_RETURN = 'itemIssueReturn'
-    ITEM_TURN_REPLACEMENT_FROM_SUPPLIER = 'itemturnReplacementFromSupplier'
+    inventory_transaction_type = models.CharField(max_length=100, choices=TransactionTypes.choices)
 
-
-    TRANSACTION_TYPES = [
-        ('indent', 'Indent'),
-        ('dispense', 'Dispense'),
-        ('dispose', 'Dispose'),
-        ('itemReturnToSupplier', 'ItemReturnToSupplier'),
-        ('itemIssue', 'ItemIssue'),
-        ('itemIssueReturn', 'ItemIssueReturn'),
-        ('itemturnReplacementFromSupplier', 'ItemturnReplacementFromSupplier'),
-    ]
-
-    inventory_transaction_type = models.CharField(max_length=100, choices=TRANSACTION_TYPES)
-    inventory_transaction_id = models.CharField(max_length=20, unique=True)
-    remarks=models.CharField(max_length=200, unique=False, blank=True, null=True) 
+    inventory_transaction_id = models.CharField(max_length=100,  editable=False)
+    
     date_time = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=10, default='pending')
+    remarks = models.CharField(max_length=200, blank=True, null=True) 
+
+    def save(self, *args, **kwargs):
+        if not self.inventory_transaction_id:
+            if self.inventory_transaction_type in self.TransactionTypes.values:
+                self.inventory_transaction_id = IdManager.generateId(prefix=self.inventory_transaction_type)
+            else:
+                raise ValueError("Invalid inventory_transaction_type")
+        super().save(*args, **kwargs)
+   
 
     class Meta:
         app_label = 'inventory_transaction'
-        
 
-
-
-class InventoryTransactionItem(models.Model):
+class InventoryTransactionItem(TimeStampedAbstractModelClass):
     inventory_transaction = models.ForeignKey(
         InventoryTransaction, 
         on_delete=models.CASCADE, 
-    related_name='inventorytransactionitem_set'
+        related_name='inventorytransactionitem_set'
     )
     item_batch = models.ForeignKey(ItemBatch, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False)
     is_active = models.BooleanField(default=True)
-    created_on = models.DateTimeField(auto_now_add=True)
-    updated_on = models.DateTimeField(auto_now=True)
 
     class Meta:
         app_label = 'inventory_transaction'
@@ -58,16 +63,6 @@ class IndentInventoryTransaction(InventoryTransaction):
     supplyOrderDate=models.DateField()
     dateOfDeliverty=models.DateField()
 
-
-    def __str__(self):
-       
-        return f'IndentInventoryTransaction {self.inventory_transaction_id} - {self.inventory_transaction_type} - {self.remarks} - {self.date_time} - {self.status} - {self.supplyOrderNo} - {self.supplyOrderDate} - {self.dateOfDeliverty}'
-
-    
+   
     class Meta:
         app_label = 'inventory_transaction'
-      
-
-
-
-
