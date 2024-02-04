@@ -1,22 +1,43 @@
 from datetime import timezone
 import datetime
 from django.db import models
+from features.item.item.models import Item
+from polymorphic.models import PolymorphicModel
 from features.item.item_batch.models import ItemBatch
 
-from django.contrib.contenttypes.fields import GenericForeignKey
-from django.contrib.contenttypes.models import ContentType
+
+class InventoryTransaction(PolymorphicModel):
+
+    INDENT = 'indent'
+    DISPENSE = 'dispense'
+    DISPOSE = 'dispose'
+    ITEM_RETURN_TO_SUPPLIER = 'itemReturnToSupplier'
+    ITEM_ISSUE = 'itemIssue'
+    ITEM_ISSUE_RETURN = 'itemIssueReturn'
+    ITEM_TURN_REPLACEMENT_FROM_SUPPLIER = 'itemturnReplacementFromSupplier'
 
 
-class InventoryTransaction(models.Model):
+    TRANSACTION_TYPES = [
+        ('indent', 'Indent'),
+        ('dispense', 'Dispense'),
+        ('dispose', 'Dispose'),
+        ('itemReturnToSupplier', 'ItemReturnToSupplier'),
+        ('itemIssue', 'ItemIssue'),
+        ('itemIssueReturn', 'ItemIssueReturn'),
+        ('itemturnReplacementFromSupplier', 'ItemturnReplacementFromSupplier'),
+    ]
+
+    inventory_transaction_type = models.CharField(max_length=100, choices=TRANSACTION_TYPES)
     inventory_transaction_id = models.CharField(max_length=20, unique=True)
     remarks=models.CharField(max_length=200, unique=False, blank=True, null=True) 
     date_time = models.DateTimeField(auto_now_add=True)
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True)
-    object_id = models.PositiveIntegerField(null=True)
-    content_object = GenericForeignKey('content_type', 'object_id')
+    status = models.CharField(max_length=10, default='pending')
+
     class Meta:
         app_label = 'inventory_transaction'
         
+
+
 
 class InventoryTransactionItem(models.Model):
     inventory_transaction = models.ForeignKey(
