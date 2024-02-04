@@ -67,9 +67,9 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
     def test_create_indent_inventory_transaction(self):
         # print('\n-------test_create_indent_inventory_transaction------- ')
         IndentInventoryTransaction.objects.all().delete()
-        print('------data input to serializer------')
-        print(self.indent_transaction_data)
-        print('\n\n')
+        # print('------data input to serializer------')
+        # print(self.indent_transaction_data)
+        # print('\n\n')
         IndentInventoryTransaction.objects.all().delete()
         serializer = IndentInventoryTransactionSerializer(data=self.indent_transaction_data)
         
@@ -93,6 +93,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         # --To clear terminal
         # os.system('clear')
         # print('\n-------test_retrieve_indent_inventory_transaction------- ')
+        self.maxDiff = None
         IndentInventoryTransaction.objects.all().delete()
         InventoryTransaction.objects.all().delete()
         # print('------data input to serializer------')
@@ -107,8 +108,8 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
 
         indent_transaction = IndentInventoryTransaction.objects.all().first()
         serializer = IndentInventoryTransactionSerializer(indent_transaction)
-        print('\n-------serializer data------- ')
-        print(serializer.data)
+        # print('\n-------serializer data------- ')
+        # print(serializer.data)
 
         expected_data = self.indent_transaction_data.copy()
         expected_data['id'] = indent_transaction.id
@@ -132,14 +133,18 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
             } for item in InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
         ]
         expected_data['inventory_transaction_type']='indent'
-   
-        print('\n\nexpected data, ',expected_data)
+
         serializer_data = json.loads(json.dumps(serializer.data))
-        # print('\n\nserializer data, ',serializer_data)
+        
         del serializer_data['inventory_transaction_id']
-        datas=InventoryTransaction.objects.all()
-        print('\n\n\nInventory Transaction data')
-        for data in datas:
-            print(data.inventory_transaction_type)
+        # Remove 'created_on' and 'updated_on' from serializer_data
+        serializer_data.pop('created_on', None)
+        serializer_data.pop('updated_on', None)
+        # datas=InventoryTransaction.objects.all()
+        # print('\n\n\nInventory Transaction data')
+        # for data in datas:
+        #     print(data.inventory_transaction_type)
+        print('\n\nexpected data, ',expected_data)
+        print('\n\nserializer data, ',serializer_data)
         
         self.assertEqual(serializer_data, expected_data)

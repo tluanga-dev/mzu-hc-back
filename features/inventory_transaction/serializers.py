@@ -59,7 +59,7 @@ class IndentInventoryTransactionSerializer(InventoryTransactionSerializer):
         return representation
 
     def create(self, validated_data):
-        print('validated_data',validated_data)
+      
         transaction_items_data = validated_data.pop('inventorytransactionitem_set')
        
         transaction = IndentInventoryTransaction.objects.create(**validated_data)
