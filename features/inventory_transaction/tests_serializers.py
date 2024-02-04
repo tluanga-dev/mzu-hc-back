@@ -135,7 +135,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         expected_data['inventory_transaction_type']='indent'
 
         serializer_data = json.loads(json.dumps(serializer.data))
-        
+        # print('\nserializer_data, ',serializer_data)
         del serializer_data['inventory_transaction_id']
         # Remove 'created_on' and 'updated_on' from serializer_data
         serializer_data.pop('created_on', None)
@@ -144,7 +144,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         # print('\n\n\nInventory Transaction data')
         # for data in datas:
         #     print(data.inventory_transaction_type)
-        print('\n\nexpected data, ',expected_data)
-        print('\n\nserializer data, ',serializer_data)
+        # print('\n\nexpected data, ',expected_data)
+        # print('\n\nserializer data, ',serializer_data)
         
         self.assertEqual(serializer_data, expected_data)

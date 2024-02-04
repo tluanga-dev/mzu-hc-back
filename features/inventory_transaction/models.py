@@ -32,12 +32,23 @@ class InventoryTransaction(TimeStampedAbstractModelClass):
     date_time = models.DateTimeField(auto_now_add=True)
     remarks = models.CharField(max_length=200, blank=True, null=True) 
 
+
+    def generate_inventory_transaction_id(self):
+        if self.inventory_transaction_type in self.TransactionTypes.values:
+            self.inventory_transaction_id = IdManager.generateId(prefix=self.inventory_transaction_type)
+        else:
+            raise ValueError("Invalid inventory_transaction_type")
+
     def save(self, *args, **kwargs):
-        if not self.inventory_transaction_id:
-            if self.inventory_transaction_type in self.TransactionTypes.values:
-                self.inventory_transaction_id = IdManager.generateId(prefix=self.inventory_transaction_type)
-            else:
-                raise ValueError("Invalid inventory_transaction_type")
+        self.generate_inventory_transaction_id()
+        # # ----------------- Generate inventory_transaction_id -----------------
+        # if not self.inventory_transaction_id:
+        #     if self.inventory_transaction_type in self.TransactionTypes.values:
+        #         self.inventory_transaction_id = IdManager.generateId(prefix=self.inventory_transaction_type)
+        #     else:
+        #         raise ValueError("Invalid inventory_transaction_type")
+            
+        
         super().save(*args, **kwargs)
    
 
