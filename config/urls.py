@@ -19,20 +19,12 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from features.id_manager.views import IdManagerViewSet
 from features.inventory_transaction.views import IndentInventoryTransactionViewSet
+from features.item.views import ItemBatchViewSet, ItemCategoryViewSet, ItemTypeViewSet, ItemViewSet, UnitOfMeasurementViewSet
+from features.medicine.views import MedicineDosageDurationViewSet, MedicineDosageViewSet
 
 
 
-from features.item.item.views import ItemViewSet
-from features.item.item_batch.views import ItemBatchViewSet
 
-
-from features.item.unit_of_measurement.views import UnitOfMeasurementViewSet
-from features.item.item_category.views import ItemCategoryViewSet
-from features.item.item_type.views import ItemTypeViewSet
-
-# --------Medicine---------
-from features.medicine.medicine_dosage.views import MedicineDosageViewSet
-from features.medicine.medicine_dosage_duration.views import MedicineDosageDurationViewSet
 
 # --------Transactions---------
 

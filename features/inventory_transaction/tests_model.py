@@ -2,8 +2,7 @@ from django.test import TestCase
 
 from features.base.base_test_setup_class import BaseTestCase
 from features.id_manager.models import IdManager
-from features.item.item.models import Item
-from features.item.item_batch.models import ItemBatch
+from features.item.models import Item, ItemBatch
 from features.supplier.models import Supplier
 from .models import IndentInventoryTransaction, InventoryTransaction, InventoryTransactionItem
 from datetime import date

@@ -1,10 +1,10 @@
 from datetime import date
 import json
 import os
-from django.test import TestCase
 from features.base.base_test_setup_class import BaseTestCase
 from features.id_manager.models import IdManager
-from features.item.item.models import Item
+from features.item.models import Item
+
 
 from features.supplier.models import Supplier
 from .models import  InventoryTransaction, InventoryTransactionItem, IndentInventoryTransaction, ItemBatch

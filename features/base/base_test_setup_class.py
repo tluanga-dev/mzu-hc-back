@@ -1,10 +1,8 @@
 from unittest import TestCase
 from rest_framework.test import APIClient
-from features.item.item.models import Item
 
-from features.item.item_category.models import ItemCategory
-from features.item.item_type.models import ItemType
-from features.item.unit_of_measurement.models import UnitOfMeasurement
+from features.item.models import ItemCategory, ItemType, UnitOfMeasurement
+
 
 
 class BaseTestCase(TestCase):

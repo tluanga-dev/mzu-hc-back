@@ -2,8 +2,9 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
 from features.id_manager.models import IdManager
-from features.item.item_batch.models import ItemBatch
-import uuid
+
+
+from features.item.models import ItemBatch
 
 class InventoryTransaction(TimeStampedAbstractModelClass):
     class TransactionTypes(models.TextChoices):

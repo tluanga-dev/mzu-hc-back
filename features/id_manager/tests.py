@@ -1,6 +1,8 @@
 from django.test import TestCase
 
-from features.item.item.models import Item
+from features.item.models import Item
+
+
 from .models import IdManager
 
 class IdManagerTest(TestCase):

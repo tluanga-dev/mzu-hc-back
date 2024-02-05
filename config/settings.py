@@ -41,15 +41,16 @@ INSTALLED_APPS = [
     'rest_framework',
     "corsheaders",
     # --------Items---------
-    'features.item.unit_of_measurement',
-    'features.item.item_category',
-    'features.item.item_type',
-    'features.item.item',
-    'features.item.item_batch',
+    # 'features.item.unit_of_measurement',
+    # 'features.item.item_category',
+    # 'features.item.item_type',
+    # 'features.item.item',
+    # 'features.item.item_batch',
+    'features.item',
 
     # ------Medicine---------
-    'features.medicine.medicine_dosage_duration',
-    'features.medicine.medicine_dosage',
+    'features.medicine',
+
 
 
     # --------Inventory-Transactions---------
