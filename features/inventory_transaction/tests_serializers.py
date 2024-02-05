@@ -43,11 +43,11 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         self.indent_transaction_data = {
             'inventory_transaction_type': InventoryTransaction.TransactionTypes.INDENT,
             'supplier': self.supplier.id,
-            'supplyOrderNo': 'SO1',
-            'supplyOrderDate': '2022-01-01',
-            'dateOfDeliverty': '2022-01-01',
+            'supply_order_no': 'SO1',
+            'supply_order_date': '2022-01-01',
+            'date_of_delivery': '2022-01-01',
             'remarks': None,
-            'inventorytransactionitem_set': [
+            'inventory_transaction_item_set': [
                 {
                     'item_batch': self.item_batch1.id,
                     'quantity': 10,
@@ -82,7 +82,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         # print('indent_transaction_from_db',indent_transaction)
         self.assertEqual(indent_transaction.inventory_transaction_type, InventoryTransaction.TransactionTypes.INDENT)
         self.assertEqual(indent_transaction.supplier, self.supplier)
-        self.assertEqual(indent_transaction.supplyOrderNo, 'SO1')
+        self.assertEqual(indent_transaction.supply_order_no, 'SO1')
 
         transaction_items = InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
         self.assertEqual(transaction_items.count(), 2)
@@ -123,7 +123,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
             'is_active': True
         }
         expected_data['date_time'] = indent_transaction.date_time.strftime('%d-%m-%Y %H:%M')
-        expected_data['inventorytransactionitem_set'] = [
+        expected_data['inventory_transaction_item_set'] = [
             {
                 'id': item.id,
                 'inventory_transaction': indent_transaction.id,

@@ -8,6 +8,7 @@ from .models import  InventoryTransaction, InventoryTransactionItem, IndentInven
 class InventoryTransactionSerializer(serializers.ModelSerializer):
     inventory_transaction_type = serializers.ChoiceField(choices=InventoryTransaction.TransactionTypes.choices)
     inventory_transaction_id = serializers.CharField(read_only=True)
+    
     class Meta:
         model = InventoryTransaction
         fields = [
@@ -40,7 +41,7 @@ class InventoryTransactionItemSerializer(serializers.ModelSerializer):
     #     return rep
 
 class IndentInventoryTransactionSerializer(InventoryTransactionSerializer):
-    inventorytransactionitem_set = serializers.ListSerializer(child=InventoryTransactionItemSerializer(), read_only=False)
+    inventory_transaction_item_set = serializers.ListSerializer(child=InventoryTransactionItemSerializer(), read_only=False)
     # supplier = serializers.PrimaryKeyRelatedField(queryset=Supplier.objects.all())
 
     # supplier = SupplierSerializer(read_only=True)
@@ -60,7 +61,7 @@ class IndentInventoryTransactionSerializer(InventoryTransactionSerializer):
 
     def create(self, validated_data):
       
-        transaction_items_data = validated_data.pop('inventorytransactionitem_set')
+        transaction_items_data = validated_data.pop('inventory_transaction_item_set')
        
         transaction = IndentInventoryTransaction.objects.create(**validated_data)
         

@@ -27,9 +27,9 @@ class IndentInventoryTransactionModelTest(BaseTestCase):
             inventory_transaction_type=InventoryTransaction.TransactionTypes.INDENT,
             inventory_transaction_id=IdManager.generateId(prefix='INDENT'),
             supplier=self.supplier, 
-            supplyOrderNo=IndentInventoryTransactionModelTest.counter, 
-            supplyOrderDate=date.today(), 
-            dateOfDeliverty=date.today()
+            supply_order_no=IndentInventoryTransactionModelTest.counter, 
+            supply_order_date=date.today(), 
+            date_of_delivery=date.today()
         )
        
         # print(cls.indent_transaction)
@@ -43,27 +43,28 @@ class IndentInventoryTransactionModelTest(BaseTestCase):
         print('Indent Transaction')
    
 
-   
-
     def test_supplier_label(self):
         indenttransaction = IndentInventoryTransaction.objects.get(id=1)
-        field_label = indenttransaction._meta.get_field('supplier').verbose_name
+        field_label = indenttransaction._meta.get_field('supplier').name
         self.assertEquals(field_label, 'supplier')
 
-    def test_supplyOrderNo_label(self):
+    def test_supply_order_no_label(self):
         indenttransaction = IndentInventoryTransaction.objects.get(id=1)
-        field_label = indenttransaction._meta.get_field('supplyOrderNo').verbose_name
-        self.assertEquals(field_label, 'supplyOrderNo')
+        field_label = indenttransaction._meta.get_field('supply_order_no').name
 
-    def test_supplyOrderDate_label(self):
-        indenttransaction = IndentInventoryTransaction.objects.get(id=1)
-        field_label = indenttransaction._meta.get_field('supplyOrderDate').verbose_name
-        self.assertEquals(field_label, 'supplyOrderDate')
+        self.assertEquals(field_label, 'supply_order_no')
 
-    def test_dateOfDeliverty_label(self):
+    def test_supply_order_date_label(self):
+        indent_transaction = IndentInventoryTransaction.objects.get(id=1)
+        field_label = indent_transaction._meta.get_field('supply_order_date').name
+        field_label_2 = indent_transaction._meta.get_field('supply_order_date')
+        print(field_label_2)
+        self.assertEquals(field_label, 'supply_order_date')
+
+    def test_date_of_delivery_label(self):
         indenttransaction = IndentInventoryTransaction.objects.get(id=1)
-        field_label = indenttransaction._meta.get_field('dateOfDeliverty').verbose_name
-        self.assertEquals(field_label, 'dateOfDeliverty')
+        field_label = indenttransaction._meta.get_field('date_of_delivery').name
+        self.assertEquals(field_label, 'date_of_delivery')
 
     # -------test for the Transaction Item------
     def test_transaction_item_created(self):
@@ -92,7 +93,7 @@ class IndentInventoryTransactionModelTest(BaseTestCase):
         
         indenttransaction_from_db = IndentInventoryTransaction.objects.get(id=1)
 
-        transaction_items = indenttransaction_from_db.inventorytransactionitem_set.all()
+        transaction_items = indenttransaction_from_db.inventory_transaction_item_set.all()
 
         for item in transaction_items:
             print(item.id, item.quantity)  # Or whatever fields you're interested in

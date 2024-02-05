@@ -165,7 +165,7 @@ class _ItemBatch {
   late DateTime dateOfExpiry;
   late _Item? item;
   late bool isActive;
-  
+
   late DateTime createdOn;
   late DateTime updatedOn;
 }
@@ -246,8 +246,8 @@ class _IndentTransaction {
   late _InventoryTransaction? inventoryTransaction;
   late _Supplier? supplier;
   late String supplyOrderNo;
-  late DateTime supplyOrderDate;
-  late DateTime dateOfDeliverty;
+  late DateTime supply_order_date;
+  late DateTime date_of_delivery;
 
   late String remarks;
   late bool isActive;

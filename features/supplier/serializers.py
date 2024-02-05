@@ -13,6 +13,5 @@ class SupplierSerializer(serializers.ModelSerializer):
             'address', 
             'remarks', 
             'is_active', 
-            # 'created_on', 
-            # 'updated_on'
+     
         ]

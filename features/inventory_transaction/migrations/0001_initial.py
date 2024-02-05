@@ -73,7 +73,7 @@ class Migration(migrations.Migration):
                     "inventory_transaction",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        related_name="inventorytransactionitem_set",
+                        related_name="inventory_transaction_item_set",
                         to="inventory_transaction.inventorytransaction",
                     ),
                 ),
@@ -100,8 +100,8 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 ("supplyOrderNo", models.CharField(max_length=20, unique=True)),
-                ("supplyOrderDate", models.DateField()),
-                ("dateOfDeliverty", models.DateField()),
+                ("supply_order_date", models.DateField()),
+                ("date_of_delivery", models.DateField()),
                 (
                     "supplier",
                     models.ForeignKey(

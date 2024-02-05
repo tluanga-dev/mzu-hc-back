@@ -42,14 +42,7 @@ class InventoryTransaction(TimeStampedAbstractModelClass):
 
     def save(self, *args, **kwargs):
         self.generate_inventory_transaction_id()
-        # # ----------------- Generate inventory_transaction_id -----------------
-        # if not self.inventory_transaction_id:
-        #     if self.inventory_transaction_type in self.TransactionTypes.values:
-        #         self.inventory_transaction_id = IdManager.generateId(prefix=self.inventory_transaction_type)
-        #     else:
-        #         raise ValueError("Invalid inventory_transaction_type")
             
-        
         super().save(*args, **kwargs)
    
 
@@ -60,7 +53,7 @@ class InventoryTransactionItem(TimeStampedAbstractModelClass):
     inventory_transaction = models.ForeignKey(
         InventoryTransaction, 
         on_delete=models.CASCADE, 
-        related_name='inventorytransactionitem_set'
+        related_name='inventory_transaction_item_set'
     )
     item_batch = models.ForeignKey(ItemBatch, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False)
@@ -71,10 +64,11 @@ class InventoryTransactionItem(TimeStampedAbstractModelClass):
 
 class IndentInventoryTransaction(InventoryTransaction):
     supplier=models.ForeignKey('supplier.Supplier', on_delete=models.CASCADE)
-    supplyOrderNo=models.CharField(max_length=20, unique=True)
-    supplyOrderDate=models.DateField()
-    dateOfDeliverty=models.DateField()
+    supply_order_no=models.CharField(max_length=20, unique=True)
+    supply_order_date=models.DateField()
+    date_of_delivery=models.DateField()
 
    
     class Meta:
         app_label = 'inventory_transaction'
+
