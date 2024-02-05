@@ -22,7 +22,7 @@ class MedicineDosageDurationModelTestCase(BaseTestCase):
             is_active=True
         )
         self.medicine_dosage = MedicineDosage.objects.create(quantity_in_one_take=1, how_many_times_in_a_day=3, name="Test Dosage", item=self.item)
-        print('medicine dosage', self.medicine_dosage.item.name)
+       
         self.medicine_dosage_duration = MedicineDosageDuration.objects.create(days=7, name="One Week", medicine_dosage=self.medicine_dosage)
 
     def test_medicine_dosage_duration_creation(self):

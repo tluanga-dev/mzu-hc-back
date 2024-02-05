@@ -39,8 +39,8 @@ class IndentInventoryTransactionModelTest(BaseTestCase):
         self.assertEqual(Supplier.objects.count(), 1)
         self.assertEqual(IndentInventoryTransaction.objects.count(), 1)
 
-    def test_indent_transaction(self):
-        print('Indent Transaction')
+
+        
    
 
     def test_supplier_label(self):
@@ -57,8 +57,8 @@ class IndentInventoryTransactionModelTest(BaseTestCase):
     def test_supply_order_date_label(self):
         indent_transaction = IndentInventoryTransaction.objects.get(id=1)
         field_label = indent_transaction._meta.get_field('supply_order_date').name
-        field_label_2 = indent_transaction._meta.get_field('supply_order_date')
-        print(field_label_2)
+     
+     
         self.assertEquals(field_label, 'supply_order_date')
 
     def test_date_of_delivery_label(self):
@@ -88,7 +88,7 @@ class IndentInventoryTransactionModelTest(BaseTestCase):
             item_batch=self.item_batch,
             quantity=10
         )
-        print(self.transaction_item.inventory_transaction)
+        
         self.assertEqual(InventoryTransactionItem.objects.count(), 1)
         
         indenttransaction_from_db = IndentInventoryTransaction.objects.get(id=1)

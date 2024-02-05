@@ -106,12 +106,10 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
             'status': 'pending',
         }
         response = self.client.post(url, data_2, format='json')
-        print('\n\ntest_get_indent_transactions\n\n')
+       
         
         response = self.client.get(url)
-        print('-------response data-------')
-        print(response.data)
-        print(len(response.data))
+       
 
 
     def test_get_indent_transactions(self):
