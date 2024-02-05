@@ -29,11 +29,41 @@ class InventoryTransactionSerializer(serializers.ModelSerializer):
     date_time = serializers.SerializerMethodField()
 
     def create(self, validated_data):
+        try:
+            # print(f"validated_data: {validated_data}")
+            transaction_items_data = validated_data.pop('inventory_transaction_item_set')
+            transaction = self.Meta.model.objects.create(**validated_data)
+            
+            for transaction_item_data in transaction_items_data:
+                data=InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
+                
+            return transaction
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            # You can also raise the exception after logging it if you want the error to propagate
+            raise e
+        
+    def update(self, instance, validated_data):
+        # Handle nested updates manually
         transaction_items_data = validated_data.pop('inventory_transaction_item_set')
-        transaction = self.Meta.model.objects.create(**validated_data)
-        for transaction_item_data in transaction_items_data:
-            InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
-        return transaction
+        for item_data in transaction_items_data:
+            item_id = item_data.get('id', None)
+            if item_id:
+                # Update existing items
+                item = instance.inventory_transaction_item_set.get(id=item_id)
+                for attr, value in item_data.items():
+                    setattr(item, attr, value)
+                item.save()
+            else:
+                # Create new items
+                InventoryTransactionItem.objects.create(inventory_transaction=instance, **item_data)
+
+        # Update other fields normally
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        instance.save()
+
+        return instance
     
     def get_date_time(self, obj):
         return obj.date_time.strftime('%d-%m-%Y %H:%M')

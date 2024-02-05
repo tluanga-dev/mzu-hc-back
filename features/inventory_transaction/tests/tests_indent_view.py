@@ -3,11 +3,10 @@
 # from django.urls import reverse
 
 # from features.base.base_test_setup_class import BaseTestCase
+# from features.inventory_transaction.models import IndentInventoryTransaction, InventoryTransactionItem
 # from features.item.models import Item, ItemBatch
 
 # from features.supplier.models import Supplier
-# from .models import IndentInventoryTransaction, InventoryTransactionItem
-# from .serializers import IndentInventoryTransactionSerializer
 # from rest_framework.test import APIClient,APITestCase
 # from rest_framework import status
 # class IndentInventoryTransactionViewSetTest(BaseTestCase):

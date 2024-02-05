@@ -3,12 +3,13 @@
 # import os
 # from features.base.base_test_setup_class import BaseTestCase
 # from features.id_manager.models import IdManager
-# from features.item.models import Item
+# from features.inventory_transaction.models import IndentInventoryTransaction, InventoryTransaction, InventoryTransactionItem
+# from features.inventory_transaction.serializers import IndentInventoryTransactionSerializer
+# from features.item.models import Item, ItemBatch
 
 
 # from features.supplier.models import Supplier
-# from .models import  InventoryTransaction, InventoryTransactionItem, IndentInventoryTransaction, ItemBatch
-# from .serializers import IndentInventoryTransactionSerializer
+
 
 # class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
 #     def setUp(self):
@@ -85,6 +86,7 @@
 #         self.assertEqual(indent_transaction.supply_order_no, 'SO1')
 
 #         transaction_items = InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
+#         # print('transaction_items',transaction_items)
 #         self.assertEqual(transaction_items.count(), 2)
         
 #         # print('-------End of test_create_indent_inventory_transaction-------\n ')

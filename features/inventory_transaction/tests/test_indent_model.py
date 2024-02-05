@@ -1,5 +1,3 @@
-
-
 # from features.base.base_test_setup_class import BaseTestCase
 # from features.id_manager.models import IdManager
 # from features.item.models import Item, ItemBatch
@@ -9,8 +7,6 @@
 
 # class IndentInventoryTransactionModelTest(BaseTestCase):
 #     counter = 0  # Add a class-level counter
-
-    
 #     def setUp(self):
 #         # Set up non-modified objects used by all test methods
 #         super().setUp()
