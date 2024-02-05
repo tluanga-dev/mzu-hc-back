@@ -3,7 +3,7 @@ import json
 import os
 from features.base.base_test_setup_class import BaseTestCase
 from features.id_manager.models import IdManager
-from features.inventory_transaction.models import InventoryTransactionItem, IssueItemInventoryTransaction
+from features.inventory_transaction.models import InventoryTransaction, InventoryTransactionItem, IssueItemInventoryTransaction
 from features.inventory_transaction.serializers import IssueItemInventoryTransactionSerializer
 from features.item.models import Item, ItemBatch
 
@@ -59,7 +59,7 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
         serializer = IssueItemInventoryTransactionSerializer(data=self.issue_item_transaction_data)
        
         if(serializer.is_valid()):
-            print('serializer is valid')
+            # print('serializer is valid')
             serializer.save()
         else:
             print('serializer is not valid')
@@ -85,48 +85,51 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
         # print('\n-------test_retrieve_indent_inventory_transaction------- ')
         self.maxDiff = None
         IssueItemInventoryTransaction.objects.all().delete()
+        InventoryTransactionItem.objects.all().delete()
+        InventoryTransaction.objects.all().delete() 
         
         # print('------data input to serializer------')
         # print(self.indent_transaction_data)
         # print('------------------------------------')
         serializer = IssueItemInventoryTransactionSerializer(data=self.issue_item_transaction_data)
         if(serializer.is_valid()):
+            print('serializer is  valid')
             serializer.save()
         else:
             print('serializer is not valid')
-            print(serializer.errors)    
+            print(serializer.errors)   
+        issue_item_transaction = None 
 
-        issue_item_transaction = IssueItemInventoryTransaction.objects.all().first()
-        serializer = IssueItemInventoryTransaction(issue_item_transaction)
-        # print('\n-------serializer data------- ')
-        # print(serializer.data)
+        issue_item_transaction =  IssueItemInventoryTransaction.objects.first()
+        serializer = IssueItemInventoryTransactionSerializer(issue_item_transaction)
+       
 
         expected_data = self.issue_item_transaction_data.copy()
         expected_data['id'] = issue_item_transaction.id
         
         expected_data['date_time'] = issue_item_transaction.date_time.strftime('%d-%m-%Y %H:%M')
-        # expected_data['inventory_transaction_item_set'] = [
-        #     {
-        #         'id': item.id,
-        #         'inventory_transaction': indent_transaction.id,
-        #         'item_batch': item.item_batch.id,
-        #         'quantity': item.quantity,
-        #         'is_active': item.is_active,
-        #     } for item in InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
-        # ]
-        # expected_data['inventory_transaction_type']='indent'
+        expected_data['inventory_transaction_item_set'] = [
+            {
+                'id': item.id,
+                'inventory_transaction': issue_item_transaction.id,
+                'item_batch': item.item_batch.id,
+                'quantity': item.quantity,
+                'is_active': item.is_active,
+            } for item in InventoryTransactionItem.objects.filter(inventory_transaction=issue_item_transaction)
+        ]
+        expected_data['inventory_transaction_type']=InventoryTransaction.TransactionTypes.ITEM_ISSUE
 
-        # serializer_data = json.loads(json.dumps(serializer.data))
-        # # print('\nserializer_data, ',serializer_data)
-        # del serializer_data['inventory_transaction_id']
-        # # Remove 'created_on' and 'updated_on' from serializer_data
-        # serializer_data.pop('created_on', None)
-        # serializer_data.pop('updated_on', None)
-        # # datas=InventoryTransaction.objects.all()
-        # # print('\n\n\nInventory Transaction data')
-        # # for data in datas:
-        # #     print(data.inventory_transaction_type)
-        # # print('\n\nexpected data, ',expected_data)
-        # # print('\n\nserializer data, ',serializer_data)
+        serializer_data = json.loads(json.dumps(serializer.data))
+        # print('\nserializer_data, ',serializer_data)
+        del serializer_data['inventory_transaction_id']
+        # Remove 'created_on' and 'updated_on' from serializer_data
+        serializer_data.pop('created_on', None)
+        serializer_data.pop('updated_on', None)
+        # datas=InventoryTransaction.objects.all()
+        # print('\n\n\nInventory Transaction data')
+        # for data in datas:
+        #     print(data.inventory_transaction_type)
+        # print('\n\nexpected data, ',expected_data)
+        # print('\n\nserializer data, ',serializer_data)
         
-        # self.assertEqual(serializer_data, expected_data)
+        self.assertEqual(serializer_data, expected_data)
