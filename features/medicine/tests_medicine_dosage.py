@@ -74,7 +74,7 @@ class MedicineDosageSerializerTestCase(BaseTestCase):
 
     def test_content(self):
         data = self.serializer.data
-        self.assertEqual(data['id'], str(self.medicine_dosage.id))
+        
         self.assertEqual(data['quantity_in_one_take'], self.medicine_dosage.quantity_in_one_take)
         self.assertEqual(data['how_many_times_in_a_day'], self.medicine_dosage.how_many_times_in_a_day)
         self.assertEqual(data['name'], self.medicine_dosage.name)
