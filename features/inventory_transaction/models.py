@@ -68,6 +68,23 @@ class IndentInventoryTransaction(InventoryTransaction):
     supply_order_date=models.DateField()
     date_of_delivery=models.DateField()
 
+    def save(self, *args, **kwargs):
+        if self.pk is None:
+            self.inventory_transaction_type = self.TransactionTypes.INDENT
+        super().save(*args, **kwargs)
+   
+    class Meta:
+        app_label = 'inventory_transaction'
+
+
+class IssueItemInventoryTransaction(InventoryTransaction):
+    issue_to=models.CharField(max_length=200)
+    issue_date=models.DateField()
+    
+    def save(self, *args, **kwargs):
+        if self.pk is None:
+            self.inventory_transaction_type = self.TransactionTypes.ITEM_ISSUE
+        super().save(*args, **kwargs)
    
     class Meta:
         app_label = 'inventory_transaction'
