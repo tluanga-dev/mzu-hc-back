@@ -1,4 +1,7 @@
 from rest_framework import viewsets
+
+from features.organisation_section.models import OrganisationSection
+from features.organisation_section.serializers import OrganisationSectionSerializer
 from .models import IndentInventoryTransaction, IssueItemInventoryTransaction
 from .serializers import IndentInventoryTransactionSerializer, IssueItemInventoryTransactionSerializer
 
@@ -37,13 +40,18 @@ class IssueItemInventoryTransactionViewSet(viewsets.ModelViewSet):
         issue_date_to = self.request.query_params.get('issue_date_to', None)
 
         if issue_to is not None:
-            queryset = queryset.filter(issue_to=issue_to)
+            
+            organisation_section = OrganisationSection.objects.get(code=issue_to)
+            if organisation_section is not None:
+                queryset = queryset.filter(issue_to=organisation_section)
+      
         
         if issue_date is not None:
             queryset = queryset.filter(issue_date__exact=issue_date)
 
         if issue_date_from is not None and issue_date_to is not None:
-            queryset = queryset.filter(supply_order_date__gte=issue_date_from, supply_order_date__lte=issue_date_to)
+            print(f"issue_date_from: {issue_date_from}, issue_date_to: {issue_date_to}")
+            queryset = queryset.filter(issue_date__gte=issue_date_from, issue_date__lte=issue_date_to)
 
         return queryset
     

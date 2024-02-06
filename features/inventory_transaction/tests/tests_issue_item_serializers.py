@@ -16,6 +16,7 @@ from features.supplier.models import Supplier
 class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
     def setUp(self):
         super().setUp()
+        OrganisationSection.objects.all().delete()
         self.item = Item.objects.create(
             name="Test Item",
             description="Test Description",
@@ -33,6 +34,7 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
         self.item_batch1.save()
         self.organization_section=OrganisationSection.objects.create(
             name='Test Organisation Section',
+            code='TOS',
             description='Test Organisation Section',
         )
       
@@ -63,6 +65,7 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
         # print('\n-------test_create_indent_inventory_transaction------- ')
         IssueItemInventoryTransaction.objects.all().delete()
         InventoryTransactionItem.objects.all().delete()
+        
         serializer = IssueItemInventoryTransactionSerializer(data=self.issue_item_transaction_data)
        
         if(serializer.is_valid()):
@@ -94,6 +97,7 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
         IssueItemInventoryTransaction.objects.all().delete()
         InventoryTransactionItem.objects.all().delete()
         InventoryTransaction.objects.all().delete() 
+        
         
         # print('------data input to serializer------')
         # print(self.indent_transaction_data)
@@ -135,7 +139,7 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
         serializer_data.pop('created_on', None)
         serializer_data.pop('updated_on', None)
         
-        print('\n\nexpected data, ',expected_data)
-        print('\n\nserializer data, ',serializer_data)
+        # print('\n\nexpected data, ',expected_data)
+        # print('\n\nserializer data, ',serializer_data)
         
         self.assertEqual(serializer_data, expected_data)      
