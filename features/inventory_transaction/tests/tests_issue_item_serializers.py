@@ -7,6 +7,7 @@ from features.inventory_transaction.models import InventoryTransaction, Inventor
 from features.inventory_transaction.serializers import IssueItemInventoryTransactionSerializer
 from features.item.models import Item, ItemBatch
 from features.organisation_section.models import  OrganisationSection
+from features.organisation_section.serializers import OrganisationSectionSerializer
 
 
 from features.supplier.models import Supplier
@@ -114,6 +115,7 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
         expected_data['id'] = issue_item_transaction.id
         
         expected_data['date_time'] = issue_item_transaction.date_time.strftime('%d-%m-%Y %H:%M')
+        expected_data['issue_to']=OrganisationSectionSerializer(self.organization_section).data 
         expected_data['inventory_transaction_item_set'] = [
             {
                 'id': item.id,
@@ -126,16 +128,14 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
         expected_data['inventory_transaction_type']=InventoryTransaction.TransactionTypes.ITEM_ISSUE
 
         serializer_data = json.loads(json.dumps(serializer.data))
-        # print('\nserializer_data, ',serializer_data)
+       
+        
         del serializer_data['inventory_transaction_id']
-        # Remove 'created_on' and 'updated_on' from serializer_data
+     
         serializer_data.pop('created_on', None)
         serializer_data.pop('updated_on', None)
-        # datas=InventoryTransaction.objects.all()
-        # print('\n\n\nInventory Transaction data')
-        # for data in datas:
-        #     print(data.inventory_transaction_type)
-        # print('\n\nexpected data, ',expected_data)
-        # print('\n\nserializer data, ',serializer_data)
         
-        self.assertEqual(serializer_data, expected_data)
+        print('\n\nexpected data, ',expected_data)
+        print('\n\nserializer data, ',serializer_data)
+        
+        self.assertEqual(serializer_data, expected_data)      
