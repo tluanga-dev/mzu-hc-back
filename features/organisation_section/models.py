@@ -3,7 +3,7 @@ from django.db import models
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
 
 # Create your models here.
-class OrganisactionSection(TimeStampedAbstractModelClass):
+class OrganisationSection(TimeStampedAbstractModelClass):
     name = models.CharField(max_length=100)
     description = models.TextField()
     is_active = models.BooleanField(default=True)

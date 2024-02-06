@@ -6,6 +6,7 @@ from features.id_manager.models import IdManager
 from features.inventory_transaction.models import InventoryTransaction, InventoryTransactionItem, IssueItemInventoryTransaction
 from features.inventory_transaction.serializers import IssueItemInventoryTransactionSerializer
 from features.item.models import Item, ItemBatch
+from features.organisation_section.models import  OrganisationSection
 
 
 from features.supplier.models import Supplier
@@ -29,11 +30,16 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
             item=self.item
         )
         self.item_batch1.save()
-
+        self.organization_section=OrganisationSection.objects.create(
+            name='Test Organisation Section',
+            description='Test Organisation Section',
+        )
+      
         
         self.issue_item_transaction_data = {
-            'issue_to': 'Test Issue To',
+            'issue_to': self.organization_section.id,
             'issue_date': '2022-01-01',
+            'item_receiver': 'Test Item Receiver',
             'remarks': None,
             'inventory_transaction_item_set': [
                 {
@@ -71,7 +77,7 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
        
         self.assertEqual(issue_transaction.inventory_transaction_type, issue_transaction.TransactionTypes.ITEM_ISSUE)
        
-        self.assertEqual(issue_transaction.issue_to, 'Test Issue To')
+        self.assertEqual(issue_transaction.issue_to, self.organization_section)
 
         transaction_items = InventoryTransactionItem.objects.filter(inventory_transaction=issue_transaction)
         
@@ -93,7 +99,7 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
         # print('------------------------------------')
         serializer = IssueItemInventoryTransactionSerializer(data=self.issue_item_transaction_data)
         if(serializer.is_valid()):
-            print('serializer is  valid')
+           
             serializer.save()
         else:
             print('serializer is not valid')
