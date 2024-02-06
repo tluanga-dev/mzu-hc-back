@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import OrganisactionSection
+from .models import OrganisationSection 
 
 class OrganisationSectionSerializer(serializers.ModelSerializer):
-    contact_no = serializers.IntegerField()
+   
     class Meta:
-        model = OrganisactionSection
+        model = OrganisationSection
         fields = '__all__'

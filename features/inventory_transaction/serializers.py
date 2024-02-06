@@ -1,5 +1,6 @@
 from django.forms import model_to_dict
 from rest_framework import serializers
+from features.organisation_section.serializers import OrganisationSectionSerializer
 from features.supplier.models import Supplier
 
 from features.supplier.serializers import SupplierSerializer
@@ -107,7 +108,13 @@ class IndentInventoryTransactionSerializer(InventoryTransactionSerializer):
     
 
 class IssueItemInventoryTransactionSerializer(InventoryTransactionSerializer):
-
+   
+    
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['issue_to'] = OrganisationSectionSerializer(instance.issue_to).data
+        return representation
+    
     class Meta:
         model = IssueItemInventoryTransaction
         fields = '__all__'
