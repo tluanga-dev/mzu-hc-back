@@ -7,6 +7,16 @@ from features.id_manager.models import IdManager
 from features.item.models import ItemBatch
 from features.organisation_section.models import  OrganisationSection
 
+class ItemStockInfo(TimeStampedAbstractModelClass):
+    item=models.OneToOneField('item.Item', on_delete=models.CASCADE)
+    quantity=models.PositiveIntegerField(null=False, blank=False)
+    remarks=models.CharField(max_length=200, blank=True, null=True)
+
+    class Meta:
+        app_label = 'inventory_transaction'
+
+
+
 class InventoryTransaction(TimeStampedAbstractModelClass):
     class TransactionTypes(models.TextChoices):
         INDENT = 'indent', _('Indent')

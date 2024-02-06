@@ -4,7 +4,13 @@ from features.organisation_section.serializers import OrganisationSectionSeriali
 from features.supplier.models import Supplier
 
 from features.supplier.serializers import SupplierSerializer
-from .models import  InventoryTransaction, InventoryTransactionItem, IndentInventoryTransaction, IssueItemInventoryTransaction
+from .models import  InventoryTransaction, InventoryTransactionItem, IndentInventoryTransaction, IssueItemInventoryTransaction, ItemStockInfo
+
+
+class ItemStockInfoSerializer(serializers.Serializer):
+    class Meta:
+        model=ItemStockInfo
+        fields='__all__'
 
 
 class InventoryTransactionItemSerializer(serializers.ModelSerializer):
