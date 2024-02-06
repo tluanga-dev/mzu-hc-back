@@ -63,6 +63,9 @@ INSTALLED_APPS = [
 
     # --------Utilities---------
     'features.id_manager',
+
+    # --------Section---------
+    'features.organisation_section'
   
 ]
 

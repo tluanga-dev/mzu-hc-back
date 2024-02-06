@@ -1,10 +1,12 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from features import organisation_section
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
 from features.id_manager.models import IdManager
 
 
 from features.item.models import ItemBatch
+from features.organisation_section.models import OrganisactionSection
 
 class InventoryTransaction(TimeStampedAbstractModelClass):
     class TransactionTypes(models.TextChoices):
@@ -78,8 +80,15 @@ class IndentInventoryTransaction(InventoryTransaction):
 
 
 class IssueItemInventoryTransaction(InventoryTransaction):
-    issue_to=models.CharField(max_length=200)
-    issue_date=models.DateField()
+    issue_date=models.DateField(blank=False, null=False)
+    item_receiver=models.CharField(max_length=200, blank=False, null=False)
+    issue_to=models.ForeignKey(
+        OrganisactionSection, 
+        on_delete=models.CASCADE, 
+        related_name='issue_to',
+        null=False,
+        blank=False
+    )
     
     def save(self, *args, **kwargs):
         if self.pk is None:
