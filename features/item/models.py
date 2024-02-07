@@ -1,5 +1,6 @@
 import uuid
 from django.db import models
+from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
 from features.id_manager.models import IdManager
 
 
@@ -79,7 +80,7 @@ class ItemBatch(models.Model):
     batch_id = models.CharField(max_length=255)
     description = models.TextField()
     date_of_expiry = models.DateField()
-    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='item_batches')
     is_active = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
@@ -88,6 +89,15 @@ class ItemBatch(models.Model):
       
 
         super().save(*args, **kwargs)
+
+    class Meta:
+        app_label = 'item'
+
+
+class ItemStockInfo(TimeStampedAbstractModelClass):
+    item=models.OneToOneField('item.Item', on_delete=models.CASCADE,related_name='item_stock_info') 
+    quantity=models.PositiveIntegerField(null=False, blank=False)
+    remarks=models.CharField(max_length=200, blank=True, null=True)
 
     class Meta:
         app_label = 'item'

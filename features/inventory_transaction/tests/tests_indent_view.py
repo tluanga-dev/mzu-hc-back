@@ -36,7 +36,10 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
             date_of_expiry=date.today(),
             item=self.item
         )
-        
+        # item_stock_info=self.item.item_stock_info
+        # item_stock_info.quantity=100
+        # item_stock_info.save()
+
     def tearDown(self):
         # Clean up database after each test
         InventoryTransactionItem.objects.all().delete()
@@ -171,7 +174,7 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
         response = self.client.post(url, data_2, format='json')
        
         response = self.client.get(url)
-  
+        
 
         id=response.data[1]['id']
         url = reverse('indent-inventory-transactions-detail', kwargs={'pk': id})
@@ -189,6 +192,10 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
         self.assertEqual(len(filtered_response.data), 1)  # Check that one instance is returned
         self.assertEqual(filtered_response.data[0]['supply_order_no'], 'SO12')  # Check that the returned instance has the correct supplyOrderNo
 
+        # ----check item stock info------
+        # item_stock_info=item_stock_info.filter(item_batch=self.item_batch.id)
+        # print('\n\n-----------Item Stock info-----------')
+        # print(item_stock_info)
 
     def test_filter_indentinventorytransaction_by_date(self):
         
@@ -200,7 +207,7 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
             'supply_order_date': '2022-01-01',
             'date_of_delivery': '2022-01-01',
             'inventory_transaction_item_set': [
-                {'item_batch': self.item_batch.id, 'quantity': 10, 'is_active': True},
+                {'item_batch': self.item_batch.id, 'quantity': 40, 'is_active': True},
             ],
             'inventory_transaction_type': 'indent',
             'inventory_transaction_id': 'INDENT1',
