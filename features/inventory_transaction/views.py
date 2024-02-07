@@ -50,7 +50,7 @@ class IssueItemInventoryTransactionViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(issue_date__exact=issue_date)
 
         if issue_date_from is not None and issue_date_to is not None:
-            print(f"issue_date_from: {issue_date_from}, issue_date_to: {issue_date_to}")
+            
             queryset = queryset.filter(issue_date__gte=issue_date_from, issue_date__lte=issue_date_to)
 
         return queryset

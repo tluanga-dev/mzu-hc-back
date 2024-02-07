@@ -18,12 +18,12 @@ def post_save_inventory_transaction_item(sender, instance, created, **kwargs):
             item_stock_info.save()
             
         elif(transaction_type==InventoryTransaction.TransactionTypes.ITEM_ISSUE):
-            print('\nIssueItemInventoryTransaction')
+           
        
             item=instance.item_batch.item
             item_stock_info=item.item_stock_info
             if(item_stock_info.quantity<instance.quantity):
-                print('Item stock is less than the quantity to be issued')
+               
                 raise ValueError('Item stock is less than the quantity to be issued')
             else:
                 item_stock_info.quantity-=instance.quantity

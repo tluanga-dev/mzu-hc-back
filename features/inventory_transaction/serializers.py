@@ -42,10 +42,10 @@ class InventoryTransactionSerializer(serializers.ModelSerializer):
                 data=InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
                 
             return transaction
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            # You can also raise the exception after logging it if you want the error to propagate
-            raise e
+      
+        except ValueError as e:
+            print(f"ValueError: {e}")
+            raise serializers.ValidationError(str(e))
         
     def update(self, instance, validated_data):
         # Handle nested updates manually

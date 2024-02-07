@@ -1,186 +1,186 @@
-# from datetime import date
-# import os
-# from django.urls import reverse
-# from features import id_manager
+from datetime import date
+import os
+from django.urls import reverse
+from features import id_manager
 
-# from features.base.base_test_setup_class import BaseTestCase
-# from features.id_manager.models import IdManager
-# from features.inventory_transaction.models import IndentInventoryTransaction, InventoryTransactionItem, IssueItemInventoryTransaction
-# from features.item.models import Item, ItemBatch
-# from features.organisation_section.models import OrganisationSection
+from features.base.base_test_setup_class import BaseTestCase
+from features.id_manager.models import IdManager
+from features.inventory_transaction.models import IndentInventoryTransaction, InventoryTransactionItem, IssueItemInventoryTransaction
+from features.item.models import Item, ItemBatch
+from features.organisation_section.models import OrganisationSection
 
-# from features.supplier.models import Supplier
-# from rest_framework.test import APIClient,APITestCase
-# from rest_framework import status
-# class IssueITemInventoryTransactionViewSetTest(BaseTestCase):
-#     def setUp(self):
-#         super().setUp()
-#         OrganisationSection.objects.all().delete()
-#         Item.objects.all().delete()
-#         InventoryTransactionItem.objects.all().delete()
-#         IndentInventoryTransaction.objects.all().delete()
-#         self.item = Item.objects.create(
-#             name="Test Item",
-#             description="Test Description",
-#             type=self.item_type,
-#             unit_of_measurement=self.unit_of_measurement,
-#             is_active=True
-#         )
-#         self.supplier = Supplier.objects.create(
-#             name='Test Supplier', 
-#             address='Test Address', 
-#             contact_no=1234567890,
-#             email='test@gmail.com'
-#         )
-#         self.item_batch = ItemBatch.objects.create(
-#             batch_id='B2',
-#             description='Test Batch 1',
-#             date_of_expiry=date.today(),
-#             item=self.item
-#         )
-#         OrganisationSection.objects.all().delete()
-#         self.organization_section=OrganisationSection.objects.create(
-#             name='Test Organisation Section',
-#             code='TOS',
-#             description='Test Organisation Section',
-#         )
+from features.supplier.models import Supplier
+from rest_framework.test import APIClient,APITestCase
+from rest_framework import status
+class IssueITemInventoryTransactionViewSetTest(BaseTestCase):
+    def setUp(self):
+        super().setUp()
+        OrganisationSection.objects.all().delete()
+        Item.objects.all().delete()
+        InventoryTransactionItem.objects.all().delete()
+        IndentInventoryTransaction.objects.all().delete()
+        self.item = Item.objects.create(
+            name="Test Item",
+            description="Test Description",
+            type=self.item_type,
+            unit_of_measurement=self.unit_of_measurement,
+            is_active=True
+        )
+        self.supplier = Supplier.objects.create(
+            name='Test Supplier', 
+            address='Test Address', 
+            contact_no=1234567890,
+            email='test@gmail.com'
+        )
+        self.item_batch = ItemBatch.objects.create(
+            batch_id='B2',
+            description='Test Batch 1',
+            date_of_expiry=date.today(),
+            item=self.item
+        )
+        OrganisationSection.objects.all().delete()
+        self.organization_section=OrganisationSection.objects.create(
+            name='Test Organisation Section',
+            code='TOS',
+            description='Test Organisation Section',
+        )
       
-#         item_stock_info=self.item.item_stock_info
-#         item_stock_info.quantity=1000
-#         item_stock_info.save()
+        item_stock_info=self.item.item_stock_info
+        item_stock_info.quantity=1000
+        item_stock_info.save()
         
-#         self.issue_item_transaction_data = {
-#             'issue_to': self.organization_section.id,
-#             'issue_date': '2022-01-01',
-#             'item_receiver': 'Test Item Receiver',
-#             'remarks': None,
-#             'inventory_transaction_item_set': [
-#                 {
-#                     'item_batch': self.item_batch.id,
-#                     'quantity': 10,
-#                     'is_active': True
-#                 },
-#                 {
-#                     'item_batch': self.item_batch.id,
-#                     'quantity': 5,
-#                     'is_active': True
-#                 }
-#             ]
-#         }
+        self.issue_item_transaction_data = {
+            'issue_to': self.organization_section.id,
+            'issue_date': '2022-01-01',
+            'item_receiver': 'Test Item Receiver',
+            'remarks': None,
+            'inventory_transaction_item_set': [
+                {
+                    'item_batch': self.item_batch.id,
+                    'quantity': 10,
+                    'is_active': True
+                },
+                {
+                    'item_batch': self.item_batch.id,
+                    'quantity': 5,
+                    'is_active': True
+                }
+            ]
+        }
 
-#         self.issue_item_transaction_data_2 = {
-#             'issue_to': self.organization_section.id,
-#             'issue_date': '2022-06-01',
-#             'item_receiver': 'Test Item Receiver',
-#             'remarks': None,
-#             'inventory_transaction_item_set': [
-#                 {
-#                     'item_batch': self.item_batch.id,
-#                     'quantity': 120,
-#                     'is_active': True
-#                 },
-#                 {
-#                     'item_batch': self.item_batch.id,
-#                     'quantity': 15,
-#                     'is_active': True
-#                 }
-#             ]
-#         }
+        self.issue_item_transaction_data_2 = {
+            'issue_to': self.organization_section.id,
+            'issue_date': '2022-06-01',
+            'item_receiver': 'Test Item Receiver',
+            'remarks': None,
+            'inventory_transaction_item_set': [
+                {
+                    'item_batch': self.item_batch.id,
+                    'quantity': 120,
+                    'is_active': True
+                },
+                {
+                    'item_batch': self.item_batch.id,
+                    'quantity': 15,
+                    'is_active': True
+                }
+            ]
+        }
         
-#     def tearDown(self):
-#         # Clean up database after each test
-#         InventoryTransactionItem.objects.all().delete()
-#         IssueItemInventoryTransaction.objects.all().delete()
-#         IdManager.objects.all().delete()
-#         super().tearDown()
+    def tearDown(self):
+        # Clean up database after each test
+        InventoryTransactionItem.objects.all().delete()
+        IssueItemInventoryTransaction.objects.all().delete()
+        IdManager.objects.all().delete()
+        super().tearDown()
 
-#     def test_create_issue_item_inventorytransaction(self):
-#         self.tearDown()
-#         # print('\n\ntest_create_indentinventorytransaction\n\n')
-#         url = reverse('issue-item-inventory-transactions-list')  # Replace with the actual name of the URL
+    def test_create_issue_item_inventorytransaction(self):
+        self.tearDown()
+        # print('\n\ntest_create_indentinventorytransaction\n\n')
+        url = reverse('issue-item-inventory-transactions-list')  # Replace with the actual name of the URL
         
-#         response = self.client.post(url, self.issue_item_transaction_data, format='json')
-#         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-#         self.assertEqual(IssueItemInventoryTransaction.objects.count(), 1)
-#         created_instance = IssueItemInventoryTransaction.objects.first()
-#         self.assertEqual(created_instance.issue_to, self.organization_section)  # Check that the created instance has the correct issueTo
-#         # Add more assertions to check other fields of the created instance
+        response = self.client.post(url, self.issue_item_transaction_data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(IssueItemInventoryTransaction.objects.count(), 1)
+        created_instance = IssueItemInventoryTransaction.objects.first()
+        self.assertEqual(created_instance.issue_to, self.organization_section)  # Check that the created instance has the correct issueTo
+        # Add more assertions to check other fields of the created instance
     
-#     def test_get_indent_transactions(self):
+    def test_get_indent_transactions(self):
     
-#         url = reverse('issue-item-inventory-transactions-list')
+        url = reverse('issue-item-inventory-transactions-list')
         
-#         response = self.client.post(url, self.issue_item_transaction_data, format='json')
-#         response = self.client.post(url, self.issue_item_transaction_data, format='json')
+        response = self.client.post(url, self.issue_item_transaction_data, format='json')
+        response = self.client.post(url, self.issue_item_transaction_data, format='json')
 
         
-#         response = self.client.get(url)
+        response = self.client.get(url)
   
-#         self.assertEqual(response.status_code, status.HTTP_200_OK)
-#         self.assertEqual(len(response.data), 2)  # Check that two instances are returned
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 2)  # Check that two instances are returned
        
 
 
-#     def test_get_indent_transactions(self):
-#         self.tearDown()
-#         url = reverse('issue-item-inventory-transactions-list')
-#         response = self.client.post(url, self.issue_item_transaction_data, format='json')
+    def test_get_indent_transactions(self):
+        self.tearDown()
+        url = reverse('issue-item-inventory-transactions-list')
+        response = self.client.post(url, self.issue_item_transaction_data, format='json')
        
-#         id=response.data['id']
-#         url = reverse('issue-item-inventory-transactions-detail', kwargs={'pk': id})
-#         response = self.client.get(url)
+        id=response.data['id']
+        url = reverse('issue-item-inventory-transactions-detail', kwargs={'pk': id})
+        response = self.client.get(url)
         
-#         self.assertEqual(response.status_code, status.HTTP_200_OK)
-#         self.assertEqual(response.data['id'], id)  # Check that the returned instance has the correct id
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['id'], id)  # Check that the returned instance has the correct id
 
 
     
-#     def test_filter_indent_inventory_transaction(self):
-#         self.tearDown()
-#         url = reverse('issue-item-inventory-transactions-list')
+    def test_filter_indent_inventory_transaction(self):
+        self.tearDown()
+        url = reverse('issue-item-inventory-transactions-list')
         
-#         post_response_1=self.client.post(url, self.issue_item_transaction_data_2, format='json')
-#         post_response_2 = self.client.post(url, self.issue_item_transaction_data, format='json')
-#         # print(post_response_1.data) 
+        post_response_1=self.client.post(url, self.issue_item_transaction_data_2, format='json')
+        post_response_2 = self.client.post(url, self.issue_item_transaction_data, format='json')
+        # print(post_response_1.data) 
       
-#         id=post_response_1.data['id']
-#         url = reverse('issue-item-inventory-transactions-detail', kwargs={'pk': id})
-#         response_get = self.client.get(url)
+        id=post_response_1.data['id']
+        url = reverse('issue-item-inventory-transactions-detail', kwargs={'pk': id})
+        response_get = self.client.get(url)
         
         
-#         url = reverse('issue-item-inventory-transactions-list') + '?issue_to=TOS'
-#         filtered_response = self.client.get(url)
+        url = reverse('issue-item-inventory-transactions-list') + '?issue_to=TOS'
+        filtered_response = self.client.get(url)
         
        
        
-#         self.assertEqual(filtered_response.status_code, status.HTTP_200_OK)
-#         self.assertEqual(len(filtered_response.data), 2)  # Check that one instance is returned
+        self.assertEqual(filtered_response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(filtered_response.data), 2)  # Check that one instance is returned
       
 
 
-#     def test_filter_indentinventorytransaction_by_date(self):
+    def test_filter_indentinventorytransaction_by_date(self):
         
        
-#         self.tearDown()
-#         url = reverse('issue-item-inventory-transactions-list')
+        self.tearDown()
+        url = reverse('issue-item-inventory-transactions-list')
         
-#         self.client.post(url, self.issue_item_transaction_data_2, format='json')
-#         self.client.post(url, self.issue_item_transaction_data, format='json')
+        self.client.post(url, self.issue_item_transaction_data_2, format='json')
+        self.client.post(url, self.issue_item_transaction_data, format='json')
 
-#         # Test filtering by an exact date
-#         response = self.client.get(reverse('issue-item-inventory-transactions-list'), {'issue_date': '2022-01-01'})
+        # Test filtering by an exact date
+        response = self.client.get(reverse('issue-item-inventory-transactions-list'), {'issue_date': '2022-01-01'})
       
-#         self.assertEqual(response.status_code, status.HTTP_200_OK)
-#         self.assertEqual(len(response.data),1)
-#         self.assertEqual(response.data[0]['issue_date'], '2022-01-01')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data),1)
+        self.assertEqual(response.data[0]['issue_date'], '2022-01-01')
 
-#         # # Test filtering by a range of dates
-#         response = self.client.get(reverse('issue-item-inventory-transactions-list'), {'issue_date_from': '2022-01-01', 'issue_date_to': '2022-04-01'})
-#         self.assertEqual(response.status_code, status.HTTP_200_OK)
-#         self.assertEqual(len(response.data), 1)
+        # # Test filtering by a range of dates
+        response = self.client.get(reverse('issue-item-inventory-transactions-list'), {'issue_date_from': '2022-01-01', 'issue_date_to': '2022-04-01'})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
 
-#          # Test filtering by a range of dates
-#         response = self.client.get(reverse('issue-item-inventory-transactions-list'), {'issue_date_from': '2022-02-01', 'issue_date_to': '2022-06-01'})
-#         print(response.data)
-#         self.assertEqual(response.status_code, status.HTTP_200_OK)
-#         self.assertEqual(len(response.data), 1)
+         # Test filtering by a range of dates
+        response = self.client.get(reverse('issue-item-inventory-transactions-list'), {'issue_date_from': '2022-02-01', 'issue_date_to': '2022-06-01'})
+     
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
