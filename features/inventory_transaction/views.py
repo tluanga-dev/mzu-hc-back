@@ -1,9 +1,13 @@
-from rest_framework import viewsets
+from rest_framework import viewsets,generics
+from rest_framework.response import Response
+from features.item.models import Item
+
+
 
 from features.organisation_section.models import OrganisationSection
 from features.organisation_section.serializers import OrganisationSectionSerializer
-from .models import IndentInventoryTransaction, IssueItemInventoryTransaction
-from .serializers import IndentInventoryTransactionSerializer, IssueItemInventoryTransactionSerializer
+from .models import IndentInventoryTransaction, InventoryTransactionItem, IssueItemInventoryTransaction
+from .serializers import IndentInventoryTransactionSerializer, InventoryTransactionItemSerializer, IssueItemInventoryTransactionSerializer, ItemTransactionDetailSerializer 
 
 class IndentInventoryTransactionViewSet(viewsets.ModelViewSet):
     queryset = IndentInventoryTransaction.objects.all()
@@ -55,3 +59,35 @@ class IssueItemInventoryTransactionViewSet(viewsets.ModelViewSet):
 
         return queryset
     
+    # ------Item Transaction Details
+    # 1) Item Detail Information
+    # 2) Item Transaction Information - list all transaction where the item is involved
+    # 3) Item Stock Information
+# class ItemTransactionsView(viewsets.ModelViewSet):
+#     queryset = Item.objects.all()
+#     serializer_class = ItemSerializer
+#     @action(detail=True, url_path='')
+#     def retrieve(self, request, *args, **kwargs):
+#         instance = self.get_object()
+#         serializer = self.get_serializer(instance)
+
+#         # Get the related InventoryTransactionItem instances
+#         transactions = InventoryTransactionItem.objects.filter(item=instance)
+#         transactions_serializer = InventoryTransactionItemSerializer(transactions, many=True)
+
+#             # Return the item data, item_stock_info, and transactions in the response
+#         return Response({
+#                 'item': serializer.data,
+#                 'item_stock_info': instance.item_stock_info,
+#                 'transactions': transactions_serializer.data
+#         })
+
+
+class ItemTransactionsView(viewsets.ModelViewSet):
+    queryset = Item.objects.all()
+    serializer_class = ItemTransactionDetailSerializer
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)

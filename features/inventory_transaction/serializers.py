@@ -1,10 +1,13 @@
 from django.forms import model_to_dict
 from rest_framework import serializers
+from features.item.models import Item
+
+
 from features.organisation_section.serializers import OrganisationSectionSerializer
 from features.supplier.models import Supplier
 
 from features.supplier.serializers import SupplierSerializer
-from .models import  InventoryTransaction, InventoryTransactionItem, IndentInventoryTransaction, IssueItemInventoryTransaction
+from .models import  InventoryTransaction, InventoryTransactionItem, IndentInventoryTransaction, IssueItemInventoryTransaction, ItemStockInfo
 
 
 
@@ -12,7 +15,11 @@ from .models import  InventoryTransaction, InventoryTransactionItem, IndentInven
 
 class InventoryTransactionItemSerializer(serializers.ModelSerializer):
     inventory_transaction = serializers.PrimaryKeyRelatedField(read_only=True)
+    inventory_transaction_type = serializers.SerializerMethodField()  
 
+    def get_inventory_transaction_type(self, obj):
+        return obj.inventory_transaction.inventory_transaction_type
+    
     class Meta:
         model = InventoryTransactionItem
         fields = [
@@ -21,6 +28,7 @@ class InventoryTransactionItemSerializer(serializers.ModelSerializer):
             'item_batch',
             'quantity',
             'is_active', 
+            'inventory_transaction_type'
           
             ]
 
@@ -107,7 +115,10 @@ class IndentInventoryTransactionSerializer(InventoryTransactionSerializer):
         representation['supplier'] = SupplierSerializer(instance.supplier).data
         return representation
 
-    
+class ItemStockInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=ItemStockInfo
+        fields='__all__'  
     
 
 class IssueItemInventoryTransactionSerializer(InventoryTransactionSerializer):
@@ -122,4 +133,25 @@ class IssueItemInventoryTransactionSerializer(InventoryTransactionSerializer):
         model = IssueItemInventoryTransaction
         fields = '__all__'
 
-  
+class ItemTransactionDetailSerializer(serializers.ModelSerializer):
+    item_stock_info = ItemStockInfoSerializer()
+    transactions = serializers.SerializerMethodField()
+
+    def to_representation(self, instance):
+         # Print the related ItemStockInfo instance
+    
+        item_stock=ItemStockInfo.objects.first()
+   
+      
+        representation = super().to_representation(instance)
+        return representation
+    
+    def get_transactions(self, obj):
+        inventory_transaction_items = InventoryTransactionItem.objects.filter(item_batch__in=obj.item_batches.all())
+
+        return InventoryTransactionItemSerializer(inventory_transaction_items, many=True).data
+
+
+    class Meta:
+        model = Item
+        fields = ['id', 'name','item_code', 'item_stock_info', 'transactions']

@@ -94,10 +94,3 @@ class ItemBatch(models.Model):
         app_label = 'item'
 
 
-class ItemStockInfo(TimeStampedAbstractModelClass):
-    item=models.OneToOneField('item.Item', on_delete=models.CASCADE,related_name='item_stock_info') 
-    quantity=models.PositiveIntegerField(null=False, blank=False)
-    remarks=models.CharField(max_length=200, blank=True, null=True)
-
-    class Meta:
-        app_label = 'item'

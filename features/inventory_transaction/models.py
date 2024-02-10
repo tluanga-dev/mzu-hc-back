@@ -4,12 +4,8 @@ from features.base.time_stamped_abstract_class import TimeStampedAbstractModelCl
 from features.id_manager.models import IdManager
 
 
-from features.item.models import ItemBatch
+from features.item.models import Item, ItemBatch
 from features.organisation_section.models import  OrganisationSection
-
-
-
-
 
 class InventoryTransaction(TimeStampedAbstractModelClass):
     class TransactionTypes(models.TextChoices):
@@ -35,12 +31,15 @@ class InventoryTransaction(TimeStampedAbstractModelClass):
 
     inventory_transaction_id = models.CharField(max_length=100,  editable=False)
     
+    
+
     date_time = models.DateTimeField(auto_now_add=True)
     remarks = models.CharField(max_length=200, blank=True, null=True) 
 
 
     def generate_inventory_transaction_id(self):
         if self.inventory_transaction_type in self.TransactionTypes.values:
+            
             self.inventory_transaction_id = IdManager.generateId(prefix=self.inventory_transaction_type)
         else:
             raise ValueError("Invalid inventory_transaction_type")
@@ -54,6 +53,9 @@ class InventoryTransaction(TimeStampedAbstractModelClass):
     class Meta:
         app_label = 'inventory_transaction'
 
+
+
+
 class InventoryTransactionItem(TimeStampedAbstractModelClass):
     inventory_transaction = models.ForeignKey(
         InventoryTransaction, 
@@ -66,6 +68,22 @@ class InventoryTransactionItem(TimeStampedAbstractModelClass):
 
     class Meta:
         app_label = 'inventory_transaction'
+
+
+# --every inventory transaction item will update this
+# --this will be used to calculate the stock of the item
+class ItemStockInfo(TimeStampedAbstractModelClass):
+    item=models.ForeignKey(Item, on_delete=models.CASCADE,related_name='item_stock_info') 
+    inventory_transaction_item=models.OneToOneField(InventoryTransactionItem, on_delete=models.CASCADE, related_name='item_stock_info')
+    quantity=models.PositiveIntegerField(null=False, blank=False)
+    remarks=models.CharField(max_length=200, blank=True, null=True)
+
+    class Meta:
+        app_label = 'inventory_transaction'
+
+    @classmethod
+    def get_latest_by_item_id(cls, item_id):
+        return cls.objects.filter(item_id=item_id).last()
 
 class IndentInventoryTransaction(InventoryTransaction):
     supplier=models.ForeignKey('supplier.Supplier', on_delete=models.CASCADE)

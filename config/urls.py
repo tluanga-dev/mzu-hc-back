@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from features.id_manager.views import IdManagerViewSet
-from features.inventory_transaction.views import IndentInventoryTransactionViewSet, IssueItemInventoryTransactionViewSet
+from features.inventory_transaction.views import IndentInventoryTransactionViewSet, IssueItemInventoryTransactionViewSet, ItemTransactionsView
 from features.item.views import ItemBatchViewSet, ItemCategoryViewSet, ItemTypeViewSet, ItemViewSet, UnitOfMeasurementViewSet
 from features.medicine.views import MedicineDosageDurationViewSet, MedicineDosageViewSet
 
@@ -56,5 +56,7 @@ urlpatterns = [
     path('item/<uuid:item_id>/batches', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),
     # --to get a specific batch of an item
     path('item/<uuid:item_id>/batch=<uuid:batch_id>/', ItemBatchViewSet.as_view({'get': 'retrieve_batch'}), name='item-batch-detail'),
+    path('transactions/<str:pk>/', ItemTransactionsView.as_view({'get':'retrieve'}), name='item-transactions-detail'),
+    # other url patterns...
     path('', include(router.urls)),
 ]

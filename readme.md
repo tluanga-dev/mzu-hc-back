@@ -24,3 +24,7 @@ class Transaction(models.Model):
     # Dispose Transaction specific fields
     disposed_quantity = models.IntegerField(blank=True, null=True)
     disposal_method = models.CharField(max_length=100, blank=True)
+
+
+Task
+1. create an api endpoint that will return all details of the item along with the item_stock_info

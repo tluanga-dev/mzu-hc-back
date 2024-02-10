@@ -1,7 +1,7 @@
 # serializers.py
 
 from rest_framework import serializers
-from .models import Item, ItemBatch, ItemCategory, ItemStockInfo, ItemType, UnitOfMeasurement
+from .models import Item, ItemBatch, ItemCategory, ItemType, UnitOfMeasurement
 
 class UnitOfMeasurementSerializer(serializers.ModelSerializer):
     class Meta:
@@ -29,7 +29,3 @@ class ItemBatchSerializer(serializers.ModelSerializer):
         model = ItemBatch
         fields = ['batch_id', 'description', 'date_of_expiry', 'item', 'is_active', 'created_on', 'updated_on']
 
-class ItemStockInfoSerializer(serializers.Serializer):
-    class Meta:
-        model=ItemStockInfo
-        fields='__all__'

@@ -5,9 +5,10 @@ from rest_framework.test import APIClient
 from rest_framework import status
 from features.base.base_test_setup_class import BaseTestCase
 from features.id_manager.models import IdManager
+from features.item.models import Item
+from features.item.serializers import ItemSerializer
 
-from .models import Item, ItemType
-from .serializers import ItemSerializer
+
 
 class ItemModelTestCase(BaseTestCase):
     def setUp(self):

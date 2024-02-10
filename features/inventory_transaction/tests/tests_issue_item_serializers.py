@@ -1,11 +1,13 @@
 from datetime import date
 import json
 import os
+
+from django.urls import reverse
 from features.base.base_test_setup_class import BaseTestCase
 from features.id_manager.models import IdManager
-from features.inventory_transaction.models import IndentInventoryTransaction, InventoryTransaction, InventoryTransactionItem, IssueItemInventoryTransaction
+from features.inventory_transaction.models import IndentInventoryTransaction, InventoryTransaction, InventoryTransactionItem, IssueItemInventoryTransaction, ItemStockInfo
 from features.inventory_transaction.serializers import IndentInventoryTransactionSerializer, IssueItemInventoryTransactionSerializer
-from features.item.models import Item, ItemBatch, ItemStockInfo
+from features.item.models import Item, ItemBatch
 from features.organisation_section.models import  OrganisationSection
 from features.organisation_section.serializers import OrganisationSectionSerializer
 
@@ -16,6 +18,10 @@ from features.supplier.models import Supplier
 class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
     def setUp(self):
         super().setUp()
+        IndentInventoryTransaction.objects.all().delete()  
+        InventoryTransactionItem.objects.all().delete()
+        IssueItemInventoryTransaction.objects.all().delete()
+        ItemStockInfo.objects.all().delete()
         OrganisationSection.objects.all().delete()
         self.item = Item.objects.create(
             name="Test Item",
@@ -25,19 +31,18 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
             is_active=True
         )
         self.item.save()
-        self.item_batch1=ItemBatch.objects.create(
+        self.item_batch=ItemBatch.objects.create(
             batch_id='B2',
             description='Test Batch 1',
             date_of_expiry=date.today(),
             item=self.item
         )
-        self.item_batch1.save()
+        self.item_batch.save()
         self.organization_section=OrganisationSection.objects.create(
             name='Test Organisation Section',
             code='TOS',
             description='Test Organisation Section',
         )
-
 
         # --------------------INDENT TRANSACTION---------------------
         self.supplier = Supplier.objects.create(
@@ -49,6 +54,10 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
        
         )
         self.supplier.save()
+
+       
+
+
         self.indent_transaction_data = {
                 'inventory_transaction_type': InventoryTransaction.TransactionTypes.INDENT,
                 'supplier': self.supplier.id,
@@ -58,15 +67,12 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
                 'remarks': None,
                 'inventory_transaction_item_set': [
                     {
-                        'item_batch': self.item_batch1.id,
-                        'quantity': 100,
+                        'item_batch': self.item_batch.id,
+                        'quantity': 1000,
+                        'inventory_transaction_type': 'ITEM_INDENT',
                         'is_active': True
                     },
-                    {
-                        'item_batch': self.item_batch1.id,
-                        'quantity': 100,
-                        'is_active': True
-                    }
+                    
                 ]
             }
         IndentInventoryTransaction.objects.all().delete()
@@ -85,15 +91,12 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
             'remarks': None,
             'inventory_transaction_item_set': [
                 {
-                    'item_batch': self.item_batch1.id,
-                    'quantity': 10,
-                    'is_active': True
+                    'item_batch': self.item_batch.id,
+                    'quantity': 100,
+                    'is_active': True,
+                    'iventory_transaction_type': 'itemIssue'
                 },
-                {
-                    'item_batch': self.item_batch1.id,
-                    'quantity': 10,
-                    'is_active': True
-                }
+               
             ]
         }
         # print('\n---------------\n')
@@ -102,8 +105,7 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
 
     def test_create_issue_item_inventory_transaction(self):
         # print('\n-------test_create_indent_inventory_transaction------- ')
-        IssueItemInventoryTransaction.objects.all().delete()
-        InventoryTransactionItem.objects.all().delete()
+       
         
         serializer = IssueItemInventoryTransactionSerializer(data=self.issue_item_transaction_data)
        
@@ -124,12 +126,11 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
 
         transaction_items = InventoryTransactionItem.objects.filter(inventory_transaction=issue_transaction)
         
-        self.assertEqual(transaction_items.count(), 2)
+        self.assertEqual(transaction_items.count(), 1)
 
         # -----check Itemstock info---
-        quantity=ItemStockInfo.objects.get(item=self.item).quantity
-       
-        self.assertEqual(quantity,180 )
+        quantity=ItemStockInfo.get_latest_by_item_id(self.item.id).quantity
+        self.assertEqual(quantity,900 )
         
         
 
@@ -138,10 +139,7 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
         # os.system('clear')
         # print('\n-------test_retrieve_indent_inventory_transaction------- ')
         self.maxDiff = None
-        IssueItemInventoryTransaction.objects.all().delete()
-        InventoryTransactionItem.objects.all().delete()
-        InventoryTransaction.objects.all().delete() 
-        
+
         
         # print('------data input to serializer------')
         # print(self.indent_transaction_data)
@@ -171,6 +169,7 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
                 'item_batch': item.item_batch.id,
                 'quantity': item.quantity,
                 'is_active': item.is_active,
+                'inventory_transaction_type': 'itemIssue'
             } for item in InventoryTransactionItem.objects.filter(inventory_transaction=issue_item_transaction)
         ]
         expected_data['inventory_transaction_type']=InventoryTransaction.TransactionTypes.ITEM_ISSUE
