@@ -134,17 +134,22 @@ class IssueItemInventoryTransactionSerializer(InventoryTransactionSerializer):
         fields = '__all__'
 
 class ItemTransactionDetailSerializer(serializers.ModelSerializer):
-    item_stock_info = ItemStockInfoSerializer()
+    item_stock_info = serializers.SerializerMethodField()
     transactions = serializers.SerializerMethodField()
 
-    def to_representation(self, instance):
-         # Print the related ItemStockInfo instance
+    # def to_representation(self, instance):
+    #      # Print the related ItemStockInfo instance
     
-        item_stock=ItemStockInfo.objects.first()
+    #     item_stock=ItemStockInfo.objects.first()
    
       
-        representation = super().to_representation(instance)
-        return representation
+    #     representation = super().to_representation(instance)
+    #     return representation
+
+    def get_item_stock_info(self, obj):
+        item_stock=ItemStockInfo.objects.filter(item=obj).last()
+        print(f"item_stock: {item_stock}")
+        return ItemStockInfoSerializer(item_stock).data
     
     def get_transactions(self, obj):
         inventory_transaction_items = InventoryTransactionItem.objects.filter(item_batch__in=obj.item_batches.all())
@@ -154,4 +159,4 @@ class ItemTransactionDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ['id', 'name','item_code', 'item_stock_info', 'transactions']
+        fields = ['id', 'name','item_code',  'transactions', 'item_stock_info']

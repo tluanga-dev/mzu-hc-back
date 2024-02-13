@@ -52,7 +52,7 @@ class Item(models.Model):
         updated_on (DateTimeField): The date and time when the item was last updated.
     """
 
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+   
     name = models.CharField(max_length=255)
     item_code = models.CharField(max_length=255, blank=False, null=False, unique=True)
     description = models.TextField()

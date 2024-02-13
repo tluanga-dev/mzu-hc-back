@@ -1,4 +1,6 @@
 from datetime import date
+import json
+from uuid import UUID
 from rest_framework.test import APITestCase
 from rest_framework import status
 from django.urls import reverse
@@ -9,7 +11,15 @@ from features.inventory_transaction.serializers import IndentInventoryTransactio
 from features.item.models import Item, ItemBatch
 from features.organisation_section.models import OrganisationSection
 from features.supplier.models import Supplier
+from pprint import pprint
 
+
+# class UUIDEncoder(json.JSONEncoder):
+#     def default(self, obj):
+#         if isinstance(obj, UUID):
+#             # if the obj is uuid, we simply return the value of uuid
+#             return str(obj)
+#         return super().default(obj)
 
 class ItemTransactionsViewTestCase(BaseTestCase):
     def setUp(self):
@@ -107,12 +117,12 @@ class ItemTransactionsViewTestCase(BaseTestCase):
         # create indent transaction
 
 
-
+    
 
     def test_get_item_transactions(self):
         url = reverse('item-transactions-detail', kwargs={'pk': self.item.id})
         response = self.client.get(url)
-        print(response.data)
+        print(json.dumps(response.data, indent=4))
         
 
         # self.assertEqual(response.status_code, status.HTTP_200_OK)

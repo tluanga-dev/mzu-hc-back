@@ -44,7 +44,7 @@ class ItemBatchViewSetTestCase(BaseTestCase):
         date_of_expiry = timezone.make_aware(datetime.datetime(2022, 12, 31, 23, 59, 59))
         self.item_batch = ItemBatch.objects.create(batch_id='B1', description='Test Batch', date_of_expiry=date_of_expiry, item=self.item)
        
-        self.item_batches_url = reverse('item-batches', kwargs={'item_id': str(self.item.id)})
+        self.item_batches_url = reverse('item-batches', kwargs={'item_id': self.item.id})
      
         
     def test_item_batches_by_item_id(self):
