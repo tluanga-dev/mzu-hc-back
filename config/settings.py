@@ -65,8 +65,14 @@ INSTALLED_APPS = [
     'features.id_manager',
 
     # --------Section---------
-    'features.organisation_section'
+    'features.organisation_section',
   
+    # --------Person---------
+    'features.person',
+
+    # --------Prescription---------
+    'features.prescription',
+
 ]
 
 MIDDLEWARE = [
