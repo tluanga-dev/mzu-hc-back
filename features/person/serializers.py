@@ -13,7 +13,51 @@ class PersonTypeSerializer(serializers.ModelSerializer):
         model = PersonType
         fields = "__all__"
 
+# class PersonSerializer(serializers.ModelSerializer):
+#     person_type=serializers.SerializerMethodField()
+#     department=serializers.SerializerMethodField()
+
+#     def to_representation(self, instance):
+        
+
+#         return 
+
+#     def get_person_type(self, person_type):
+#         try:
+#             person_type_obj = PersonType.objects.get(id=person_type)
+#             return {
+#                 'id': person_type_obj.id,
+#                 'name': person_type_obj.name
+#             }
+#         except PersonType.DoesNotExist:
+#             return None
+        
+#     def get_department(self, department):
+#         try:
+#             department_obj = Department.objects.get(id=department)
+#             return {
+#                 'id': department_obj.id,
+#                 'name': department_obj.name
+#             }
+
+
 class PersonSerializer(serializers.ModelSerializer):
+    def to_representation(self, instance):
+        
+        self.fields['department'] = DepartmentSerializer(read_only=True)
+
+        self.fields['person_type'] = PersonTypeSerializer(read_only=True)
+        return super().to_representation(instance)
+
     class Meta:
         model = Person
-        fields = "__all__"
+        fields = [
+            'id',
+            'name',
+            'email',
+            'mzu_id',
+            'department',
+            'person_type',
+            'contact_no',
+            'is_active'
+        ]

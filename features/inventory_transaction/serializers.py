@@ -148,7 +148,7 @@ class ItemTransactionDetailSerializer(serializers.ModelSerializer):
 
     def get_item_stock_info(self, obj):
         item_stock=ItemStockInfo.objects.filter(item=obj).last()
-        print(f"item_stock: {item_stock}")
+       
         return ItemStockInfoSerializer(item_stock).data
     
     def get_transactions(self, obj):

@@ -36,7 +36,7 @@ class ItemTransactionsViewTestCase(BaseTestCase):
         )
         
         self.item.save()
-        print('---------')
+        
         self.item_batch1=ItemBatch.objects.create(
             batch_id='B2',
             description='Test Batch 1',
@@ -122,7 +122,7 @@ class ItemTransactionsViewTestCase(BaseTestCase):
     def test_get_item_transactions(self):
         url = reverse('item-transactions-detail', kwargs={'pk': self.item.id})
         response = self.client.get(url)
-        print(json.dumps(response.data, indent=4))
+        # print(json.dumps(response.data, indent=4))
         
 
         # self.assertEqual(response.status_code, status.HTTP_200_OK)
