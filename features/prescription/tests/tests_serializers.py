@@ -70,33 +70,41 @@ class TestPresciption(BaseTestCase):
             'note':'test note',
             'prescription_date':prescription_date,
             'prescription_dispense_status': Prescription.PressciptionDispenseStatus.NOT_DISPENSED,
-        
+            'prescribed_medicine_set': [
+                {
+                    'name': 'Test Medicine 1',
+                    'dosage': 'Test Dosage 1',
+                    'item': self.item_1.id
+                },
+                {
+                    'name': 'Test Medicine 2',
+                    'dosage': 'Test Dosage 2',
+                    'item': self.item_2.id
+                }
+            ]
          }
         
     def tests_prescription_create(self):
         serializer=PrescriptionSerializer(data=self.prescription_data_for_create)
        
         if(serializer.is_valid()):
-
-            # print('\n\n--------------------VALID DATA--------------------------')
-          
-            # print_json_string(serializer.data)
-            # print('---------------------------------\n\n')
             serializer.save()
+            print_json_string(serializer.data)  
         else:
             print('---------------------------------ERRORS----------------------')
             print(serializer.errors)
             print('---------------------------------')
-        # self.assertEqual(Prescription.objects.all().count(), 1)
-    
-    def tests_prescription_view(self):
-        serializer=PrescriptionSerializer(data=self.prescription_data_for_create)
-        if(serializer.is_valid()):
-            
-            serializer.save()
-        else:
-            print(serializer.errors)
+        self.assertEqual(Prescription.objects.all().count(), 1)
        
-        prescription=Prescription.objects.first()
-        serializer=PrescriptionSerializer(prescription)
-        print_json_string(serializer.data)
+    # def tests_prescription_view(self):
+    #     serializer=PrescriptionSerializer(data=self.prescription_data_for_create)
+    #     if(serializer.is_valid()):
+            
+    #         serializer.save()
+    #     else:
+    #         print(serializer.errors)
+       
+    #     prescription=Prescription.objects.first()
+    #     serializer=PrescriptionSerializer(prescription)
+        
+    #     print_json_string(serializer.data)

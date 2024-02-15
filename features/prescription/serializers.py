@@ -1,29 +1,41 @@
 from rest_framework import serializers
+from features.item.models import Item
 from features.person.models import Department, Person
 from features.person.serializers import PersonSerializer
 
 from features.prescription.models import Prescription, PrescribedMedicine
 
+class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Item
+        fields = ['id', 'name',]
+
 class PrescribedMedicineSerializer(serializers.ModelSerializer):
     
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['item'] =PrescribeMedicineItemSerializer(instance.item).data
+        return representation
     class Meta:
         model = PrescribedMedicine
         fields = [
-            "__all__"
+           'id',
+            'name',
+            'dosage',
+            'item'
         ]
 
-class DepartmentSerializer(serializers.ModelSerializer):
+class PrescriptionDepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
-        fields = ['name']
+        fields = ['id','name']
 
 
 class PrescriptionPersonSerializer(serializers.ModelSerializer):
-    department = DepartmentSerializer(read_only=True)
-
+    department = PrescriptionDepartmentSerializer(read_only=True)
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['department'] = instance.department.name
+        representation['department'] = PrescriptionDepartmentSerializer(instance.department).data
         return representation
 
     class Meta:
@@ -33,6 +45,27 @@ class PrescriptionPersonSerializer(serializers.ModelSerializer):
 
 class PrescriptionSerializer(serializers.ModelSerializer):
 
+    prescribed_medicine_set = serializers.ListSerializer(
+        child=PrescribedMedicineSerializer(),
+        read_only=False
+    )
+
+    def create(self, validated_data):
+        try:
+            print(f"validated_data: {validated_data}")
+            items_data = validated_data.pop('prescribed_medicine_set')
+            prescription = self.Meta.model.objects.create(**validated_data)
+            
+            for item_data in items_data:
+                data=PrescribedMedicine.objects.create(prescription=prescription, **item_data)
+                
+            return prescription
+      
+        except ValueError as e:
+            print(f"ValueError: {e}")
+            raise serializers.ValidationError(str(e))
+
+    
     class Meta:
         model = Prescription
         fields = [
@@ -41,7 +74,8 @@ class PrescriptionSerializer(serializers.ModelSerializer):
             'doctor', 
             'note', 
             'prescription_date',
-            'prescription_dispense_status'
+            'prescription_dispense_status',
+            'prescribed_medicine_set',
         ]
         read_only_fields = ['code']
 
