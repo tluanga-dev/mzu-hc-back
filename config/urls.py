@@ -22,6 +22,7 @@ from features.inventory_transaction.views import IndentInventoryTransactionViewS
 from features.item.tests.tests_item_batch import ItemBatchViewSetTestCase
 from features.item.views import ItemBatchViewSet, ItemCategoryViewSet, ItemTypeViewSet, ItemViewSet, UnitOfMeasurementViewSet
 from features.medicine.views import MedicineDosageDurationViewSet, MedicineDosageViewSet
+from features.prescription.views import PrescriptionViewSet
 
 
 
@@ -49,6 +50,10 @@ router.register(r'supplier', SupplierViewSet)
 router.register(r'transaction/indent', IndentInventoryTransactionViewSet, basename='indent-inventory-transactions')
 router.register(r'transaction/issue_item', IssueItemInventoryTransactionViewSet, basename='issue-item-inventory-transactions')
 
+# --------Prescription---------
+router.register(r'prescriptions', PrescriptionViewSet, basename='prescription')
+
+
 # --------Utilities---------
 router.register(r'id_manager', IdManagerViewSet)
 urlpatterns = [
@@ -59,6 +64,14 @@ urlpatterns = [
     path('item/<int:item_id>/batch=<uuid:batch_id>/', ItemBatchViewSet.as_view({'get': 'retrieve_batch'}), name='item-batch-detail'),
     
     path('transactions/<str:pk>/', ItemTransactionsView.as_view({'get':'retrieve'}), name='item-transactions-detail'),
-    # other url patterns...
+    
+    # ---------Prescription---------
+    path('prescriptions/<str:code>/', PrescriptionViewSet.as_view({'get': 'retrieve'}), name='prescription-detail'),
+    path('prescriptions/patient/<int:patient_id>/', PrescriptionViewSet.as_view({'get': 'retrieve'}), name='prescription-patient'),
+    path('prescriptions/doctor/<int:doctor_id>/', PrescriptionViewSet.as_view({'get': 'retrieve'}), name='prescription-doctor'),
+    path('prescriptions/date/<str:date>/', PrescriptionViewSet.as_view({'get': 'retrieve'}), name='prescription-date'),
+    path('prescriptions/start_date/<str:start_date>/end_date/<str:end_date>/', PrescriptionViewSet.as_view({'get': 'retrieve'}), name='prescription-date-range'),
+    path('prescriptions/status/<str:prescription_dispense_status>/', PrescriptionViewSet.as_view({'get': 'retrieve'}), name='prescription-status'),
+
     path('', include(router.urls)),
 ]
