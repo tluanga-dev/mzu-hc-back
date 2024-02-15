@@ -18,8 +18,8 @@ def post_save_inventory_transaction_item(sender, instance, created, **kwargs):
         previous_stock_info=ItemStockInfo.objects.filter(item=item).last()
         if previous_stock_info is not None:
             previous_quantity_inhand = previous_stock_info.quantity
-        else:
-            print(len(ItemStockInfo.objects.filter(item=item)))
+        # else:
+        #     print(len(ItemStockInfo.objects.filter(item=item)))
        
         # print('item:', item_stock_info)
         transaction_type=instance.inventory_transaction.inventory_transaction_type

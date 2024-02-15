@@ -28,11 +28,7 @@ class InventoryTransaction(TimeStampedAbstractModelClass):
         }
 
     inventory_transaction_type = models.CharField(max_length=100, choices=TransactionTypes.choices)
-
     inventory_transaction_id = models.CharField(max_length=100,  editable=False)
-    
-    
-
     date_time = models.DateTimeField(auto_now_add=True)
     remarks = models.CharField(max_length=200, blank=True, null=True) 
 
@@ -64,8 +60,7 @@ class InventoryTransactionItem(TimeStampedAbstractModelClass):
     )
     item_batch = models.ForeignKey(ItemBatch, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False)
-    is_active = models.BooleanField(default=True)
-
+ 
     class Meta:
         app_label = 'inventory_transaction'
 

@@ -7,6 +7,6 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
     queryset = Prescription.objects.all()
     serializer_class = PrescriptionSerializer
 
-class PrescriptionItemViewSet(viewsets.ModelViewSet):
+class PrescribedMedicineViewSet(viewsets.ModelViewSet):
     queryset = Prescription.objects.all()
     serializer_class = PrescriptionSerializer

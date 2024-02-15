@@ -63,7 +63,9 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
                     'inventory_transaction_type': InventoryTransaction.TransactionTypes.INDENT,
             
                 }
-            ]
+            ],
+           
+
         }
         # print('\n---------------\n')
         # print(self.indent_transaction_data)
@@ -140,7 +142,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
             } for item in InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
         ]
         expected_data['inventory_transaction_type']='indent'
-
+        expected_data['is_active']=True
         serializer_data = json.loads(json.dumps(serializer.data))
         # print('\nserializer_data, ',serializer_data)
         del serializer_data['inventory_transaction_id']

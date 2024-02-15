@@ -1,23 +1,35 @@
 from django.db import models
 
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
+from features.id_manager.models import IdManager
 from features.item.models import Item
+from features.person.models import Person
 
-
+PRESCRIPTION_ABBREVIATION = 'PRESC'
 class Prescription(TimeStampedAbstractModelClass):
     class PressciptionDispenseStatus(models.TextChoices):
         DISPENSED = 'dispensed', 'Dispensed'
         NOT_DISPENSED = 'not_dispensed', 'Not Dispensed'
-    patient_name = models.CharField(max_length=255)
-    doctor_name = models.CharField(max_length=255)
+    code=models.CharField(max_length=255,unique=True)
+    patient = models.ForeignKey(Person, related_name='prescriptions_patient', on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Person, related_name='prescriptions_doctor', on_delete=models.CASCADE)
     note= models.TextField()
-    prescription_date = models.DateField()
+    prescription_date = models.DateTimeField()
     prescription_dispense_status = models.CharField(
         max_length=100, 
         choices=PressciptionDispenseStatus.choices, 
         default=PressciptionDispenseStatus.NOT_DISPENSED
         
     )
+
+    def save(self, *args, **kwargs):
+        if not self.code:
+            
+            generated_item_code = IdManager.generateId(PRESCRIPTION_ABBREVIATION)
+            # print(generated_item_code)
+            self.code = generated_item_code
+
+        super().save(*args, **kwargs)
     class Meta:
         app_label = "prescription"
 
@@ -34,7 +46,7 @@ class PrescribedMedicine(TimeStampedAbstractModelClass):
     )
     prescription = models.ForeignKey(
         Prescription, 
-        related_name='prescribed_medicines'
+        related_name='prescribed_medicine_set'
         ,on_delete=models.CASCADE
     )
 

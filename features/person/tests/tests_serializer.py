@@ -43,7 +43,7 @@ class TestPersonSerializer(BaseTestCase):
             serializer.save()
         else:
             print(serializer.errors)
-        print(serializer.data)
+        
     
         person=Person.objects.get(name=self.person_data['name'])
         self.assertEqual(person.name,self.person_data['name'])
@@ -86,7 +86,7 @@ class TestPersonSerializer(BaseTestCase):
         serializer.data["person_type"].pop('created_on', None)
         serializer.data["person_type"].pop('updated_on', None)
         # serializer.data.pop('updated_on', None)
-        print('serializer data',json.dumps(serializer.data, indent=4))
-        print('expected data',json.dumps(expected_data, indent=4))
+        # print('serializer data',json.dumps(serializer.data, indent=4))
+        # print('expected data',json.dumps(expected_data, indent=4))
        
         self.assertEqual(serializer.data,expected_data)

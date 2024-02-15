@@ -159,7 +159,7 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
 
         expected_data = self.issue_item_transaction_data.copy()
         expected_data['id'] = issue_item_transaction.id
-        
+        expected_data['is_active']=True
         expected_data['date_time'] = issue_item_transaction.date_time.strftime('%d-%m-%Y %H:%M')
         expected_data['issue_to']=OrganisationSectionSerializer(self.organization_section).data 
         expected_data['inventory_transaction_item_set'] = [

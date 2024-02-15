@@ -10,9 +10,6 @@ from features.supplier.serializers import SupplierSerializer
 from .models import  InventoryTransaction, InventoryTransactionItem, IndentInventoryTransaction, IssueItemInventoryTransaction, ItemStockInfo
 
 
-
-
-
 class InventoryTransactionItemSerializer(serializers.ModelSerializer):
     inventory_transaction = serializers.PrimaryKeyRelatedField(read_only=True)
     inventory_transaction_type = serializers.SerializerMethodField()  
@@ -36,7 +33,10 @@ class InventoryTransactionItemSerializer(serializers.ModelSerializer):
 class InventoryTransactionSerializer(serializers.ModelSerializer):
    
     inventory_transaction_id = serializers.CharField(read_only=True)
-    inventory_transaction_item_set = serializers.ListSerializer(child=InventoryTransactionItemSerializer(), read_only=False)
+    inventory_transaction_item_set = serializers.ListSerializer(
+        child=InventoryTransactionItemSerializer(),
+        read_only=False
+    )
     inventory_transaction_type=serializers.CharField(read_only=True)
     date_time = serializers.SerializerMethodField()
 
