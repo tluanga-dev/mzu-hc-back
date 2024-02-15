@@ -1,4 +1,5 @@
 
+from django.utils import timezone
 import datetime
 from features.base.base_test_setup_class import BaseTestCase
 from features.item.models import Item
@@ -62,11 +63,12 @@ class TestPresciption(BaseTestCase):
             is_active=True,
             contact_no=1234567890
         )
+        prescription_date = timezone.make_aware(datetime.datetime(2022, 12, 31, 23, 59, 59))
         self.prescription_data_for_create = {
             'patient': self.patient.id,
             'doctor': self.doctor.id,
             'note':'test note',
-            'prescription_date': datetime.datetime(2022, 1, 1),
+            'prescription_date':prescription_date,
             'prescription_dispense_status': Prescription.PressciptionDispenseStatus.NOT_DISPENSED,
         
          }
