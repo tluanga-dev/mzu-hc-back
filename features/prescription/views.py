@@ -18,8 +18,7 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
         date_to = self.request.query_params.get('date_to', None)
         prescription_dispense_status= self.request.query_params.get('prescription_dispense_status', None)
 
-        if code is not None:
-            
+        if code is not None: 
             queryset = queryset.filter(code=code)
         if patient_id is not None:
             queryset = Prescription.objects.filter(patient__id=patient_id)

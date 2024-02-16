@@ -141,8 +141,12 @@ class PrescriptionViewSetTestCase(BaseTestCase):
         prescription=Prescription.objects.first()
         print("patient_id: ", prescription.patient.id)
       
+        # ------Filter by patient_id
         response = self.client.get(url, {'patient_id':prescription.patient.id})
         print_json_string(response.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data[0]['patient']['id'], prescription.patient.id)
      
         
         # self.assertEqual(response.status_code, status.HTTP_200_OK)
