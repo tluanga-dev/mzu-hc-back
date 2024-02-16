@@ -59,7 +59,7 @@ class TestModels(BaseTestCase):
         self.prescription=Prescription.objects.create(
             patient=self.patient,
             doctor=self.doctor,
-            prescription_date='2021-01-01',
+            date_and_time='2021-01-01',
             prescription_dispense_status=Prescription.PressciptionDispenseStatus.NOT_DISPENSED,
             note='Test Note',
         )

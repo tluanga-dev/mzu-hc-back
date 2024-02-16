@@ -1,7 +1,9 @@
+import datetime
 from rest_framework import serializers
 from features.item.models import Item
 from features.person.models import Department, Person
 from features.person.serializers import PersonSerializer
+from django.utils.timezone import make_aware
 
 from features.prescription.models import Prescription, PrescribedMedicine
 
@@ -73,7 +75,7 @@ class PrescriptionSerializer(serializers.ModelSerializer):
             'patient', 
             'doctor', 
             'note', 
-            'prescription_date',
+            'date_and_time',
             'prescription_dispense_status',
             'prescribed_medicine_set',
         ]
@@ -82,7 +84,10 @@ class PrescriptionSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         self.fields['patient'] = PrescriptionPersonSerializer(read_only=True)
         self.fields['doctor'] = PrescriptionPersonSerializer(read_only=True)
-        return super(PrescriptionSerializer, self).to_representation(instance)
+        representation = super().to_representation(instance)
+        return representation
+  
+
     
 
 
