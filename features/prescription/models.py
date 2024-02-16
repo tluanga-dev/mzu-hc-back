@@ -22,6 +22,9 @@ class Prescription(TimeStampedAbstractModelClass):
         
     )
 
+    def get_prescribed_medicine_by_patient(self, patient_id):
+        return self.prescribed_medicine_set.filter(prescription__patient_id=patient_id)
+
     def save(self, *args, **kwargs):
         if not self.code:
             

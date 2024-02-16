@@ -8,37 +8,29 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
     serializer_class = PrescriptionSerializer
 
     def get_queryset(self):
-        """
-        Optionally restricts the returned prescriptions,
-        by filtering against a `code` query parameter in the URL.
-        """
         queryset = Prescription.objects.all()
-        code = self.kwargs.get('code', None)
+
+        code = self.request.query_params.get('code', None)
+        patient_id = self.request.query_params.get('patient_id', None)
+        doctor_id = self.request.query_params.get('doctor_id', None)
+        date = self.request.query_params.get('date', None)
+        date_from = self.request.query_params.get('date_from', None)
+        date_to = self.request.query_params.get('date_to', None)
+        prescription_dispense_status= self.request.query_params.get('prescription_dispense_status', None)
+
         if code is not None:
+            
             queryset = queryset.filter(code=code)
-
-        patient_id = self.kwargs.get('patient_id', None)
         if patient_id is not None:
-            queryset = queryset.filter(patient__id=patient_id)
-
-        doctor_id = self.kwargs.get('doctor_id', None)
+            queryset = Prescription.objects.filter(patient__id=patient_id)
+            
         if doctor_id is not None:
-            queryset = queryset.filter(doctor__id=doctor_id)
-
-        date = self.kwargs.get('date', None)
+            queryset =  queryset.filter(doctor_id=doctor_id)
         if date is not None:
-            date = datetime.strptime(date, '%Y-%m-%d').date()
-            queryset = queryset.filter(prescription_date__date=date)
-
-        start_date = self.kwargs.get('start_date', None)
-        end_date = self.kwargs.get('end_date', None)
-        if start_date is not None and end_date is not None:
-            start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
-            end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
-            queryset = queryset.filter(prescription_date__date__range=(start_date, end_date))
-        
-        prescription_dispense_status = self.kwargs.get('prescription_dispense_status', None)
+            queryset = queryset.filter(prescription_date__exact=date)
+        if date_from is not None and date_to is not None:
+            queryset = queryset.filter(prescription_date__gte=date_from, prescription_date__lte=date_to)
         if prescription_dispense_status is not None:
             queryset = queryset.filter(prescription_dispense_status=prescription_dispense_status)
-            
+     
         return queryset

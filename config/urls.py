@@ -65,13 +65,6 @@ urlpatterns = [
     
     path('transactions/<str:pk>/', ItemTransactionsView.as_view({'get':'retrieve'}), name='item-transactions-detail'),
     
-    # ---------Prescription---------
-    path('prescriptions/<str:code>/', PrescriptionViewSet.as_view({'get': 'retrieve'}), name='prescription-detail'),
-    path('prescriptions/patient/<int:patient_id>/', PrescriptionViewSet.as_view({'get': 'retrieve'}), name='prescription-patient'),
-    path('prescriptions/doctor/<int:doctor_id>/', PrescriptionViewSet.as_view({'get': 'retrieve'}), name='prescription-doctor'),
-    path('prescriptions/date/<str:date>/', PrescriptionViewSet.as_view({'get': 'retrieve'}), name='prescription-date'),
-    path('prescriptions/start_date/<str:start_date>/end_date/<str:end_date>/', PrescriptionViewSet.as_view({'get': 'retrieve'}), name='prescription-date-range'),
-    path('prescriptions/status/<str:prescription_dispense_status>/', PrescriptionViewSet.as_view({'get': 'retrieve'}), name='prescription-status'),
-
+   
     path('', include(router.urls)),
 ]

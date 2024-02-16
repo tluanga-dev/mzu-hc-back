@@ -89,7 +89,7 @@ class TestPresciption(BaseTestCase):
        
         if(serializer.is_valid()):
             serializer.save()
-            print_json_string(serializer.data)  
+            # print_json_string(serializer.data)  
         else:
             print('---------------------------------ERRORS----------------------')
             print(serializer.errors)

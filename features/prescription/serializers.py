@@ -40,7 +40,7 @@ class PrescriptionPersonSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Person
-        fields = ['name', 'department']
+        fields = ['id','name', 'department']
 
 
 class PrescriptionSerializer(serializers.ModelSerializer):
@@ -52,7 +52,7 @@ class PrescriptionSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         try:
-            print(f"validated_data: {validated_data}")
+            # print(f"validated_data: {validated_data}")
             items_data = validated_data.pop('prescribed_medicine_set')
             prescription = self.Meta.model.objects.create(**validated_data)
             
