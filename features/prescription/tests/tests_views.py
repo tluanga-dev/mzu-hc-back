@@ -63,19 +63,29 @@ class PrescriptionViewSetTestCase(BaseTestCase):
             is_active=True,
             contact_no=1234567880
         )
-        self.doctor = Person.objects.create(
-            name='Test Doctor',
+        self.doctor_1 = Person.objects.create(
+            name='Test Doctor 1',
             person_type=self.person_type_doctor,
             department=self.department,
-            email='doctor@gmail.com',
+            email='doctor1@gmail.com',
             mzu_id='1234561212',
+            is_active=True,
+            contact_no=1234567890
+        )
+
+        self.doctor_2 = Person.objects.create(
+            name='Test Doctor 2',
+            person_type=self.person_type_doctor,
+            department=self.department,
+            email='doctor2@gmail.com',
+            mzu_id='2234561212',
             is_active=True,
             contact_no=1234567890
         )
         prescription_date = timezone.make_aware(datetime.datetime(2022, 12, 31, 23, 59, 59))
         self.prescription_data_1 = {
             'patient': self.patient_1.id,
-            'doctor': self.doctor.id,
+            'doctor': self.doctor_1.id,
             'note':'test note',
             'prescription_date':prescription_date,
             'prescription_dispense_status': Prescription.PressciptionDispenseStatus.NOT_DISPENSED,
@@ -95,7 +105,7 @@ class PrescriptionViewSetTestCase(BaseTestCase):
         
         self.prescription_data_2 = {
             'patient': self.patient_2.id,
-            'doctor': self.doctor.id,
+            'doctor': self.doctor_2.id,
             'note':'test note 2',
             'prescription_date':prescription_date,
             'prescription_dispense_status': Prescription.PressciptionDispenseStatus.NOT_DISPENSED,
@@ -139,16 +149,23 @@ class PrescriptionViewSetTestCase(BaseTestCase):
         # Test filtering by an exact date
         # response = self.client.get(url, {'issue_date': '2022-01-01'})
         prescription=Prescription.objects.first()
-        print("patient_id: ", prescription.patient.id)
+     
       
         # ------Filter by patient_id
         response = self.client.get(url, {'patient_id':prescription.patient.id})
-        print_json_string(response.data)
+        
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)
         self.assertEqual(response.data[0]['patient']['id'], prescription.patient.id)
+
+         # ------Filter by patient_id
+        response = self.client.get(url, {'doctor_id':prescription.doctor.id})
+        # print_json_string(response.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data[0]['doctor']['id'], prescription.doctor.id)
      
-        
+        #-----Filter by----
         # self.assertEqual(response.status_code, status.HTTP_200_OK)
         # self.assertEqual(len(response.data),1)
         # self.assertEqual(response.data[0]['issue_date'], '2022-01-01')
