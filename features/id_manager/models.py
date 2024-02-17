@@ -1,19 +1,14 @@
 from datetime import datetime
 import uuid
 from django.db import models
+from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
 
 from features.id_manager.generate_id import generate_next_id
 
 # Create your models here.
-class IdManager(models.Model):
-    id=models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    
+class IdManager(TimeStampedAbstractModelClass):
     prefix=models.CharField(max_length=255, unique=True)
     latest_id=models.TextField()
-    is_active = models.BooleanField(default=True)
-    created_on = models.DateTimeField(auto_now_add=True)
-    updated_on = models.DateTimeField(auto_now=True)
-
     @classmethod
     def generateId(cls, prefix):
        
@@ -31,9 +26,6 @@ class IdManager(models.Model):
             id_manager.updated_on = datetime.now()
             id_manager.save()  
             
-            
-            
- 
             return id_manager.latest_id 
         else:
             return id_manager.latest_id

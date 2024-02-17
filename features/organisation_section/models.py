@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
@@ -8,9 +9,7 @@ class OrganisationSection(TimeStampedAbstractModelClass):
     name = models.CharField(max_length=100,null=False, blank=False)
     code = models.CharField(max_length=100, unique=True, null=False, blank=False)
     description = models.TextField()
-    is_active = models.BooleanField(default=True)
-   
-
+  
     def __str__(self):
         return self.name
    

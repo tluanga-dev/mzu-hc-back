@@ -18,8 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from features.id_manager.views import IdManagerViewSet
-from features.inventory_transaction.views import IndentInventoryTransactionViewSet, IssueItemInventoryTransactionViewSet, ItemTransactionsView
-from features.item.tests.tests_item_batch import ItemBatchViewSetTestCase
+from features.inventory_transaction.indent_transaction.views import IndentInventoryTransactionViewSet
+from features.inventory_transaction.inventory_transaction.views import ItemTransactionsView
+from features.inventory_transaction.issue_transaction.views import IssueItemInventoryTransactionViewSet
 from features.item.views import ItemBatchViewSet, ItemCategoryViewSet, ItemTypeViewSet, ItemViewSet, UnitOfMeasurementViewSet
 from features.medicine.views import MedicineDosageDurationViewSet, MedicineDosageViewSet
 from features.prescription.views import PrescriptionViewSet
@@ -31,7 +32,7 @@ from features.supplier.views import SupplierViewSet
 
 
 router = DefaultRouter()
-router.register(r'item/units-of-measurement', UnitOfMeasurementViewSet)
+router.register(r'item/units-of-measurement', UnitOfMeasurementViewSet,basename='unit-of-measurement')
 router.register(r'item/item_category', ItemCategoryViewSet)
 router.register(r'item/item_type', ItemTypeViewSet)
 

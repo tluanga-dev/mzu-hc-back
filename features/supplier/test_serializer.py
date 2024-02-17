@@ -5,17 +5,16 @@ from features.supplier.serializers import SupplierSerializer
 
 class SupplierSerializerTest(TestCase):
     def setUp(self):
-        self.supplier_attributes = {
+        self.supplier_data= {
             'name': 'Test Supplier',
             'contact_no': 1234567890.0,
             'email': 'test@example.com',
             'address': 'Test Address',
             'remarks': 'Test Remarks',
-            'is_active': True
+            
         }
         
-
-        self.supplier = Supplier.objects.create(**self.supplier_attributes)
+        self.supplier = Supplier.objects.create(**self.supplier_data)
         self.serializer_data = SupplierSerializer(self.supplier).data
       
 
@@ -29,8 +28,7 @@ class SupplierSerializerTest(TestCase):
             'address',
             'remarks',
             'is_active',
-            # 'created_on',
-            # 'updated_on',
+      
         ]))
     def test_name_field_content(self):
         data = SupplierSerializer(Supplier(name='Test Supplier')).data
@@ -57,5 +55,60 @@ class SupplierSerializerTest(TestCase):
         self.assertEqual(data['is_active'], True)
 
     def test_validation(self):
-        serializer = SupplierSerializer(data=self.supplier_attributes)
+        serializer = SupplierSerializer(data=self.supplier_data)
         self.assertTrue(serializer.is_valid(raise_exception=True))
+
+    def test_create_serializer(self):
+        serializer = SupplierSerializer(data=self.supplier_data)
+        if(serializer.is_valid()):
+            serializer.save()
+        else:
+            print(serializer.errors)
+
+    def test_serializer_get(self):
+        serializer = SupplierSerializer(self.supplier)
+
+        expected_data = {
+            'id': str(self.supplier.id),
+            'name': self.supplier.name,
+            'contact_no': self.supplier.contact_no,
+            'email': self.supplier.email,
+            'address': self.supplier.address,
+            'remarks': self.supplier.remarks,
+            'is_active': self.supplier.is_active,
+        }
+        serializer.data.pop('id', None)
+        self.assertEqual(expected_data, serializer.data)
+        
+    def test_update(self):
+        self.supplier = Supplier.objects.create(
+            name='Test Supplier',
+            contact_no=1234567890,
+            email='test@supplier.com',
+            address='123 Test St',
+            remarks='Test Remarks',
+            is_active=True,
+        )
+
+        self.serializer = SupplierSerializer(instance=self.supplier)
+
+
+
+        data = {
+            'name': 'Updated Supplier',
+            'contact_no': 9876543210,
+            'email': 'updated@supplier.com',
+            'address': '321 Updated St',
+            'remarks': 'Updated Remarks',
+            'is_active': False,
+        }
+
+        updated_serializer = self.serializer.update(self.supplier, data)
+        updated_supplier = Supplier.objects.get(id=self.supplier.id)
+
+        self.assertEqual(updated_supplier.name, data['name'])
+        self.assertEqual(updated_supplier.contact_no, data['contact_no'])
+        self.assertEqual(updated_supplier.email, data['email'])
+        self.assertEqual(updated_supplier.address, data['address'])
+        self.assertEqual(updated_supplier.remarks, data['remarks'])
+        self.assertEqual(updated_supplier.is_active, data['is_active'])

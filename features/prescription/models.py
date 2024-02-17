@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
@@ -7,9 +8,11 @@ from features.person.models import Person
 
 PRESCRIPTION_ABBREVIATION = 'PRESC'
 class Prescription(TimeStampedAbstractModelClass):
+    
     class PressciptionDispenseStatus(models.TextChoices):
         DISPENSED = 'dispensed', 'Dispensed'
         NOT_DISPENSED = 'not_dispensed', 'Not Dispensed'
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     code=models.CharField(max_length=255,unique=True)
     patient = models.ForeignKey(Person, related_name='prescriptions_patient', on_delete=models.CASCADE)
     doctor = models.ForeignKey(Person, related_name='prescriptions_doctor', on_delete=models.CASCADE)

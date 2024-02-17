@@ -57,7 +57,9 @@ INSTALLED_APPS = [
 
 
     # --------Inventory-Transactions---------
-    'features.inventory_transaction',
+    'features.inventory_transaction.inventory_transaction',
+    'features.inventory_transaction.indent_transaction',
+    'features.inventory_transaction.issue_transaction',
   
 
     # --------Suppliers---------
