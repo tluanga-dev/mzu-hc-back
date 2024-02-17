@@ -83,7 +83,7 @@ class PrescriptionViewSetTestCase(BaseTestCase):
             is_active=True,
             contact_no=1234567890
         )
-        self.date_and_time_1 = datetime.datetime(2022, 12, 31, 23, 59, 59)
+        self.date_and_time_1 = '28-12-2022 20:59'
         self.prescription_data_1 = {
             'patient': self.patient_1.id,
             'doctor': self.doctor_1.id,
@@ -103,7 +103,7 @@ class PrescriptionViewSetTestCase(BaseTestCase):
                 }
             ]
          }# Create a few Prescription instances here
-        self.date_and_time_2 = datetime.datetime(2023, 12, 28, 23, 59, 59)
+        self.date_and_time_2 = '10-12-2023 14:20'
         self.prescription_data_2 = {
             'patient': self.patient_2.id,
             'doctor': self.doctor_2.id,
@@ -124,34 +124,20 @@ class PrescriptionViewSetTestCase(BaseTestCase):
             ]
          }#
 
-        # serialized_prescription = PrescriptionSerializer(data=self.prescription_data_1)
-        # if serialized_prescription.is_valid():
-        #     serialized_prescription.save()
-        # else:
-        #     print(serialized_prescription.errors)
-
-        # serialized_prescription = PrescriptionSerializer(data=self.prescription_data_2)
-        # if serialized_prescription.is_valid():
-        #     serialized_prescription.save()
-        # else:
-        #     print(serialized_prescription.errors)
-
-    # def tearDown(self):
-    #     # Delete the Prescription instances here
-
+       
 
     def test_filter_prescription_view(self):
    
         url = reverse('prescription-list')
         
         self.client.post(url, self.prescription_data_1, format='json')
+         
         self.client.post(url, self.prescription_data_2, format='json')
 
         # Test filtering by an exact date
         # response = self.client.get(url, {'issue_date': '2022-01-01'})
         prescription=Prescription.objects.first()
-     
-      
+       
         # ------Filter by patient_id
         response = self.client.get(url, {'patient_id':prescription.patient.id})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -166,21 +152,18 @@ class PrescriptionViewSetTestCase(BaseTestCase):
         self.assertEqual(response.data[0]['doctor']['id'], prescription.doctor.id)
      
         # -----Filter by date----
-        response = self.client.get(url, {'date':'28/12/2023'})
-        #
+        response = self.client.get(url, {'date':'28-12-2022'})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data),1)
         
+        date_and_time_received=response.data[0]['date_and_time']
+   
+        self.assertEqual(date_and_time_received,self.date_and_time_1 )
 
-        self.assertEqual(format_date_string(response.data[0]['date_and_time']),datetime_to_string(self.date_and_time_2) )
+        # # Test filtering by a range of dates
+        response = self.client.get(url, {'date_from': '1-01-2023', 'date_to': '31-12-2023'})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
+        date_and_time_received=response.data[0]['date_and_time']
+        self.assertEqual(date_and_time_received,self.date_and_time_2 )
 
-        # # # Test filtering by a range of dates
-        # response = self.client.get(url, {'issue_date_from': '2022-01-01', 'issue_date_to': '2022-04-01'})
-        # self.assertEqual(response.status_code, status.HTTP_200_OK)
-        # self.assertEqual(len(response.data), 1)
-
-        #  # Test filtering by a range of dates
-        # response = self.client.get(url, {'issue_date_from': '2022-02-01', 'issue_date_to': '2022-06-01'})
-     
-        # self.assertEqual(response.status_code, status.HTTP_200_OK)
-        # self.assertEqual(len(response.data), 1)

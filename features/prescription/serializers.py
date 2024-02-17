@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from rest_framework import serializers
 from features.item.models import Item
 from features.person.models import Department, Person
@@ -6,6 +6,7 @@ from features.person.serializers import PersonSerializer
 from django.utils.timezone import make_aware
 
 from features.prescription.models import Prescription, PrescribedMedicine
+from features.utils.convert_date import DateConverter
 
 class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
     class Meta:
@@ -46,11 +47,26 @@ class PrescriptionPersonSerializer(serializers.ModelSerializer):
 
 
 class PrescriptionSerializer(serializers.ModelSerializer):
-
+    date_and_time = serializers.DateTimeField(format="%d-%m-%Y %H:%M")
+    
     prescribed_medicine_set = serializers.ListSerializer(
         child=PrescribedMedicineSerializer(),
         read_only=False
     )
+
+    def to_internal_value(self, data):
+        # Convert the incoming date_and_time to the database format
+        print(f"to_internal_value: {data['date_and_time']}")
+        if 'date_and_time' in data:
+            try:
+                converted_date_and_time= DateConverter.convert_date_format_to_django_default(
+                    data['date_and_time']
+                ) 
+                print(f"converted_date_and_time: {converted_date_and_time}")
+                data['date_and_time'] =converted_date_and_time
+            except ValueError:
+                raise serializers.ValidationError({"date_and_time": "Date and time must be in 'dd-mm-yyyy hh:mm' format"})
+        return super().to_internal_value(data)
 
     def create(self, validated_data):
         try:
@@ -84,6 +100,7 @@ class PrescriptionSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         self.fields['patient'] = PrescriptionPersonSerializer(read_only=True)
         self.fields['doctor'] = PrescriptionPersonSerializer(read_only=True)
+        
         representation = super().to_representation(instance)
         return representation
   

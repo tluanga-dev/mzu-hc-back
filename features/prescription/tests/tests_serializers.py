@@ -63,7 +63,7 @@ class TestPresciption(BaseTestCase):
             is_active=True,
             contact_no=1234567890
         )
-        date_and_time = timezone.make_aware(datetime.datetime(2022, 12, 31, 23, 59, 59))
+        date_and_time = '10-12-2023 14:20'
         self.prescription_data_for_create = {
             'patient': self.patient.id,
             'doctor': self.doctor.id,
@@ -96,15 +96,15 @@ class TestPresciption(BaseTestCase):
             print('---------------------------------')
         self.assertEqual(Prescription.objects.all().count(), 1)
        
-    # def tests_prescription_view(self):
-    #     serializer=PrescriptionSerializer(data=self.prescription_data_for_create)
-    #     if(serializer.is_valid()):
+    def tests_prescription_view(self):
+        serializer=PrescriptionSerializer(data=self.prescription_data_for_create)
+        if(serializer.is_valid()):
             
-    #         serializer.save()
-    #     else:
-    #         print(serializer.errors)
+            serializer.save()
+        else:
+            print(serializer.errors)
        
-    #     prescription=Prescription.objects.first()
-    #     serializer=PrescriptionSerializer(prescription)
+        prescription=Prescription.objects.first()
+        serializer=PrescriptionSerializer(prescription)
         
-    #     print_json_string(serializer.data)
+        # print_json_string(serializer.data)
