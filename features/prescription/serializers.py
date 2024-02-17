@@ -56,13 +56,13 @@ class PrescriptionSerializer(serializers.ModelSerializer):
 
     def to_internal_value(self, data):
         # Convert the incoming date_and_time to the database format
-        print(f"to_internal_value: {data['date_and_time']}")
+        
         if 'date_and_time' in data:
             try:
                 converted_date_and_time= DateConverter.convert_date_format_to_django_default(
                     data['date_and_time']
                 ) 
-                print(f"converted_date_and_time: {converted_date_and_time}")
+                
                 data['date_and_time'] =converted_date_and_time
             except ValueError:
                 raise serializers.ValidationError({"date_and_time": "Date and time must be in 'dd-mm-yyyy hh:mm' format"})

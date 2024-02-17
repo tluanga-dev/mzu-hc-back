@@ -3,9 +3,9 @@ from rest_framework import viewsets
 
 from features.prescription.models import Prescription
 from features.prescription.serializers import PrescriptionSerializer
-from features.utils.convert_date import convert_date_format
+from features.utils.convert_date import DateConverter
 from features.prescription.models import Prescription
-from features.utils.convert_date import convert_date_format
+
 
 class PrescriptionViewSet(viewsets.ModelViewSet):
     serializer_class = PrescriptionSerializer
@@ -30,14 +30,12 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
             queryset =  queryset.filter(doctor_id=doctor_id)
 
         if date is not None:
-            date = convert_date_format(date)
+            date = DateConverter.convert_date_format(date)
             queryset = queryset.filter(date_and_time__date=date)
 
         if date_from is not None and date_to is not None:
-            converted_date_from=convert_date_format(date_from)
-            print(f"converted_date_from: {converted_date_from}")
-            converted_date_to=convert_date_format(date_to)
-            print(f"converted_date_to: {converted_date_to}")
+            converted_date_from=DateConverter.convert_date_format(date_from)
+            converted_date_to=DateConverter.convert_date_format(date_to)
             # comparting the date part only
             queryset = queryset.filter(
                 date_and_time__date__gte=converted_date_from, date_and_time__date__lte=converted_date_to)

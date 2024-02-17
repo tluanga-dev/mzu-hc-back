@@ -8,8 +8,7 @@ from features.item.models import Item
 from features.person.models import Department, Person, PersonType
 from features.prescription.models import PrescribedMedicine, Prescription
 from features.prescription.serializers import PrescriptionSerializer
-from features.utils.convert_date import datetime_to_string, format_date_string
-from features.utils.print_json import print_json_string
+
 
 class PrescriptionViewSetTestCase(BaseTestCase):
     def setUp(self):
