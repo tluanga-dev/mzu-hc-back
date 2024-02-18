@@ -26,17 +26,15 @@ def post_save_inventory_transaction_item(sender, instance, created, **kwargs):
                 inventory_transaction_item=instance,
 
             )
-            # print('\n\n-----------INDENT-----')
-            # print('/nItem Id/n',item.id)
-            # print(new_item_stock_info.quantity)
-            # print('\n\n')
+            print('\n\n-----------INDENT-----')
+            print('/nItem Id/n',item.id)
+            print(new_item_stock_info.quantity)
+            print('\n\n')
             
-        elif(transaction_type==InventoryTransaction.TransactionTypes.ITEM_ISSUE):
-            # print('\n\n-----------ITEM_ISSUE-----')
-            # print('/nItem Id/n',item.id)
-            # print('Previous item stock info',previous_stock_info)
-            
-            
+        elif (
+            transaction_type == InventoryTransaction.TransactionTypes.ITEM_ISSUE or 
+            transaction_type == InventoryTransaction.TransactionTypes.DISPENSE
+            ):      
             if(previous_quantity_inhand<instance.quantity):
                 # print('previous quantity inhand:', previous_quantity_inhand)
                 raise ValueError('Item stock is less than the quantity to be issued')
@@ -48,4 +46,4 @@ def post_save_inventory_transaction_item(sender, instance, created, **kwargs):
 
                 )
                 # print('new_item_stock_info:', new_item_stock_info.quantity)
-        
+ 

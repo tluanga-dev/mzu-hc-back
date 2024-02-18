@@ -6,7 +6,7 @@ from rest_framework import status
 from features.base.base_test_setup_class import BaseTestCase
 from features.inventory_transaction.indent_transaction.models import IndentInventoryTransaction
 from features.inventory_transaction.indent_transaction.serializers import IndentInventoryTransactionSerializer
-from features.inventory_transaction.inventory_transaction.models import InventoryTransaction, InventoryTransactionItem
+from features.inventory_transaction.inventory_transaction.models import InventoryTransaction, InventoryTransactionItem, ItemStockInfo
 from features.item.models import Item, ItemBatch
 from features.person.models import Department, Person, PersonType
 from features.person.serializers import PersonSerializer
@@ -117,6 +117,7 @@ class DispenseInventoryTransactionTest(BaseTestCase):
             else:
                 print('serializer is not valid')
                 print(serializer.errors)
+
         except ValueError as e:
             print(f"Error: {e}")
 
@@ -150,4 +151,6 @@ class DispenseInventoryTransactionTest(BaseTestCase):
         prescription=Prescription.objects.get(id=self.prescription.id)
         self.assertEqual(prescription.prescription_dispense_status, Prescription.PresciptionDispenseStatus.DISPENSED)
 
-
+        # --item stock info got updated--
+        item_stock_info=ItemStockInfo.objects.filter(item=self.item).last()
+        print(item_stock_info.quantity)
