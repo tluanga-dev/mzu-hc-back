@@ -25,6 +25,8 @@ from features.inventory_transaction.issue_transaction.views import IssueItemInve
 from features.item.views import ItemBatchViewSet, ItemCategoryViewSet, ItemTypeViewSet, ItemViewSet, UnitOfMeasurementViewSet
 from features.medicine.views import MedicineDosageDurationViewSet, MedicineDosageViewSet
 from features.prescription.views import PrescriptionViewSet
+from features.setup.views import SetupView
+
 
 
 
@@ -57,6 +59,7 @@ router.register(r'transaction/dispense', DispenseInventoryTransactionViewSet, ba
 # --------Prescription---------
 router.register(r'prescriptions', PrescriptionViewSet, basename='prescription')
 
+router.register(r'setup', SetupView, basename='setup')
 
 # --------Utilities---------
 router.register(r'id_manager', IdManagerViewSet)
@@ -73,5 +76,6 @@ urlpatterns = [
     
     re_path(r'^item/(?P<item_id>[0-9a-f-]+)/batches/$', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),
    
+  
     path('', include(router.urls)),
 ]
