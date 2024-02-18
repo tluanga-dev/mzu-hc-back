@@ -69,7 +69,7 @@ class TestPresciption(BaseTestCase):
             'doctor': self.doctor.id,
             'note':'test note',
             'date_and_time':date_and_time,
-            'prescription_dispense_status': Prescription.PressciptionDispenseStatus.NOT_DISPENSED,
+            'prescription_dispense_status': Prescription.PresciptionDispenseStatus.NOT_DISPENSED,
             'prescribed_medicine_set': [
                 {
                     'name': 'Test Medicine 1',

@@ -88,7 +88,7 @@ class PrescriptionViewSetTestCase(BaseTestCase):
             'doctor': self.doctor_1.id,
             'note':'test note',
             'date_and_time':self.date_and_time_1,
-            'prescription_dispense_status': Prescription.PressciptionDispenseStatus.NOT_DISPENSED,
+            'prescription_dispense_status': Prescription.PresciptionDispenseStatus.NOT_DISPENSED,
             'prescribed_medicine_set': [
                 {
                     'name': 'Test Medicine 1',
@@ -108,7 +108,7 @@ class PrescriptionViewSetTestCase(BaseTestCase):
             'doctor': self.doctor_2.id,
             'note':'test note 2',
             'date_and_time':self.date_and_time_2,
-            'prescription_dispense_status': Prescription.PressciptionDispenseStatus.NOT_DISPENSED,
+            'prescription_dispense_status': Prescription.PresciptionDispenseStatus.NOT_DISPENSED,
             'prescribed_medicine_set': [
                 {
                     'name': 'Test Medicine 1',

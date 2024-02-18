@@ -60,7 +60,7 @@ class TestModels(BaseTestCase):
             patient=self.patient,
             doctor=self.doctor,
             date_and_time='2021-01-01',
-            prescription_dispense_status=Prescription.PressciptionDispenseStatus.NOT_DISPENSED,
+            prescription_dispense_status=Prescription.PresciptionDispenseStatus.NOT_DISPENSED,
             note='Test Note',
         )
 

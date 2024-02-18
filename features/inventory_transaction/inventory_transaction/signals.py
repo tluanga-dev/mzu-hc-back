@@ -24,7 +24,6 @@ def post_save_inventory_transaction_item(sender, instance, created, **kwargs):
                 item=item,
                 quantity=previous_quantity_inhand+instance.quantity,
                 inventory_transaction_item=instance,
-
             )
         
             
