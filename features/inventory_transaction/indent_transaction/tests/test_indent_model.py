@@ -12,6 +12,7 @@ class IndentInventoryTransactionModelTest(BaseTestCase):
         # Set up non-modified objects used by all test methods
         super().setUp()
         Item.objects.all().delete()
+        Supplier.objects.all().delete()
         self.supplier=Supplier.objects.create(
             name='Test Supplier', 
             address='Test Address', 

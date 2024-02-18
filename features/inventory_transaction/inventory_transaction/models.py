@@ -74,6 +74,11 @@ class ItemStockInfo(TimeStampedAbstractModelClass):
 
     @classmethod
     def get_latest_by_item_id(cls, item_id):
+        # data_list=cls.objects.filter(item_id=item_id)
+        # for data in data_list:
+        #     print(data.quantity)
         return cls.objects.filter(item_id=item_id).last()
+     
+  
 
 

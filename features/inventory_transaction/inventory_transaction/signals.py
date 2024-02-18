@@ -3,16 +3,12 @@ from django.db.models.signals import post_save
 
 from features.inventory_transaction.inventory_transaction.models import InventoryTransaction, InventoryTransactionItem, ItemStockInfo
 
-
-
-
 @receiver(post_save, sender=InventoryTransactionItem)
 def post_save_inventory_transaction_item(sender, instance, created, **kwargs):
-  
+   
     if created:
         # --get the latest item stock info
         item=instance.item_batch.item
-       
         previous_quantity_inhand = 0
         previous_stock_info=ItemStockInfo.objects.filter(item=item).last()
         if previous_stock_info is not None:

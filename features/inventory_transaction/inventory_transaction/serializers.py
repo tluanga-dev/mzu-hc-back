@@ -45,9 +45,11 @@ class InventoryTransactionSerializer(serializers.ModelSerializer):
             # print(f"validated_data: {validated_data}")
             transaction_items_data = validated_data.pop('inventory_transaction_item_set')
             transaction = self.Meta.model.objects.create(**validated_data)
-            
+            # print(f"transaction_items_data: {transaction_items_data}")
+            created_data=[]
             for transaction_item_data in transaction_items_data:
                 data=InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
+                created_data.append(data)
                 
             return transaction
       
