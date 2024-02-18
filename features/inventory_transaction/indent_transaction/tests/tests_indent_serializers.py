@@ -155,7 +155,6 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         serializer_data.pop('created_on', None)
         serializer_data.pop('updated_on', None)
         
-        print('\n\n------expected_data------')
-        print(expected_data)
+    
         
         self.assertEquals(serializer_data,expected_data) 
