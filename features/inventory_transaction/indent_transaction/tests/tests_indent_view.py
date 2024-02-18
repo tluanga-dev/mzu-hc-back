@@ -131,8 +131,6 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
         date_of_delivery='2022-01-01',
         inventory_transaction_type='indent',
         inventory_transaction_id='INDENT1',
-        date_time='2024-01-27 22:08:00',
-      
         )
         url = reverse('indent-inventory-transactions-detail', kwargs={'pk': indent_transaction.pk})
         response = self.client.get(url)
@@ -164,7 +162,6 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
             'inventory_transaction_type': 'indent',
             'inventory_transaction_id': 'INDENT1',
             'remarks': None,
-            'date_time': '2024-01-27 22:08:00',
             'status': 'pending',
         }
         response = self.client.post(url, data, format='json')
@@ -186,7 +183,6 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
             'inventory_transaction_type': 'indent',
             'inventory_transaction_id': 'INDENT2',
             'remarks': 'This is supply order 2',
-            'date_time': '2024-01-27 22:08:00',
             'status': 'pending',
         }
         response = self.client.post(url, data_2, format='json')

@@ -20,16 +20,13 @@ def post_save_inventory_transaction_item(sender, instance, created, **kwargs):
         transaction_type=instance.inventory_transaction.inventory_transaction_type
         if(transaction_type==InventoryTransaction.TransactionTypes.INDENT):
 
-            new_item_stock_info=ItemStockInfo.objects.create(
+           ItemStockInfo.objects.create(
                 item=item,
                 quantity=previous_quantity_inhand+instance.quantity,
                 inventory_transaction_item=instance,
 
             )
-            print('\n\n-----------INDENT-----')
-            print('/nItem Id/n',item.id)
-            print(new_item_stock_info.quantity)
-            print('\n\n')
+        
             
         elif (
             transaction_type == InventoryTransaction.TransactionTypes.ITEM_ISSUE or 

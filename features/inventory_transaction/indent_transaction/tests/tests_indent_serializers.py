@@ -132,7 +132,6 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
             'remarks': None,
             'is_active': True
         }
-        expected_data['date_time'] = indent_transaction.date_time.strftime('%d-%m-%Y %H:%M')
         expected_data['inventory_transaction_item_set'] = [
             {
                 'id': str(item.id),
