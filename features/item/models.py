@@ -10,6 +10,9 @@ class UnitOfMeasurement(TimeStampedAbstractModelClass):
     description = models.TextField()
     example = models.TextField()
 
+    class Meta:
+        app_label = 'item'
+
 
 class ItemCategory(TimeStampedAbstractModelClass):
     name = models.CharField(max_length=255)
@@ -25,6 +28,9 @@ class ItemType(TimeStampedAbstractModelClass):
     description = models.TextField()
     example = models.TextField()
     category = models.ForeignKey(ItemCategory, null=True, on_delete=models.SET_NULL)
+
+    class Meta:
+        app_label = 'item'
 
 
 
