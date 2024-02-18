@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework.routers import DefaultRouter
 from features.id_manager.views import IdManagerViewSet
+from features.inventory_transaction.dispense_transaction.views import DispenseInventoryTransactionViewSet
 from features.inventory_transaction.indent_transaction.views import IndentInventoryTransactionViewSet
 from features.inventory_transaction.inventory_transaction.views import ItemTransactionsView
 from features.inventory_transaction.issue_transaction.views import IssueItemInventoryTransactionViewSet
@@ -51,6 +52,7 @@ router.register(r'supplier', SupplierViewSet)
 #--------Transactions---------
 router.register(r'transaction/indent', IndentInventoryTransactionViewSet, basename='indent-inventory-transactions')
 router.register(r'transaction/issue_item', IssueItemInventoryTransactionViewSet, basename='issue-item-inventory-transactions')
+router.register(r'transaction/dispense', DispenseInventoryTransactionViewSet, basename='dispense-inventory-transactions')
 
 # --------Prescription---------
 router.register(r'prescriptions', PrescriptionViewSet, basename='prescription')
