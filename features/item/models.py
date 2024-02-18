@@ -46,7 +46,6 @@ class Item(TimeStampedAbstractModelClass):
         if not self.item_code and self.type:
             category_abbreviation = self.type.category.abbreviation
             generated_item_code = IdManager.generateId(category_abbreviation)
-            # print(generated_item_code)
             self.item_code = generated_item_code
 
         super().save(*args, **kwargs)

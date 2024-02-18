@@ -1,5 +1,6 @@
 
 from googleapiclient.discovery import build
+from features.id_manager.models import IdManager
 from features.item.models import Item, ItemCategory, ItemType, UnitOfMeasurement
 from features.item.serializers import ItemTypeSerializer
 from features.supplier.models import Supplier
@@ -97,16 +98,18 @@ def migrate_item():
         for row in data['values'][1:]:
             type=ItemType.objects.get(name=row[2])
             unit_of_meaurement=UnitOfMeasurement.objects.get(name=row[3])
+            is_consumable=True if row[4].lower() == 'true' else False
             if(type and unit_of_meaurement) is not None:
-                item_type=ItemType.objects.create(
+                item=Item.objects.create(
                     name=row[1],
-                    item_code=row[2],
-                    description=row[3],
                     type=type,
-                    unit_of_measurement=unit_of_meaurement
+                    unit_of_measurement=unit_of_meaurement,
+                    is_consumable=is_consumable,
+                    description='',
+
                 )
                 # print_json_string(ItemTypeSerializer(item_type).data)  
-        print("Item type migration complete") 
+        print("Item type complete") 
     except Exception as e:
         print(e)
 
@@ -117,10 +120,12 @@ def migrate_item():
 def migrate():
     
     # Call the migrate method
+    IdManager.objects.all().delete()    
     migrate_supplier()
     migrate_unit_of_measurement()
     migrate_item_category()
     migrate_item_type()
+    migrate_item()
     
 
 if __name__ == "__main__":

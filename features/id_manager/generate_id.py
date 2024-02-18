@@ -17,7 +17,6 @@ def generate_next_id(last_id):
 
     # Generate the next ID
     next_id = f"{prefix}-{letter_part}{new_numeric_part}"
-    
     return next_id
 
 def increment_letter_part(letter_part):
