@@ -1,6 +1,7 @@
 
 from googleapiclient.discovery import build
-from features.item.models import ItemCategory, UnitOfMeasurement
+from features.item.models import ItemCategory, ItemType, UnitOfMeasurement
+from features.item.serializers import ItemTypeSerializer
 from features.supplier.models import Supplier
 
 from features.utils.print_json import print_json_string
@@ -19,10 +20,8 @@ def migrate_supplier():
     Supplier.objects.all().delete()
     sheets = authenticate()
     data=sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
-    print_json_string(data)
     
     for row in data['values'][1:]:
-        print(row)
         Supplier.objects.create(
             name=row[1],
             abbreviation=row[2],
@@ -66,7 +65,29 @@ def migrate_item_category():
         )
     print("Item category migration complete")
 
+def migrate_item_type():
+    try:
+        print('--starting item type migration--')
+        sheet_name='item_type'
+        ItemType.objects.all().delete()
+        sheets = authenticate()
+        data=sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+        for row in data['values'][1:]:
+            category=ItemCategory.objects.get(name=row[5])
+            if(category) is not None:
+                item_type=ItemType.objects.create(
+                    name=row[1],
+                    abbreviation=row[2],
+                    description=row[3],
+                    example=row[4],
+                    category=category
+                )
+                # print_json_string(ItemTypeSerializer(item_type).data)  
+        print("Item type migration complete") 
+    except Exception as e:
+        print(e)
 
+    
 
 
 def migrate():
@@ -75,6 +96,8 @@ def migrate():
     migrate_supplier()
     migrate_unit_of_measurement()
     migrate_item_category()
+    migrate_item_type()
+    
 
 if __name__ == "__main__":
     migrate()
