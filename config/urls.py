@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from rest_framework.routers import DefaultRouter
 from features.id_manager.views import IdManagerViewSet
 from features.inventory_transaction.indent_transaction.views import IndentInventoryTransactionViewSet
@@ -37,7 +37,12 @@ router.register(r'item/item_category', ItemCategoryViewSet)
 router.register(r'item/item_type', ItemTypeViewSet)
 
 router.register(r'item', ItemViewSet, basename='item')
-router.register(r'item/(?P<item_id>[0-9a-f-]+)', ItemBatchViewSet, basename='item')
+# router.register(
+#     r'item/(?P<item_id>[0-9a-f-]+)/batches', 
+#     ItemBatchViewSet, 
+#     basename='item-batches'
+# )
+
 
 
 # --------Medicine---------
@@ -60,12 +65,15 @@ router.register(r'id_manager', IdManagerViewSet)
 urlpatterns = [
     path("admin/", admin.site.urls),
     # --to get all batches of an item
-    path('item/<int:item_id>/batches', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),
-    # --to get a specific batch of an item
-    path('item/<int:item_id>/batch=<uuid:batch_id>/', ItemBatchViewSet.as_view({'get': 'retrieve_batch'}), name='item-batch-detail'),
+    # path('item/<int:item_id>/batches', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),
+    # # --to get a specific batch of an item
+    re_path(r'^item/(?P<item_id>[0-9a-f-]+)/batches/$', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),
+   
+    path('item/<uuid:item_id>/<str:batch_id>/', ItemBatchViewSet.as_view({'get': 'retrieve_batch'}), name='item-batch-detail'),
     
     path('transactions/<str:pk>/', ItemTransactionsView.as_view({'get':'retrieve'}), name='item-transactions-detail'),
     
+    re_path(r'^item/(?P<item_id>[0-9a-f-]+)/batches/$', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),
    
     path('', include(router.urls)),
 ]
