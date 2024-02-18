@@ -4,6 +4,7 @@ from features.item.models import Item
 
 
 from features.organisation_section.serializers import OrganisationSectionSerializer
+from features.utils.convert_date import DateConverter
 
 
 
@@ -26,19 +27,17 @@ class InventoryTransactionItemSerializer(serializers.ModelSerializer):
             'quantity',
             'is_active', 
             'inventory_transaction_type'
-          
-            ]
+        ]
 
 
 class InventoryTransactionSerializer(serializers.ModelSerializer):
-   
     inventory_transaction_id = serializers.CharField(read_only=True)
     inventory_transaction_item_set = serializers.ListSerializer(
         child=InventoryTransactionItemSerializer(),
         read_only=False
     )
     inventory_transaction_type=serializers.CharField(read_only=True)
-    date_time = serializers.SerializerMethodField()
+    created_on = serializers.SerializerMethodField()
 
     def create(self, validated_data):
         try:
@@ -56,6 +55,8 @@ class InventoryTransactionSerializer(serializers.ModelSerializer):
         except ValueError as e:
             print(f"ValueError: {e}")
             raise serializers.ValidationError(str(e))
+        
+    
         
     def update(self, instance, validated_data):
         # Handle nested updates manually
@@ -79,8 +80,8 @@ class InventoryTransactionSerializer(serializers.ModelSerializer):
 
         return instance
     
-    def get_date_time(self, obj):
-        return obj.date_time.strftime('%d-%m-%Y %H:%M')
+    def get_created_on(self, obj):
+        return obj.created_on.strftime('%d-%m-%Y %H:%M')
     
 
     class Meta:

@@ -7,10 +7,10 @@ from features.supplier.models import Supplier
 
 # -Dispense medicine to patient
 class DispenseInventoryTransaction(InventoryTransaction):
-    dispense_date=models.DateField()
+    # dispense_date=models.DateField()
     prescription=models.ForeignKey(
         Prescription, on_delete=models.CASCADE, related_name='dispened_prescription')
-
+    
     def save(self, *args, **kwargs):
         if self.pk is None:
             self.inventory_transaction_type = self.TransactionTypes.DISPENSE

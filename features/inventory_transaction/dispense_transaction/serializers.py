@@ -1,4 +1,4 @@
-from features.inventory_transaction.indent_transaction.serializers import IndentInventoryTransactionSerializer
+from features.inventory_transaction.dispense_transaction.models import DispenseInventoryTransaction
 from features.inventory_transaction.inventory_transaction.serializers import InventoryTransactionSerializer
 from features.prescription.serializers import PrescriptionSerializer
 
@@ -11,5 +11,5 @@ class DispenseInventoryTransactionSerializer(InventoryTransactionSerializer):
         return representation
     
     class Meta:
-        model = IndentInventoryTransactionSerializer
+        model = DispenseInventoryTransaction
         fields = '__all__'

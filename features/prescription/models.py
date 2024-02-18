@@ -9,7 +9,7 @@ from features.person.models import Person
 PRESCRIPTION_ABBREVIATION = 'PRESC'
 class Prescription(TimeStampedAbstractModelClass):
     
-    class PressciptionDispenseStatus(models.TextChoices):
+    class PresciptionDispenseStatus(models.TextChoices):
         DISPENSED = 'dispensed', 'Dispensed'
         NOT_DISPENSED = 'not_dispensed', 'Not Dispensed'
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -20,8 +20,8 @@ class Prescription(TimeStampedAbstractModelClass):
     date_and_time = models.DateTimeField()
     prescription_dispense_status = models.CharField(
         max_length=100, 
-        choices=PressciptionDispenseStatus.choices, 
-        default=PressciptionDispenseStatus.NOT_DISPENSED
+        choices=PresciptionDispenseStatus.choices, 
+        default=PresciptionDispenseStatus.NOT_DISPENSED
         
     )
 
