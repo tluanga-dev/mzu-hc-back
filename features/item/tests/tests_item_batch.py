@@ -82,42 +82,4 @@ class ItemBatchViewSetTestCase(BaseTestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['batch_id'], 'B1')
   
-       
-
-# class ItemBatchSerializerTest(TestCase):
-#     def setUp(self):
-#         self.item = Item.objects.create(name='Test Item')
-#         self.item_batch = ItemBatch.objects.create(batch_id='test', description='test', date_of_expiry='2022-12-31 23:59:59', item=self.item)
-
-#     def test_serialize_item_batch(self):
-#         serializer = ItemBatchSerializer(self.item_batch)
-#         self.assertEqual(serializer.data['batch_id'], 'test')
-
-# class ItemBatchViewSetTest(TestCase):
-#     def setUp(self):
-#         self.client = APIClient()
-#         self.item = Item.objects.create(name='Test Item')
-#         self.item_batch = ItemBatch.objects.create(batch_id='test', description='test', date_of_expiry='2022-12-31 23:59:59', item=self.item)
-#         self.url = reverse('itembatch-list')
-
-#     def test_get_all_item_batches(self):
-#         response = self.client.get(self.url)
-#         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-#     def test_get_single_item_batch(self):
-#         response = self.client.get(reverse('itembatch-detail', kwargs={'pk': self.item_batch.pk}))
-#         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-#     def test_create_item_batch(self):
-#         data = {'batch_id': 'new', 'description': 'new', 'date_of_expiry': '2023-12-31 23:59:59', 'item': self.item.id}
-#         response = self.client.post(self.url, data)
-#         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-
-#     def test_update_item_batch(self):
-#         data = {'batch_id': 'updated', 'description': 'updated', 'date_of_expiry': '2023-12-31 23:59:59', 'item': self.item.id}
-#         response = self.client.put(reverse('itembatch-detail', kwargs={'pk': self.item_batch.pk}), data)
-#         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-#     def test_delete_item_batch(self):
-#         response = self.client.delete(reverse('itembatch-detail', kwargs={'pk': self.item_batch.pk}))
-#         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+      

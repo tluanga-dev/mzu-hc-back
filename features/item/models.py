@@ -15,7 +15,6 @@ class ItemCategory(TimeStampedAbstractModelClass):
     name = models.CharField(max_length=255)
     abbreviation = models.CharField(max_length=4)
     description = models.TextField()
- 
     
     class Meta:
         app_label = 'item'

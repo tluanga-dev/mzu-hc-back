@@ -37,11 +37,7 @@ router.register(r'item/item_category', ItemCategoryViewSet)
 router.register(r'item/item_type', ItemTypeViewSet)
 
 router.register(r'item', ItemViewSet, basename='item')
-# router.register(
-#     r'item/(?P<item_id>[0-9a-f-]+)/batches', 
-#     ItemBatchViewSet, 
-#     basename='item-batches'
-# )
+
 
 
 
