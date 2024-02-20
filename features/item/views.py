@@ -6,7 +6,7 @@ from rest_framework.response import Response
 
 from features.utils.print_json import print_json_string
 from .models import Item, ItemBatch, ItemCategory, ItemType, UnitOfMeasurement
-from .serializers import ItemBatchSerializer, ItemCategorySerializer, ItemSerializer, ItemTypeSerializer, UnitOfMeasurementSerializer
+from .serializers import ItemBatchSerializer, ItemCategorySerializer, ItemSerializer, ItemSerializerForUser, ItemTypeSerializer, UnitOfMeasurementSerializer
 
 class UnitOfMeasurementViewSet(viewsets.ModelViewSet):
     queryset = UnitOfMeasurement.objects.all()
@@ -21,8 +21,9 @@ class ItemTypeViewSet(viewsets.ModelViewSet):
     serializer_class = ItemTypeSerializer
 
 class ItemViewSet(viewsets.ModelViewSet):
+    print("ItemViewSet")
     queryset = Item.objects.all()
-    serializer_class = ItemSerializer
+    serializer_class = ItemSerializerForUser
 
 
 class ItemBatchViewSet(viewsets.ModelViewSet):
