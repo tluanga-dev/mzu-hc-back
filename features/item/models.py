@@ -55,7 +55,7 @@ class Item(TimeStampedAbstractModelClass):
 
 class ItemBatch(TimeStampedAbstractModelClass):
     batch_id = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
     date_of_expiry = models.DateField()
     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='item_batches')
 

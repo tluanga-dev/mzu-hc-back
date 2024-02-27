@@ -1,5 +1,7 @@
 # views.py
 from django.http import Http404
+from rest_framework import status
+
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -37,6 +39,21 @@ class ItemBatchViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(item_batches, many=True)
         return Response(serializer.data)
     
+    def create(self, request, item_id=None):
+        try:
+            data = request.data
+            print('data request for creation of new batch',data)
+            # data['item'] = item_id
+            serializer = self.serializer_class(data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            else:
+                print('error',serializer.errors)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            print('error',e)
+            return Response(str(e), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     # @action(detail=True, url_path='batch=<str:batch_id>', methods=['get'])
     @action(detail=True, methods=['get'])
@@ -44,6 +61,7 @@ class ItemBatchViewSet(viewsets.ModelViewSet):
            
             try:
                 item_batch = self.get_queryset().get(item_id=item_id, batch_id=batch_id)
+                print('getting item_batch',item_batch)
                 serializer = self.get_serializer(item_batch)
                 return Response(serializer.data)
             except ItemBatch.DoesNotExist:
