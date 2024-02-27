@@ -61,7 +61,7 @@ class ItemBatchSerializer(serializers.ModelSerializer):
         
         if 'date_of_expiry' in data:
             try:
-                converted_date_and_time= DateConverter.convert_date_format_to_django_default(
+                converted_date_and_time= DateConverter.convert_date_format(
                     data['date_of_expiry']
                 ) 
                 

@@ -5,6 +5,7 @@ from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from features.utils.convert_date import DateConverter
 
 from features.utils.print_json import print_json_string
 from .models import Item, ItemBatch, ItemCategory, ItemType, UnitOfMeasurement
@@ -43,7 +44,9 @@ class ItemBatchViewSet(viewsets.ModelViewSet):
         try:
             data = request.data
             print('data request for creation of new batch',data)
-            # data['item'] = item_id
+            
+            data['item'] = item_id
+            
             serializer = self.serializer_class(data=data)
             if serializer.is_valid():
                 serializer.save()
