@@ -31,6 +31,9 @@ class InventoryTransactionItemSerializer(serializers.ModelSerializer):
 
 
 class InventoryTransactionSerializer(serializers.ModelSerializer):
+    created_on = serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
+    updated_on = serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S", read_only=True)
+
     inventory_transaction_id = serializers.CharField(read_only=True)
     inventory_transaction_item_set = serializers.ListSerializer(
         child=InventoryTransactionItemSerializer(),
@@ -41,15 +44,11 @@ class InventoryTransactionSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         try:
-            # print(f"validated_data: {validated_data}")
             transaction_items_data = validated_data.pop('inventory_transaction_item_set')
             transaction = self.Meta.model.objects.create(**validated_data)
-            # print(f"transaction_items_data: {transaction_items_data}")
-            created_data=[]
+            transaction.save()  # Ensure the transaction is saved
             for transaction_item_data in transaction_items_data:
-                data=InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
-                created_data.append(data)
-                
+                InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
             return transaction
       
         except ValueError as e:
@@ -100,7 +99,7 @@ class InventoryTransactionSerializer(serializers.ModelSerializer):
             'id','inventory_transaction_type',
             'inventory_transaction_id',
             'created_on',
-            'updated_on'
+            
         ]
 
 

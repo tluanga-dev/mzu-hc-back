@@ -172,3 +172,9 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 DATETIME_INPUT_FORMATS = ['%d-%m-%Y %H:%M']
+
+REST_FRAMEWORK = {
+    "DATE_INPUT_FORMATS": ["%d-%m-%Y"],
+    "DATETIME_INPUT_FORMATS": ["%d-%m-%Y %H:%M:%S"]
+    # ...
+}
