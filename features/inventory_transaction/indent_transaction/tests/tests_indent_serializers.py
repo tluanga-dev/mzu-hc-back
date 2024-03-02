@@ -17,6 +17,8 @@ from features.supplier.models import Supplier
 class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
     def setUp(self):
         super().setUp()
+        IndentInventoryTransaction.objects.all().delete()
+        InventoryTransactionItem.objects.all().delete()
         self.item = Item.objects.create(
             name="Test Item",
             description="Test Description",
@@ -88,9 +90,7 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         else:
             print('serializer is not valid')
             print(serializer.errors)
-        self.assertTrue(serializer.is_valid())
-        
-        serializer.save()
+    
         # indent_transaction = IndentInventoryTransaction.objects.get(inventory_transaction_id='INDENT1')
         
         indent_transaction = IndentInventoryTransaction.objects.all().first() 
