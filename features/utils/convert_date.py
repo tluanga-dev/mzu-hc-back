@@ -4,8 +4,6 @@ from datetime import datetime
 class DateConverter:
     @staticmethod
     def convert_date_format_to_django_default(date_str):
-        # print('----Inside convert_date_format_to_django_default----')
-        # print(f'date_str: {date_str}')
         try:
             # Strip leading and trailing whitespace
             date_str = date_str.strip()
@@ -14,18 +12,18 @@ class DateConverter:
             if ':' in date_str:
                 # Parse the date string into a datetime object with time
                 dt = datetime.strptime(date_str, '%d-%m-%Y %H:%M')
+                # Format the datetime object into the new format with time
+                date_time = dt.strftime('%Y-%m-%d %H:%M:%S')
             else:
                 # Parse the date string into a datetime object without time
                 dt = datetime.strptime(date_str, '%d-%m-%Y')
-
-            # Format the datetime object into the new format
-            date_time = dt.strftime('%Y-%m-%d %H:%M')
+                # Format the datetime object into the new format without time
+                date_time = dt.strftime('%Y-%m-%d')
         except ValueError as e:
             # Handle the error gracefully
             print(f"Error occurred while converting date: {e}")
             date_time = None
 
-        
         return date_time
 
 
