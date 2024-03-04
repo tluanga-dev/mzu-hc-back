@@ -56,20 +56,7 @@ class CustomDateField(serializers.DateField):
 class ItemBatchSerializer(serializers.ModelSerializer):
     date_of_expiry = CustomDateField()
 
-    def to_internal_value(self, data):
-        # Convert the incoming date_and_time to the database format
-        
-        if 'date_of_expiry' in data:
-            try:
-                converted_date_and_time= DateConverter.convert_date_format(
-                    data['date_of_expiry']
-                ) 
-                
-                data['date_of_expiry'] =converted_date_and_time
-            except ValueError:
-                raise serializers.ValidationError({"date_of_expiry": "Date of expiry must be in 'dd-mm-yyyy hh:mm' format"})
-        return super().to_internal_value(data)
-
+    
 
     class Meta:
         model = ItemBatch
