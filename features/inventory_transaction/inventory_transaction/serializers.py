@@ -13,20 +13,28 @@ from .models import  InventoryTransaction, InventoryTransactionItem, ItemStockIn
 
 class InventoryTransactionItemSerializer(serializers.ModelSerializer):
     inventory_transaction = serializers.PrimaryKeyRelatedField(read_only=True)
-    inventory_transaction_type = serializers.SerializerMethodField()  
+    # inventory_transaction_type = serializers.SerializerMethodField() 
+    item=serializers.SerializerMethodField()
 
-    def get_inventory_transaction_type(self, obj):
-        return obj.inventory_transaction.inventory_transaction_type
+    def get_item(self,obj):
+        item={
+            'name': obj.item_batch.item.name,
+            'type':obj.item_batch.item.type.name
+        }
+        return  item
+
+    # def get_inventory_transaction_type(self, obj):
+    #     return obj.inventory_transaction.inventory_transaction_type
     
     class Meta:
         model = InventoryTransactionItem
         fields = [
             'id', 
+            'item',
             'inventory_transaction',
             'item_batch',
             'quantity',
-            'is_active', 
-            'inventory_transaction_type'
+            # 'inventory_transaction_type'
         ]
 
 
