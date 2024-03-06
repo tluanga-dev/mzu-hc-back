@@ -30,4 +30,10 @@ class BaseTestCase(TestCase):
             example="Test Example",
             is_active=True
         )
+
+    def tearDown(self):
+        # Explicitly delete objects if necessary. Usually not required.
+        self.unit_of_measurement.delete()
+        self.item_type.delete()
+        self.item_category.delete()
   

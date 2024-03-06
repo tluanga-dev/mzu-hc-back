@@ -57,15 +57,12 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
                 {
                     'item_batch': self.item_batch1.id,
                     'quantity': 10,
-                    'is_active': True,
-                    'inventory_transaction_type': InventoryTransaction.TransactionTypes.INDENT,
+   
             
                 },
                 {
                     'item_batch': self.item_batch1.id,
                     'quantity': 5,
-                    'is_active': True,
-                    'inventory_transaction_type': InventoryTransaction.TransactionTypes.INDENT,
             
                 }
             ],
@@ -145,8 +142,11 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
                 'inventory_transaction': str(indent_transaction.id),
                 'item_batch': str(item.item_batch.id),
                 'quantity': item.quantity,
-                'is_active': item.is_active,
-                'inventory_transaction_type': 'indent',
+                'item':{
+                    'name':self.item.name,
+                    'type':self.item.type.name
+                }
+
             } for item in InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
         ]
         
