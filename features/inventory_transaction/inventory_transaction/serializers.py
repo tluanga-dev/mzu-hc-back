@@ -62,6 +62,7 @@ class InventoryTransactionSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         try:
+         
             transaction_items_data = validated_data.pop('inventory_transaction_item_set')
             transaction = self.Meta.model.objects.create(**validated_data)
             transaction.save()  # Ensure the transaction is saved
