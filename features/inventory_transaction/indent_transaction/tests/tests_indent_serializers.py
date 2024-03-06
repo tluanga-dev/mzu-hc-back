@@ -167,9 +167,9 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         inventory_transaction_item_set[0]['item_batch'].pop('id')
         serializer_data["inventory_transaction_item_set"]=inventory_transaction_item_set
 
-        print_json_string(expected_data)
-        print('-------------------------------')
-        print_json_string(serializer_data)
+        # print_json_string(expected_data)
+        # print('-------------------------------')
+        # print_json_string(serializer_data)
        
     
         
