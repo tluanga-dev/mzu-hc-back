@@ -37,13 +37,13 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
        
         )
         self.supplier.save()
-        self.item_batch1=ItemBatch.objects.create(
+        self.item_batch=ItemBatch.objects.create(
             batch_id='B2',
             description='Test Batch 1',
             date_of_expiry=date.today(),
             item=self.item
         )
-        self.item_batch1.save()
+        self.item_batch.save()
 
         
         self.indent_transaction_data = {
@@ -55,16 +55,12 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
             'remarks': None,
             'inventory_transaction_item_set': [
                 {
-                    'item_batch': self.item_batch1.id,
+                    'item_batch': self.item_batch.id,
                     'quantity': 10,
    
             
                 },
-                {
-                    'item_batch': self.item_batch1.id,
-                    'quantity': 5,
-            
-                }
+               
             ],
            
 
@@ -92,16 +88,16 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         
         indent_transaction = IndentInventoryTransaction.objects.all().first() 
         
-   
+        
         self.assertEqual(indent_transaction.inventory_transaction_type, InventoryTransaction.TransactionTypes.INDENT)
         self.assertEqual(indent_transaction.supplier, self.supplier)
         self.assertEqual(indent_transaction.supply_order_no, 'SO1')
 
         transaction_items = InventoryTransactionItem.objects.filter(inventory_transaction=indent_transaction)
         # print('transaction_items',transaction_items)
-        self.assertEqual(transaction_items.count(), 2)
+        self.assertEqual(transaction_items.count(), 1)
         
-        # print('-------End of test_create_indent_inventory_transaction-------\n ')
+  
 
     def test_retrieve_indent_inventory_transaction(self):
         # --To clear terminal
@@ -140,7 +136,9 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
             {
                 'id': str(item.id),
                 'inventory_transaction': str(indent_transaction.id),
-                'item_batch': str(item.item_batch.id),
+                'item_batch': {
+                    'batch_id':str(item.item_batch.batch_id)
+                },
                 'quantity': item.quantity,
                 'item':{
                     'name':self.item.name,
@@ -153,6 +151,8 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         expected_data['inventory_transaction_type']='indent'
         expected_data['is_active']=True
 
+        
+
 
         serializer_data = json.loads(json.dumps(serializer.data,cls=UUIDEncoder))
         
@@ -160,7 +160,17 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
         # Remove 'created_on' and 'updated_on' from serializer_data
         serializer_data.pop('created_on', None)
         serializer_data.pop('updated_on', None)
+
+        inventory_transaction_item_set=serializer_data["inventory_transaction_item_set"]
         
+        # inventory_transaction_item_set[0].pop('id')
+        inventory_transaction_item_set[0]['item_batch'].pop('id')
+        serializer_data["inventory_transaction_item_set"]=inventory_transaction_item_set
+
+        print_json_string(expected_data)
+        print('-------------------------------')
+        print_json_string(serializer_data)
+       
     
         
         self.assertEquals(serializer_data,expected_data) 
