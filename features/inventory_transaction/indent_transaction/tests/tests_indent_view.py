@@ -245,7 +245,7 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
             'supply_order_date': '01-03-2023',
             'date_of_delivery': '01-04-2023',
             'inventory_transaction_item_set': [
-                {'item_batch': self.item_batch_2.id, 'quantity': 10, 'is_active': True},
+                {'item_batch': self.item_batch_2.id, 'quantity': 10},
             ],
             'inventory_transaction_type': 'indent',
             'inventory_transaction_id': 'INDENT2',
@@ -272,3 +272,4 @@ class IndentInventoryTransactionViewSetTest(BaseTestCase):
         response = self.client.get(reverse('indent-inventory-transactions-list'), {'supply_order_dateFrom': '01-01-2022', 'supply_order_dateTo': '01-04-2024'})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 2)
+        
