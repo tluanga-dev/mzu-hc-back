@@ -1,2 +1,1 @@
-
-ssh -i "mzu-hc-admin.pem" ubuntu@ec2-3-87-60-15.compute-1.amazonaws.com
+ssh -i "mzu-hc-admin.pem" ubuntu@ec2-3-84-44-187.compute-1.amazonaws.com
