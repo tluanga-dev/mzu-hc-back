@@ -1,0 +1,41 @@
+# Redirect HTTP traffic to HTTPS
+server {
+    listen 80;
+    server_name your-ec2-instance-public-dns;
+
+    # Redirect all HTTP requests to HTTPS
+    return 301 https://$host$request_uri;
+}
+
+# HTTPS server configuration
+server {
+    listen 443 ssl;
+    server_name 3.84.44.187;
+
+    # SSL configuration
+    ssl_certificate /etc/ssl/certs/selfsigned.crt; # Path to your SSL certificate
+    ssl_certificate_key /etc/ssl/private/selfsigned.key; # Path to your SSL key
+
+    # Recommended SSL settings, adjust according to needs
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers EECDH+AESGCM:EDH+AESGCM;
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache shared:SSL:10m;
+
+    # Serve static files directly
+    location /static/ {
+        alias /home/ubuntu/mzu-hc-back/staticfiles/; # Ensure this is your correct static files path
+    }
+
+    # Proxy all other requests to Gunicorn
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/mzu-hc-back/run/gunicorn.sock; # Ensure this is the correct path to your Gunicorn socket
+    }
+
+    # Optional: Logging settings
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+}
+
+#Replace your-ec2-instance-public-dns with your EC2 instance's public DNS or IP address. 
