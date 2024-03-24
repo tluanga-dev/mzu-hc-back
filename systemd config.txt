@@ -1,0 +1,17 @@
+
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/mzu-hc-back
+Environment="PATH=/home/ubuntu/mzu-hc-back/bin"
+ExecStart=/home/ubuntu/mzu-hc-back/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/ubuntu/mzu-hc-back/run/gunicorn.sock config.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo vi  /etc/systemd/system/gunicorn.service
