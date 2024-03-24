@@ -97,6 +97,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'https://mzu-hc-front-git-main-tluanga-devs-projects.vercel.app',
+    'https://mzu-hc-front.vercel.app/',
 ]
 
 ROOT_URLCONF = "config.urls"
