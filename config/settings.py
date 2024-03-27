@@ -29,8 +29,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
-
-
 # Application definition
 
 
@@ -61,7 +59,7 @@ INSTALLED_APPS = [
     'features.inventory_transaction.indent_transaction',
     'features.inventory_transaction.issue_transaction',
     'features.inventory_transaction.dispense_transaction',
-  
+
 
     # --------Suppliers---------
     'features.supplier',
@@ -71,7 +69,7 @@ INSTALLED_APPS = [
 
     # --------Section---------
     'features.organisation_section',
-  
+
     # --------Person---------
     'features.person',
 
@@ -90,14 +88,14 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    
-   
+
+
 ]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'https://mzu-hc-front-git-main-tluanga-devs-projects.vercel.app',
-    'https://mzu-hc-front.vercel.app/',
+    'https://mzu-hc-front.vercel.app',
 ]
 
 ROOT_URLCONF = "config.urls"

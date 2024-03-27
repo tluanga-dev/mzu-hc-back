@@ -18,6 +18,7 @@ class IndentInventoryTransactionViewSet(viewsets.ModelViewSet):
         supply_order_dateTo = self.request.query_params.get('supply_order_dateTo', None)
 
         if supply_order_no is not None:
+            
             queryset = queryset.filter(supply_order_no=supply_order_no)
         if supplier is not None:
             queryset = queryset.filter(supplier=supplier)
