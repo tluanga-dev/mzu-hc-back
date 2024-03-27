@@ -73,6 +73,15 @@ class DateConverter:
             # Strip leading and trailing whitespace
             date_str = date_str.strip()
 
+            # Check if the date string has a slash separator
+            if '/' in date_str:
+                # Split the date string into day, month, and year
+                day, month, year = date_str.split('/')
+
+                # Format the date string to "dd-mm-yyyy"
+                date_str = f"{day}-{month}-{year}"
+
+
             # Parse the date string into a datetime object
             dt = datetime.strptime(date_str, '%d-%m-%Y')
 
