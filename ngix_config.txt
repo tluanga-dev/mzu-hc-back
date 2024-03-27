@@ -1,0 +1,24 @@
+server {
+    listen 80;
+    server_name your-ec2-instance-public-dns;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    
+    location /static/ {
+    alias /home/ubuntu/mzu-hc-back/staticfiles/;
+    }
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/mzu-hc-back/run/gunicorn.sock;
+    }
+}
+
+/home/ubuntu/mzu-hc-back/run/gunicorn.sock
+/home/ubuntu/mzu-hc-back/run
+
+sudo ln -s /etc/nginx/sites-available/mzu-hc-back /etc/nginx/sites-enabled
+
+sudo vi  /etc/nginx/sites-available/mzu-hc-back
+
+sudo chmod 755 /home/ubuntu /home/ubuntu/mzu-hc-back /home/ubuntu/mzu-hc-back/run
+ this line makes it work
