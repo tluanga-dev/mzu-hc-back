@@ -12,7 +12,7 @@ class BaseSerializer(serializers):
         # Convert the incoming date_and_time to the database format
         if 'date_and_time' in data:
             try:
-                data['date_and_time'] = DateConverter.convert_date_format_to_django_default(
+                data['date_and_time'] = DateConverter.convert_date_time_format_to_django_default(
                     data['date_and_time']
                 ) 
             except ValueError:
@@ -20,7 +20,7 @@ class BaseSerializer(serializers):
         
         if 'created_on' in data:
             try:
-                data['created_on'] = DateConverter.convert_date_format_to_django_default(
+                data['created_on'] = DateConverter.convert_date_time_format_to_django_default(
                     data['created_on']
                 ) 
             except ValueError:
@@ -28,7 +28,7 @@ class BaseSerializer(serializers):
             
         if 'updated_on' in data:
             try:
-                data['updated_on'] = DateConverter.convert_date_format_to_django_default(
+                data['updated_on'] = DateConverter.convert_date_time_format_to_django_default(
                     data['updated_on']
                 ) 
             except ValueError:

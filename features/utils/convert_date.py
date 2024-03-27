@@ -3,7 +3,7 @@ from datetime import datetime
 
 class DateConverter:
     @staticmethod
-    def convert_date_format_to_django_default(date_str):
+    def convert_date_time_format_to_django_default(date_str):
         try:
             # Strip leading and trailing whitespace
             date_str = date_str.strip()
@@ -67,14 +67,23 @@ class DateConverter:
 
     @staticmethod
     def convert_date_format(date_str):
-        # Strip leading and trailing whitespace
-        date_str = date_str.strip()
+        try:
+            print('-----inside convert date format------')
+            print(date_str)
+            # Strip leading and trailing whitespace
+            date_str = date_str.strip()
 
-        # Parse the date string into a datetime object
-        dt = datetime.strptime(date_str, '%d-%m-%Y')
+            # Parse the date string into a datetime object
+            dt = datetime.strptime(date_str, '%d-%m-%Y')
 
-        # Format the datetime object into the new format and set time to 00:00:00
-        return dt.strftime('%Y-%m-%d')
+            # Format the datetime object into the new format and set time to 00:00:00
+            # new_date = dt.strftime('%Y-%m-%d')
+            # print('new date',new_date)
+            print('return new date')
+            return dt
+        except ValueError as e:
+            print('error',e)
+
     
     @staticmethod
     def format_date_string(date_str):

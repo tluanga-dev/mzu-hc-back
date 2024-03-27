@@ -51,10 +51,14 @@ class ItemSerializer(serializers.ModelSerializer):
 
 class CustomDateField(serializers.DateField):
     def to_representation(self, value):
-        return value.strftime("%d-%m-%Y")
+        try:
+            value = value.strftime("%d-%m-%Y")
+            return value
+        except ValueError as e:
+            print('There is an error- ', e)
 
     def to_internal_value(self, data):
-        return DateConverter.convert_date_format_to_django_default(data)
+        return DateConverter.convert_date_format(data)
 
 class ItemBatchSerializer(serializers.ModelSerializer):
     date_of_expiry = CustomDateField()

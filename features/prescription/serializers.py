@@ -59,7 +59,7 @@ class PrescriptionSerializer(serializers.ModelSerializer):
         
         if 'date_and_time' in data:
             try:
-                converted_date_and_time= DateConverter.convert_date_format_to_django_default(
+                converted_date_and_time= DateConverter.convert_date_time_format_to_django_default(
                     data['date_and_time']
                 ) 
                 

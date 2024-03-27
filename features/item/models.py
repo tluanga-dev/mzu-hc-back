@@ -60,9 +60,11 @@ class ItemBatch(TimeStampedAbstractModelClass):
     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='item_batches')
 
     def save(self, *args, **kwargs):
-      
+        try:
 
-        super().save(*args, **kwargs)
+            super().save(*args, **kwargs)
+        except e as ValueError:
+            print(f"Error: {e}")
 
     class Meta:
         app_label = 'item'

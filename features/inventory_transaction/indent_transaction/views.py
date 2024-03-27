@@ -23,9 +23,9 @@ class IndentInventoryTransactionViewSet(viewsets.ModelViewSet):
         if supplier is not None:
             queryset = queryset.filter(supplier=supplier)
         if supply_order_date is not None:
-            queryset = queryset.filter(supply_order_date__exact=DateConverter.convert_date_format_to_django_default(supply_order_date)  )
+            queryset = queryset.filter(supply_order_date__exact=DateConverter.convert_date_time_format_to_django_default(supply_order_date)  )
         if supply_order_dateFrom is not None and supply_order_dateTo is not None:
-            queryset = queryset.filter(supply_order_date__gte=DateConverter.convert_date_format_to_django_default(supply_order_dateFrom), 
-                                       supply_order_date__lte=DateConverter.convert_date_format_to_django_default(supply_order_dateTo))
+            queryset = queryset.filter(supply_order_date__gte=DateConverter.convert_date_time_format_to_django_default(supply_order_dateFrom), 
+                                       supply_order_date__lte=DateConverter.convert_date_time_format_to_django_default(supply_order_dateTo))
 
         return queryset
