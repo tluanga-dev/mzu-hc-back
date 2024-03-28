@@ -4,10 +4,14 @@
 cd /home/ubuntu/mzu-hc-back
 
 # Pull the latest code from GitHub
-git pull origin master
+if ! git pull origin main; then
+    echo "Failed to pull from GitHub. Exiting."
+    exit 1
+fi
+
 
 # Assuming you're using a Python virtual environment, activate it
-source /path/to/your/virtualenv/bin/activate
+source /home/ubuntu/mzu-hc-back/venv/bin/activate
 
 # Install any new dependencies
 pip install -r requirements.txt
