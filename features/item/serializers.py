@@ -5,15 +5,18 @@ from rest_framework import serializers
 from features.utils.convert_date import DateConverter
 from .models import Item, ItemBatch, ItemCategory, ItemType, UnitOfMeasurement
 
+
 class UnitOfMeasurementSerializer(serializers.ModelSerializer):
     class Meta:
         model = UnitOfMeasurement
         fields = '__all__'
 
+
 class ItemCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = ItemCategory
-        fields = ['id', 'name', 'abbreviation', 'description', 'is_active', 'created_on', 'updated_on']
+        fields = ['id', 'name', 'abbreviation', 'description',
+                  'is_active', 'created_on', 'updated_on']
 
 
 class ItemCategorySerializerForUser(serializers.ModelSerializer):
@@ -23,30 +26,35 @@ class ItemCategorySerializerForUser(serializers.ModelSerializer):
 
 
 class ItemTypeSerializer(serializers.ModelSerializer):
+    category = ItemCategorySerializerForUser(read_only=True)
 
     class Meta:
         model = ItemType
-        fields = ['id', 'name', 'abbreviation', 'description', 'example', 'category', 'is_active', 'created_on', 'updated_on']
+        fields = ['id', 'name', 'abbreviation', 'description',
+                  'example', 'category', 'is_active', 'created_on', 'updated_on']
+
 
 class ItemTypeSerializerForUser(serializers.ModelSerializer):
-    category=ItemCategorySerializerForUser(read_only=True)
+    category = ItemCategorySerializerForUser(read_only=True)
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['category'] = ItemCategorySerializerForUser(instance.category).data
+        representation['category'] = ItemCategorySerializerForUser(
+            instance.category).data
         return representation
+
     class Meta:
         model = ItemType
-        fields = ['id', 'name', 'abbreviation', 'description', 'example', 'category']
-
-
+        fields = ['id', 'name', 'abbreviation',
+                  'description', 'example', 'category']
 
 
 class ItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ['id', 'name', 'description', 'type', 'is_active', 'created_on', 'updated_on']
+        fields = ['id', 'name', 'description', 'type',
+                  'is_active', 'created_on', 'updated_on']
 
 
 class CustomDateField(serializers.DateField):
@@ -60,29 +68,27 @@ class CustomDateField(serializers.DateField):
     def to_internal_value(self, data):
         return DateConverter.convert_date_format(data)
 
+
 class ItemBatchSerializer(serializers.ModelSerializer):
     date_of_expiry = CustomDateField()
 
-    
-
     class Meta:
         model = ItemBatch
-        fields = ['id','batch_id', 'description', 'date_of_expiry', 'item', 'is_active', 'created_on', 'updated_on']
-
+        fields = ['id', 'batch_id', 'description', 'date_of_expiry',
+                  'item', 'is_active', 'created_on', 'updated_on']
 
 
 class ItemSerializerForUser(serializers.ModelSerializer):
-    
-    type=ItemTypeSerializerForUser(read_only=True)
-    item_batches=ItemBatchSerializer(many=True, read_only=True)
+
+    type = ItemTypeSerializerForUser(read_only=True)
+    item_batches = ItemBatchSerializer(many=True, read_only=True)
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation['type'] = ItemTypeSerializerForUser(instance.type).data
-        
+
         return representation
-    
+
     class Meta:
         model = Item
         fields = ['id', 'name', 'description', 'type', 'item_batches']
-
