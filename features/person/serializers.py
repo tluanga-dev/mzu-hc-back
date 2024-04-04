@@ -42,12 +42,12 @@ class PersonTypeSerializer(serializers.ModelSerializer):
 
 
 class PersonSerializer(serializers.ModelSerializer):
-    def to_representation(self, instance):
+    # def to_representation(self, instance):
         
-        self.fields['department'] = DepartmentSerializer(read_only=True)
+    #     self.fields['department'] = DepartmentSerializer(read_only=True)
 
-        self.fields['person_type'] = PersonTypeSerializer(read_only=True)
-        return super().to_representation(instance)
+    #     self.fields['person_type'] = PersonTypeSerializer(read_only=True)
+    #     return super().to_representation(instance)
 
     class Meta:
         model = Person
@@ -57,7 +57,8 @@ class PersonSerializer(serializers.ModelSerializer):
             'email',
             'mzu_id',
             'department',
+            'designation',
             'person_type',
-            'contact_no',
+            'mobile_no',
             'is_active'
         ]

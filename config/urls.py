@@ -24,6 +24,7 @@ from features.inventory_transaction.inventory_transaction.views import ItemTrans
 from features.inventory_transaction.issue_transaction.views import IssueItemInventoryTransactionViewSet
 from features.item.views import ItemBatchViewSet, ItemCategoryViewSet, ItemTypeViewSet, ItemViewSet, UnitOfMeasurementViewSet
 from features.medicine.views import MedicineDosageDurationViewSet, MedicineDosageViewSet
+from features.person.views import DepartmentViewSet, PersonTypeViewSet, PersonViewSet
 from features.prescription.views import PrescriptionViewSet
 from features.setup.views import SetupView
 
@@ -55,6 +56,12 @@ router.register(r'supplier', SupplierViewSet)
 router.register(r'transaction/indent', IndentInventoryTransactionViewSet, basename='indent-inventory-transactions')
 router.register(r'transaction/issue_item', IssueItemInventoryTransactionViewSet, basename='issue-item-inventory-transactions')
 router.register(r'transaction/dispense', DispenseInventoryTransactionViewSet, basename='dispense-inventory-transactions')
+
+# -------Person-----
+router.register(r'department', DepartmentViewSet, basename='department')
+router.register(r'person_type', PersonTypeViewSet,basename='person-type')
+router.register(r'person', PersonViewSet,basename='person')
+
 
 # --------Prescription---------
 router.register(r'prescriptions', PrescriptionViewSet, basename='prescription')

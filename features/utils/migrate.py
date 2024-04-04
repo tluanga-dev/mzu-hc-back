@@ -3,6 +3,7 @@ from googleapiclient.discovery import build
 from features.id_manager.models import IdManager
 from features.item.models import Item, ItemCategory, ItemType, UnitOfMeasurement
 from features.item.serializers import ItemTypeSerializer
+from features.person.models import Person, PersonType
 from features.supplier.models import Supplier
 
 from features.utils.print_json import print_json_string
@@ -113,8 +114,46 @@ def migrate_item():
     except Exception as e:
         print(e)
 
+def migrate_person_type():
+    sheet_name='person_type'
+    PersonType.objects.all().delete()
+    sheets = authenticate()
+    data=sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+    for row in data['values'][1:]:
+        PersonType.objects.create(
+            name=row[1],
+            abbreviation=row[2],
+            description=row[3],
+        
+        )
+    print("User Type migration complete")
 
-    
+def migrate_person():
+    try:
+        print('--starting Person migration--')
+        sheet_name='person_nt'
+        Person.objects.all().delete()
+        sheets = authenticate()
+        data=sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+        for row in data['values'][1:]:
+            print('-----Person data from sheet----', row)
+            person_type=PersonType.objects.get(name=row[6])
+            if(person_type) is not None:
+              
+                data= Person.objects.create(
+                        mzu_id=row[0],
+                        name=row[1],
+                        email=row[2],
+                        mobile_no=row[3] if len(row) > 3 and row[3].isdigit() else 0,
+                        department=row[4],
+                        designation=row[5],
+                        person_type=person_type
+                    )
+                print('-----Person data created----', data)
+                # print_json_string(ItemTypeSerializer(item_type).data)  
+        print("Item type migration complete") 
+    except Exception as e:
+        print(e)  
 
 
 def migrate():
@@ -126,6 +165,8 @@ def migrate():
     migrate_item_category()
     migrate_item_type()
     migrate_item()
+    migrate_person_type()
+    migrate_person()
     
 
 if __name__ == "__main__":

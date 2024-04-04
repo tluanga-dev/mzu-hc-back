@@ -2,7 +2,7 @@ from datetime import datetime
 from rest_framework import serializers
 from features.item.models import Item
 from features.person.models import Department, Person
-from features.person.serializers import PersonSerializer
+# from features.person.serializers import PersonSerializer
 from django.utils.timezone import make_aware
 
 from features.prescription.models import Prescription, PrescribedMedicine
