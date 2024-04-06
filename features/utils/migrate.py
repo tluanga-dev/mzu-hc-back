@@ -7,7 +7,17 @@ from features.person.models import Person, PersonType
 from features.supplier.models import Supplier
 
 from features.utils.print_json import print_json_string
+import logging
 
+# Configure logging
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s',
+                    handlers=[
+                        logging.FileHandler("migration_log.txt", mode='a'),
+                        logging.StreamHandler()
+                    ])
+
+logger = logging.getLogger(__name__)
 
     
 sheet_id = '1Uj-SiWZVBiQnA4DkeQIO5Siwjvtzjl0wZ1_T_9bkrOo'
@@ -16,144 +26,191 @@ api_key='AIzaSyB9KRma3Pz2jc4dPa8F6C0raAcqWBV0cQM'
 def authenticate():
     return build('sheets', 'v4', developerKey=api_key).spreadsheets()
 
-
 def migrate_supplier():
-    sheet_name='supplier'
+    sheet_name = 'supplier'
     Supplier.objects.all().delete()
     sheets = authenticate()
-    data=sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+    data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
     
-    for row in data['values'][1:]:
-        Supplier.objects.create(
-            name=row[1],
-            abbreviation=row[2],
-            contact_no=int(row[6]) if len(row) > 6 and row[6].isdigit() else 0,
-            email=row[4],
-            address=row[5],
-            remarks=row[6] if len(row) > 6 else "",
-        
-        )
-    print("Supplier migration complete")
+    migrated_count = 0
+    failed_count = 0
 
+    for row in data['values'][1:]:
+        try:
+            Supplier.objects.create(
+                name=row[1],
+                abbreviation=row[2],
+                contact_no=int(row[6]) if len(row) > 6 and row[6].isdigit() else 0,
+                email=row[4],
+                address=row[5],
+                remarks=row[6] if len(row) > 6 else "",
+            )
+            migrated_count += 1
+        except Exception as e:
+            failed_count += 1
+            logger.error(f"Failed to migrate supplier '{row[1]}': {e}")
+
+    logger.info(f"Supplier migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
 
 
 
 def migrate_unit_of_measurement():
-    sheet_name='unit_of_measurement'
+    sheet_name = 'unit_of_measurement'
     UnitOfMeasurement.objects.all().delete()
     sheets = authenticate()
-    data=sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+    data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+
+    migrated_count = 0
+    failed_count = 0
+
     for row in data['values'][1:]:
-        UnitOfMeasurement.objects.create(
-            name=row[1],
-            abbreviation=row[2],
-            description=row[3],
-            example=row[4],
-        )
-    print("Unit of measurement migration complete")
+        try:
+            UnitOfMeasurement.objects.create(
+                name=row[1],
+                abbreviation=row[2],
+                description=row[3],
+                example=row[4],
+            )
+            migrated_count += 1
+        except Exception as e:
+            failed_count += 1
+            logger.error(f"Failed to migrate unit of measurement '{row[1]}': {e}")
+
+    logger.info(f"Unit of Measurement migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
 
 
 def migrate_item_category():
-    sheet_name='item_category'
+    sheet_name = 'item_category'
     ItemCategory.objects.all().delete()
     sheets = authenticate()
-    data=sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+    data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+
+    migrated_count = 0
+    failed_count = 0
+
     for row in data['values'][1:]:
-        ItemCategory.objects.create(
-            name=row[1],
-            abbreviation=row[2],
-            description=row[3],
-        
-        )
-    print("Item category migration complete")
+        try:
+            ItemCategory.objects.create(
+                name=row[1],
+                abbreviation=row[2],
+                description=row[3],
+            )
+            migrated_count += 1
+        except Exception as e:
+            failed_count += 1
+            logger.error(f"Failed to migrate item category '{row[1]}': {e}")
+
+    logger.info(f"Item Category migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
+
 
 def migrate_item_type():
-    try:
-        print('--starting item type migration--')
-        sheet_name='item_type'
-        ItemType.objects.all().delete()
-        sheets = authenticate()
-        data=sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
-        for row in data['values'][1:]:
-            category=ItemCategory.objects.get(name=row[5])
-            if(category) is not None:
-                item_type=ItemType.objects.create(
-                    name=row[1],
-                    abbreviation=row[2],
-                    description=row[3],
-                    example=row[4],
-                    category=category
-                )
-                # print_json_string(ItemTypeSerializer(item_type).data)  
-        print("Item type migration complete") 
-    except Exception as e:
-        print(e)
+    sheet_name = 'item_type'
+    ItemType.objects.all().delete()
+    sheets = authenticate()
+    data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+
+    migrated_count = 0
+    failed_count = 0
+
+    for row in data['values'][1:]:
+        try:
+            category = ItemCategory.objects.get(name=row[5])
+            ItemType.objects.create(
+                name=row[1],
+                abbreviation=row[2],
+                description=row[3],
+                example=row[4],
+                category=category
+            )
+            migrated_count += 1
+        except Exception as e:
+            failed_count += 1
+            logger.error(f"Failed to migrate item type '{row[1]}': {e}")
+
+    logger.info(f"Item Type migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
+
 
 def migrate_item():
-    try:
-        print('--starting item migration--')
-        sheet_name='item'
-        Item.objects.all().delete()
-        sheets = authenticate()
-        data=sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
-        for row in data['values'][1:]:
-            type=ItemType.objects.get(name=row[2])
-            unit_of_meaurement=UnitOfMeasurement.objects.get(name=row[3])
-            is_consumable=True if row[4].lower() == 'true' else False
-            if(type and unit_of_meaurement) is not None:
-                item=Item.objects.create(
-                    name=row[1],
-                    type=type,
-                    unit_of_measurement=unit_of_meaurement,
-                    is_consumable=is_consumable,
-                    description='',
+    sheet_name = 'item'
+    Item.objects.all().delete()
+    sheets = authenticate()
+    data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
 
-                )
-                # print_json_string(ItemTypeSerializer(item_type).data)  
-        print("Item type complete") 
-    except Exception as e:
-        print(e)
+    migrated_count = 0
+    failed_count = 0
+
+    for row in data['values'][1:]:
+        try:
+            type = ItemType.objects.get(name=row[2])
+            unit_of_measurement = UnitOfMeasurement.objects.get(name=row[3])
+            is_consumable = row[4].lower() == 'true'
+            Item.objects.create(
+                name=row[1],
+                type=type,
+                unit_of_measurement=unit_of_measurement,
+                is_consumable=is_consumable,
+                description='',
+            )
+            migrated_count += 1
+        except Exception as e:
+            failed_count += 1
+            logger.error(f"Failed to migrate item '{row[1]}': {e}")
+
+    logger.info(f"Item migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
+
 
 def migrate_person_type():
-    sheet_name='person_type'
+    sheet_name = 'person_type'
     PersonType.objects.all().delete()
     sheets = authenticate()
-    data=sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+    data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+
+    migrated_count = 0
+    failed_count = 0
+
     for row in data['values'][1:]:
-        PersonType.objects.create(
-            name=row[1],
-            abbreviation=row[2],
-            description=row[3],
-        
-        )
-    print("User Type migration complete")
+        try:
+            PersonType.objects.create(
+                name=row[1],
+                abbreviation=row[2],
+                description=row[3],
+            )
+            migrated_count += 1
+        except Exception as e:
+            failed_count += 1
+            logger.error(f"Failed to migrate person type '{row[1]}': {e}")
+
+    logger.info(f"Person Type migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
+
 
 def migrate_person():
-    try:
-        print('--starting Person migration--')
-        sheet_name='person_nt'
-        Person.objects.all().delete()
-        sheets = authenticate()
-        data=sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
-        for row in data['values'][1:]:
-            print('-----Person data from sheet----', row)
-            person_type=PersonType.objects.get(name=row[6])
-            if(person_type) is not None:
-              
-                data= Person.objects.create(
-                        mzu_id=row[0],
-                        name=row[1],
-                        email=row[2],
-                        mobile_no=row[3] if len(row) > 3 and row[3].isdigit() else 0,
-                        department=row[4],
-                        designation=row[5],
-                        person_type=person_type
-                    )
-                print('-----Person data created----', data)
-                # print_json_string(ItemTypeSerializer(item_type).data)  
-        print("Item type migration complete") 
-    except Exception as e:
-        print(e)  
+    sheet_name = 'person_nt'
+    Person.objects.all().delete()
+    sheets = authenticate()
+    data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+
+    migrated_count = 0
+    failed_count = 0
+
+    for row in data['values'][1:]:
+        try:
+            person_type = PersonType.objects.get(name=row[6])
+            Person.objects.create(
+                mzu_id=row[0],
+                name=row[1],
+                email=row[2],
+                mobile_no=int(row[3]) if len(row) > 3 and row[3].isdigit() else 0,
+                department=row[4],
+                designation=row[5],
+                person_type=person_type
+            )
+            migrated_count += 1
+        except Exception as e:
+            failed_count += 1
+            logger.error(f"Failed to migrate person '{row[1]}': {e}")
+
+    logger.info(f"Person migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
+
 
 
 def migrate():

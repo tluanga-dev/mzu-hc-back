@@ -40,14 +40,19 @@ class PersonTypeSerializer(serializers.ModelSerializer):
 #                 'name': department_obj.name
 #             }
 
+class PersonTypeSerializerForPerson(serializers.ModelSerializer):
+    class Meta:
+        model = PersonType
+        fields = ['id', 'name','description','abbreviation']
+
 
 class PersonSerializer(serializers.ModelSerializer):
-    # def to_representation(self, instance):
+    def to_representation(self, instance):
         
     #     self.fields['department'] = DepartmentSerializer(read_only=True)
 
-    #     self.fields['person_type'] = PersonTypeSerializer(read_only=True)
-    #     return super().to_representation(instance)
+        self.fields['person_type'] = PersonTypeSerializerForPerson(read_only=True)
+        return super().to_representation(instance)
 
     class Meta:
         model = Person

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'rest_framework',
     "corsheaders",
+    'django_filters',
     # --------Items---------
     # 'features.item.unit_of_measurement',
     # 'features.item.item_category',
