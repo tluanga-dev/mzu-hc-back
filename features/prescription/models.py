@@ -16,7 +16,11 @@ class Prescription(TimeStampedAbstractModelClass):
     code=models.CharField(max_length=255,unique=True)
     patient = models.ForeignKey(Person, related_name='prescriptions_patient', on_delete=models.CASCADE)
     doctor = models.ForeignKey(Person, related_name='prescriptions_doctor', on_delete=models.CASCADE)
+    chief_complaint=models.TextField()
+    diagnosis=models.TextField()
+    advice_and_instructions=models.TextField()
     note= models.TextField()
+
     date_and_time = models.DateTimeField()
     prescription_dispense_status = models.CharField(
         max_length=100, 
@@ -41,15 +45,14 @@ class Prescription(TimeStampedAbstractModelClass):
 
 
 class PrescribedMedicine(TimeStampedAbstractModelClass):
-    name = models.CharField(max_length=255)
-    dosage = models.TextField()
-    item = models.ForeignKey(
+    medicine = models.ForeignKey(
         Item, 
         related_name='medicine_items', 
         null=True, 
         blank=True, 
         on_delete=models.SET_NULL
     )
+    
     prescription = models.ForeignKey(
         Prescription, 
         related_name='prescribed_medicine_set'
@@ -58,6 +61,45 @@ class PrescribedMedicine(TimeStampedAbstractModelClass):
 
     class Meta:
         app_label = "prescription"
+
+class MedicineDosage(TimeStampedAbstractModelClass):
+    DURATION_CHOICES = [
+        ('days', 'Days'),
+        ('weeks', 'Weeks'),
+        ('months', 'Months'),
+        ('next_visit', 'Until Next Visit'),
+        ('other', 'Other'),
+    ]
+    medicine = models.ForeignKey(
+        Item, 
+        related_name='medicine_dosage', 
+        on_delete=models.DO_NOTHING
+    )
+
+    duration_value=models.IntegerField(blank=True, null=True)
+    duration_type = models.CharField(max_length=10, choices=DURATION_CHOICES, default='days')
+    prescribedMedicine=models.ForeignKey(PrescribedMedicine,on_delete=models.CASCADE)
+
+
+
+    class Meta:
+        app_label = "prescription"
+
+class MedicineDosageElement(TimeStampedAbstractModelClass):
+    amount = models.IntegerField()
+    # dayMedSchedule can have values like-morning, afternoon, evening,noon
+    dayMedSchedule = models.CharField(max_length=255)
+    # medicineTiming can have values like- before meal, after meal, na
+    medicineTiming = models.CharField(max_length=255)
+    medicine_dosage=models.ForeignKey(MedicineDosage,on_delete=models.CASCADE)
+   
+    class Meta:
+        app_label = "prescription"
+
+
+
+
+
 
 
     
