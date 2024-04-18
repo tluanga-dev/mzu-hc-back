@@ -5,18 +5,13 @@ from features.person.models import Department, Person
 # from features.person.serializers import PersonSerializer
 from django.utils.timezone import make_aware
 
-from features.prescription.models import MedicineDosage, Prescription, PrescribedMedicine
+from features.prescription.models import Prescription, PrescribedMedicine
 from features.utils.convert_date import DateConverter
 
 class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = ['id', 'name',]
-
-class MedicineDosageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model= MedicineDosage
-        fields=['item']
 
 class PrescribedMedicineSerializer(serializers.ModelSerializer):
     
@@ -30,8 +25,7 @@ class PrescribedMedicineSerializer(serializers.ModelSerializer):
            'id',
             'name',
             'dosage',
-            'item',
-            'dosage'
+            'item'
         ]
 
 class PrescriptionDepartmentSerializer(serializers.ModelSerializer):

@@ -5,7 +5,7 @@ from features.base.base_test_setup_class import BaseTestCase
 from features.item.models import Item
 
 from features.person.models import Department, Person, PersonType
-from features.prescription.models import MedicineDosage, MedicineDosageElement, PrescribedMedicine, Prescription
+from features.prescription.models import PrescribedMedicine, Prescription
 
 
 
@@ -42,7 +42,7 @@ class TestModels(BaseTestCase):
             email='test@gmail.com',
             mzu_id='123456',
             is_active=True,
-            mobile_no=1234567890
+            contact_no=1234567890
         )
         self.doctor = Person.objects.create(
             name='Test Doctor',
@@ -51,7 +51,7 @@ class TestModels(BaseTestCase):
             email='doctor@gmail.com',
             mzu_id='1234561212',
             is_active=True,
-            mobile_no=1234567890
+            contact_no=1234567890
         )
         
     
@@ -60,33 +60,17 @@ class TestModels(BaseTestCase):
             patient=self.patient,
             doctor=self.doctor,
             date_and_time='2021-01-01',
-            chief_complaint='Test Complaint',
-            diagnosis='Test Diagnosis',
-            advice_and_instructions='Test Advice and Instructions',
             prescription_dispense_status=Prescription.PresciptionDispenseStatus.NOT_DISPENSED,
             note='Test Note',
         )
-        self.prescription_item=PrescribedMedicine.objects.create(
-            prescription=self.prescription,
-            medicine=self.item,
-            is_active=True
-        )
-        self.dosages=MedicineDosage.objects.create(
-            medicine=self.item,
-            prescribedMedicine=self.prescription_item,
-            duration_value=1,
-            duration_type='days',
-            is_active=True
-        )
-        self.medicine_dosage_element=MedicineDosageElement.objects.create(
-            amount=1,
-            dayMedSchedule='Monday',
-            medicineTiming='before meal',
-            medicine_dosage=self.dosages
-        )
 
         # ---create prescription Item
-        
+        self.prescription_item1=PrescribedMedicine.objects.create(
+            prescription=self.prescription,
+            item=self.item,
+            dosage='test dosage',
+            is_active=True
+        )
         
         self.assertEqual(Prescription.objects.all().count(), 1)
         self.assertEqual(Prescription.objects.get(id=self.prescription.id).patient, self.patient)
