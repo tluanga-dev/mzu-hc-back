@@ -76,6 +76,12 @@ class ItemBatchSerializer(serializers.ModelSerializer):
         model = ItemBatch
         fields = ['id', 'batch_id', 'description', 'date_of_expiry',
                   'item', 'is_active', 'created_on', 'updated_on']
+        
+class UnitOfMeasurementSerializerForUser(serializers.ModelSerializer):
+  
+    class Meta:
+        model = UnitOfMeasurement
+        fields = ['id', 'name', 'abbreviation', 'description']
 
 
 class ItemSerializerForUser(serializers.ModelSerializer):
@@ -86,9 +92,10 @@ class ItemSerializerForUser(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation['type'] = ItemTypeSerializerForUser(instance.type).data
+        representation['unit_of_measurement']=UnitOfMeasurementSerializerForUser(instance.unit_of_measurement).data
 
         return representation
 
     class Meta:
         model = Item
-        fields = ['id', 'name', 'description', 'type', 'item_batches']
+        fields = ['id', 'name', 'description', 'type', 'item_batches','unit_of_measurement']

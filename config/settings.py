@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'features.item',
 
     # ------Medicine---------
-    'features.medicine',
+    # 'features.medicine',
 
 
 
