@@ -73,3 +73,5 @@ class ItemBatchViewSet(viewsets.ModelViewSet):
             return Response(serializer.data)
         except ItemBatch.DoesNotExist:
             raise Http404
+
+

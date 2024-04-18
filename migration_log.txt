@@ -71,3 +71,119 @@ TypeError: Response.__init__() takes 1 positional argument but 2 were given
 2024-04-18 11:28:46,206 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/item/serializers.py changed, reloading.
 2024-04-18 11:29:04,486 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/item/serializers.py changed, reloading.
 2024-04-18 11:29:25,841 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/item/serializers.py changed, reloading.
+2024-04-18 11:30:50,405 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:30:52,159 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:38:22,588 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:38:35,593 - WARNING - Not Found: /transaction/dispense/item_info_for_dispense/
+2024-04-18 11:38:47,436 - WARNING - Not Found: /transaction/dispense/item_info_for_dispense/
+2024-04-18 11:38:57,456 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:39:08,403 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/views.py changed, reloading.
+2024-04-18 11:39:36,055 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-04-18 11:39:37,715 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-04-18 11:39:39,196 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-04-18 11:40:34,072 - WARNING - Not Found: /transaction/dispense/item_info_for_dispense/
+2024-04-18 11:41:23,401 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-04-18 11:41:25,129 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-04-18 11:41:54,858 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:42:16,129 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:44:06,024 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:44:10,350 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:44:14,927 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:44:17,484 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:44:18,981 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:44:20,473 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:44:21,968 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:44:38,139 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:44:54,363 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:44:56,040 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:45:24,424 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:45:26,336 - ERROR - Internal Server Error: /transaction/dispense/item_info_for_dispense/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py", line 55, in to_representation
+    representation['unit_of_measurement']=UnitOfMeasurementSerializerForUser(instance.unit_of_measurement).data
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'UnitOfMeasurementSerializerForUser' is not defined
+2024-04-18 11:45:27,884 - ERROR - Internal Server Error: /transaction/dispense/item_info_for_dispense/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py", line 55, in to_representation
+    representation['unit_of_measurement']=UnitOfMeasurementSerializerForUser(instance.unit_of_measurement).data
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'UnitOfMeasurementSerializerForUser' is not defined
+2024-04-18 11:45:37,805 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:45:39,519 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:45:42,014 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-04-18 11:45:43,513 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.

@@ -1,6 +1,8 @@
 from features.inventory_transaction.dispense_transaction.models import DispenseInventoryTransaction
-from features.inventory_transaction.dispense_transaction.serializers import DispenseInventoryTransactionSerializer
+from features.inventory_transaction.dispense_transaction.serializers import DispenseInventoryTransactionSerializer, ItemInformationForDispenseTransactionSerializer
 from rest_framework import viewsets
+
+from features.item.models import Item
 
 class DispenseInventoryTransactionViewSet(viewsets.ModelViewSet):
     queryset = DispenseInventoryTransaction.objects.all()
@@ -43,3 +45,7 @@ class DispenseInventoryTransactionViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(dispense_date__gte=dispense_date_from, dispense_date__lte=dispense_date_to)
 
         return queryset
+    
+class ItemInformationForDispenseTransactionViewSet(viewsets.ModelViewSet):
+    queryset = Item.objects.all()
+    serializer_class = ItemInformationForDispenseTransactionSerializer
