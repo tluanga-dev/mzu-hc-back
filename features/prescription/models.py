@@ -6,6 +6,7 @@ from features.id_manager.models import IdManager
 from features.item.models import Item
 from features.medicine.models import MedicineDosage
 from features.person.models import Person
+from django.db import transaction
 
 PRESCRIPTION_ABBREVIATION = 'PRESC'
 class Prescription(TimeStampedAbstractModelClass):
@@ -28,22 +29,37 @@ class Prescription(TimeStampedAbstractModelClass):
 
     def get_prescribed_medicine_by_patient(self, patient_id):
         return self.prescribed_medicine_set.filter(prescription__patient_id=patient_id)
+    
 
-    def save(self, *args, **kwargs):
-        if not self.code:
-            
-            generated_item_code = IdManager.generateId(PRESCRIPTION_ABBREVIATION)
-            # print(generated_item_code)
-            self.code = generated_item_code
+    @classmethod
+    @transaction.atomic
+    def create_full_prescription(cls, prescription_data, prescription_item_data,medical_dosage, medical_dosage_timing ):
+        # Create the Prescription instance
+        prescription = cls.objects.create(**prescription_data)
 
-        super().save(*args, **kwargs)
-    class Meta:
-        app_label = "prescription"
+
+        # ---medical dosages---
+
+        # Iterate over each item data to create PrescriptionItems and their dosages
+        for item in items_data:
+            item_instance = PrescriptionItem(
+                prescription=prescription,
+                item=item['item'],
+                name=item['name']  # Assuming there's a 'name' field in PrescriptionItem
+            )
+            item_instance.save()
+
+            # Handle dosages if provided
+            for dosage_data in item.get('dosages', []):
+                dosage_instance = MedicineDosage.objects.create(**dosage_data)
+                item_instance.dosages.add(dosage_instance)
+
+        return prescription
 
 
 class PrescriptionItem(TimeStampedAbstractModelClass):
     name = models.CharField(max_length=255)
-    dosage = models.ManyToManyField(MedicineDosage, related_name='dosages')
+    dosages = models.ManyToManyField(MedicineDosage, related_name='dosages')
     item = models.ForeignKey(
         Item, 
         related_name='medicine_items', 
@@ -53,7 +69,7 @@ class PrescriptionItem(TimeStampedAbstractModelClass):
     )
     prescription = models.ForeignKey(
         Prescription, 
-        related_name='prescribed_medicine_set'
+        related_name='prescribed_item_set'
         ,on_delete=models.CASCADE
     )
 

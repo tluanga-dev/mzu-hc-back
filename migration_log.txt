@@ -269,3 +269,52 @@ TypeError: Response.__init__() takes 1 positional argument but 2 were given
 2024-04-19 07:21:39,661 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
 2024-04-19 07:21:41,169 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
 2024-04-19 07:21:47,834 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 08:05:56,784 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 08:06:16,494 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 08:24:31,074 - WARNING - Bad Request: /prescriptions/
+2024-04-19 08:24:31,078 - WARNING - Bad Request: /prescriptions/
+2024-04-19 12:05:57,791 - WARNING - Not Found: /favicon.ico
+2024-04-19 12:05:59,280 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 12:06:01,259 - INFO - Supplier migration complete. Migrated: 5, Failed: 0
+2024-04-19 12:06:01,264 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 12:06:02,201 - INFO - Unit of Measurement migration complete. Migrated: 50, Failed: 0
+2024-04-19 12:06:02,202 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 12:06:02,969 - INFO - Item Category migration complete. Migrated: 5, Failed: 0
+2024-04-19 12:06:02,972 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 12:06:03,903 - INFO - Item Type migration complete. Migrated: 75, Failed: 0
+2024-04-19 12:06:03,904 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 12:06:05,754 - INFO - Item migration complete. Migrated: 443, Failed: 0
+2024-04-19 12:06:05,756 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 12:06:06,899 - INFO - Person Type migration complete. Migrated: 4, Failed: 0
+2024-04-19 12:06:06,905 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 12:06:08,005 - INFO - Person migration complete. Migrated: 385, Failed: 0
+2024-04-19 12:06:08,022 - ERROR - Internal Server Error: /setup/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/setup/views.py", line 10, in list
+    return Response(data)
+           ^^^^^^^^^^^^^^
+TypeError: Response.__init__() takes 1 positional argument but 2 were given
+2024-04-19 12:08:16,564 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-04-19 12:08:34,994 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.

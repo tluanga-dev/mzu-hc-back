@@ -1,13 +1,19 @@
 from datetime import datetime
 from rest_framework import serializers
 from features.item.models import Item
+from features.item.serializers import ItemSerializer
 from features.medicine.models import MedicineDosage, MedicineDosageTiming
+from features.medicine.serializers import MedicineDosageSerializer
 from features.person.models import Department, Person
 # from features.person.serializers import PersonSerializer
 from django.utils.timezone import make_aware
 
 from features.prescription.models import Prescription, PrescriptionItem
 from features.utils.convert_date import DateConverter
+from django.db import transaction
+from rest_framework import serializers
+
+from features.utils.print_json import print_json_string
 
 class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,20 +21,24 @@ class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
         fields = ['id', 'name',]
 
 class PrescriptionItemSerializer(serializers.ModelSerializer):
-    
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        representation['item'] =PrescribeMedicineItemSerializer(instance.item).data
-        return representation
+    dosages = MedicineDosageSerializer(many=True)
+    item = serializers.PrimaryKeyRelatedField(queryset=Item.objects.all())
+
     class Meta:
         model = PrescriptionItem
-        fields = [
-           'id',
-            'name',
-            'dosage',
-            'item'
-        ]
+        fields = ['id', 'name', 'dosages', 'item']
 
+    def create(self, validated_data):
+        dosages_data = validated_data.pop('dosages', [])
+        item_data = validated_data.pop('item')
+        item = Item.objects.get(id=item_data['id'])  # Assuming existence or use ItemSerializer to create
+        prescription_item = PrescriptionItem.objects.create(item=item, **validated_data)
+        for dosage_data in dosages_data:
+            dosage = MedicineDosageSerializer().create(dosage_data)
+            prescription_item.dosages.add(dosage)
+        return prescription_item
+    
+    
 class PrescriptionDepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
@@ -36,79 +46,64 @@ class PrescriptionDepartmentSerializer(serializers.ModelSerializer):
 
 
 class PrescriptionPersonSerializer(serializers.ModelSerializer):
-    department = PrescriptionDepartmentSerializer(read_only=True)
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        representation['department'] = PrescriptionDepartmentSerializer(instance.department).data
-        return representation
+    # department = PrescriptionDepartmentSerializer(read_only=True)
+    # def to_representation(self, instance):
+    #     representation = super().to_representation(instance)
+    #     if instance.department:
+    #         representation['department'] = PrescriptionDepartmentSerializer(instance.department).data
+    #     else:
+    #         print('deparment is none')
+    #         representation['department'] = None
+    #     return representation
 
     class Meta:
         model = Person
         fields = ['id','name', 'department']
 
 
+
 class PrescriptionSerializer(serializers.ModelSerializer):
-    date_and_time = serializers.DateTimeField(format="%d-%m-%Y %H:%M")
-    
-    prescribed_medicine_set = serializers.ListSerializer(
-        child=PrescriptionItemSerializer(),
-        read_only=False
-    )
+    prescribed_item_set = PrescriptionItemSerializer(many=True)
+    patient = serializers.PrimaryKeyRelatedField(queryset=Person.objects.all())
+    doctor = serializers.PrimaryKeyRelatedField(queryset=Person.objects.all())
+    date_and_time = serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
 
-    def to_internal_value(self, data):
-        # Convert the incoming date_and_time to the database format
-        
-        if 'date_and_time' in data:
-            try:
-                converted_date_and_time= DateConverter.convert_date_time_format_to_django_default(
-                    data['date_and_time']
-                ) 
-                
-                data['date_and_time'] =converted_date_and_time
-            except ValueError:
-                raise serializers.ValidationError({"date_and_time": "Date and time must be in 'dd-mm-yyyy hh:mm' format"})
-        return super().to_internal_value(data)
-
-    def create(self, validated_data):
-        try:
-            prescriped_items_set = validated_data.pop('prescribed_medicine_set')
-            prescription = self.Meta.model.objects.create(**validated_data)
-            
-            for prescriped_item in prescriped_items_set:
-                dosages=validated_data.pop('dosages')
-                prescription_item=PrescriptionItem.objects.create(prescription=prescription, **prescriped_item)
-                for dosage in dosages:
-                    medicine_dosage_timing_set=dosage.pop('medicine_dosage_timing_set')
-                    dosage_local=MedicineDosage.objects.create(**dosage)
-                    for medicine_dosage_timing in medicine_dosage_timing_set:
-                        MedicineDosageTiming.objects.create(medicine_dosage=dosage_local, **medicine_dosage_timing)
-                    
-                
-            return prescription
-      
-        except ValueError as e:
-            print(f"ValueError: {e}")
-            raise serializers.ValidationError(str(e))
-
-    
     class Meta:
         model = Prescription
-        fields = [
-            'code', 
-            'patient', 
-            'doctor', 
-            'note', 
-            'date_and_time',
-            'prescription_dispense_status',
-            'prescribed_medicine_set',
-        ]
+        fields = ['code', 'patient', 'doctor', 'note', 'date_and_time', 'prescription_dispense_status', 'prescribed_item_set']
         read_only_fields = ['code']
 
+    @transaction.atomic
+    def create(self, validated_data):
+        # print(validated_data)
+        prescribed_item_set_data = validated_data.pop('prescribed_item_set', [])
+
+        prescription = Prescription.objects.create(**validated_data)
+       
+        for prescribed_item_data in prescribed_item_set_data:
+            
+            medicine_dosage_list_data = prescribed_item_data.pop('dosages', [])
+           
+            precription_item=PrescriptionItem.objects.create(**prescribed_item_data,prescription=prescription)
+            medicine=precription_item.item
+            for medicine_dosage_data in medicine_dosage_list_data:
+                
+                medicine_dosage_timing_set_data = medicine_dosage_data.pop('medicine_dosage_timing_set', [])
+               
+           
+                medicine_dosage=MedicineDosage.objects.create(**medicine_dosage_data,medicine=medicine)
+                precription_item.dosages.add(medicine_dosage)
+                # -----Medicine Dosage Timing------
+                for medicine_dosage_timing_data in medicine_dosage_timing_set_data:
+                    medicine_dosage_timing = MedicineDosageTiming.objects.create(**medicine_dosage_timing_data,medicine_dosage=medicine_dosage)
+                    medicine_dosage.medicine_dosage_timing_set.add(medicine_dosage_timing)
+
+        return prescription
+
     def to_representation(self, instance):
-        self.fields['patient'] = PrescriptionPersonSerializer(read_only=True)
-        self.fields['doctor'] = PrescriptionPersonSerializer(read_only=True)
-        
         representation = super().to_representation(instance)
+        representation['patient'] = PrescriptionPersonSerializer(instance.patient).data
+        representation['doctor'] = PrescriptionPersonSerializer(instance.doctor).data
         return representation
   
 
