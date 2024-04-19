@@ -1,11 +1,12 @@
 from datetime import datetime
 from rest_framework import serializers
 from features.item.models import Item
+from features.medicine.models import MedicineDosage, MedicineDosageTiming
 from features.person.models import Department, Person
 # from features.person.serializers import PersonSerializer
 from django.utils.timezone import make_aware
 
-from features.prescription.models import Prescription, PrescribedMedicine
+from features.prescription.models import Prescription, PrescriptionItem
 from features.utils.convert_date import DateConverter
 
 class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
@@ -13,14 +14,14 @@ class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
         model = Item
         fields = ['id', 'name',]
 
-class PrescribedMedicineSerializer(serializers.ModelSerializer):
+class PrescriptionItemSerializer(serializers.ModelSerializer):
     
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation['item'] =PrescribeMedicineItemSerializer(instance.item).data
         return representation
     class Meta:
-        model = PrescribedMedicine
+        model = PrescriptionItem
         fields = [
            'id',
             'name',
@@ -50,7 +51,7 @@ class PrescriptionSerializer(serializers.ModelSerializer):
     date_and_time = serializers.DateTimeField(format="%d-%m-%Y %H:%M")
     
     prescribed_medicine_set = serializers.ListSerializer(
-        child=PrescribedMedicineSerializer(),
+        child=PrescriptionItemSerializer(),
         read_only=False
     )
 
@@ -70,12 +71,18 @@ class PrescriptionSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         try:
-            # print(f"validated_data: {validated_data}")
-            items_data = validated_data.pop('prescribed_medicine_set')
+            prescriped_items_set = validated_data.pop('prescribed_medicine_set')
             prescription = self.Meta.model.objects.create(**validated_data)
             
-            for item_data in items_data:
-                data=PrescribedMedicine.objects.create(prescription=prescription, **item_data)
+            for prescriped_item in prescriped_items_set:
+                dosages=validated_data.pop('dosages')
+                prescription_item=PrescriptionItem.objects.create(prescription=prescription, **prescriped_item)
+                for dosage in dosages:
+                    medicine_dosage_timing_set=dosage.pop('medicine_dosage_timing_set')
+                    dosage_local=MedicineDosage.objects.create(**dosage)
+                    for medicine_dosage_timing in medicine_dosage_timing_set:
+                        MedicineDosageTiming.objects.create(medicine_dosage=dosage_local, **medicine_dosage_timing)
+                    
                 
             return prescription
       

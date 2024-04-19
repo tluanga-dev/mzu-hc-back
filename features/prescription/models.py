@@ -4,6 +4,7 @@ from django.db import models
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
 from features.id_manager.models import IdManager
 from features.item.models import Item
+from features.medicine.models import MedicineDosage
 from features.person.models import Person
 
 PRESCRIPTION_ABBREVIATION = 'PRESC'
@@ -40,9 +41,9 @@ class Prescription(TimeStampedAbstractModelClass):
         app_label = "prescription"
 
 
-class PrescribedMedicine(TimeStampedAbstractModelClass):
+class PrescriptionItem(TimeStampedAbstractModelClass):
     name = models.CharField(max_length=255)
-    dosage = models.TextField()
+    dosage = models.ManyToManyField(MedicineDosage, related_name='dosages')
     item = models.ForeignKey(
         Item, 
         related_name='medicine_items', 

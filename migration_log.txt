@@ -1,23 +1,174 @@
-2024-04-04 21:48:40,993 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
-2024-04-04 21:48:44,763 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
-2024-04-04 21:51:12,365 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
-2024-04-04 21:51:14,063 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
-2024-04-04 21:51:15,573 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
-2024-04-04 21:51:28,508 - INFO - file_cache is only supported with oauth2client<4.0.0
-2024-04-04 21:51:29,508 - INFO - Supplier migration complete. Migrated: 5, Failed: 0
-2024-04-04 21:51:29,555 - INFO - file_cache is only supported with oauth2client<4.0.0
-2024-04-04 21:51:30,387 - INFO - Unit of Measurement migration complete. Migrated: 50, Failed: 0
-2024-04-04 21:51:30,391 - INFO - file_cache is only supported with oauth2client<4.0.0
-2024-04-04 21:51:31,132 - INFO - Item Category migration complete. Migrated: 5, Failed: 0
-2024-04-04 21:51:31,144 - INFO - file_cache is only supported with oauth2client<4.0.0
-2024-04-04 21:51:32,002 - INFO - Item Type migration complete. Migrated: 75, Failed: 0
-2024-04-04 21:51:32,003 - INFO - file_cache is only supported with oauth2client<4.0.0
-2024-04-04 21:51:33,472 - INFO - Item migration complete. Migrated: 443, Failed: 0
-2024-04-04 21:51:33,482 - INFO - file_cache is only supported with oauth2client<4.0.0
-2024-04-04 21:51:34,204 - INFO - Person Type migration complete. Migrated: 4, Failed: 0
-2024-04-04 21:51:34,206 - INFO - file_cache is only supported with oauth2client<4.0.0
-2024-04-04 21:51:35,269 - INFO - Person migration complete. Migrated: 385, Failed: 0
-2024-04-04 21:51:35,283 - ERROR - Internal Server Error: /setup/
+2024-04-19 05:02:00,072 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 05:02:02,012 - INFO - Supplier migration complete. Migrated: 5, Failed: 0
+2024-04-19 05:02:02,014 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 05:02:03,294 - INFO - Unit of Measurement migration complete. Migrated: 50, Failed: 0
+2024-04-19 05:02:03,296 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 05:02:04,225 - INFO - Item Category migration complete. Migrated: 5, Failed: 0
+2024-04-19 05:02:04,228 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 05:02:05,028 - INFO - Item Type migration complete. Migrated: 75, Failed: 0
+2024-04-19 05:02:05,029 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 05:02:06,094 - ERROR - Failed to migrate item 'Smuth capsule': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,096 - ERROR - Failed to migrate item 'Snap IT': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,098 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 05:02:06,118 - ERROR - Failed to migrate item 'Spasmopic': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,211 - ERROR - Failed to migrate item 'Stamlo 10': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,212 - ERROR - Failed to migrate item 'Stamlo 5': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,213 - ERROR - Failed to migrate item 'Stemetil MD': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,215 - ERROR - Failed to migrate item 'Tazloc H': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,217 - ERROR - Failed to migrate item 'Telekast L kid': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,218 - ERROR - Failed to migrate item 'Telsartan 20': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,220 - ERROR - Failed to migrate item 'Telsartan 40': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,221 - ERROR - Failed to migrate item 'Telsartan H': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,222 - ERROR - Failed to migrate item 'Telsartan H 80': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,224 - ERROR - Failed to migrate item 'Tenovate': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,225 - ERROR - Failed to migrate item 'Tenovate M': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,226 - ERROR - Failed to migrate item 'Torex jr': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,228 - ERROR - Failed to migrate item 'Trabest Tablet': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,229 - ERROR - Failed to migrate item 'VDM Forte': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,231 - ERROR - Failed to migrate item 'VDM kit': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,232 - ERROR - Failed to migrate item 'Venflon 26 G': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,233 - ERROR - Failed to migrate item 'Vertigon tab': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,235 - ERROR - Failed to migrate item 'Vertin OD': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,236 - ERROR - Failed to migrate item 'Vertin 24': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,238 - ERROR - Failed to migrate item 'Vilnip M': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,239 - ERROR - Failed to migrate item 'Vitcee': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,240 - ERROR - Failed to migrate item 'Zeet expectorant': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,242 - ERROR - Failed to migrate item 'Zerodol PG 75': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,243 - ERROR - Failed to migrate item 'Zerodol SP': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,244 - ERROR - Failed to migrate item 'Zerodol th 4mg': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,245 - ERROR - Failed to migrate item 'Zolfresh 10mg': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,247 - ERROR - Failed to migrate item 'Zolfresh 5mg': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,248 - ERROR - Failed to migrate item 'Zyworm Suspension': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,250 - ERROR - Failed to migrate item 'Zyworm Tablet': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,252 - ERROR - Failed to migrate item 'Hyrax 25': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,253 - ERROR - Failed to migrate item 'Rantop Syrup': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,255 - ERROR - Failed to migrate item 'Azito Tablet': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,256 - ERROR - Failed to migrate item 'Absorbent Cotton Wool': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,257 - ERROR - Failed to migrate item 'Calpol 125mg': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,258 - ERROR - Failed to migrate item 'Calpol 250mg': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,260 - ERROR - Failed to migrate item 'Oralhex Mouth Wash': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,261 - ERROR - Failed to migrate item 'Sazotel AM': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,262 - ERROR - Failed to migrate item 'Omegadale Syrup': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,263 - ERROR - Failed to migrate item 'Rekool - L': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,264 - ERROR - Failed to migrate item 'Pregabalin 75 mg': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,265 - ERROR - Failed to migrate item 'Calpol Drop': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,266 - ERROR - Failed to migrate item 'AB Cold Tablet': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,267 - ERROR - Failed to migrate item 'Ab Cold La Tablet': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,269 - ERROR - Failed to migrate item 'AB Cold Suspension': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,270 - ERROR - Failed to migrate item 'Ab Vito 12 G': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,271 - ERROR - Failed to migrate item 'Ab Vito 9g': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,273 - ERROR - Failed to migrate item 'Ab Vito Woman': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,274 - ERROR - Failed to migrate item 'Abpent 40 Injection': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,275 - ERROR - Failed to migrate item 'Aciclovir 5% Ointment / Herperax Oint': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,276 - ERROR - Failed to migrate item 'Adaqueen C Gel': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,277 - ERROR - Failed to migrate item 'Aziluk 500': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,279 - ERROR - Failed to migrate item 'Brismox -BR Eye Drops': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,280 - ERROR - Failed to migrate item 'Brismox Eye Ointment': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,281 - ERROR - Failed to migrate item 'Brismox Eye Solution': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,282 - ERROR - Failed to migrate item 'Butanid 0.5mg': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,283 - ERROR - Failed to migrate item 'Canpara - SP': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,284 - ERROR - Failed to migrate item 'Canpara Suspension': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,285 - ERROR - Failed to migrate item 'Car 10': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,287 - ERROR - Failed to migrate item 'Clonazole Powder 100gm': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,288 - ERROR - Failed to migrate item 'Closat -GM Skin cream': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,289 - ERROR - Failed to migrate item 'Codimax - T Syrup': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,291 - ERROR - Failed to migrate item 'Crandon Syrup': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,292 - ERROR - Failed to migrate item 'Crepe bandage 7.50cm': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,294 - ERROR - Failed to migrate item 'Defkinz 6': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,295 - ERROR - Failed to migrate item 'Dengue test kits': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,297 - ERROR - Failed to migrate item 'Deumac 2.5ml': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,298 - ERROR - Failed to migrate item 'Esorus -LS': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,300 - ERROR - Failed to migrate item 'Face Lite Gel 20 gm': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,306 - ERROR - Failed to migrate item 'Ferokinz 3D': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,310 - ERROR - Failed to migrate item 'Filter paper': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,312 - ERROR - Failed to migrate item 'Glucometer Test Strips (Dr ONDIN)': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,313 - ERROR - Failed to migrate item 'Graso 1000': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,315 - ERROR - Failed to migrate item 'Grisophen - Cet': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,317 - ERROR - Failed to migrate item 'Haemocor D/cyameter': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,318 - ERROR - Failed to migrate item 'HT Zyme xt syr': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,319 - ERROR - Failed to migrate item 'I-Liv DS Syrup 225ml': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,321 - ERROR - Failed to migrate item 'I-Liv Syrup 100 ml': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,323 - ERROR - Failed to migrate item 'Indclav 375': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,324 - ERROR - Failed to migrate item 'Isopearl - 20': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,326 - ERROR - Failed to migrate item 'Isopearl- 10': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,328 - ERROR - Failed to migrate item 'Justnac Eye Drops': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,329 - ERROR - Failed to migrate item 'KTZ Tablet': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,330 - ERROR - Failed to migrate item 'L- Nin': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,331 - ERROR - Failed to migrate item 'L- Nin M': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,333 - ERROR - Failed to migrate item 'Lancets (ONDIN)': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,334 - ERROR - Failed to migrate item 'Lensokinz- 15 Tab': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,335 - ERROR - Failed to migrate item 'Livtears Ultra Eye Drops': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,337 - ERROR - Failed to migrate item 'Lovex 500': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,338 - ERROR - Failed to migrate item 'Lycozip 19 Cap': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,339 - ERROR - Failed to migrate item 'Lycozip XT Syrup': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,341 - ERROR - Failed to migrate item 'M Lite Plus Cream': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,342 - ERROR - Failed to migrate item 'Mecovit Plus': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,343 - ERROR - Failed to migrate item 'Methilovit PG': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,345 - ERROR - Failed to migrate item 'Milocal - Z Suspension': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,346 - ERROR - Failed to migrate item 'Mixocal 500': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,348 - ERROR - Failed to migrate item 'Molori - L Syrup': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,349 - ERROR - Failed to migrate item 'Olokick Eye Drops': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,350 - ERROR - Failed to migrate item 'Omegawave E': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,352 - ERROR - Failed to migrate item 'Onin MD - 4': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,353 - ERROR - Failed to migrate item 'Oxyxip DHA': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,354 - ERROR - Failed to migrate item 'Oxyzip CZS': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,356 - ERROR - Failed to migrate item 'Oxyzip XT syr': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,358 - ERROR - Failed to migrate item 'Perish Cream': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,359 - ERROR - Failed to migrate item 'Ret Life': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,360 - ERROR - Failed to migrate item 'Ribzyn 20': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,362 - ERROR - Failed to migrate item 'Ribzyn DSR': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,363 - ERROR - Failed to migrate item 'Ribzyn IT': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,365 - ERROR - Failed to migrate item 'Ribzyn LS': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,366 - ERROR - Failed to migrate item 'Roller Bandage 7.5 cm': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,368 - ERROR - Failed to migrate item 'Ronryl - DX': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,369 - ERROR - Failed to migrate item 'Ronryl- TM Syrup': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,371 - ERROR - Failed to migrate item 'Sodium citrate 3.8%': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,373 - ERROR - Failed to migrate item 'Spasnil- D Tablet': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,374 - ERROR - Failed to migrate item 'Sucragyl O': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,375 - ERROR - Failed to migrate item 'Surgical Blade no 16': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,377 - ERROR - Failed to migrate item 'Surgicare Sterile gloves 6': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,378 - ERROR - Failed to migrate item 'Tam MF': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,380 - ERROR - Failed to migrate item 'Terbaz tablet': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,381 - ERROR - Failed to migrate item 'Test tubes 10ml 10x 125': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,382 - ERROR - Failed to migrate item 'Tret A Cream': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,383 - ERROR - Failed to migrate item 'Udiaz - 300': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,385 - ERROR - Failed to migrate item 'Ulcer Cure gel': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,387 - ERROR - Failed to migrate item 'Ulcer D 450 ml': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,389 - ERROR - Failed to migrate item 'Ultonic syrup': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,390 - ERROR - Failed to migrate item 'Unsterile gloves medium (Care View)': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,392 - ERROR - Failed to migrate item 'Urispas': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,393 - ERROR - Failed to migrate item 'Walact Dry Syrup': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,395 - ERROR - Failed to migrate item 'Waylact capsule': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,397 - ERROR - Failed to migrate item 'ABO grouping': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,399 - ERROR - Failed to migrate item 'Albumin ERBA': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,400 - ERROR - Failed to migrate item 'ALP ERBA': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,402 - ERROR - Failed to migrate item 'Billirubin ERBA': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,404 - ERROR - Failed to migrate item 'Blood mp (ICT)': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,406 - ERROR - Failed to migrate item 'Calcium ERBA': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,408 - ERROR - Failed to migrate item 'Cholesterol ERBA': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,410 - ERROR - Failed to migrate item 'Cotton gauze cloth(Natura )': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,412 - ERROR - Failed to migrate item 'Cotton Roll 500gm': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,413 - ERROR - Failed to migrate item 'Coverslip': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,415 - ERROR - Failed to migrate item 'Creatinine ERBA': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,417 - ERROR - Failed to migrate item 'Dispo van 10 ml': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,419 - ERROR - Failed to migrate item 'Dispo van 2 ml': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,421 - ERROR - Failed to migrate item 'Dispo Van 3ml': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,422 - ERROR - Failed to migrate item 'Dispo van 5ml': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,425 - ERROR - Failed to migrate item 'Distilled water': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,426 - ERROR - Failed to migrate item 'Glass slides': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,428 - ERROR - Failed to migrate item 'Glucose ERBA': UNIQUE constraint failed: item_item.item_code
+2024-04-19 05:02:06,681 - INFO - Item migration complete. Migrated: 294, Failed: 149
+2024-04-19 05:02:06,682 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 05:02:06,789 - INFO - Supplier migration complete. Migrated: 5, Failed: 0
+2024-04-19 05:02:06,800 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 05:02:07,368 - INFO - Person Type migration complete. Migrated: 4, Failed: 0
+2024-04-19 05:02:07,374 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 05:02:07,530 - INFO - Unit of Measurement migration complete. Migrated: 50, Failed: 0
+2024-04-19 05:02:07,532 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 05:02:08,235 - INFO - Item Category migration complete. Migrated: 5, Failed: 0
+2024-04-19 05:02:08,243 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 05:02:08,552 - INFO - Person migration complete. Migrated: 385, Failed: 0
+2024-04-19 05:02:08,570 - ERROR - Internal Server Error: /setup/
 Traceback (most recent call last):
   File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
     response = get_response(request)
@@ -45,59 +196,14 @@ Traceback (most recent call last):
     return Response(data)
            ^^^^^^^^^^^^^^
 TypeError: Response.__init__() takes 1 positional argument but 2 were given
-2024-04-04 21:54:14,429 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
-2024-04-04 21:54:29,679 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
-2024-04-04 22:01:13,098 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-04 22:01:19,241 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-04 22:01:29,153 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-04 22:01:48,383 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-04 22:01:50,000 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-04 22:02:25,557 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-04 22:02:27,054 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-04 22:02:29,540 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-04 22:02:37,292 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-04 22:02:50,169 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-04 22:02:51,818 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-04 22:02:54,312 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-04 22:02:55,816 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-04 22:04:37,876 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-05 12:51:10,587 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
-2024-04-06 03:15:42,566 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/views.py changed, reloading.
-2024-04-06 04:51:00,947 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/settings.py changed, reloading.
-2024-04-06 04:52:53,693 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/views.py changed, reloading.
-2024-04-06 04:53:16,824 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/views.py changed, reloading.
-2024-04-06 04:55:00,635 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/views.py changed, reloading.
-2024-04-18 11:27:36,934 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
-2024-04-18 11:28:46,206 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/item/serializers.py changed, reloading.
-2024-04-18 11:29:04,486 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/item/serializers.py changed, reloading.
-2024-04-18 11:29:25,841 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/item/serializers.py changed, reloading.
-2024-04-18 11:30:50,405 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:30:52,159 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:38:22,588 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:38:35,593 - WARNING - Not Found: /transaction/dispense/item_info_for_dispense/
-2024-04-18 11:38:47,436 - WARNING - Not Found: /transaction/dispense/item_info_for_dispense/
-2024-04-18 11:38:57,456 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:39:08,403 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/views.py changed, reloading.
-2024-04-18 11:39:36,055 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
-2024-04-18 11:39:37,715 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
-2024-04-18 11:39:39,196 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
-2024-04-18 11:40:34,072 - WARNING - Not Found: /transaction/dispense/item_info_for_dispense/
-2024-04-18 11:41:23,401 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
-2024-04-18 11:41:25,129 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
-2024-04-18 11:41:54,858 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:42:16,129 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:44:06,024 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:44:10,350 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:44:14,927 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:44:17,484 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:44:18,981 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:44:20,473 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:44:21,968 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:44:38,139 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:44:54,363 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:44:56,040 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:45:24,424 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:45:26,336 - ERROR - Internal Server Error: /transaction/dispense/item_info_for_dispense/
+2024-04-19 05:02:09,053 - INFO - Item Type migration complete. Migrated: 75, Failed: 0
+2024-04-19 05:02:09,054 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 05:02:10,512 - INFO - Item migration complete. Migrated: 443, Failed: 0
+2024-04-19 05:02:10,527 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 05:02:11,286 - INFO - Person Type migration complete. Migrated: 4, Failed: 0
+2024-04-19 05:02:11,289 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-19 05:02:12,263 - INFO - Person migration complete. Migrated: 385, Failed: 0
+2024-04-19 05:02:12,273 - ERROR - Internal Server Error: /setup/
 Traceback (most recent call last):
   File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
     response = get_response(request)
@@ -121,89 +227,45 @@ Traceback (most recent call last):
   File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
     response = handler(request, *args, **kwargs)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 46, in list
-    return Response(serializer.data)
-                    ^^^^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 768, in data
-    ret = super().data
-          ^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
-    self._data = self.to_representation(self.instance)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
-    return [
-           ^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
-    self.child.to_representation(item) for item in iterable
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py", line 55, in to_representation
-    representation['unit_of_measurement']=UnitOfMeasurementSerializerForUser(instance.unit_of_measurement).data
-                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-NameError: name 'UnitOfMeasurementSerializerForUser' is not defined
-2024-04-18 11:45:27,884 - ERROR - Internal Server Error: /transaction/dispense/item_info_for_dispense/
-Traceback (most recent call last):
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
-    return view_func(request, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
-    return self.dispatch(request, *args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
-    response = self.handle_exception(exc)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
-    raise exc
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
-    response = handler(request, *args, **kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 46, in list
-    return Response(serializer.data)
-                    ^^^^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 768, in data
-    ret = super().data
-          ^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
-    self._data = self.to_representation(self.instance)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
-    return [
-           ^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
-    self.child.to_representation(item) for item in iterable
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py", line 55, in to_representation
-    representation['unit_of_measurement']=UnitOfMeasurementSerializerForUser(instance.unit_of_measurement).data
-                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-NameError: name 'UnitOfMeasurementSerializerForUser' is not defined
-2024-04-18 11:45:37,805 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:45:39,519 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:45:42,014 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-18 11:45:43,513 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
-2024-04-19 00:03:56,974 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:04:02,313 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:04:22,582 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:04:39,877 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:05:49,194 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:05:52,989 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:05:55,575 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:06:02,317 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:06:07,978 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:06:40,643 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:06:48,625 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:06:52,343 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:07:21,070 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:07:22,842 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:07:24,353 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:07:31,386 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:07:42,226 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:07:43,772 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:07:45,252 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
-2024-04-19 00:07:48,835 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/setup/views.py", line 10, in list
+    return Response(data)
+           ^^^^^^^^^^^^^^
+TypeError: Response.__init__() takes 1 positional argument but 2 were given
+2024-04-19 07:12:40,396 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:12:57,753 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:12:59,460 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:13:01,002 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:13:02,511 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:13:04,023 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:13:05,507 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:13:08,051 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:13:09,604 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:13:38,360 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
+2024-04-19 07:13:48,081 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/medicine/models.py changed, reloading.
+2024-04-19 07:13:52,747 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:13:55,305 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:13:57,835 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:14:11,298 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:15:08,232 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:15:10,006 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:15:11,503 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:15:15,066 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:15:24,862 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:15:44,170 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:15:45,849 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:15:50,482 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:15:51,987 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:15:55,575 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:16:00,502 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:16:02,022 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:16:03,526 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:21:17,322 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:21:19,082 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:21:20,589 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:21:22,084 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:21:32,921 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:21:35,607 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:21:38,135 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:21:39,661 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:21:41,169 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-19 07:21:47,834 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.

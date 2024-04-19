@@ -5,7 +5,7 @@ from features.base.base_test_setup_class import BaseTestCase
 from features.item.models import Item
 
 from features.person.models import Department, Person, PersonType
-from features.prescription.models import PrescribedMedicine, Prescription
+from features.prescription.models import PrescriptionItem, Prescription
 
 
 
@@ -65,7 +65,7 @@ class TestModels(BaseTestCase):
         )
 
         # ---create prescription Item
-        self.prescription_item1=PrescribedMedicine.objects.create(
+        self.prescription_item1=PrescriptionItem.objects.create(
             prescription=self.prescription,
             item=self.item,
             dosage='test dosage',

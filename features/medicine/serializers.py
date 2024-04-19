@@ -1,17 +1,31 @@
 from rest_framework import serializers
 
-from features.medicine.models import MedicineDosage, MedicineDosageDuration
+from features.medicine.models import MedicineDosage, MedicineDosageTiming
 
 
 class MedicineDosageSerializer(serializers.ModelSerializer):
+    medicine_dosage_element=serializers.PrimaryKeyRelatedField(many=True, read_only=False, queryset=MedicineDosageTiming.objects.all())
     class Meta:
         model = MedicineDosage
-        fields = ['id', 'quantity_in_one_take', 'how_many_times_in_a_day', 'name', 'item', 'updated_on']
+        fields = [
+            'id', 
+          'medicine_dosage_element',
+            'medicine',
+            'duration_value', 'duration_type', 
+            'note'
+              ]
 
 
-class MedicineDosageDurationSerializer(serializers.ModelSerializer):
+class MedicineDosageTimingSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MedicineDosageDuration
-        fields = ['id', 'days', 'name', 'medicine_dosage', 'updated_on']
+        model = MedicineDosageTiming
+        fields = [
+            'id', 
+            'quantity_in_one_take', 
+            'dayMedSchedule',
+            'medicineTiming'
+            'medicine_dosage',
+            'updated_on'
+        ]
 
 

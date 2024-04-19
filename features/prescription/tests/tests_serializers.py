@@ -5,7 +5,7 @@ from features.base.base_test_setup_class import BaseTestCase
 from features.item.models import Item
 from features.person.models import Department, Person, PersonType
 from features.person.serializers import PersonSerializer
-from features.prescription.models import PrescribedMedicine, Prescription
+from features.prescription.models import PrescriptionItem, Prescription
 from features.prescription.serializers import PrescriptionSerializer
 from features.utils.print_json import print_json_string
 
@@ -15,7 +15,7 @@ class TestPresciption(BaseTestCase):
         super().setUp()
         Person.objects.all().delete()
         Prescription.objects.all().delete()
-        PrescribedMedicine.objects.all().delete()
+        PrescriptionItem.objects.all().delete()
         self.item_1 = Item.objects.create(
             name="Test Item 1",
             description="Test Description 1",

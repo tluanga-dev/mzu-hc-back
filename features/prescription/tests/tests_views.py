@@ -6,7 +6,7 @@ from rest_framework.test import APITestCase
 from features.base.base_test_setup_class import BaseTestCase
 from features.item.models import Item
 from features.person.models import Department, Person, PersonType
-from features.prescription.models import PrescribedMedicine, Prescription
+from features.prescription.models import PrescriptionItem, Prescription
 from features.prescription.serializers import PrescriptionSerializer
 
 
@@ -15,7 +15,7 @@ class PrescriptionViewSetTestCase(BaseTestCase):
         super().setUp()
         Person.objects.all().delete()
         Prescription.objects.all().delete()
-        PrescribedMedicine.objects.all().delete()
+        PrescriptionItem.objects.all().delete()
         self.item_1 = Item.objects.create(
             name="Test Item 1",
             description="Test Description 1",
