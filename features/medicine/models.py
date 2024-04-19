@@ -5,21 +5,31 @@ from features.base.time_stamped_abstract_class import TimeStampedAbstractModelCl
 from features.item.models import Item
 
 class MedicineDosage(TimeStampedAbstractModelClass):
-    quantity_in_one_take = models.IntegerField()
-    how_many_times_in_a_day = models.IntegerField()
-    name = models.CharField(max_length=255)
+    DURATION_CHOICES = [
+        ('days', 'Days'),
+        ('weeks', 'Weeks'),
+        ('months', 'Months'),
+        ('next_visit', 'Until Next Visit'),
+        ('other', 'Other'),
+    ]
+    medicine = models.ForeignKey(
+        Item, 
+        related_name='medicine_dosage', 
+        on_delete=models.DO_NOTHING
+    )
+    duration_value=models.IntegerField(blank=True, null=True)
+    duration_type = models.CharField(max_length=10, choices=DURATION_CHOICES, default='days')
     item = models.ForeignKey(Item, related_name='dosages', on_delete=models.CASCADE)
 
 
-    class Meta:
-        app_label = 'medicine'
-
-class MedicineDosageDuration(TimeStampedAbstractModelClass):
-    days = models.IntegerField()
-    name = models.CharField(max_length=255)
+class MedicineDosageElement(TimeStampedAbstractModelClass):
+    quantity_in_one_take = models.IntegerField()
+    # dayMedSchedule can have values like-morning, afternoon, evening,noon
+    dayMedSchedule = models.CharField(max_length=255)
+    # medicineTiming can have values like- before meal, after meal,
+    # before lunch, after lunch, before bed 
+    medicineTiming = models.CharField(max_length=255)
     medicine_dosage = models.ForeignKey(MedicineDosage,  on_delete=models.CASCADE)
-
-
 
     class Meta:
         app_label = 'medicine'
