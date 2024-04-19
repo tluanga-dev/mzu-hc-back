@@ -90,7 +90,7 @@ class PrescriptionSerializer(serializers.ModelSerializer):
                 
                 medicine_dosage_timing_set_data = medicine_dosage_data.pop('medicine_dosage_timing_set', [])
                
-           
+    
                 medicine_dosage=MedicineDosage.objects.create(**medicine_dosage_data,medicine=medicine)
                 precription_item.dosages.add(medicine_dosage)
                 # -----Medicine Dosage Timing------

@@ -69,7 +69,7 @@ router.register(r'person', PersonViewSet,basename='person')
 
 
 # --------Prescription---------
-router.register(r'prescriptions', PrescriptionViewSet, basename='prescription')
+router.register(r'prescription', PrescriptionViewSet, basename='prescription')
 
 router.register(r'setup', SetupView, basename='setup')
 

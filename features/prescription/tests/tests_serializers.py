@@ -125,7 +125,7 @@ class TestPrescription(BaseTestCase):
         serializer = PrescriptionSerializer(data=self.prescription_data_for_create)
         if serializer.is_valid():
             serializer.save()
-            print_json_string(serializer.data)  # Uncomment to view serialized output
+            # print_json_string(serializer.data)  # Uncomment to view serialized output
         else:
             print('---------------------------------ERRORS----------------------')
             print(serializer.errors)
@@ -133,14 +133,14 @@ class TestPrescription(BaseTestCase):
 
         self.assertEqual(Prescription.objects.count(), 1, "Check that one prescription is created")
 
-    # def test_prescription_view(self):
-    #     serializer = PrescriptionSerializer(data=self.prescription_data_for_create)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #     else:
-    #         print(serializer.errors)
+    def test_prescription_view(self):
+        serializer = PrescriptionSerializer(data=self.prescription_data_for_create)
+        if serializer.is_valid():
+            serializer.save()
+        else:
+            print(serializer.errors)
 
-    #     prescription = Prescription.objects.first()
-    #     serializer = PrescriptionSerializer(prescription)
-    #     print_json_string(serializer.data)  # Uncomment to view serialized output
+        prescription = Prescription.objects.first()
+        serializer = PrescriptionSerializer(prescription)
+        # print_json_string(serializer.data)  # Uncomment to view serialized output
 

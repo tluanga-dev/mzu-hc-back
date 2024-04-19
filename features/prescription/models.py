@@ -30,31 +30,9 @@ class Prescription(TimeStampedAbstractModelClass):
     def get_prescribed_medicine_by_patient(self, patient_id):
         return self.prescribed_medicine_set.filter(prescription__patient_id=patient_id)
     
-
-    @classmethod
-    @transaction.atomic
-    def create_full_prescription(cls, prescription_data, prescription_item_data,medical_dosage, medical_dosage_timing ):
-        # Create the Prescription instance
-        prescription = cls.objects.create(**prescription_data)
-
-
-        # ---medical dosages---
-
-        # Iterate over each item data to create PrescriptionItems and their dosages
-        for item in items_data:
-            item_instance = PrescriptionItem(
-                prescription=prescription,
-                item=item['item'],
-                name=item['name']  # Assuming there's a 'name' field in PrescriptionItem
-            )
-            item_instance.save()
-
-            # Handle dosages if provided
-            for dosage_data in item.get('dosages', []):
-                dosage_instance = MedicineDosage.objects.create(**dosage_data)
-                item_instance.dosages.add(dosage_instance)
-
-        return prescription
+    def save(self, *args, **kwargs):
+        self.code = IdManager.generateId(prefix=PRESCRIPTION_ABBREVIATION)
+        super().save(*args, **kwargs)
 
 
 class PrescriptionItem(TimeStampedAbstractModelClass):
