@@ -58,7 +58,7 @@ class PrescriptionPersonSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Person
-        fields = ['id','name', 'department']
+        fields = ['id','name', 'department','mzu_id']
 
 
 

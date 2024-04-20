@@ -11,11 +11,12 @@ class PrescriptionFilter(filters.FilterSet):
     date_to = filters.DateFilter(field_name="date_and_time", lookup_expr='lte')
     date = filters.DateFilter(field_name="date_and_time", lookup_expr='date')
     patient_id = filters.UUIDFilter(field_name="patient__id")  # Direct filter for patient_id
+    patient_mzu_id= filters.CharFilter(field_name="patient__mzu_id")
     doctor_id = filters.UUIDFilter(field_name="doctor__id")  # Similarly for doctor_id
 
     class Meta:
         model = Prescription
-        fields = ['code', 'patient_id', 'doctor_id', 'prescription_dispense_status']
+        fields = ['code', 'patient_id', 'patient_mzu_id', 'doctor_id', 'prescription_dispense_status']
 
 class PrescriptionViewSet(viewsets.ModelViewSet):
     queryset = Prescription.objects.select_related('patient', 'doctor').prefetch_related('prescribed_item_set')
@@ -33,6 +34,10 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
         if patient_id:
             queryset = queryset.filter(patient__id=patient_id)
             print(f"Received patient_id: {patient_id}")# Start with the base queryset
+
+        patient_mzu_id = self.request.query_params.get('patient_mzu_id')
+        if(patient_mzu_id):
+            queryset = queryset.filter(patient__mzu_id=patient_mzu_id)    
         return self.filter_queryset(queryset)  # Use filter_queryset method to apply defined filters
 
     def handle_exception(self, exc):

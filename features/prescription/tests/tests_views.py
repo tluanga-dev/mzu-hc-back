@@ -205,10 +205,25 @@ class PrescriptionViewSetTestCase(BaseTestCase):
         print("Expected patient ID:", prescription.patient.id)
         print("Number of records returned:", len(response.data))
       
-        for item in response.data:
-            print("\nReturned patient ID:", item['patient']['id'])
-            print(item)  # Assuming patient ID is returned in the response
-            print('\n---------\n')
+        # for item in response.data:
+        #     print("\nReturned patient ID:", item['patient']['id'])
+        #     print(item)  # Assuming patient ID is returned in the response
+        #     print('\n---------\n')
+
+        # ------filter by Mzu id
+        print('\n')
+        response = self.client.get(url, {'patient_mzu_id': prescription.patient.mzu_id})
+        print("Expected patient mzu ID:", prescription.patient.mzu_id)
+        print("Number of records returned:", len(response.data))
+        print(response.data)
+
+        print('\n')
+        prescription2=Prescription.objects.last()
+        response = self.client.get(url, {'patient_mzu_id': prescription2.patient.mzu_id})
+        print("Expected patient mzu ID:", prescription2.patient.mzu_id)
+        print("Number of records returned:", len(response.data))
+        print(response.data)
+        
 
         # self.assertEqual(response.status_code, status.HTTP_200_OK)
         # # Check if the length is not what's expected
