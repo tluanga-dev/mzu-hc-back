@@ -196,17 +196,28 @@ class PrescriptionViewSetTestCase(BaseTestCase):
          
         self.client.post(url, self.prescription_data_2, format='json')
 
-    #     # Test filtering by an exact date
-    #     # response = self.client.get(url, {'issue_date': '2022-01-01'})
-    #     prescription=Prescription.objects.first()
+        # Test filtering by an exact date
+        response = self.client.get(url, {'issue_date': '10-12-2023'})
+        prescription=Prescription.objects.first()
        
-    #     # ------Filter by patient_id
-    #     response = self.client.get(url, {'patient_id':prescription.patient.id})
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertEqual(len(response.data), 1)
-    #     self.assertEqual(response.data[0]['patient']['id'],str(prescription.patient.id))
+        # ------Filter by patient_id
+        response = self.client.get(url, {'patient_id': prescription.patient.id})
+        print("Expected patient ID:", prescription.patient.id)
+        print("Number of records returned:", len(response.data))
+      
+        for item in response.data:
+            print("\nReturned patient ID:", item['patient']['id'])
+            print(item)  # Assuming patient ID is returned in the response
+            print('\n---------\n')
 
-    #      # ------Filter by patient_id
+        # self.assertEqual(response.status_code, status.HTTP_200_OK)
+        # # Check if the length is not what's expected
+        # self.assertEqual(len(response.data), 1, f"Expected 1 record, got {len(response.data)}")
+      
+       
+        # # Additional checks to validate the contents of the response
+        # self.assertEqual(response.data[0]['patient']['id'], str(self.prescription.patient.id))
+        #      # ------Filter by patient_id
     #     response = self.client.get(url, {'doctor_id':prescription.doctor.id})
     #     # print_json_string(response.data)
     #     self.assertEqual(response.status_code, status.HTTP_200_OK)

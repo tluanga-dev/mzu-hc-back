@@ -1,7 +1,5 @@
 from rest_framework import viewsets, permissions
 from django_filters import rest_framework as filters
-from django.db.models import Q
-from django.utils.dateparse import parse_date
 from features.prescription.models import Prescription
 from features.prescription.serializers import PrescriptionSerializer
 import logging
@@ -12,24 +10,30 @@ class PrescriptionFilter(filters.FilterSet):
     date_from = filters.DateFilter(field_name="date_and_time", lookup_expr='gte')
     date_to = filters.DateFilter(field_name="date_and_time", lookup_expr='lte')
     date = filters.DateFilter(field_name="date_and_time", lookup_expr='date')
-    
+    patient_id = filters.UUIDFilter(field_name="patient__id")  # Direct filter for patient_id
+    doctor_id = filters.UUIDFilter(field_name="doctor__id")  # Similarly for doctor_id
+
     class Meta:
         model = Prescription
-        fields = ['code', 'patient__id', 'doctor__id', 'prescription_dispense_status']
+        fields = ['code', 'patient_id', 'doctor_id', 'prescription_dispense_status']
 
 class PrescriptionViewSet(viewsets.ModelViewSet):
     queryset = Prescription.objects.select_related('patient', 'doctor').prefetch_related('prescribed_item_set')
     serializer_class = PrescriptionSerializer
-    permission_classes = [permissions.AllowAny]
-    filter_class = PrescriptionFilter
+    permission_classes = [permissions.AllowAny]  # Consider using authenticated permissions
+    filter_class = PrescriptionFilter  # Correct attribute name for filter
     filter_backends = (filters.DjangoFilterBackend,)
 
     def get_queryset(self):
         """
         Optionally refines the queryset by filtering against query parameters.
         """
-        queryset = super().get_queryset()  # Start with the base queryset
-        return queryset.filter(self.filterset_class(self.request.GET, queryset=queryset, request=self.request).qs)
+        queryset = super().get_queryset()  
+        patient_id = self.request.query_params.get('patient_id')
+        if patient_id:
+            queryset = queryset.filter(patient__id=patient_id)
+            print(f"Received patient_id: {patient_id}")# Start with the base queryset
+        return self.filter_queryset(queryset)  # Use filter_queryset method to apply defined filters
 
     def handle_exception(self, exc):
         """
@@ -38,4 +42,3 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
         logger.error(f'Error in processing request: {str(exc)}', exc_info=True)
         return super().handle_exception(exc)
 
-# Note: You can add more methods or customize further based on your needs.
