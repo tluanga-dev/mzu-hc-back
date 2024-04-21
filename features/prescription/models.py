@@ -18,6 +18,9 @@ class Prescription(TimeStampedAbstractModelClass):
     code=models.CharField(max_length=255,unique=True)
     patient = models.ForeignKey(Person, related_name='prescriptions_patient', on_delete=models.CASCADE)
     doctor = models.ForeignKey(Person, related_name='prescriptions_doctor', on_delete=models.CASCADE)
+    chief_complaints=models.TextField()
+    diagnosis = models.TextField()
+    advice_and_instructions=models.TextField()
     note= models.TextField()
     date_and_time = models.DateTimeField()
     prescription_dispense_status = models.CharField(

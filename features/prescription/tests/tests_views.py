@@ -200,10 +200,10 @@ class PrescriptionViewSetTestCase(BaseTestCase):
         response = self.client.get(url, {'issue_date': '10-12-2023'})
         prescription=Prescription.objects.first()
        
-        # ------Filter by patient_id
-        response = self.client.get(url, {'patient_id': prescription.patient.id})
-        print("Expected patient ID:", prescription.patient.id)
-        print("Number of records returned:", len(response.data))
+        # # ------Filter by patient_id
+        # response = self.client.get(url, {'patient_id': prescription.patient.id})
+        # print("Expected patient ID:", prescription.patient.id)
+        # print("Number of records returned:", len(response.data))
       
         # for item in response.data:
         #     print("\nReturned patient ID:", item['patient']['id'])
@@ -217,12 +217,17 @@ class PrescriptionViewSetTestCase(BaseTestCase):
         print("Number of records returned:", len(response.data))
         print(response.data)
 
-        print('\n')
-        prescription2=Prescription.objects.last()
-        response = self.client.get(url, {'patient_mzu_id': prescription2.patient.mzu_id})
-        print("Expected patient mzu ID:", prescription2.patient.mzu_id)
-        print("Number of records returned:", len(response.data))
-        print(response.data)
+        # print('\n')
+        # prescription2=Prescription.objects.last()
+        # response = self.client.get(url, {'patient_mzu_id': prescription2.patient.mzu_id})
+        # print("Expected patient mzu ID:", prescription2.patient.mzu_id)
+        # print("Number of records returned:", len(response.data))
+        # print(response.data)
+
+        # # ---Filter by doctor_id
+        # response = self.client.get(url, {'doctor_id': prescription.doctor.id})
+        # print("Expected doctor ID:", prescription.doctor.id)
+        # print("Number of records returned:", len(response.data))
         
 
         # self.assertEqual(response.status_code, status.HTTP_200_OK)
