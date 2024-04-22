@@ -73,13 +73,14 @@ class TestPrescription(BaseTestCase):
         self.prescription_data_for_create = {
             'patient': self.patient.id,
             'doctor': self.doctor.id,
-            'note': 'test note',
+            'chief_complaints': 'Pain in the abdoment',
+            'diagnosis':'test diagnosis',
+            'advice_and_instructions':'test advice and instructions',
+            'note':'test note',
             'date_and_time': '10-12-2023 14:20:00',
-            'prescription_dispense_status': Prescription.PresciptionDispenseStatus.NOT_DISPENSED,
             'prescribed_item_set': [
                 {
-                    'name': 'Test Medicine 1',
-                    'item': self.item_1.id,
+                    'medicine': self.item_1.id,
                     'dosages': [
                         {
                             'duration_value': 7,
@@ -93,11 +94,11 @@ class TestPrescription(BaseTestCase):
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    'note':'test note'
                 },
                 {
-                    'name': 'Test Medicine 2',
-                    'item': self.item_2.id,
+                    'medicine': self.item_2.id,
                     'dosages': [
                         {
                             'duration_value': 14,

@@ -39,9 +39,8 @@ class Prescription(TimeStampedAbstractModelClass):
 
 
 class PrescriptionItem(TimeStampedAbstractModelClass):
-    name = models.CharField(max_length=255)
     dosages = models.ManyToManyField(MedicineDosage, related_name='dosages')
-    item = models.ForeignKey(
+    medicine = models.ForeignKey(
         Item, 
         related_name='medicine_items', 
         null=True, 
@@ -53,6 +52,7 @@ class PrescriptionItem(TimeStampedAbstractModelClass):
         related_name='prescribed_item_set'
         ,on_delete=models.CASCADE
     )
+    note=models.TextField(null=True, blank=True)
 
     class Meta:
         app_label = "prescription"

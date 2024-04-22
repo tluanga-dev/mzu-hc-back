@@ -83,16 +83,17 @@ class PrescriptionViewSetTestCase(BaseTestCase):
             mobile_no=1234567890
         )
        
-        self.prescription_data_1 = {
+        self.prescription_1 = {
             'patient': self.patient_1.id,
             'doctor': self.doctor_1.id,
-            'note': 'test note',
+            'chief_complaints': 'Pain in the abdoment',
+            'diagnosis':'test diagnosis',
+            'advice_and_instructions':'test advice and instructions',
+            'note':'test note',
             'date_and_time': '10-12-2023 14:20:00',
-            'prescription_dispense_status': Prescription.PresciptionDispenseStatus.NOT_DISPENSED,
             'prescribed_item_set': [
                 {
-                    'name': 'Test Medicine 1',
-                    'item': self.item_1.id,
+                    'medicine': self.item_1.id,
                     'dosages': [
                         {
                             'duration_value': 7,
@@ -106,11 +107,11 @@ class PrescriptionViewSetTestCase(BaseTestCase):
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    'note':'test note'
                 },
                 {
-                    'name': 'Test Medicine 2',
-                    'item': self.item_2.id,
+                    'medicine': self.item_2.id,
                     'dosages': [
                         {
                             'duration_value': 14,
@@ -132,59 +133,79 @@ class PrescriptionViewSetTestCase(BaseTestCase):
                     ]
                 }
             ]
-        }# Create a few Prescription instances here
+        }
+
         
-        
-        self.prescription_data_2 = {
-            'patient': self.patient_2.id,
+        self.prescription_2 = {
+                'patient': self.patient_2.id,
+                'doctor': self.doctor_2.id,
+                'chief_complaints': 'Headache and dizziness',
+                'diagnosis': 'Migraine',
+                'advice_and_instructions': 'Avoid bright lights and loud noises',
+                'note': 'Patient to follow up if no improvement',
+                'date_and_time': '15-12-2023 10:45:00',
+                'prescribed_item_set': [
+                    {
+                        'medicine': self.item_2.id,
+                        'dosages': [
+                            {
+                                'duration_value': 10,
+                                'duration_type': 'days',
+                                'note': 'Take as needed for headache',
+                                'medicine_dosage_timing_set': [
+                                    {
+                                        'quantity_in_one_take': 2,
+                                        'day_med_schedule': 'as needed',
+                                        'medicine_timing': 'before meal'
+                                    }
+                                ]
+                            }
+                        ],
+                        'note': 'Monitor headache frequency'
+                    }
+                ]
+            }
+
+        self.prescription_3 = {
+            'patient': self.patient_1.id,
             'doctor': self.doctor_2.id,
-            'note': 'test note',
-            'date_and_time': '20-1-2024 14:20:00',
-            'prescription_dispense_status': Prescription.PresciptionDispenseStatus.NOT_DISPENSED,
+            'chief_complaints': 'Fever and sore throat',
+            'diagnosis': 'Pharyngitis',
+            'advice_and_instructions': 'Stay hydrated and rest',
+            'note': 'Re-evaluate if symptoms worsen',
+            'date_and_time': '20-12-2023 16:30:00',
             'prescribed_item_set': [
                 {
-                    'name': 'Test Medicine 1',
-                    'item': self.item_1.id,
+                    'medicine': self.item_2.id,
                     'dosages': [
                         {
-                            'duration_value': 7,
+                            'duration_value': 5,
                             'duration_type': 'days',
-                            'note': 'Take once daily',
+                            'note': 'Take three times daily',
                             'medicine_dosage_timing_set': [
                                 {
                                     'quantity_in_one_take': 1,
                                     'day_med_schedule': 'morning',
                                     'medicine_timing': 'before meal'
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    'name': 'Test Medicine 2',
-                    'item': self.item_2.id,
-                    'dosages': [
-                        {
-                            'duration_value': 14,
-                            'duration_type': 'days',
-                            'note': 'Take twice daily',
-                            'medicine_dosage_timing_set': [
+                                },
                                 {
                                     'quantity_in_one_take': 1,
-                                    'day_med_schedule': 'morning',
+                                    'day_med_schedule': 'afternoon',
                                     'medicine_timing': 'after meal'
                                 },
                                 {
                                     'quantity_in_one_take': 1,
-                                    'day_med_schedule': 'evening',
-                                    'medicine_timing': 'after meal'
+                                    'day_med_schedule': 'night',
+                                    'medicine_timing': 'before bed'
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    'note': 'Check temperature daily'
                 }
             ]
-        }# Create a few Prescription instances here
+        }
+
        
        
 
@@ -192,30 +213,31 @@ class PrescriptionViewSetTestCase(BaseTestCase):
    
         url = reverse('prescription-list')
         
-        self.client.post(url, self.prescription_data_1, format='json')
+        self.client.post(url, self.prescription_1, format='json')
          
-        self.client.post(url, self.prescription_data_2, format='json')
+        self.client.post(url, self.prescription_2, format='json')
+        self.client.post(url, self.prescription_3, format='json')
 
         # Test filtering by an exact date
         response = self.client.get(url, {'issue_date': '10-12-2023'})
         prescription=Prescription.objects.first()
        
-        # # ------Filter by patient_id
-        # response = self.client.get(url, {'patient_id': prescription.patient.id})
-        # print("Expected patient ID:", prescription.patient.id)
-        # print("Number of records returned:", len(response.data))
+        # ------Filter by patient_id
+        response = self.client.get(url, {'patient_id': prescription.patient.id})
+        print("Expected patient ID:", prescription.patient.id)
+        print("Number of records returned:", len(response.data))
       
         # for item in response.data:
         #     print("\nReturned patient ID:", item['patient']['id'])
         #     print(item)  # Assuming patient ID is returned in the response
         #     print('\n---------\n')
 
-        # ------filter by Mzu id
-        print('\n')
-        response = self.client.get(url, {'patient_mzu_id': prescription.patient.mzu_id})
-        print("Expected patient mzu ID:", prescription.patient.mzu_id)
-        print("Number of records returned:", len(response.data))
-        print(response.data)
+        # # ------filter by Mzu id
+        # print('\n')
+        # response = self.client.get(url, {'patient_mzu_id': prescription.patient.mzu_id})
+        # print("Expected patient mzu ID:", prescription.patient.mzu_id)
+        # print("Number of records returned:", len(response.data))
+        # print(response.data)
 
         # print('\n')
         # prescription2=Prescription.objects.last()

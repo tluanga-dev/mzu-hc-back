@@ -1,0 +1,48 @@
+{
+    "date": "2024-04-21T02:46:55.903Z",
+    "chiefComplaints": "fdjsklafjd",
+    "diagnosis": "fdsafkjdklsaf",
+    "advice_and_instructions": "fdas,mfndkaslf",
+    "selectedPatient": {
+        "id": "502ee120-0f0c-4a12-aa84-a07e9807675c",
+        "name": "Dr. R. Zonuntluanga",
+        "mzu_id": "MZUNT007",
+        "age": 40,
+        "gender": "MALE",
+        "designation": "Joint Registrar",
+        "department": "Joint Registrar Cell (Estt)"
+    },
+    "prescriptionMedicines": [
+        {
+            "selected_medicine": {
+                "id": "50d69ecd-4c18-4880-81f3-0bad3f041a98",
+                "name": "Aciclovir 800",
+                "type": {
+                    "id": "02df1b90-6b11-4bb3-902d-b8b2a17865b1",
+                    "name": "Antivirals",
+                    "description": "Treat viral infections",
+                    "abbreviation": "ANTIVI"
+                },
+                "unitOfMeasurement": {
+                    "id": "8227466a-6b7e-4fe6-b8b1-849155989a17",
+                    "name": "Tablet",
+                    "description": "A unit for counting individual items.",
+                    "abbreviation": "tab"
+                }
+            },
+            "dosages": [
+                {
+                    "period": {
+                        "id": "Morning",
+                        "name": "Morning"
+                    },
+                    "time_period": "na",
+                    "amount": 1
+                }
+            ],
+            "duration": 100,
+            "time_unit": "days",
+            "note": ""
+        }
+    ]
+}

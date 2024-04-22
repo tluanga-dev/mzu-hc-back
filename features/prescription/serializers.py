@@ -22,11 +22,11 @@ class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
 
 class PrescriptionItemSerializer(serializers.ModelSerializer):
     dosages = MedicineDosageSerializer(many=True)
-    item = serializers.PrimaryKeyRelatedField(queryset=Item.objects.all())
+    medicine = serializers.PrimaryKeyRelatedField(queryset=Item.objects.all())
 
     class Meta:
         model = PrescriptionItem
-        fields = ['id', 'name', 'dosages', 'item']
+        fields = ['id', 'note', 'dosages', 'medicine']
 
     def create(self, validated_data):
         dosages_data = validated_data.pop('dosages', [])
@@ -70,7 +70,17 @@ class PrescriptionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Prescription
-        fields = ['code', 'patient', 'doctor', 'note', 'date_and_time', 'prescription_dispense_status', 'prescribed_item_set']
+        fields = [
+            'code', 
+            'patient', 
+            'doctor', 
+            'chief_complaints',
+            'diagnosis',
+            'advice_and_instructions', 
+            'date_and_time', 
+            'prescription_dispense_status', 
+            'prescribed_item_set'
+        ]
         read_only_fields = ['code']
 
     @transaction.atomic
@@ -85,7 +95,7 @@ class PrescriptionSerializer(serializers.ModelSerializer):
             medicine_dosage_list_data = prescribed_item_data.pop('dosages', [])
            
             precription_item=PrescriptionItem.objects.create(**prescribed_item_data,prescription=prescription)
-            medicine=precription_item.item
+            medicine=precription_item.medicine
             for medicine_dosage_data in medicine_dosage_list_data:
                 
                 medicine_dosage_timing_set_data = medicine_dosage_data.pop('medicine_dosage_timing_set', [])
