@@ -144,8 +144,10 @@ def migrate_item():
             type = ItemType.objects.get(name=row[2])
             unit_of_measurement = UnitOfMeasurement.objects.get(name=row[3])
             is_consumable = row[4].lower() == 'true'
+            contents = row[5] if len(row) > 5 and row[5] is not None else ''
             Item.objects.create(
                 name=row[1],
+                contents=contents,
                 type=type,
                 unit_of_measurement=unit_of_measurement,
                 is_consumable=is_consumable,

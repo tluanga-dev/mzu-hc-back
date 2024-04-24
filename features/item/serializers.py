@@ -96,4 +96,4 @@ class ItemSerializerForUser(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ['id', 'name', 'description', 'type', 'item_batches','unit_of_measurement']
+        fields = ['id', 'name','contents', 'description', 'type', 'item_batches','unit_of_measurement']

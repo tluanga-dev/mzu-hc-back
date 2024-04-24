@@ -1512,3 +1512,98 @@ Traceback (most recent call last):
     raise ValidationError(self.errors)
 rest_framework.exceptions.ValidationError: {'prescribed_item_set': [{}, {'medicine': [ErrorDetail(string='This field is required.', code='required')]}]}
 2024-04-22 06:15:37,034 - WARNING - Bad Request: /prescription/
+2024-04-24 21:26:28,259 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/models.py changed, reloading.
+2024-04-24 21:26:47,099 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-24 21:26:48,203 - INFO - Supplier migration complete. Migrated: 5, Failed: 0
+2024-04-24 21:26:48,235 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-24 21:26:49,112 - INFO - Unit of Measurement migration complete. Migrated: 50, Failed: 0
+2024-04-24 21:26:49,116 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-24 21:26:49,903 - INFO - Item Category migration complete. Migrated: 5, Failed: 0
+2024-04-24 21:26:49,918 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-24 21:26:50,827 - INFO - Item Type migration complete. Migrated: 75, Failed: 0
+2024-04-24 21:26:50,828 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-24 21:26:52,386 - INFO - Item migration complete. Migrated: 443, Failed: 0
+2024-04-24 21:26:52,400 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-24 21:26:53,173 - INFO - Person Type migration complete. Migrated: 4, Failed: 0
+2024-04-24 21:26:53,173 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-24 21:26:54,352 - INFO - Person migration complete. Migrated: 385, Failed: 0
+2024-04-24 21:26:54,372 - ERROR - Internal Server Error: /setup/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/setup/views.py", line 10, in list
+    return Response(data)
+           ^^^^^^^^^^^^^^
+TypeError: Response.__init__() takes 1 positional argument but 2 were given
+2024-04-24 21:27:31,359 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/item/models.py changed, reloading.
+2024-04-24 21:27:34,143 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/item/models.py changed, reloading.
+2024-04-24 21:27:43,448 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/item/models.py changed, reloading.
+2024-04-24 21:28:32,459 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-24 21:28:35,233 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-24 21:28:36,773 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-24 21:28:41,965 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-24 21:28:52,281 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-24 21:28:53,148 - INFO - Supplier migration complete. Migrated: 5, Failed: 0
+2024-04-24 21:28:53,176 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-24 21:28:54,090 - INFO - Unit of Measurement migration complete. Migrated: 50, Failed: 0
+2024-04-24 21:28:54,094 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-24 21:28:54,874 - INFO - Item Category migration complete. Migrated: 5, Failed: 0
+2024-04-24 21:28:54,881 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-24 21:28:55,925 - INFO - Item Type migration complete. Migrated: 75, Failed: 0
+2024-04-24 21:28:55,925 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-24 21:28:57,655 - INFO - Item migration complete. Migrated: 443, Failed: 0
+2024-04-24 21:28:57,667 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-24 21:28:58,442 - INFO - Person Type migration complete. Migrated: 4, Failed: 0
+2024-04-24 21:28:58,444 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-24 21:28:59,519 - INFO - Person migration complete. Migrated: 385, Failed: 0
+2024-04-24 21:28:59,541 - ERROR - Internal Server Error: /setup/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/setup/views.py", line 10, in list
+    return Response(data)
+           ^^^^^^^^^^^^^^
+TypeError: Response.__init__() takes 1 positional argument but 2 were given
+2024-04-24 21:29:43,643 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/item/serializers.py changed, reloading.
+2024-04-24 21:29:45,533 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/item/serializers.py changed, reloading.
+2024-04-24 21:29:47,036 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/item/serializers.py changed, reloading.
