@@ -142,6 +142,7 @@ def migrate_item():
     for row in data['values'][1:]:
         try:
             type = ItemType.objects.get(name=row[2])
+            contents=row[5] if len(row) > 5 and row[5] is not None else ''
             unit_of_measurement = UnitOfMeasurement.objects.get(name=row[3])
             is_consumable = row[4].lower() == 'true'
             Item.objects.create(

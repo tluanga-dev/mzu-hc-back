@@ -19,7 +19,7 @@ class MedicineDosage(TimeStampedAbstractModelClass):
     )
     duration_value=models.IntegerField(blank=True, null=True)
     duration_type = models.CharField(max_length=10, choices=DURATION_CHOICES, default='days')
-    note=models.TextField()
+    note=models.TextField(null=True, blank=True)
 
 class MedicineDosageTiming(TimeStampedAbstractModelClass):
     quantity_in_one_take = models.IntegerField()
