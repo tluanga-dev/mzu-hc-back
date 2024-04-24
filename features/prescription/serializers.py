@@ -18,11 +18,11 @@ from features.utils.print_json import print_json_string
 class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
-        fields = ['id', 'name','medicine_content']
+        fields = ['id', 'name',]
 
 class PrescriptionItemSerializer(serializers.ModelSerializer):
     dosages = MedicineDosageSerializer(many=True)
-    medicine = PrescribeMedicineItemSerializer()
+    medicine = serializers.PrimaryKeyRelatedField(queryset=Item.objects.all())
 
     class Meta:
         model = PrescriptionItem
@@ -71,7 +71,6 @@ class PrescriptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Prescription
         fields = [
-            'id',
             'code', 
             'patient', 
             'doctor', 
@@ -116,9 +115,6 @@ class PrescriptionSerializer(serializers.ModelSerializer):
         representation['patient'] = PrescriptionPersonSerializer(instance.patient).data
         representation['doctor'] = PrescriptionPersonSerializer(instance.doctor).data
         return representation
-    def validate(self, data):
-        print("Data before validation:", data)
-        return super().validate(data)
   
 
     

@@ -21,7 +21,7 @@ class Prescription(TimeStampedAbstractModelClass):
     chief_complaints=models.TextField()
     diagnosis = models.TextField()
     advice_and_instructions=models.TextField()
-    note= models.TextField(null=True, blank=True)
+    note= models.TextField()
     date_and_time = models.DateTimeField()
     prescription_dispense_status = models.CharField(
         max_length=100, 

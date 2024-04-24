@@ -36,7 +36,6 @@ class ItemType(TimeStampedAbstractModelClass):
 
 class Item(TimeStampedAbstractModelClass):
     name = models.CharField(max_length=255)
-    contents=models.TextField(blank=True, null=True)
     item_code = models.CharField(max_length=255, blank=False, null=False, unique=True)
     description = models.TextField()
     type = models.ForeignKey(ItemType, null=True, on_delete=models.SET_NULL)
