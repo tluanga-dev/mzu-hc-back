@@ -186,6 +186,14 @@ DATETIME_INPUT_FORMATS = ['%d-%m-%Y %H:%M']
 
 REST_FRAMEWORK = {
     "DATE_INPUT_FORMATS": ["%d-%m-%Y"],
-    "DATETIME_INPUT_FORMATS": ["%d-%m-%Y %H:%M:%S"]
-    # ...
+    "DATETIME_INPUT_FORMATS": ["%d-%m-%Y %H:%M:%S"],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+  
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }

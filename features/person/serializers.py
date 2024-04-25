@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from features.person.models import Department, Person, PersonType
+from features.person.models import Department, Patient, Person, PersonType
 
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,6 +12,11 @@ class PersonTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = PersonType
         fields = "__all__"
+
+class PatientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Patient
+        fields='__all__'
 
 # class PersonSerializer(serializers.ModelSerializer):
 #     person_type=serializers.SerializerMethodField()
