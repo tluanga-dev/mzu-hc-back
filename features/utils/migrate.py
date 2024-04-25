@@ -6,8 +6,24 @@ from features.item.serializers import ItemTypeSerializer
 from features.person.models import Person, PersonType
 from features.supplier.models import Supplier
 
+from features.utils.convert_date import DateConverter
 from features.utils.print_json import print_json_string
 import logging
+
+
+
+from datetime import datetime
+
+def convert_date_format(date_str):
+    try:
+        # Parse the date from dd-mm-yyyy
+        date_obj = datetime.strptime(date_str, '%d-%m-%Y')
+        # Convert it to yyyy-mm-dd format
+        new_date_str = datetime.strftime(date_obj, '%Y-%m-%d')
+        return new_date_str
+    except ValueError:
+        # Return the original input if it's not a valid date
+        return date_str
 
 # Configure logging
 logging.basicConfig(level=logging.INFO,
@@ -197,6 +213,10 @@ def migrate_person():
     for row in data['values'][1:]:
         try:
             person_type = PersonType.objects.get(name=row[6])
+            # date_of_birth=row[7],
+            # print('\n----------------')
+            # print('date of birth',date_of_birth)
+            # print('-------\n')
             Person.objects.create(
                 mzu_id=row[0],
                 name=row[1],
@@ -204,6 +224,8 @@ def migrate_person():
                 mobile_no=int(row[3]) if len(row) > 3 and row[3].isdigit() else 0,
                 department=row[4],
                 designation=row[5],
+                # date_of_birth='22-12-1970', --working
+                date_of_birth=row[7],
                 person_type=person_type
             )
             migrated_count += 1

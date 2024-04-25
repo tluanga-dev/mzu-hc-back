@@ -1,5 +1,9 @@
 from datetime import datetime
+from django.conf import settings
+import logging
 
+# Setup a logger for the date conversion errors
+logger = logging.getLogger(__name__)
 
 class DateConverter:
     @staticmethod
@@ -25,6 +29,28 @@ class DateConverter:
             date_time = None
 
         return date_time
+    
+    # -----Date Formatter-------
+
+
+    # @staticmethod
+    # def convert_to_date_field(date_str):
+    #     # List of possible date formats to try
+    #     date_formats = [
+    #         '%d-%m-%Y', 
+    #         '%Y-%m-%d',  # ISO format
+    #         '%d/%m/%Y',  # Alternate format with slashes
+    #     ]
+    #     # Try each format from the list until one works
+    #     for fmt in date_formats:
+    #         try:
+    #             date_str = date_str.strip()
+    #             return datetime.strptime(date_str, fmt).date()
+    #         except ValueError:
+    #             continue  # Try the next format
+    #     # If no format worked, log the error and return None
+    #     logger.error(f"Date conversion failed: '{date_str}' does not match any expected format.")
+    #     return None
 
 
     @staticmethod
@@ -107,6 +133,34 @@ class DateConverter:
         """
         dt = datetime.strptime(date_str.split('T')[0], '%Y-%m-%d')
         return dt.strftime('%d-%m-%Y')
+    
+    @staticmethod
+    def convert_to_date_field(date_str):
+    
+        # Check if input is not a potential date string
+        if not isinstance(date_str, str) or not date_str.replace('-', '').isdigit():
+            logger.error(f"Invalid date input: '{date_str}' is not a valid date string.")
+            return None
+        
+        # List of possible date formats to try
+        date_formats = [
+            '%d-%m-%Y',  # Day-Month-Year
+            '%Y-%m-%d',  # Year-Month-Day (ISO format)
+            '%d/%m/%Y',  # Alternate format with slashes
+        ]
+        
+        # Try each format from the list until one works
+        for fmt in date_formats:
+            try:
+                date_str = date_str.strip()
+                return datetime.strptime(date_str, fmt).date()
+            except ValueError:
+                continue  # Try the next format
+        
+        # If no format worked, log the error and return None
+        logger.error(f"Date conversion failed: '{date_str}' does not match any expected format.")
+        return None
+
 
 
  

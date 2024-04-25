@@ -2,6 +2,7 @@ import uuid
 from django.db import models
 
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
+from features.utils.convert_date import DateConverter
 
 class Department(TimeStampedAbstractModelClass):
     name = models.CharField(max_length=255)
@@ -27,6 +28,20 @@ class Person(TimeStampedAbstractModelClass):
     person_type=models.ForeignKey(PersonType, on_delete=models.CASCADE)
     mobile_no=models.PositiveBigIntegerField(null=True, blank=True)
  
+    @classmethod
+    def create(cls, **kwargs):
+        if 'date_of_birth' in kwargs and isinstance(kwargs['date_of_birth'], str):
+            kwargs['date_of_birth'] = DateConverter.convert_to_date_field(kwargs['date_of_birth'])
+        instance = cls(**kwargs)
+        instance.full_clean()  # Validates model fields before saving
+        instance.save()
+        return instance
+
+    def save(self, *args, **kwargs):
+        if isinstance(self.date_of_birth, str):
+            self.date_of_birth = DateConverter.convert_to_date_field(self.date_of_birth)
+        super().save(*args, **kwargs)
+
     class Meta:
         app_label = "person"
 
@@ -36,4 +51,4 @@ class Patient(Person):
 
     class Meta:
         app_label = "person"
-        proxy = True
+    

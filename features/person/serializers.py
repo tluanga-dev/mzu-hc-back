@@ -70,5 +70,6 @@ class PersonSerializer(serializers.ModelSerializer):
             'designation',
             'person_type',
             'mobile_no',
+            'date_of_birth',
             'is_active'
         ]
