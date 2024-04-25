@@ -18491,3 +18491,490 @@ AssertionError: The field 'formatted_dob' was declared on serializer PersonSeria
 2024-04-25 07:13:08,051 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
 2024-04-25 07:13:09,566 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
 2024-04-25 07:13:29,701 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-04-25 07:25:28,319 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-04-25 07:25:42,545 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-04-25 07:25:47,693 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-04-25 07:25:51,660 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-04-25 07:25:56,249 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-04-25 07:25:57,774 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-04-25 07:27:10,027 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-25 07:27:12,791 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-25 07:27:15,387 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-25 07:27:16,904 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-25 07:27:24,935 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-25 07:27:30,884 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-25 07:27:51,863 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-25 07:27:53,414 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-25 07:27:56,981 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-25 07:33:21,792 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-25 07:34:30,963 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-25 07:35:08,477 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-25 07:35:09,686 - INFO - Supplier migration complete. Migrated: 5, Failed: 0
+2024-04-25 07:35:09,721 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-25 07:35:10,584 - INFO - Unit of Measurement migration complete. Migrated: 50, Failed: 0
+2024-04-25 07:35:10,587 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-25 07:35:11,358 - INFO - Item Category migration complete. Migrated: 5, Failed: 0
+2024-04-25 07:35:11,365 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-25 07:35:12,291 - INFO - Item Type migration complete. Migrated: 75, Failed: 0
+2024-04-25 07:35:12,292 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-25 07:35:13,993 - INFO - Item migration complete. Migrated: 443, Failed: 0
+2024-04-25 07:35:14,010 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-25 07:35:14,805 - INFO - Person Type migration complete. Migrated: 4, Failed: 0
+2024-04-25 07:35:14,808 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-25 07:35:15,649 - ERROR - Failed to migrate person 'Mr. Zairemmawia Pachuau': PersonType matching query does not exist.
+2024-04-25 07:35:15,650 - ERROR - Failed to migrate person 'Dr. Lalthanchami Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,651 - ERROR - Failed to migrate person 'Dr. R. Zonuntluanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,653 - ERROR - Failed to migrate person 'Mrs. K. Lalhlimpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,655 - ERROR - Failed to migrate person 'Dr. K. Zirnunsanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,657 - ERROR - Failed to migrate person 'Mrs. Lalbiaksangi Chhakchhuak': PersonType matching query does not exist.
+2024-04-25 07:35:15,658 - ERROR - Failed to migrate person 'Mr. Lalchhuanawma Hrahsel': PersonType matching query does not exist.
+2024-04-25 07:35:15,660 - ERROR - Failed to migrate person 'Mr. AD Lalhmingliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,660 - ERROR - Failed to migrate person 'Mr. Lalzuiliana Thomte': PersonType matching query does not exist.
+2024-04-25 07:35:15,661 - ERROR - Failed to migrate person 'Dr. Lallaisangzuali': PersonType matching query does not exist.
+2024-04-25 07:35:15,662 - ERROR - Failed to migrate person 'Dr. Pauline Lallianzuali Vanchhawng': PersonType matching query does not exist.
+2024-04-25 07:35:15,662 - ERROR - Failed to migrate person 'Dr. RK Vanlalhmangaihi': PersonType matching query does not exist.
+2024-04-25 07:35:15,663 - ERROR - Failed to migrate person 'Dr. Maj.Marx Chand Lenin': PersonType matching query does not exist.
+2024-04-25 07:35:15,663 - ERROR - Failed to migrate person 'Mr. David Lalchhuanawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,664 - ERROR - Failed to migrate person 'Dr. C.Lalnuntluanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,664 - ERROR - Failed to migrate person 'Mrs. Marina Ch. Ralte': PersonType matching query does not exist.
+2024-04-25 07:35:15,665 - ERROR - Failed to migrate person 'Dr. Sanjeev': PersonType matching query does not exist.
+2024-04-25 07:35:15,665 - ERROR - Failed to migrate person 'Mr. Lourembam Suraj Singh': PersonType matching query does not exist.
+2024-04-25 07:35:15,665 - ERROR - Failed to migrate person 'Mr. Jacob Lalawmpuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,666 - ERROR - Failed to migrate person 'Dr. C. Lawmzuala': PersonType matching query does not exist.
+2024-04-25 07:35:15,666 - ERROR - Failed to migrate person 'Mr. Denghmingliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,669 - ERROR - Failed to migrate person 'Mrs. Lalrinkimi': PersonType matching query does not exist.
+2024-04-25 07:35:15,670 - ERROR - Failed to migrate person 'Mrs. Lalhlimpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,672 - ERROR - Failed to migrate person 'Mrs. Helen Lalthanpari': PersonType matching query does not exist.
+2024-04-25 07:35:15,673 - ERROR - Failed to migrate person 'Mrs. Helen Liannguri': PersonType matching query does not exist.
+2024-04-25 07:35:15,674 - ERROR - Failed to migrate person 'Mrs. Vanlalengi Ralte': PersonType matching query does not exist.
+2024-04-25 07:35:15,675 - ERROR - Failed to migrate person 'Mr. Lalrinmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,675 - ERROR - Failed to migrate person 'Mrs. Sangzeli': PersonType matching query does not exist.
+2024-04-25 07:35:15,676 - ERROR - Failed to migrate person 'Mrs. Ruth Laldinpuii Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,676 - ERROR - Failed to migrate person 'Mrs. Kawlchhingpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,677 - ERROR - Failed to migrate person 'Mrs. Lalchhanchhuahi': PersonType matching query does not exist.
+2024-04-25 07:35:15,677 - ERROR - Failed to migrate person 'Mr. PC Lalhriatpuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,678 - ERROR - Failed to migrate person 'Mrs. F. Kapmawii': PersonType matching query does not exist.
+2024-04-25 07:35:15,678 - ERROR - Failed to migrate person 'Mrs. C. Lalhmangaihzuali': PersonType matching query does not exist.
+2024-04-25 07:35:15,678 - ERROR - Failed to migrate person 'Mr. C.Zohmingliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,679 - ERROR - Failed to migrate person 'Mrs. Remsangpuii Chhangte': PersonType matching query does not exist.
+2024-04-25 07:35:15,679 - ERROR - Failed to migrate person 'Mr. Malsawmtluanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,680 - ERROR - Failed to migrate person 'Mrs. P. Lalawmpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,680 - ERROR - Failed to migrate person 'Mrs. C.Zomuankimi': PersonType matching query does not exist.
+2024-04-25 07:35:15,680 - ERROR - Failed to migrate person 'Mrs. Vanlalrinchhani Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,680 - ERROR - Failed to migrate person 'Mrs. Rebek Lalbeiseii': PersonType matching query does not exist.
+2024-04-25 07:35:15,681 - ERROR - Failed to migrate person 'Mrs. Rosangzuali Pautu': PersonType matching query does not exist.
+2024-04-25 07:35:15,681 - ERROR - Failed to migrate person 'Mrs. Sangliankhumi Hmar': PersonType matching query does not exist.
+2024-04-25 07:35:15,681 - ERROR - Failed to migrate person 'Mrs. Lalthlamuani': PersonType matching query does not exist.
+2024-04-25 07:35:15,682 - ERROR - Failed to migrate person 'Mrs. Lalrintluangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,682 - ERROR - Failed to migrate person 'Mr. K. Zodinsanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,682 - ERROR - Failed to migrate person 'Mrs. Lalremruati': PersonType matching query does not exist.
+2024-04-25 07:35:15,683 - ERROR - Failed to migrate person 'Mr. F. Lalthanzauva': PersonType matching query does not exist.
+2024-04-25 07:35:15,683 - ERROR - Failed to migrate person 'Mrs. Lalthanseii Fanai': PersonType matching query does not exist.
+2024-04-25 07:35:15,683 - ERROR - Failed to migrate person 'Mr. Robert Lalnunmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,684 - ERROR - Failed to migrate person 'Mrs. T.Lalremruati': PersonType matching query does not exist.
+2024-04-25 07:35:15,684 - ERROR - Failed to migrate person 'Mrs. Zohmingthangi Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,684 - ERROR - Failed to migrate person 'Mrs. Lalthansangi Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,685 - ERROR - Failed to migrate person 'Mr. P.Vanlalnghaka': PersonType matching query does not exist.
+2024-04-25 07:35:15,685 - ERROR - Failed to migrate person 'Mr. Pulak Das': PersonType matching query does not exist.
+2024-04-25 07:35:15,685 - ERROR - Failed to migrate person 'Mr. Vijay Kant': PersonType matching query does not exist.
+2024-04-25 07:35:15,686 - ERROR - Failed to migrate person 'Mrs. M. Lalhlupuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,686 - ERROR - Failed to migrate person 'Mr. Ari Benjamin LR. Hmar': PersonType matching query does not exist.
+2024-04-25 07:35:15,686 - ERROR - Failed to migrate person 'Mr. Lalmawizuala': PersonType matching query does not exist.
+2024-04-25 07:35:15,686 - ERROR - Failed to migrate person 'Mr. Lallawmzuala': PersonType matching query does not exist.
+2024-04-25 07:35:15,686 - ERROR - Failed to migrate person 'Mr. Richard Rosiamliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,687 - ERROR - Failed to migrate person 'Mr. Zosangzuala': PersonType matching query does not exist.
+2024-04-25 07:35:15,687 - ERROR - Failed to migrate person 'Mr. C. Rotlinga': PersonType matching query does not exist.
+2024-04-25 07:35:15,687 - ERROR - Failed to migrate person 'Dr. Rosy Lalnunsangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,687 - ERROR - Failed to migrate person 'Mr. Vanlalhruaia': PersonType matching query does not exist.
+2024-04-25 07:35:15,687 - ERROR - Failed to migrate person 'Mrs. Lalbiakdiki': PersonType matching query does not exist.
+2024-04-25 07:35:15,687 - ERROR - Failed to migrate person 'Mrs. C. Lalchhandami': PersonType matching query does not exist.
+2024-04-25 07:35:15,688 - ERROR - Failed to migrate person 'Mrs. Lalchawimawii': PersonType matching query does not exist.
+2024-04-25 07:35:15,688 - ERROR - Failed to migrate person 'Mrs. Sagarika Das': PersonType matching query does not exist.
+2024-04-25 07:35:15,688 - ERROR - Failed to migrate person 'Mr. Brojendro Singh Shagolsem': PersonType matching query does not exist.
+2024-04-25 07:35:15,688 - ERROR - Failed to migrate person 'Mr. Chawnghmingthanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,688 - ERROR - Failed to migrate person 'Mr. Liantluanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,688 - ERROR - Failed to migrate person 'Mr. Michael C Zohmingliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,689 - ERROR - Failed to migrate person 'Mr. Ashok Shah': PersonType matching query does not exist.
+2024-04-25 07:35:15,689 - ERROR - Failed to migrate person 'Mr. Lalthlana': PersonType matching query does not exist.
+2024-04-25 07:35:15,689 - ERROR - Failed to migrate person 'Mr. R. Lalnuntluanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,689 - ERROR - Failed to migrate person 'Mr. C. Vanlalruata': PersonType matching query does not exist.
+2024-04-25 07:35:15,689 - ERROR - Failed to migrate person 'Mr. C. Zoramchhana': PersonType matching query does not exist.
+2024-04-25 07:35:15,690 - ERROR - Failed to migrate person 'Mr. R. Roluahpuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,690 - ERROR - Failed to migrate person 'Mr. B. Lalmalsawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,690 - ERROR - Failed to migrate person 'Mr. Lalsiamliana Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,691 - ERROR - Failed to migrate person 'Mr. V. Lalchhanchhuaha': PersonType matching query does not exist.
+2024-04-25 07:35:15,691 - ERROR - Failed to migrate person 'Mr. Rambiakzauva': PersonType matching query does not exist.
+2024-04-25 07:35:15,691 - ERROR - Failed to migrate person 'Mrs. C. Lalremruati': PersonType matching query does not exist.
+2024-04-25 07:35:15,691 - ERROR - Failed to migrate person 'Mrs. R. Vanlallawmpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,692 - ERROR - Failed to migrate person 'Mrs. Lalruatkimi Khawlhring': PersonType matching query does not exist.
+2024-04-25 07:35:15,692 - ERROR - Failed to migrate person 'Mrs. Lalbiaknungi Hrahsel': PersonType matching query does not exist.
+2024-04-25 07:35:15,692 - ERROR - Failed to migrate person 'Mr. R.Lalruatsanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,692 - ERROR - Failed to migrate person 'Mr. R. Kaplianzela': PersonType matching query does not exist.
+2024-04-25 07:35:15,693 - ERROR - Failed to migrate person 'Mr. Ramherliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,693 - ERROR - Failed to migrate person 'Mr. C.Lalhriatpuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,693 - ERROR - Failed to migrate person 'Mrs. Lalhmingsangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,694 - ERROR - Failed to migrate person 'Mr. Lalsiamliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,694 - ERROR - Failed to migrate person 'Mrs. Lalrokimi': PersonType matching query does not exist.
+2024-04-25 07:35:15,694 - ERROR - Failed to migrate person 'Mr. C. Lalremruata': PersonType matching query does not exist.
+2024-04-25 07:35:15,694 - ERROR - Failed to migrate person 'Mrs. V. Laldinpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,695 - ERROR - Failed to migrate person 'Mr. Lalnunmawia Khiangte': PersonType matching query does not exist.
+2024-04-25 07:35:15,695 - ERROR - Failed to migrate person 'Mr. Lalthlamuana Khiangte': PersonType matching query does not exist.
+2024-04-25 07:35:15,695 - ERROR - Failed to migrate person 'Mr. James H.Vanlalhruaia': PersonType matching query does not exist.
+2024-04-25 07:35:15,695 - ERROR - Failed to migrate person 'Mrs. Lalsangluri Hrahsel': PersonType matching query does not exist.
+2024-04-25 07:35:15,695 - ERROR - Failed to migrate person 'Mrs. C. Lalsangkimi': PersonType matching query does not exist.
+2024-04-25 07:35:15,696 - ERROR - Failed to migrate person 'Mrs. Christine Lalhriatpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,696 - ERROR - Failed to migrate person 'Mrs. F. Zodingpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,696 - ERROR - Failed to migrate person 'Mrs. Rosy Lalhmangaihzuali': PersonType matching query does not exist.
+2024-04-25 07:35:15,696 - ERROR - Failed to migrate person 'Mr. Saihnuna Ralte': PersonType matching query does not exist.
+2024-04-25 07:35:15,697 - ERROR - Failed to migrate person 'Mr. Lalremruata Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,697 - ERROR - Failed to migrate person 'Mrs. Zonunsangi Renthlei': PersonType matching query does not exist.
+2024-04-25 07:35:15,697 - ERROR - Failed to migrate person 'Mrs. Zoengsangi Ralte': PersonType matching query does not exist.
+2024-04-25 07:35:15,697 - ERROR - Failed to migrate person 'Mr. VL Malsawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,697 - ERROR - Failed to migrate person 'Mrs. Zarzobiki Rengsi': PersonType matching query does not exist.
+2024-04-25 07:35:15,698 - ERROR - Failed to migrate person 'Mrs. Joseph V.L Rimawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,698 - ERROR - Failed to migrate person 'Mrs. Priscilla Vanlalnghaki': PersonType matching query does not exist.
+2024-04-25 07:35:15,698 - ERROR - Failed to migrate person 'Mr. Lalthansanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,698 - ERROR - Failed to migrate person 'Mrs. Nancy Lalramchhani': PersonType matching query does not exist.
+2024-04-25 07:35:15,699 - ERROR - Failed to migrate person 'Mrs. Evelyn Zonunmawii Pachuau': PersonType matching query does not exist.
+2024-04-25 07:35:15,699 - ERROR - Failed to migrate person 'Mr. K. Lalfakawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,699 - ERROR - Failed to migrate person 'Mrs. Hmingthanpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,699 - ERROR - Failed to migrate person 'Mr. Andrew Lalnunmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,699 - ERROR - Failed to migrate person 'Mr. C.Lalfela': PersonType matching query does not exist.
+2024-04-25 07:35:15,700 - ERROR - Failed to migrate person 'Mr. CVL Remruatkima': PersonType matching query does not exist.
+2024-04-25 07:35:15,700 - ERROR - Failed to migrate person 'Mr. Emmanuel Lalhmunsanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,700 - ERROR - Failed to migrate person 'Mrs. Julie Ruati Renthlei': PersonType matching query does not exist.
+2024-04-25 07:35:15,700 - ERROR - Failed to migrate person 'Mrs. Lalhruaipuii Mualchin': PersonType matching query does not exist.
+2024-04-25 07:35:15,701 - ERROR - Failed to migrate person 'Mrs. Lalduhsaki': PersonType matching query does not exist.
+2024-04-25 07:35:15,701 - ERROR - Failed to migrate person 'Mr. Lalrinthara': PersonType matching query does not exist.
+2024-04-25 07:35:15,701 - ERROR - Failed to migrate person 'Mr. Lalrohluna Ralte': PersonType matching query does not exist.
+2024-04-25 07:35:15,701 - ERROR - Failed to migrate person 'Mrs. Lalmuanpuii Chhangte': PersonType matching query does not exist.
+2024-04-25 07:35:15,701 - ERROR - Failed to migrate person 'Mr. Rinsiama': PersonType matching query does not exist.
+2024-04-25 07:35:15,702 - ERROR - Failed to migrate person 'Mrs. Margaret Lalchhanhimi': PersonType matching query does not exist.
+2024-04-25 07:35:15,702 - ERROR - Failed to migrate person 'Mrs. Laldinpuii Colney': PersonType matching query does not exist.
+2024-04-25 07:35:15,702 - ERROR - Failed to migrate person 'Mr. Biakchhawna': PersonType matching query does not exist.
+2024-04-25 07:35:15,702 - ERROR - Failed to migrate person 'Mr. Pradip Kumar Roy': PersonType matching query does not exist.
+2024-04-25 07:35:15,703 - ERROR - Failed to migrate person 'Mr. T. Lalrinmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,703 - ERROR - Failed to migrate person 'Mrs. H. Ramnghaki': PersonType matching query does not exist.
+2024-04-25 07:35:15,703 - ERROR - Failed to migrate person 'Mr. Vanlalrova': PersonType matching query does not exist.
+2024-04-25 07:35:15,703 - ERROR - Failed to migrate person 'Mr. Lalrinsanga Khiangte': PersonType matching query does not exist.
+2024-04-25 07:35:15,703 - ERROR - Failed to migrate person 'Mr. H. Vanlalkima': PersonType matching query does not exist.
+2024-04-25 07:35:15,704 - ERROR - Failed to migrate person 'Mrs. Lalthapuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,704 - ERROR - Failed to migrate person 'Mrs. Lalsangzeli': PersonType matching query does not exist.
+2024-04-25 07:35:15,704 - ERROR - Failed to migrate person 'Mr. C.Zothanzauva': PersonType matching query does not exist.
+2024-04-25 07:35:15,704 - ERROR - Failed to migrate person 'Mrs. Lalrotluangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,705 - ERROR - Failed to migrate person 'Mr. Laltlanthanga Ralte': PersonType matching query does not exist.
+2024-04-25 07:35:15,705 - ERROR - Failed to migrate person 'Mrs. Zoremsiami': PersonType matching query does not exist.
+2024-04-25 07:35:15,705 - ERROR - Failed to migrate person 'Mrs. R. Lalchhanhima': PersonType matching query does not exist.
+2024-04-25 07:35:15,705 - ERROR - Failed to migrate person 'Mrs. Lalthanmawii': PersonType matching query does not exist.
+2024-04-25 07:35:15,705 - ERROR - Failed to migrate person 'Mr. Ngurthansanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,706 - ERROR - Failed to migrate person 'Mr. F. Vanlalchhuanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,706 - ERROR - Failed to migrate person 'Mr. Vanlalawmpuia Tlau': PersonType matching query does not exist.
+2024-04-25 07:35:15,706 - ERROR - Failed to migrate person 'Mr. Vanlalfela Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,706 - ERROR - Failed to migrate person 'Mr. Chanchinmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,706 - ERROR - Failed to migrate person 'Mr. C Vanlalzuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,707 - ERROR - Failed to migrate person 'Mrs. P.C. Lalrosiami': PersonType matching query does not exist.
+2024-04-25 07:35:15,707 - ERROR - Failed to migrate person 'Mrs. Mary Lalruatfeli': PersonType matching query does not exist.
+2024-04-25 07:35:15,707 - ERROR - Failed to migrate person 'Mr. C.Lalrinawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,707 - ERROR - Failed to migrate person 'Mrs. C Lalrosangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,707 - ERROR - Failed to migrate person 'Mr. Lalnunsanga Hrahsel': PersonType matching query does not exist.
+2024-04-25 07:35:15,708 - ERROR - Failed to migrate person 'Mrs. Lalrinzuali': PersonType matching query does not exist.
+2024-04-25 07:35:15,708 - ERROR - Failed to migrate person 'Mrs. Rothangzuali Pachuau': PersonType matching query does not exist.
+2024-04-25 07:35:15,708 - ERROR - Failed to migrate person 'Mrs. Lalhmangaihzuali': PersonType matching query does not exist.
+2024-04-25 07:35:15,708 - ERROR - Failed to migrate person 'Mr. Lalnunmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,708 - ERROR - Failed to migrate person 'Mrs. Judy Lalhlimpuii Thangluah': PersonType matching query does not exist.
+2024-04-25 07:35:15,709 - ERROR - Failed to migrate person 'Mr. David Lalhrezuala': PersonType matching query does not exist.
+2024-04-25 07:35:15,709 - ERROR - Failed to migrate person 'Mr. Rosangliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,709 - ERROR - Failed to migrate person 'Mr. C Lalchamliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,709 - ERROR - Failed to migrate person 'Mr. Lalfakmawia Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,709 - ERROR - Failed to migrate person 'Mrs. Esther Lalnunpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,710 - ERROR - Failed to migrate person 'Mrs. Lalrintluangi Chhangte': PersonType matching query does not exist.
+2024-04-25 07:35:15,710 - ERROR - Failed to migrate person 'Mrs. Rosalind V.Renthlei': PersonType matching query does not exist.
+2024-04-25 07:35:15,710 - ERROR - Failed to migrate person 'Mrs. H. Lalramthari': PersonType matching query does not exist.
+2024-04-25 07:35:15,710 - ERROR - Failed to migrate person 'Mrs. Rosie Rohlupuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,710 - ERROR - Failed to migrate person 'Mrs. Rosie Lalnunhliri': PersonType matching query does not exist.
+2024-04-25 07:35:15,711 - ERROR - Failed to migrate person 'Mrs. V. Lalthanpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,711 - ERROR - Failed to migrate person 'Mr. C. Lalthanliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,711 - ERROR - Failed to migrate person 'Mrs. Lucy Hmingthanzami Tlau': PersonType matching query does not exist.
+2024-04-25 07:35:15,711 - ERROR - Failed to migrate person 'Mrs. Ngurthansangi Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,711 - ERROR - Failed to migrate person 'Mrs. Lalrinawmi': PersonType matching query does not exist.
+2024-04-25 07:35:15,711 - ERROR - Failed to migrate person 'Mrs. Lalnunsangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,712 - ERROR - Failed to migrate person 'Mrs. E. Laldinsangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,712 - ERROR - Failed to migrate person 'Mrs. Lalramthianghlimi': PersonType matching query does not exist.
+2024-04-25 07:35:15,712 - ERROR - Failed to migrate person 'Mrs. Lalthuammawii': PersonType matching query does not exist.
+2024-04-25 07:35:15,712 - ERROR - Failed to migrate person 'Mrs. R. Zaihmingthangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,712 - ERROR - Failed to migrate person 'Mrs. Lalmuankimi': PersonType matching query does not exist.
+2024-04-25 07:35:15,713 - ERROR - Failed to migrate person 'Mrs. P.Lalmuanpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,713 - ERROR - Failed to migrate person 'Mrs. K.Lalmuanpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,713 - ERROR - Failed to migrate person 'Mrs. Florence Zothangliani Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,713 - ERROR - Failed to migrate person 'Mrs. F. Lalrosiami': PersonType matching query does not exist.
+2024-04-25 07:35:15,713 - ERROR - Failed to migrate person 'Mrs. Mary Lalrintluangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,714 - ERROR - Failed to migrate person 'Mrs. Lalramchhani': PersonType matching query does not exist.
+2024-04-25 07:35:15,714 - ERROR - Failed to migrate person 'Mrs. K. Lalmuanpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,714 - ERROR - Failed to migrate person 'Mrs. Janie Lalrinawmi': PersonType matching query does not exist.
+2024-04-25 07:35:15,714 - ERROR - Failed to migrate person 'Mr. Ricky Ramfangmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,714 - ERROR - Failed to migrate person 'Ms. P.S. Rosangliani': PersonType matching query does not exist.
+2024-04-25 07:35:15,715 - ERROR - Failed to migrate person 'Mrs. Caroline Vanlalfeli': PersonType matching query does not exist.
+2024-04-25 07:35:15,715 - ERROR - Failed to migrate person 'Mrs. J Vanlalchhuangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,715 - ERROR - Failed to migrate person 'Mrs. H. Lalmawizuali': PersonType matching query does not exist.
+2024-04-25 07:35:15,715 - ERROR - Failed to migrate person 'Mr. C.Rosiama': PersonType matching query does not exist.
+2024-04-25 07:35:15,715 - ERROR - Failed to migrate person 'Mrs. Margaret Saidingpuii Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,716 - ERROR - Failed to migrate person 'Mr. H.T. Lalmuankima': PersonType matching query does not exist.
+2024-04-25 07:35:15,716 - ERROR - Failed to migrate person 'Mr. C.Lalhmingmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,716 - ERROR - Failed to migrate person 'Mr. Reuben Remmawia Chhangte': PersonType matching query does not exist.
+2024-04-25 07:35:15,716 - ERROR - Failed to migrate person 'Mrs. C. Lalremruati': PersonType matching query does not exist.
+2024-04-25 07:35:15,716 - ERROR - Failed to migrate person 'Dr. Lalchhuanawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,716 - ERROR - Failed to migrate person 'Mrs. Baby Lalhmingliani': PersonType matching query does not exist.
+2024-04-25 07:35:15,717 - ERROR - Failed to migrate person 'Mr. Lalliantluanga Hauhnar': PersonType matching query does not exist.
+2024-04-25 07:35:15,717 - ERROR - Failed to migrate person 'Mrs. Lalliankimi': PersonType matching query does not exist.
+2024-04-25 07:35:15,717 - ERROR - Failed to migrate person 'Mr. John Vanlalhruaia': PersonType matching query does not exist.
+2024-04-25 07:35:15,717 - ERROR - Failed to migrate person 'Mrs. C. Esther Lalramsiami': PersonType matching query does not exist.
+2024-04-25 07:35:15,717 - ERROR - Failed to migrate person 'Mr. Lalmalsawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,717 - ERROR - Failed to migrate person 'Mr. V. Malsawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,718 - ERROR - Failed to migrate person 'Mrs. Vanlalringi': PersonType matching query does not exist.
+2024-04-25 07:35:15,718 - ERROR - Failed to migrate person 'Mrs. Lalnunpuii Pachuau': PersonType matching query does not exist.
+2024-04-25 07:35:15,718 - ERROR - Failed to migrate person 'Mrs. K.Lalnunpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,718 - ERROR - Failed to migrate person 'Mrs. Rebecca Laldinpuii Ralte': PersonType matching query does not exist.
+2024-04-25 07:35:15,718 - ERROR - Failed to migrate person 'Mr. Vanchhunga': PersonType matching query does not exist.
+2024-04-25 07:35:15,718 - ERROR - Failed to migrate person 'Mrs. Lalhmingpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,719 - ERROR - Failed to migrate person 'Mr. John Lalnunhlima': PersonType matching query does not exist.
+2024-04-25 07:35:15,719 - ERROR - Failed to migrate person 'Mr. Lalbiaknunga': PersonType matching query does not exist.
+2024-04-25 07:35:15,719 - ERROR - Failed to migrate person 'Mrs. Irene Lalremsangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,719 - ERROR - Failed to migrate person 'Mr. C.Lalrozauva': PersonType matching query does not exist.
+2024-04-25 07:35:15,719 - ERROR - Failed to migrate person 'Mrs. Laldinpuii Hauhnar': PersonType matching query does not exist.
+2024-04-25 07:35:15,719 - ERROR - Failed to migrate person 'Mr. Johny Lalsailova': PersonType matching query does not exist.
+2024-04-25 07:35:15,720 - ERROR - Failed to migrate person 'Mrs. R.Lalremruati': PersonType matching query does not exist.
+2024-04-25 07:35:15,720 - ERROR - Failed to migrate person 'Mr. Albert C. Lalfakawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,720 - ERROR - Failed to migrate person 'Mr. Francis C. Zonunmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,720 - ERROR - Failed to migrate person 'Mr. Zodinpuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,720 - ERROR - Failed to migrate person 'Mr. H Lalnuntluanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,720 - ERROR - Failed to migrate person 'Mr. C Lalremruata': PersonType matching query does not exist.
+2024-04-25 07:35:15,720 - ERROR - Failed to migrate person 'Mrs. K. Zampuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,721 - ERROR - Failed to migrate person 'Mrs. Anju Bhuiya': PersonType matching query does not exist.
+2024-04-25 07:35:15,721 - ERROR - Failed to migrate person 'Mrs. Lalhmunsangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,721 - ERROR - Failed to migrate person 'Mr. B.Lalchhuanawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,721 - ERROR - Failed to migrate person 'Mr. Saihmingthanga Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,721 - ERROR - Failed to migrate person 'Mr. Rokunga': PersonType matching query does not exist.
+2024-04-25 07:35:15,721 - ERROR - Failed to migrate person 'Mr. Ranjit Kumar Dey': PersonType matching query does not exist.
+2024-04-25 07:35:15,722 - ERROR - Failed to migrate person 'Mr. Lalduailova': PersonType matching query does not exist.
+2024-04-25 07:35:15,722 - ERROR - Failed to migrate person 'Mr. Chalbuanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,722 - ERROR - Failed to migrate person 'Mrs. H. Vanlalpeki': PersonType matching query does not exist.
+2024-04-25 07:35:15,722 - ERROR - Failed to migrate person 'Mr. Lalthlamuana': PersonType matching query does not exist.
+2024-04-25 07:35:15,722 - ERROR - Failed to migrate person 'Mr. R Lalvulliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,722 - ERROR - Failed to migrate person 'Mr. K.Lalremruata': PersonType matching query does not exist.
+2024-04-25 07:35:15,722 - ERROR - Failed to migrate person 'Mr. C. Lalbiakhluna': PersonType matching query does not exist.
+2024-04-25 07:35:15,723 - ERROR - Failed to migrate person 'Mr. Zarzoliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,723 - ERROR - Failed to migrate person 'Mr. HT Lalnuntluanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,723 - ERROR - Failed to migrate person 'Mr. Vanlaldika': PersonType matching query does not exist.
+2024-04-25 07:35:15,723 - ERROR - Failed to migrate person 'Mr. Biakrinawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,723 - ERROR - Failed to migrate person 'Mr. H. Lalmalsawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,723 - ERROR - Failed to migrate person 'Mrs. C. Lalparmawii': PersonType matching query does not exist.
+2024-04-25 07:35:15,724 - ERROR - Failed to migrate person 'Mr. C.Lalhmachhuna': PersonType matching query does not exist.
+2024-04-25 07:35:15,724 - ERROR - Failed to migrate person 'Mr. Zothantluanga Khawlhring': PersonType matching query does not exist.
+2024-04-25 07:35:15,724 - ERROR - Failed to migrate person 'Mr. Vanlalruata': PersonType matching query does not exist.
+2024-04-25 07:35:15,724 - ERROR - Failed to migrate person 'Mrs. H. Lalsangpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,724 - ERROR - Failed to migrate person 'Mr. H. Lallawmzuala': PersonType matching query does not exist.
+2024-04-25 07:35:15,724 - ERROR - Failed to migrate person 'Mr. David Hnamsiamliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,725 - ERROR - Failed to migrate person 'Mr. Vanlalhmuaka': PersonType matching query does not exist.
+2024-04-25 07:35:15,725 - ERROR - Failed to migrate person 'Mr. Rohmingliana Khiangte': PersonType matching query does not exist.
+2024-04-25 07:35:15,725 - ERROR - Failed to migrate person 'Mr. R.Lalduhawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,725 - ERROR - Failed to migrate person 'Mr. Lalhmangaiha': PersonType matching query does not exist.
+2024-04-25 07:35:15,725 - ERROR - Failed to migrate person 'Mr. P.C. Lalpianglawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,726 - ERROR - Failed to migrate person 'Mrs. Hmingthanzauvi': PersonType matching query does not exist.
+2024-04-25 07:35:15,726 - ERROR - Failed to migrate person 'Mr. Vanrampanthanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,726 - ERROR - Failed to migrate person 'Mrs. Vanengzami': PersonType matching query does not exist.
+2024-04-25 07:35:15,726 - ERROR - Failed to migrate person 'Mr. Tila Ram Sonar': PersonType matching query does not exist.
+2024-04-25 07:35:15,726 - ERROR - Failed to migrate person 'Mrs. Vanlalheli': PersonType matching query does not exist.
+2024-04-25 07:35:15,726 - ERROR - Failed to migrate person 'Mr. Zosiama': PersonType matching query does not exist.
+2024-04-25 07:35:15,726 - ERROR - Failed to migrate person 'Mr. Lalrinawma RALTE': PersonType matching query does not exist.
+2024-04-25 07:35:15,727 - ERROR - Failed to migrate person 'Mr. R. Lalrinawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,727 - ERROR - Failed to migrate person 'Mr. Chhuanchungnunga': PersonType matching query does not exist.
+2024-04-25 07:35:15,727 - ERROR - Failed to migrate person 'Mr. V. Lalrimawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,727 - ERROR - Failed to migrate person 'Mr. H.Lalhmingmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,727 - ERROR - Failed to migrate person 'Mr. Vanlalchhandama': PersonType matching query does not exist.
+2024-04-25 07:35:15,727 - ERROR - Failed to migrate person 'Mr. K. Vanlalngaia': PersonType matching query does not exist.
+2024-04-25 07:35:15,727 - ERROR - Failed to migrate person 'Mr. Ex Hav Vanlalhmuaka': PersonType matching query does not exist.
+2024-04-25 07:35:15,728 - ERROR - Failed to migrate person 'Mr. Lalbiakliana Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,728 - ERROR - Failed to migrate person 'Mrs. C.Lalchhanhimi': PersonType matching query does not exist.
+2024-04-25 07:35:15,728 - ERROR - Failed to migrate person 'Mr. Lalnunkunga': PersonType matching query does not exist.
+2024-04-25 07:35:15,728 - ERROR - Failed to migrate person 'Mr. R. Lalrohluna': PersonType matching query does not exist.
+2024-04-25 07:35:15,728 - ERROR - Failed to migrate person 'Mr. Lalnuntluanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,728 - ERROR - Failed to migrate person 'Mr. Lalramthanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,728 - ERROR - Failed to migrate person 'Mr. Zonunthara': PersonType matching query does not exist.
+2024-04-25 07:35:15,729 - ERROR - Failed to migrate person 'Mr. R. Zamuanthanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,729 - ERROR - Failed to migrate person 'Mr. C. Lalrokima': PersonType matching query does not exist.
+2024-04-25 07:35:15,729 - ERROR - Failed to migrate person 'Mr. Rajib Sonar': PersonType matching query does not exist.
+2024-04-25 07:35:15,729 - ERROR - Failed to migrate person 'Mr. F. Lalherliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,729 - ERROR - Failed to migrate person 'Mr. R. Lalbiaknunga': PersonType matching query does not exist.
+2024-04-25 07:35:15,729 - ERROR - Failed to migrate person 'Mr. H. Lalthanliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,730 - ERROR - Failed to migrate person 'Mr. R. Lalthatluanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,730 - ERROR - Failed to migrate person 'Mrs. Sangzikpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,730 - ERROR - Failed to migrate person 'Mrs. Ramngaihzuali': PersonType matching query does not exist.
+2024-04-25 07:35:15,730 - ERROR - Failed to migrate person 'Mrs. Lalrindiki': PersonType matching query does not exist.
+2024-04-25 07:35:15,730 - ERROR - Failed to migrate person 'Mr. Zothanpuia Renthlei': PersonType matching query does not exist.
+2024-04-25 07:35:15,730 - ERROR - Failed to migrate person 'Mrs. Lalnunmawii': PersonType matching query does not exist.
+2024-04-25 07:35:15,731 - ERROR - Failed to migrate person 'Mr. Lalrammuanpuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,731 - ERROR - Failed to migrate person 'Mr. R. Lalengkima': PersonType matching query does not exist.
+2024-04-25 07:35:15,731 - ERROR - Failed to migrate person 'Mr. C Vanlalhluna': PersonType matching query does not exist.
+2024-04-25 07:35:15,731 - ERROR - Failed to migrate person 'Mr. Lalropuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,731 - ERROR - Failed to migrate person 'Mrs. Angela Zothansangi Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,731 - ERROR - Failed to migrate person 'Mr. Vincent Challianchhunga': PersonType matching query does not exist.
+2024-04-25 07:35:15,731 - ERROR - Failed to migrate person 'Mr. HB Laldinpuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,732 - ERROR - Failed to migrate person 'Mr. John Lalramzauva': PersonType matching query does not exist.
+2024-04-25 07:35:15,732 - ERROR - Failed to migrate person 'Dr. Zonuntluangi Bawitlung': PersonType matching query does not exist.
+2024-04-25 07:35:15,732 - ERROR - Failed to migrate person 'Mr. Th. Bishorjit Singh': PersonType matching query does not exist.
+2024-04-25 07:35:15,732 - ERROR - Failed to migrate person 'Mr. K. Lalduhkima': PersonType matching query does not exist.
+2024-04-25 07:35:15,732 - ERROR - Failed to migrate person 'Mrs. Yummy Lalrinngheti': PersonType matching query does not exist.
+2024-04-25 07:35:15,732 - ERROR - Failed to migrate person 'Mrs. F. Sangzikpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,732 - ERROR - Failed to migrate person 'Mrs. Malsawmdawngkimi': PersonType matching query does not exist.
+2024-04-25 07:35:15,733 - ERROR - Failed to migrate person 'Mr. Lalruatsanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,733 - ERROR - Failed to migrate person 'Mrs. C. Lalnunsiami': PersonType matching query does not exist.
+2024-04-25 07:35:15,733 - ERROR - Failed to migrate person 'Mr. Lalsangliana Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,733 - ERROR - Failed to migrate person 'Mrs. Marina Zosangpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,733 - ERROR - Failed to migrate person 'Mrs. B. Lalhlimpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,733 - ERROR - Failed to migrate person 'Dr. Saugata Sarkar': PersonType matching query does not exist.
+2024-04-25 07:35:15,733 - ERROR - Failed to migrate person 'Mrs. Lalrinkimi Tochhawng': PersonType matching query does not exist.
+2024-04-25 07:35:15,734 - ERROR - Failed to migrate person 'Mr. Zonunsanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,734 - ERROR - Failed to migrate person 'Mr. C.Chawngzikpuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,734 - ERROR - Failed to migrate person 'Mrs. Lalmalsawmi Renthlei': PersonType matching query does not exist.
+2024-04-25 07:35:15,734 - ERROR - Failed to migrate person 'Mr. Lalramdinthara Chenkual': PersonType matching query does not exist.
+2024-04-25 07:35:15,734 - ERROR - Failed to migrate person 'Mr. R. Lalsawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,734 - ERROR - Failed to migrate person 'Mrs. Anne Biakhmingsangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,734 - ERROR - Failed to migrate person 'Mr. Lalmalsawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,735 - ERROR - Failed to migrate person 'Mrs. Lalthanpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,735 - ERROR - Failed to migrate person 'Mr. Lalramsanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,735 - ERROR - Failed to migrate person 'Mrs. S.Lalrempuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,735 - ERROR - Failed to migrate person 'Mr. Vanlalneia': PersonType matching query does not exist.
+2024-04-25 07:35:15,735 - ERROR - Failed to migrate person 'Mr. C. Lalrinhlua': PersonType matching query does not exist.
+2024-04-25 07:35:15,735 - ERROR - Failed to migrate person 'Mr. Lalhmangaiha': PersonType matching query does not exist.
+2024-04-25 07:35:15,735 - ERROR - Failed to migrate person 'Mr. Lalrinchhana Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,736 - ERROR - Failed to migrate person 'Mr. H.Lalhruaitluanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,736 - ERROR - Failed to migrate person 'Mr. Lalawmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,736 - ERROR - Failed to migrate person 'Mr. Zorammuana': PersonType matching query does not exist.
+2024-04-25 07:35:15,736 - ERROR - Failed to migrate person 'Mrs. R Zomuanthangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,736 - ERROR - Failed to migrate person 'Mrs. M.S.Dawngliani': PersonType matching query does not exist.
+2024-04-25 07:35:15,736 - ERROR - Failed to migrate person 'Dr. Rohlupuii Pachuau': PersonType matching query does not exist.
+2024-04-25 07:35:15,736 - ERROR - Failed to migrate person 'Mr. Lalfakawma': PersonType matching query does not exist.
+2024-04-25 07:35:15,737 - ERROR - Failed to migrate person 'Mrs. V.Zonunsangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,737 - ERROR - Failed to migrate person 'Mr. Vivek Jaishi': PersonType matching query does not exist.
+2024-04-25 07:35:15,737 - ERROR - Failed to migrate person 'Mr. Laldinmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,737 - ERROR - Failed to migrate person 'Mrs. Jessica Lalhmunmawii': PersonType matching query does not exist.
+2024-04-25 07:35:15,737 - ERROR - Failed to migrate person 'Mr. Lalmuanawma Pautu': PersonType matching query does not exist.
+2024-04-25 07:35:15,737 - ERROR - Failed to migrate person 'Mrs. Christina Lalhmunsiami': PersonType matching query does not exist.
+2024-04-25 07:35:15,737 - ERROR - Failed to migrate person 'Mrs. Lallawmzuali': PersonType matching query does not exist.
+2024-04-25 07:35:15,738 - ERROR - Failed to migrate person 'Mr. C. Laldingliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,738 - ERROR - Failed to migrate person 'Mr. Laldinpuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,738 - ERROR - Failed to migrate person 'Mr. Kamminthang Hangshing': PersonType matching query does not exist.
+2024-04-25 07:35:15,738 - ERROR - Failed to migrate person 'Mr. C. Vanlalpekhlua': PersonType matching query does not exist.
+2024-04-25 07:35:15,738 - ERROR - Failed to migrate person 'Mrs. Viraj Tiwari': PersonType matching query does not exist.
+2024-04-25 07:35:15,738 - ERROR - Failed to migrate person 'Mr. Manoj Roy': PersonType matching query does not exist.
+2024-04-25 07:35:15,738 - ERROR - Failed to migrate person 'Mr. H. Lalhruaitluanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,739 - ERROR - Failed to migrate person 'Mr. John Malsawmkima': PersonType matching query does not exist.
+2024-04-25 07:35:15,739 - ERROR - Failed to migrate person 'Mrs. R. Lalnuntluangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,739 - ERROR - Failed to migrate person 'Mr. Longjam Ajay Singh': PersonType matching query does not exist.
+2024-04-25 07:35:15,739 - ERROR - Failed to migrate person 'Mr. P.C.Vanlalnunmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,739 - ERROR - Failed to migrate person 'Mrs. Salemthari': PersonType matching query does not exist.
+2024-04-25 07:35:15,739 - ERROR - Failed to migrate person 'Mr. M. Sandeep Kumar': PersonType matching query does not exist.
+2024-04-25 07:35:15,739 - ERROR - Failed to migrate person 'Ms. Zomuanpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,739 - ERROR - Failed to migrate person 'Mr. C.Vanengmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,740 - ERROR - Failed to migrate person 'Mr. R. Lalawmpuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,740 - ERROR - Failed to migrate person 'Mr. Lalawmpuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,740 - ERROR - Failed to migrate person 'Mr. Lalremsiama': PersonType matching query does not exist.
+2024-04-25 07:35:15,740 - ERROR - Failed to migrate person 'Mrs. Teressa Lalnunpuii': PersonType matching query does not exist.
+2024-04-25 07:35:15,740 - ERROR - Failed to migrate person 'Mr. Gary Ngursangzela': PersonType matching query does not exist.
+2024-04-25 07:35:15,740 - ERROR - Failed to migrate person 'Mr. Israel Ramngaihzuala': PersonType matching query does not exist.
+2024-04-25 07:35:15,740 - ERROR - Failed to migrate person 'Mr. F. Lalsangliana': PersonType matching query does not exist.
+2024-04-25 07:35:15,741 - ERROR - Failed to migrate person 'Mr. Samuel Laldinngheta Ralte': PersonType matching query does not exist.
+2024-04-25 07:35:15,741 - ERROR - Failed to migrate person 'Mr. Lalrinsiama': PersonType matching query does not exist.
+2024-04-25 07:35:15,741 - ERROR - Failed to migrate person 'Mr. Alex Lalruatdika': PersonType matching query does not exist.
+2024-04-25 07:35:15,741 - ERROR - Failed to migrate person 'Mr. Zosanglura Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,741 - ERROR - Failed to migrate person 'Mrs. Vanlalchhanhimi': PersonType matching query does not exist.
+2024-04-25 07:35:15,741 - ERROR - Failed to migrate person 'Mr. K. Vanlalngaizuala': PersonType matching query does not exist.
+2024-04-25 07:35:15,741 - ERROR - Failed to migrate person 'Ms. Lalhmangaihzuali': PersonType matching query does not exist.
+2024-04-25 07:35:15,741 - ERROR - Failed to migrate person 'Ms. Malsawmzuali': PersonType matching query does not exist.
+2024-04-25 07:35:15,742 - ERROR - Failed to migrate person 'Ms. Sarah Saizampuii Sailo': PersonType matching query does not exist.
+2024-04-25 07:35:15,742 - ERROR - Failed to migrate person 'Ms. Doreen Lalramtluangi': PersonType matching query does not exist.
+2024-04-25 07:35:15,742 - ERROR - Failed to migrate person 'Mr. Lalbiakmawia': PersonType matching query does not exist.
+2024-04-25 07:35:15,742 - ERROR - Failed to migrate person 'Mrs. Biru Kumar': PersonType matching query does not exist.
+2024-04-25 07:35:15,742 - ERROR - Failed to migrate person 'Mr. V.L. Nunthara': PersonType matching query does not exist.
+2024-04-25 07:35:15,742 - ERROR - Failed to migrate person 'Mr. Jesper Vanlalmuanpuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,742 - ERROR - Failed to migrate person 'Mr. T. Lalrohlua': PersonType matching query does not exist.
+2024-04-25 07:35:15,743 - ERROR - Failed to migrate person 'Mr. Rodingpuia': PersonType matching query does not exist.
+2024-04-25 07:35:15,743 - ERROR - Failed to migrate person 'Mrs. Lalchhanchhuahi Zote': PersonType matching query does not exist.
+2024-04-25 07:35:15,743 - ERROR - Failed to migrate person 'Prof. Lalnundanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,743 - ERROR - Failed to migrate person 'Mr. Lalnuntluanga': PersonType matching query does not exist.
+2024-04-25 07:35:15,743 - ERROR - Failed to migrate person 'Prof. Vanlalchhawna': PersonType matching query does not exist.
+2024-04-25 07:35:15,743 - ERROR - Failed to migrate person 'Prof. Lalbiakdiki Hnamte': PersonType matching query does not exist.
+2024-04-25 07:35:15,743 - ERROR - Failed to migrate person 'Prof. K.R.S Sambasiva Rao': PersonType matching query does not exist.
+2024-04-25 07:35:15,743 - ERROR - Failed to migrate person 'Prof. Dibakar Chandra Deka': PersonType matching query does not exist.
+2024-04-25 07:35:15,744 - INFO - Person migration complete. Migrated: 0, Failed: 385
+2024-04-25 07:35:15,765 - ERROR - Internal Server Error: /setup/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/setup/views.py", line 10, in list
+    return Response(data)
+           ^^^^^^^^^^^^^^
+TypeError: Response.__init__() takes 1 positional argument but 2 were given
+2024-04-25 07:35:55,883 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/migrate.py changed, reloading.
+2024-04-25 07:35:59,350 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-25 07:36:00,362 - INFO - Supplier migration complete. Migrated: 5, Failed: 0
+2024-04-25 07:36:00,404 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-25 07:36:01,275 - INFO - Unit of Measurement migration complete. Migrated: 50, Failed: 0
+2024-04-25 07:36:01,278 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-25 07:36:02,115 - INFO - Item Category migration complete. Migrated: 5, Failed: 0
+2024-04-25 07:36:02,122 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-25 07:36:03,053 - INFO - Item Type migration complete. Migrated: 75, Failed: 0
+2024-04-25 07:36:03,053 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-25 07:36:04,712 - INFO - Item migration complete. Migrated: 443, Failed: 0
+2024-04-25 07:36:04,714 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-25 07:36:05,785 - INFO - Person Type migration complete. Migrated: 4, Failed: 0
+2024-04-25 07:36:05,787 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-04-25 07:36:07,221 - INFO - Person migration complete. Migrated: 385, Failed: 0
+2024-04-25 07:36:07,239 - ERROR - Internal Server Error: /setup/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/setup/views.py", line 10, in list
+    return Response(data)
+           ^^^^^^^^^^^^^^
+TypeError: Response.__init__() takes 1 positional argument but 2 were given

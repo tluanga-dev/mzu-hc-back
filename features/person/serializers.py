@@ -65,6 +65,7 @@ class PersonSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'name',
+            'gender',
             'email',
             'mzu_id',
             'department',

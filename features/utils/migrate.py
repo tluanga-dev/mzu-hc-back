@@ -212,7 +212,7 @@ def migrate_person():
 
     for row in data['values'][1:]:
         try:
-            person_type = PersonType.objects.get(name=row[6])
+            person_type = PersonType.objects.get(name=row[7])
             # date_of_birth=row[7],
             # print('\n----------------')
             # print('date of birth',date_of_birth)
@@ -220,12 +220,13 @@ def migrate_person():
             Person.objects.create(
                 mzu_id=row[0],
                 name=row[1],
-                email=row[2],
-                mobile_no=int(row[3]) if len(row) > 3 and row[3].isdigit() else 0,
-                department=row[4],
-                designation=row[5],
+                gender=row[2],
+                email=row[3],
+                mobile_no=int(row[4]) if len(row) > 3 and row[3].isdigit() else 0,
+                department=row[5],
+                designation=row[6],
                 # date_of_birth='22-12-1970', --working
-                date_of_birth=row[7],
+                date_of_birth=row[8],
                 person_type=person_type
             )
             migrated_count += 1
