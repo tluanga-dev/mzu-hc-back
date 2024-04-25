@@ -52,6 +52,7 @@ class PersonTypeSerializerForPerson(serializers.ModelSerializer):
 
 
 class PersonSerializer(serializers.ModelSerializer):
+    date_of_birth = serializers.DateField(format='%d-%m-%Y')
     def to_representation(self, instance):
         
     #     self.fields['department'] = DepartmentSerializer(read_only=True)

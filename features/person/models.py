@@ -27,6 +27,10 @@ class Person(TimeStampedAbstractModelClass):
     designation=models.CharField(max_length=255, blank=True, null=True)
     person_type=models.ForeignKey(PersonType, on_delete=models.CASCADE)
     mobile_no=models.PositiveBigIntegerField(null=True, blank=True)
+
+    def formatted_date_of_birth(self):
+        # Returns the date in dd-mm-yyyy format if the date is not None
+        return self.date_of_birth.strftime('%d-%m-%Y') if self.date_of_birth else None
  
     @classmethod
     def create(cls, **kwargs):
