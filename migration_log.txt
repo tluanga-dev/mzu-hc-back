@@ -1629,3 +1629,4 @@ TypeError: Response.__init__() takes 1 positional argument but 2 were given
 2024-04-24 22:02:44,141 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
 2024-04-24 22:02:49,776 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/views.py changed, reloading.
 2024-04-24 22:03:28,198 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/views.py changed, reloading.
+2024-04-25 00:36:45,170 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.

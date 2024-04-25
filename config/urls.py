@@ -76,10 +76,10 @@ router.register(r'setup', SetupView, basename='setup')
 # --------Utilities---------
 router.register(r'id_manager', IdManagerViewSet)
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/register/', CreateUserView.as_view(), name='register'),
+    # path("admin/", admin.site.urls),
+    # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # path('api/register/', CreateUserView.as_view(), name='register'),
     # --to get all batches of an item
     # path('item/<int:item_id>/batches', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),
     # # --to get a specific batch of an item
