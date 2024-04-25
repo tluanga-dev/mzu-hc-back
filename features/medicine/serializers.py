@@ -28,7 +28,7 @@ class MedicineDosageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MedicineDosage
-        fields = ['duration_value', 'duration_type', 'note', 'medicine_dosage_timing_set']
+        fields = ['duration_value', 'duration_type',  'medicine_dosage_timing_set']
 
     def create(self, validated_data):
         timings_data = validated_data.pop('medicine_dosage_timing_set', [])

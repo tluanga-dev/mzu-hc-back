@@ -8,21 +8,28 @@ from features.person.models import Department, Person
 # from features.person.serializers import PersonSerializer
 from django.utils.timezone import make_aware
 
+from features.person.serializers import PersonSerializer
 from features.prescription.models import Prescription, PrescriptionItem
 from features.utils.convert_date import DateConverter
 from django.db import transaction
 from rest_framework import serializers
+from datetime import datetime
 
 from features.utils.print_json import print_json_string
 
 class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
+
+  
     class Meta:
         model = Item
-        fields = ['id', 'name',]
+        fields = ['id', 'name','contents']
 
 class PrescriptionItemSerializer(serializers.ModelSerializer):
     dosages = MedicineDosageSerializer(many=True)
-    medicine = serializers.PrimaryKeyRelatedField(queryset=Item.objects.all())
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+        return representation
 
     class Meta:
         model = PrescriptionItem
@@ -46,31 +53,32 @@ class PrescriptionDepartmentSerializer(serializers.ModelSerializer):
 
 
 class PrescriptionPersonSerializer(serializers.ModelSerializer):
-    # department = PrescriptionDepartmentSerializer(read_only=True)
-    # def to_representation(self, instance):
-    #     representation = super().to_representation(instance)
-    #     if instance.department:
-    #         representation['department'] = PrescriptionDepartmentSerializer(instance.department).data
-    #     else:
-    #         print('deparment is none')
-    #         representation['department'] = None
-    #     return representation
+    age = serializers.SerializerMethodField()
+
+    def get_age(self, person):
+        # Since date_of_birth is already a date object, we just use it directly
+        date_of_birth = person.date_of_birth
+        # Calculate the age based on today's date
+        today = datetime.today().date()
+        age = today.year - date_of_birth.year - ((today.month, today.day) < (date_of_birth.month, date_of_birth.day))
+        return age
 
     class Meta:
         model = Person
-        fields = ['id','name', 'department','mzu_id']
+        fields = ['id','name','age','gender','person_type','designation', 'department','mzu_id']
 
 
 
 class PrescriptionSerializer(serializers.ModelSerializer):
     prescribed_item_set = PrescriptionItemSerializer(many=True)
-    patient = serializers.PrimaryKeyRelatedField(queryset=Person.objects.all())
-    doctor = serializers.PrimaryKeyRelatedField(queryset=Person.objects.all())
+ 
     date_and_time = serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
+
 
     class Meta:
         model = Prescription
         fields = [
+            'id',
             'code', 
             'patient', 
             'doctor', 
