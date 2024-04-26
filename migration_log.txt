@@ -20678,3 +20678,13 @@ AttributeError: 'Item' object has no attribute 'medicine'
 2024-04-26 06:43:03,749 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
 2024-04-26 06:43:05,287 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
 2024-04-26 06:43:06,794 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-26 06:44:13,959 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-26 06:44:15,725 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-26 06:44:21,483 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-26 06:44:33,355 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-26 06:44:35,051 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-26 06:44:36,569 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-26 06:44:39,090 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-26 06:44:40,596 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-26 06:44:42,149 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-04-26 06:44:48,808 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.

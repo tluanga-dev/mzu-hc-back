@@ -25,6 +25,11 @@ from features.utils.print_json import print_json_string
 
 
 class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
+    # unit_of_measurement = serializers.SerializerMethodField()
+    # def get_unit_of_measurement(self, obj):
+    #     # Returning the abbreviation of the unit_of_measurement or None if it doesn't exist
+    #     return obj.unit_of_measurement.abbreviation if obj.unit_of_measurement else None
+
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
