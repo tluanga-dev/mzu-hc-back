@@ -1,7 +1,7 @@
 from datetime import datetime
 from rest_framework import serializers
-from features.item.models import Item
-from features.item.serializers import ItemSerializer
+from features.item.models import Item, UnitOfMeasurement
+from features.item.serializers import ItemSerializer, UnitOfMeasurementSerializerForUser
 from features.medicine.models import MedicineDosage, MedicineDosageTiming
 from features.medicine.serializers import MedicineDosageSerializer
 from features.person.models import Department, Person
@@ -17,12 +17,25 @@ from datetime import datetime
 
 from features.utils.print_json import print_json_string
 
+
+# class UnitOfMeasurementForPrescriptionSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model=UnitOfMeasurement
+#         fie
+
+
 class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
 
-  
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        # Accessing only the name of the unit of measurement
+        representation['unit_of_measurement'] = instance.unit_of_measurement.abbreviation if instance.unit_of_measurement else None
+        return representation
+
     class Meta:
         model = Item
-        fields = ['id', 'name','contents']
+        fields = ['id', 'name', 'contents', 'unit_of_measurement']
+
 
 class PrescriptionItemSerializer(serializers.ModelSerializer):
     dosages = MedicineDosageSerializer(many=True)
