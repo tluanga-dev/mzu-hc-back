@@ -1,7 +1,7 @@
 from rest_framework import viewsets, permissions
 from django_filters import rest_framework as filters
 from features.prescription.models import Prescription
-from features.prescription.serializers import PrescriptionSerializer
+from features.prescription.serializers import PrescriptionSerializer, PrescriptionSerializerForDispense
 import logging
 
 logger = logging.getLogger(__name__)
@@ -72,3 +72,7 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
         logger.error(f'Error in processing request: {str(exc)}', exc_info=True)
         return super().handle_exception(exc)
 
+
+class PrescriptionViewSetForDispense(PrescriptionViewSet):
+     serializer_class = PrescriptionSerializerForDispense
+     

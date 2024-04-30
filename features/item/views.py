@@ -9,7 +9,7 @@ from features.utils.convert_date import DateConverter
 
 from features.utils.print_json import print_json_string
 from .models import Item, ItemBatch, ItemCategory, ItemType, UnitOfMeasurement
-from .serializers import ItemBatchSerializer, ItemCategorySerializer, ItemSerializer, ItemSerializerForUser, ItemTypeSerializer, UnitOfMeasurementSerializer
+from .serializers import ItemBatchSerializer, ItemCategorySerializer, ItemSerializer, ItemSerializerForUser, ItemTypeSerializer, ItemWithStockInfoSerializer, UnitOfMeasurementSerializer
 
 
 class UnitOfMeasurementViewSet(viewsets.ModelViewSet):
@@ -32,6 +32,10 @@ class ItemViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializerForUser
 
+
+class ItemWithStockInfoViewSet(viewsets.ModelViewSet):
+    queryset = Item.objects.all()
+    serializer_class = ItemWithStockInfoSerializer
 
 class ItemBatchViewSet(viewsets.ModelViewSet):
     queryset = ItemBatch.objects.all()

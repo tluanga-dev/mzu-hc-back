@@ -97,3 +97,24 @@ class ItemSerializerForUser(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = ['id', 'name','contents', 'description', 'type', 'item_batches','unit_of_measurement']
+
+
+class ItemWithStockInfoSerializer(ItemSerializerForUser):
+    item_batches = ItemBatchSerializer(many=True, read_only=True)
+    quantity_in_stock = serializers.IntegerField(read_only=True)
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['quantity_in_stock'] = 0
+        return representation
+
+    class Meta:
+        model = Item
+        fields = [
+            'id',
+            'name', 
+            'description', 
+            'type', 
+            'item_batches',
+            'quantity_in_stock'
+        ]

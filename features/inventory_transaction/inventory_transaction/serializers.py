@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from features.item.models import Item
+from features.item.models import Item, ItemBatch
 
 
 from features.organisation_section.serializers import OrganisationSectionSerializer
@@ -114,12 +114,20 @@ class InventoryTransactionSerializer(serializers.ModelSerializer):
 class ItemStockInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model=ItemStockInfo
-        fields='__all__'  
+        fields=['id','inventory_transaction_item','quantity']  
     
 
-class ItemTransactionDetailSerializer(serializers.ModelSerializer):
+class ItemTransactionDetailSerializerV1(serializers.ModelSerializer):
     item_stock_info = serializers.SerializerMethodField()
     transactions = serializers.SerializerMethodField()
+    type=serializers.SerializerMethodField()
+    unit_of_measurement=serializers.SerializerMethodField()
+
+    def get_type(self, obj):
+        return obj.type.name
+    
+    def get_unit_of_measurement(self, obj):
+        return obj.unit_of_measurement.abbreviation
 
     def get_item_stock_info(self, obj):
         item_stock=ItemStockInfo.objects.filter(item=obj).last()
@@ -134,4 +142,64 @@ class ItemTransactionDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ['id', 'name','item_code',  'transactions', 'item_stock_info']
+        fields = ['id', 'name','item_code', 'type','unit_of_measurement', 'transactions', 'item_stock_info']
+
+
+class ItemBatchStockInfoSerializer(serializers.ModelSerializer):
+    stock_in_hand = serializers.SerializerMethodField()
+    def get_stock_in_hand(self, obj):
+        
+        return obj.stock_in_hand
+    class Meta:
+        model = ItemBatch
+        fields=['batch_id']
+
+class ItemTransactionDetailSerializer(serializers.ModelSerializer):
+    stock_in_hand = serializers.SerializerMethodField()
+    transactions = serializers.SerializerMethodField()
+    type = serializers.SerializerMethodField()
+    unit_of_measurement = serializers.SerializerMethodField()
+    item_batch_stock_info  =serializers.SerializerMethodField()
+
+
+    def get_item_batch_stock_info(self, obj):
+        return ItemBatchStockInfoSerializer(obj.item_batches.all(), many=True).data
+
+
+    
+    def get_type(self, obj):
+        return obj.type.name if obj.type else None
+    
+    def get_unit_of_measurement(self, obj):
+        return obj.unit_of_measurement.abbreviation if obj.unit_of_measurement else None
+
+    def get_stock_in_hand(self, obj):
+        # Debugging: Fetch all stock info entries related to the item
+        # stock_infos = ItemStockInfo.objects.filter(item=obj)
+        # print("All Stock Infos:", stock_infos)  # This will print the query set of all related stock info objects
+        
+        # # Get the last entry
+        # last_stock_info = stock_infos.last()
+        # print("Last Stock Info:", last_stock_info)  # This will show the last stock info object if any
+        
+        last_stock_info = ItemStockInfo.objects.filter(item=obj).order_by('-created_on').first()
+        if last_stock_info:
+            return last_stock_info.quantity
+        return 0
+        
+    def get_transactions(self, obj):
+        inventory_transaction_items = InventoryTransactionItem.objects.filter(item_batch__in=obj.item_batches.all())
+        return InventoryTransactionItemSerializer(inventory_transaction_items, many=True).data
+
+    class Meta:
+        model = Item
+        fields = [
+            'id',
+            'name', 
+            'item_code', 
+            'type', 
+            'unit_of_measurement', 
+            'transactions', 
+            'stock_in_hand',
+            'item_batch_stock_info'
+        ]

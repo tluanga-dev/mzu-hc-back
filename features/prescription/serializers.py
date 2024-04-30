@@ -1,7 +1,8 @@
 from datetime import datetime
 from rest_framework import serializers
-from features.item.models import Item, UnitOfMeasurement
-from features.item.serializers import ItemSerializer, UnitOfMeasurementSerializerForUser
+from features.inventory_transaction.inventory_transaction.serializers import ItemTransactionDetailSerializer
+from features.item.models import Item, ItemBatch, UnitOfMeasurement
+from features.item.serializers import ItemBatchSerializer, ItemSerializer, UnitOfMeasurementSerializerForUser
 from features.medicine.models import MedicineDosage, MedicineDosageTiming
 from features.medicine.serializers import MedicineDosageSerializer
 from features.person.models import Department, Person
@@ -87,6 +88,8 @@ class PrescriptionPersonSerializer(serializers.ModelSerializer):
 
 
 
+
+
 class PrescriptionSerializer(serializers.ModelSerializer):
     prescribed_item_set = PrescriptionItemSerializer(many=True)
  
@@ -145,5 +148,46 @@ class PrescriptionSerializer(serializers.ModelSerializer):
 
     
 
+# -----------------Presciption Serializer for Dispense----------------------
 
+
+# we are going to return Prescription item with medicined, in more detai;
+
+
+class PrescribedItemSerializerForDispense(PrescriptionItemSerializer):
+    # Correctly overrides the 'medicine' field with a more detailed serializer
+    dosages = MedicineDosageSerializer(many=True)
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['medicine'] = ItemTransactionDetailSerializer(instance.medicine).data
+        return representation
+
+    class Meta:
+        model = PrescriptionItem
+        fields = ['id', 'note', 'dosages', 'medicine']
+
+  
+
+class PrescriptionSerializerForDispense(serializers.ModelSerializer):
+    prescribed_item_set = PrescribedItemSerializerForDispense(many=True)
+    class Meta:
+        model = Prescription
+        fields = [
+            'id',
+            'code', 
+            'patient', 
+            'doctor', 
+            'prescribed_item_set',
+
+        ]
+      
+
+
+
+
+
+# quantity_in_stock - addition of each quantity_in_stock_of each batches 
+# batches_information_with_expiry_date_stock_infor
+
+# --to update the status of prescription dispense status
  

@@ -22,10 +22,10 @@ from features.inventory_transaction.dispense_transaction.views import DispenseIn
 from features.inventory_transaction.indent_transaction.views import IndentInventoryTransactionViewSet
 from features.inventory_transaction.inventory_transaction.views import ItemTransactionsView
 from features.inventory_transaction.issue_transaction.views import IssueItemInventoryTransactionViewSet
-from features.item.views import ItemBatchViewSet, ItemCategoryViewSet, ItemTypeViewSet, ItemViewSet, UnitOfMeasurementViewSet
+from features.item.views import ItemBatchViewSet, ItemCategoryViewSet, ItemTypeViewSet, ItemViewSet, ItemWithStockInfoViewSet, UnitOfMeasurementViewSet
 from features.medicine.views import  MedicineDosageViewSet
 from features.person.views import DepartmentViewSet, PersonTypeViewSet, PersonViewSet
-from features.prescription.views import PrescriptionViewSet
+from features.prescription.views import PrescriptionViewSet, PrescriptionViewSetForDispense
 from features.setup.views import SetupView
 
 
@@ -39,8 +39,11 @@ router = DefaultRouter()
 router.register(r'item/units-of-measurement', UnitOfMeasurementViewSet,basename='unit-of-measurement')
 router.register(r'item/item_category', ItemCategoryViewSet)
 router.register(r'item/item_type', ItemTypeViewSet)
+router.register(r'item_with_stock_info', ItemWithStockInfoViewSet)
 
 router.register(r'item', ItemViewSet, basename='item')
+
+
 
 
 
@@ -70,6 +73,10 @@ router.register(r'person', PersonViewSet,basename='person')
 
 # --------Prescription---------
 router.register(r'prescription', PrescriptionViewSet, basename='prescription')
+router.register(r'prescription-with-stock-detail', PrescriptionViewSetForDispense, basename='prescription-with-stock-detail')
+
+
+
 
 router.register(r'setup', SetupView, basename='setup')
 
@@ -88,7 +95,7 @@ urlpatterns = [
 
     path('item/<uuid:item_id>/<str:batch_id>/', ItemBatchViewSet.as_view({'get': 'retrieve_batch'}), name='item-batch-detail'),
     
-    path('transactions/<str:pk>/', ItemTransactionsView.as_view({'get':'retrieve'}), name='item-transactions-detail'),
+    path('transactions/<uuid:pk>/', ItemTransactionsView.as_view({'get':'retrieve'}), name='item-transactions-detail'),
     
     re_path(r'^item/(?P<item_id>[0-9a-f-]+)/batches/$', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),
    

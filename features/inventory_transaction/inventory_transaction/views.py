@@ -9,6 +9,7 @@ class ItemTransactionsView(viewsets.ModelViewSet):
     serializer_class = ItemTransactionDetailSerializer
 
     def retrieve(self, request, *args, **kwargs):
+        print(f"Retrieving item with pk: {kwargs.get('pk')}")  # Print the PK to the console
         instance = self.get_object()
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
