@@ -27,11 +27,10 @@ from features.utils.print_json import print_json_string
 
 
 class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
-    # unit_of_measurement = serializers.SerializerMethodField()
-    # def get_unit_of_measurement(self, obj):
-    #     # Returning the abbreviation of the unit_of_measurement or None if it doesn't exist
-    #     return obj.unit_of_measurement.abbreviation if obj.unit_of_measurement else None
-
+    stock_in_hand=serializers.SerializerMethodField()
+    def get_stock_in_hand(self, obj):
+        stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+        return stock_in_hand
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
@@ -41,7 +40,7 @@ class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ['id', 'name', 'contents', 'unit_of_measurement']
+        fields = ['id', 'name', 'contents', 'unit_of_measurement','stock_in_hand']
 
 
 class PrescriptionItemSerializer(serializers.ModelSerializer):
@@ -153,22 +152,14 @@ class PrescriptionSerializer(serializers.ModelSerializer):
 
 
 # we are going to return Prescription item with medicined, in more detai;
-class MecineSerializerForDispense(serializers.ModelSerializer):
-    stock_in_hand=serializers.SerializerMethodField()
 
-    def get_stock_in_hand(self, obj):
-        stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
-        return stock_in_hand
-    class Meta:
-        model = Item
-        fields = ['id', 'name', 'contents', 'unit_of_measurement', 'stock_in_hand']
 
 class PrescribedItemSerializerForDispense(PrescriptionItemSerializer):
     # Correctly overrides the 'medicine' field with a more detailed serializer
     dosages = MedicineDosageSerializer(many=True)
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['medicine'] = MecineSerializerForDispense(instance.medicine).data
+        representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
         return representation
 
     class Meta:
@@ -176,27 +167,3 @@ class PrescribedItemSerializerForDispense(PrescriptionItemSerializer):
         fields = ['id', 'note', 'dosages', 'medicine']
 
   
-
-class PrescriptionSerializerForDispense(serializers.ModelSerializer):
-    prescribed_item_set = PrescribedItemSerializerForDispense(many=True)
-    class Meta:
-        model = Prescription
-        fields = [
-            'id',
-            'code', 
-            'patient', 
-            'doctor', 
-            'prescribed_item_set',
-
-        ]
-      
-
-
-
-
-
-# quantity_in_stock - addition of each quantity_in_stock_of each batches 
-# batches_information_with_expiry_date_stock_infor
-
-# --to update the status of prescription dispense status
- 

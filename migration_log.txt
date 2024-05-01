@@ -25129,3 +25129,16 @@ django.core.exceptions.FieldError: Cannot resolve keyword 'prescription_id' into
 2024-05-01 09:00:06,765 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
 2024-05-01 09:00:08,350 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
 2024-05-01 09:00:22,465 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:16:08,682 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 09:21:18,839 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:21:26,841 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:21:33,722 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:21:36,415 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:21:41,028 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:21:43,571 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:21:52,667 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:21:54,238 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:21:57,795 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:22:14,871 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:22:25,971 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:22:27,766 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
