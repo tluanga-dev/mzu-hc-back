@@ -63,28 +63,17 @@ class InventoryTransactionItem(TimeStampedAbstractModelClass):
         app_label = 'inventory_transaction'
 
 
-# --every inventory transaction item will update this
-# --this will be used to calculate the stock of the item
-# class ItemStockInfo(TimeStampedAbstractModelClass):
-#     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='item_stock_info') 
-#     inventory_transaction_item = models.OneToOneField(InventoryTransactionItem, on_delete=models.CASCADE, related_name='item_stock_info')
-#     quantity = models.PositiveIntegerField(null=False, blank=False)
 
-#     class Meta:
-#         app_label = 'inventory_transaction'
-
-#     @classmethod
-#     def get_latest_by_item_id(cls, item_id):
-#         # data_list=cls.objects.filter(item_id=item_id)
-#         # for data in data_list:
-#         #     print(data.quantity)
-#         return cls.objects.filter(item_id=item_id).last()
-    
-# --every inventory transaction item will update this
-# --this will be used to calculate the stock of the item
 class ItemStockInfo(TimeStampedAbstractModelClass):
-    item_batch = models.ForeignKey(ItemBatch, on_delete=models.CASCADE, related_name='item_batch_stock_info') 
+    
     inventory_transaction_item = models.OneToOneField(InventoryTransactionItem, on_delete=models.CASCADE, related_name='item_batch_stock_info')
+    inventory_transaction_type = models.CharField(max_length=100, choices=InventoryTransaction.TransactionTypes.choices)
+    item_name=models.CharField(max_length=255)
+    item=models.ForeignKey(Item, on_delete=models.CASCADE, related_name='item_batch_stock_info') 
+    item_batch_name=models.CharField(max_length=255)
+    item_batch = models.ForeignKey(ItemBatch, on_delete=models.CASCADE, related_name='item_batch_stock_info') 
+
+
     quantity = models.PositiveIntegerField(null=False, blank=False)
 
     class Meta:

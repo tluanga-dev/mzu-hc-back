@@ -24694,3 +24694,183 @@ AttributeError: 'IndentInventoryTransaction' object has no attribute 'transactio
 2024-05-01 05:47:26,164 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
 2024-05-01 05:47:30,038 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
 2024-05-01 05:47:40,957 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:10:02,225 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:24:39,971 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:24:56,457 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 07:24:59,146 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 07:25:53,347 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 07:25:57,267 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 07:26:16,137 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 07:26:19,847 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 07:26:35,371 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 07:31:16,212 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 07:31:18,080 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 07:33:12,651 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:33:14,669 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:33:16,301 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:33:20,601 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:33:23,126 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:33:24,652 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:33:28,222 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:33:40,174 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:33:58,951 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:34:00,864 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:34:03,824 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:34:06,660 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:34:08,161 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:34:09,771 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:34:21,622 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 07:37:02,182 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:37:09,146 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:37:12,275 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:37:34,491 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:38:29,874 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:39:05,091 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:39:15,955 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:39:17,626 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:39:29,635 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:39:31,207 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:40:30,915 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:40:36,851 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:40:38,352 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:40:42,789 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:40:53,596 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:41:22,255 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:41:24,989 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:41:27,536 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:41:29,044 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:41:35,996 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:41:42,692 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:47:30,442 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:48:10,749 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:48:12,651 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:48:14,156 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:48:15,698 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:48:17,297 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:48:26,966 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:49:53,890 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:54:10,326 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:12,065 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:20,857 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:22,425 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:24,958 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:26,474 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:29,047 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:34,715 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:37,295 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:38,807 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:41,357 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:42,853 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:44,379 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:46,947 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:48,600 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:50,142 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:54:52,659 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:54:54,178 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:54:55,663 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 07:56:02,897 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:56:11,871 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:56:13,488 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:56:15,050 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:56:18,713 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:56:20,245 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:56:30,019 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:56:32,650 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:56:53,153 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-01 07:56:55,070 - INFO - Supplier migration complete. Migrated: 5, Failed: 0
+2024-05-01 07:56:55,072 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-01 07:56:55,950 - INFO - Unit of Measurement migration complete. Migrated: 50, Failed: 0
+2024-05-01 07:56:55,951 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-01 07:56:56,961 - INFO - Item Category migration complete. Migrated: 5, Failed: 0
+2024-05-01 07:56:56,963 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-01 07:56:58,083 - INFO - Item Type migration complete. Migrated: 75, Failed: 0
+2024-05-01 07:56:58,084 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-01 07:57:00,469 - INFO - Item migration complete. Migrated: 443, Failed: 0
+2024-05-01 07:57:00,470 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-01 07:57:01,320 - INFO - Person Type migration complete. Migrated: 4, Failed: 0
+2024-05-01 07:57:01,323 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-01 07:57:02,390 - INFO - Person migration complete. Migrated: 385, Failed: 0
+2024-05-01 07:57:02,417 - ERROR - Internal Server Error: /setup/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/setup/views.py", line 10, in list
+    return Response(data)
+           ^^^^^^^^^^^^^^
+TypeError: Response.__init__() takes 1 positional argument but 2 were given
+2024-05-01 07:59:12,301 - ERROR - Internal Server Error: /transaction/indent/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py", line 59, in create
+    InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 677, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/dispatch/dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py", line 10, in post_save_inventory_transaction_item
+    item=instance.item
+         ^^^^^^^^^^^^^
+AttributeError: 'InventoryTransactionItem' object has no attribute 'item'
+2024-05-01 07:59:24,982 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:59:28,217 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:59:29,780 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:59:31,287 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:59:32,832 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:59:34,349 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 07:59:41,159 - WARNING - Bad Request: /transaction/indent/

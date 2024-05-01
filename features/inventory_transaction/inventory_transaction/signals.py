@@ -7,7 +7,8 @@ from features.inventory_transaction.inventory_transaction.models import Inventor
 def post_save_inventory_transaction_item(sender, instance, created, **kwargs):
     if created:
         item_batch = instance.item_batch
-        print('ItemBatch created' )
+        item=item_batch.item
+
         previous_stock_info = ItemStockInfo.get_latest_by_item_batch_id(item_batch.id)
 
         print('previous_stock_info', previous_stock_info)
@@ -20,7 +21,11 @@ def post_save_inventory_transaction_item(sender, instance, created, **kwargs):
         print(transaction_type)
         if transaction_type == InventoryTransaction.TransactionTypes.INDENT:
             ItemStockInfo.objects.create(
+                item_batch_name=item_batch.batch_id,
                 item_batch=item_batch,
+                item_name=item.name,
+                item=item,
+                inventory_transaction_type=transaction_type,
                 quantity=previous_quantity_inhand + instance.quantity,
                 inventory_transaction_item=instance,
             )
@@ -28,7 +33,11 @@ def post_save_inventory_transaction_item(sender, instance, created, **kwargs):
             if previous_quantity_inhand < instance.quantity:
                 raise ValueError('Item stock is less than the quantity to be issued')
             ItemStockInfo.objects.create(
+                item_batch_name=item_batch.batch_id,
                 item_batch=item_batch,
+                item_name=item.name,
+                inventory_transaction_type=transaction_type,
+                item=item,
                 quantity=previous_quantity_inhand - instance.quantity,
                 inventory_transaction_item=instance,
             )

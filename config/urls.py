@@ -73,7 +73,7 @@ router.register(r'person', PersonViewSet,basename='person')
 
 # --------Prescription---------
 router.register(r'prescription', PrescriptionViewSet, basename='prescription')
-router.register(r'prescription-with-stock-detail', PrescriptionViewSetForDispense, basename='prescription-with-stock-detail')
+router.register(r'prescription-with-stock-detail-for-dispense', PrescriptionViewSetForDispense, basename='prescription-with-stock-detail')
 
 
 

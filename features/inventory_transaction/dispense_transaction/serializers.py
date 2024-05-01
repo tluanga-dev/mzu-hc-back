@@ -1,6 +1,7 @@
 from features.inventory_transaction.dispense_transaction.models import DispenseInventoryTransaction
 from features.inventory_transaction.inventory_transaction.serializers import InventoryTransactionSerializer
 from features.item.models import Item, ItemCategory, ItemType, UnitOfMeasurement
+from features.prescription.models import Prescription
 from features.prescription.serializers import PrescriptionSerializer
 
 from rest_framework import serializers
@@ -59,3 +60,5 @@ class ItemInformationForDispenseTransactionSerializer(serializers.ModelSerialize
     class Meta:
         model = Item
         fields = ['id', 'name']
+
+

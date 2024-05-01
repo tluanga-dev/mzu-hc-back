@@ -130,9 +130,9 @@ class ItemTransactionDetailSerializerV1(serializers.ModelSerializer):
         return obj.unit_of_measurement.abbreviation
 
     def get_item_stock_info(self, obj):
-        item_stock=ItemStockInfo.objects.filter(item=obj).last()
+        item_stock=ItemStockInfo.get_latest_by_item_id(obj.id)
        
-        return ItemStockInfoSerializer(item_stock).data
+        return item_stock.quantity
     
     def get_transactions(self, obj):
         inventory_transaction_items = InventoryTransactionItem.objects.filter(item_batch__in=obj.item_batches.all())
