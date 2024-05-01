@@ -77,7 +77,7 @@ class ItemStockInfo(TimeStampedAbstractModelClass):
     item_batch_name=models.CharField(max_length=255)
     item_batch = models.ForeignKey(ItemBatch, on_delete=models.CASCADE, related_name='item_batch_stock_info') 
     quantity = models.PositiveIntegerField(null=False, blank=False)
-    stock_in_hand = models.PositiveIntegerField(null=False, blank=False)
+    quantity_in_stock = models.PositiveIntegerField(null=False, blank=False)
 
     class Meta:
         app_label = 'inventory_transaction'

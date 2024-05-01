@@ -27,10 +27,10 @@ from features.utils.print_json import print_json_string
 
 
 class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
-    stock_in_hand=serializers.SerializerMethodField()
-    def get_stock_in_hand(self, obj):
-        stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
-        return stock_in_hand
+    quantity_in_stock=serializers.SerializerMethodField()
+    def get_quantity_in_stock(self, obj):
+        quantity_in_stock=ItemStockInfo.get_latest_by_item_id(obj.id).quantity_in_stock
+        return quantity_in_stock
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
@@ -40,7 +40,7 @@ class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ['id', 'name', 'contents', 'unit_of_measurement','stock_in_hand']
+        fields = ['id', 'name', 'contents', 'unit_of_measurement','quantity_in_stock']
 
 
 class PrescriptionItemSerializer(serializers.ModelSerializer):

@@ -146,16 +146,16 @@ class ItemTransactionDetailSerializerV1(serializers.ModelSerializer):
 
 
 class ItemBatchStockInfoSerializer(serializers.ModelSerializer):
-    stock_in_hand = serializers.SerializerMethodField()
-    def get_stock_in_hand(self, obj):
+    quantity_in_stock = serializers.SerializerMethodField()
+    def get_quantity_in_stock(self, obj):
         
-        return obj.stock_in_hand
+        return obj.quantity_in_stock
     class Meta:
         model = ItemBatch
         fields=['batch_id']
 
 class ItemTransactionDetailSerializer(serializers.ModelSerializer):
-    stock_in_hand = serializers.SerializerMethodField()
+    quantity_in_stock = serializers.SerializerMethodField()
     transactions = serializers.SerializerMethodField()
     type = serializers.SerializerMethodField()
     unit_of_measurement = serializers.SerializerMethodField()
@@ -173,7 +173,7 @@ class ItemTransactionDetailSerializer(serializers.ModelSerializer):
     def get_unit_of_measurement(self, obj):
         return obj.unit_of_measurement.abbreviation if obj.unit_of_measurement else None
 
-    def get_stock_in_hand(self, obj):
+    def get_quantity_in_stock(self, obj):
         # Debugging: Fetch all stock info entries related to the item
         # stock_infos = ItemStockInfo.objects.filter(item=obj)
         # print("All Stock Infos:", stock_infos)  # This will print the query set of all related stock info objects
@@ -200,6 +200,6 @@ class ItemTransactionDetailSerializer(serializers.ModelSerializer):
             'type', 
             'unit_of_measurement', 
             'transactions', 
-            'stock_in_hand',
+            'quantity_in_stock',
          
         ]

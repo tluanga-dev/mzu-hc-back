@@ -25142,3 +25142,1229 @@ django.core.exceptions.FieldError: Cannot resolve keyword 'prescription_id' into
 2024-05-01 09:22:14,871 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
 2024-05-01 09:22:25,971 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
 2024-05-01 09:22:27,766 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:29:23,329 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 09:29:25,187 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 09:29:39,031 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 09:29:40,719 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 09:30:30,857 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 09:30:39,840 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 09:30:42,514 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 09:31:17,686 - ERROR - Error in processing request: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:31:17,723 - ERROR - Internal Server Error: /prescription/8b0f84e3-cb17-40ac-a09b-e51eb6513164/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 55, in handle_exception
+    return super().handle_exception(exc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:31:19,748 - ERROR - Error in processing request: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:31:19,767 - ERROR - Internal Server Error: /prescription/8b0f84e3-cb17-40ac-a09b-e51eb6513164/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 55, in handle_exception
+    return super().handle_exception(exc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:31:20,783 - ERROR - Error in processing request: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:31:20,834 - ERROR - Internal Server Error: /prescription/8b0f84e3-cb17-40ac-a09b-e51eb6513164/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 55, in handle_exception
+    return super().handle_exception(exc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:31:21,861 - ERROR - Error in processing request: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:31:21,884 - ERROR - Internal Server Error: /prescription/8b0f84e3-cb17-40ac-a09b-e51eb6513164/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 55, in handle_exception
+    return super().handle_exception(exc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:31:23,912 - ERROR - Error in processing request: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:31:23,942 - ERROR - Internal Server Error: /prescription/8b0f84e3-cb17-40ac-a09b-e51eb6513164/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 55, in handle_exception
+    return super().handle_exception(exc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:31:27,971 - ERROR - Error in processing request: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:31:27,994 - ERROR - Internal Server Error: /prescription/8b0f84e3-cb17-40ac-a09b-e51eb6513164/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 55, in handle_exception
+    return super().handle_exception(exc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:31:54,823 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 09:31:59,669 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 09:32:04,395 - ERROR - Error in processing request: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:32:04,438 - ERROR - Internal Server Error: /prescription/8b0f84e3-cb17-40ac-a09b-e51eb6513164/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 55, in handle_exception
+    return super().handle_exception(exc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:32:05,475 - ERROR - Error in processing request: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:32:05,497 - ERROR - Internal Server Error: /prescription/8b0f84e3-cb17-40ac-a09b-e51eb6513164/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 55, in handle_exception
+    return super().handle_exception(exc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:32:08,826 - ERROR - Error in processing request: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:32:08,886 - ERROR - Internal Server Error: /prescription/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 55, in handle_exception
+    return super().handle_exception(exc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_stock_in_hand
+    stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'stock_in_hand'
+2024-05-01 09:32:50,116 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:33:58,494 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/item/serializers.py changed, reloading.
+2024-05-01 09:34:25,077 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:34:44,403 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:34:46,259 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:34:50,009 - ERROR - Error in processing request: 'ItemStockInfo' object has no attribute 'quantity_in_stock'
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_quantity_in_stock
+    quantity_in_stock=ItemStockInfo.get_latest_by_item_id(obj.id).quantity_in_stock
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'quantity_in_stock'
+2024-05-01 09:34:50,052 - ERROR - Internal Server Error: /prescription/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 55, in handle_exception
+    return super().handle_exception(exc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_quantity_in_stock
+    quantity_in_stock=ItemStockInfo.get_latest_by_item_id(obj.id).quantity_in_stock
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ItemStockInfo' object has no attribute 'quantity_in_stock'
+2024-05-01 09:35:04,395 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 09:35:11,238 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 09:35:17,047 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 09:35:18,781 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 09:36:22,238 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/item/serializers.py changed, reloading.
+2024-05-01 09:37:33,615 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 09:37:35,393 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 09:37:37,922 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
