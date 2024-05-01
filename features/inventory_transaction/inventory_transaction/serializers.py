@@ -159,7 +159,7 @@ class ItemTransactionDetailSerializer(serializers.ModelSerializer):
     transactions = serializers.SerializerMethodField()
     type = serializers.SerializerMethodField()
     unit_of_measurement = serializers.SerializerMethodField()
-    item_batch_stock_info  =serializers.SerializerMethodField()
+  
 
 
     def get_item_batch_stock_info(self, obj):
@@ -182,7 +182,7 @@ class ItemTransactionDetailSerializer(serializers.ModelSerializer):
         # last_stock_info = stock_infos.last()
         # print("Last Stock Info:", last_stock_info)  # This will show the last stock info object if any
         
-        last_stock_info = ItemStockInfo.objects.filter(item=obj).order_by('-created_on').first()
+        last_stock_info = ItemStockInfo.get_latest_by_item_id(obj.id)
         if last_stock_info:
             return last_stock_info.quantity
         return 0
@@ -201,5 +201,5 @@ class ItemTransactionDetailSerializer(serializers.ModelSerializer):
             'unit_of_measurement', 
             'transactions', 
             'stock_in_hand',
-            'item_batch_stock_info'
+         
         ]

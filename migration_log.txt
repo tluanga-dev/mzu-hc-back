@@ -23842,3 +23842,855 @@ django.core.exceptions.ImproperlyConfigured: Field name `name` is not valid for 
 2024-04-30 10:32:40,337 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
 2024-04-30 10:32:46,602 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
 2024-04-30 10:33:16,177 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-04-30 12:25:06,707 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:25:21,982 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:25:28,785 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:25:30,315 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:25:36,015 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:25:37,536 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:25:45,231 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:25:46,804 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:25:49,334 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:25:50,845 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:26:00,617 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:26:02,142 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:26:04,672 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:26:06,220 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:26:14,959 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:26:16,471 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:30:25,328 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:30:34,294 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:30:52,539 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 12:31:35,874 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:31:37,632 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:31:39,125 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:31:42,735 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:31:44,250 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:31:52,987 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:31:55,550 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:31:57,110 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:31:59,642 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:33:11,896 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:33:13,602 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:33:17,187 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:33:20,786 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:33:22,348 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:33:36,191 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:33:37,871 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:33:39,389 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:33:40,917 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:33:43,485 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:33:44,991 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:33:48,597 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 12:33:50,127 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-04-30 15:36:52,791 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 15:37:00,829 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 15:37:24,264 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 15:37:25,948 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 15:37:32,517 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 15:37:55,759 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 15:37:58,517 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 15:38:13,463 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-04-30 15:38:15,133 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:07:56,505 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:08:01,410 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:08:03,010 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:08:04,538 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:08:06,110 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:08:15,892 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:08:17,568 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:08:24,264 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:08:25,823 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:08:29,418 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:08:32,042 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:08:34,591 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:23:54,796 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 01:23:57,984 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 01:24:06,798 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 01:24:12,793 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 01:24:18,027 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 01:24:19,607 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 01:24:32,495 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 01:24:43,118 - ERROR - Internal Server Error: /transactions/2741c08b-ffa6-4eb4-8788-0fcdec2f1920/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 446, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 96, in get_attribute
+    instance = getattr(instance, attr)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Item' object has no attribute 'stock_in_hand'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/views.py", line 15, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 509, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 479, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `stock_in_hand` on serializer `ItemTransactionDetailSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Item` instance.
+Original exception text was: 'Item' object has no attribute 'stock_in_hand'.
+2024-05-01 01:32:01,934 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 01:32:07,398 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 01:32:10,471 - ERROR - Internal Server Error: /transactions/2741c08b-ffa6-4eb4-8788-0fcdec2f1920/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/views.py", line 15, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py", line 185, in get_stock_in_hand
+    last_stock_info = ItemStockInfo.get_latest_by_item_id(obj.id)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py", line 96, in get_latest_by_item_id
+    return cls.objects.filter(item_batch__item__id=item_id).order_by('-created_at').last()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1699, in order_by
+    obj.query.add_ordering(*field_names)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 2242, in add_ordering
+    self.names_to_path(item.split(LOOKUP_SEP), self.model._meta)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1761, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'created_at' into field. Choices are: created_on, id, inventory_transaction_item, inventory_transaction_item_id, is_active, item_batch, item_batch_id, quantity, updated_on
+2024-05-01 01:32:11,683 - ERROR - Internal Server Error: /transactions/2741c08b-ffa6-4eb4-8788-0fcdec2f1920/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/views.py", line 15, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py", line 185, in get_stock_in_hand
+    last_stock_info = ItemStockInfo.get_latest_by_item_id(obj.id)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py", line 96, in get_latest_by_item_id
+    return cls.objects.filter(item_batch__item__id=item_id).order_by('-created_at').last()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1699, in order_by
+    obj.query.add_ordering(*field_names)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 2242, in add_ordering
+    self.names_to_path(item.split(LOOKUP_SEP), self.model._meta)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1761, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'created_at' into field. Choices are: created_on, id, inventory_transaction_item, inventory_transaction_item_id, is_active, item_batch, item_batch_id, quantity, updated_on
+2024-05-01 01:32:36,060 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:32:37,796 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:32:40,358 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:32:41,888 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:32:44,276 - ERROR - Internal Server Error: /transactions/2741c08b-ffa6-4eb4-8788-0fcdec2f1920/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: inventory_transaction_itemstockinfo.item_batch_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/views.py", line 15, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py", line 185, in get_stock_in_hand
+    last_stock_info = ItemStockInfo.get_latest_by_item_id(obj.id)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py", line 96, in get_latest_by_item_id
+    return cls.objects.filter(item_batch__item__id=item_id).order_by('-created_on').last()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1108, in last
+    for obj in queryset[:1]:
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 398, in __iter__
+    self._fetch_all()
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1926, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: inventory_transaction_itemstockinfo.item_batch_id
+2024-05-01 01:33:05,288 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:33:06,931 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:33:09,268 - ERROR - Internal Server Error: /transactions/2741c08b-ffa6-4eb4-8788-0fcdec2f1920/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: inventory_transaction_itemstockinfo.item_batch_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/views.py", line 15, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py", line 185, in get_stock_in_hand
+    last_stock_info = ItemStockInfo.get_latest_by_item_id(obj.id)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py", line 96, in get_latest_by_item_id
+    return cls.objects.filter(item_batch__item__id=item_id).order_by('-created_on').last()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1108, in last
+    for obj in queryset[:1]:
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 398, in __iter__
+    self._fetch_all()
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1926, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: inventory_transaction_itemstockinfo.item_batch_id
+2024-05-01 01:33:30,352 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 01:33:39,376 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 02:33:42,293 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 02:34:06,993 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 02:34:23,919 - ERROR - Internal Server Error: /transactions/2741c08b-ffa6-4eb4-8788-0fcdec2f1920/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: inventory_transaction_itemstockinfo.item_batch_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/views.py", line 15, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py", line 185, in get_stock_in_hand
+    last_stock_info = ItemStockInfo.get_latest_by_item_id(obj.id)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py", line 96, in get_latest_by_item_id
+    return cls.objects.filter(item_batch__item__id=item_id).order_by('-created_on').last()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1108, in last
+    for obj in queryset[:1]:
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 398, in __iter__
+    self._fetch_all()
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1926, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: inventory_transaction_itemstockinfo.item_batch_id
+2024-05-01 02:35:26,145 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-01 02:35:28,585 - INFO - Supplier migration complete. Migrated: 5, Failed: 0
+2024-05-01 02:35:28,589 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-01 02:35:29,836 - INFO - Unit of Measurement migration complete. Migrated: 50, Failed: 0
+2024-05-01 02:35:29,837 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-01 02:35:30,849 - INFO - Item Category migration complete. Migrated: 5, Failed: 0
+2024-05-01 02:35:30,852 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-01 02:35:32,189 - INFO - Item Type migration complete. Migrated: 75, Failed: 0
+2024-05-01 02:35:32,190 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-01 02:35:33,811 - INFO - Item migration complete. Migrated: 443, Failed: 0
+2024-05-01 02:35:33,811 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-01 02:35:34,762 - INFO - Person Type migration complete. Migrated: 4, Failed: 0
+2024-05-01 02:35:34,766 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-01 02:35:36,249 - INFO - Person migration complete. Migrated: 385, Failed: 0
+2024-05-01 02:35:36,266 - ERROR - Internal Server Error: /setup/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/setup/views.py", line 10, in list
+    return Response(data)
+           ^^^^^^^^^^^^^^
+TypeError: Response.__init__() takes 1 positional argument but 2 were given
+2024-05-01 02:37:44,667 - ERROR - Internal Server Error: /transaction/indent/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py", line 59, in create
+    InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 677, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/dispatch/dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py", line 15, in post_save_inventory_transaction_item
+    previous_stock_info=ItemStockInfo.objects.filter(item=item).last()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1602, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1634, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1484, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1296, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1761, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'item' into field. Choices are: created_on, id, inventory_transaction_item, inventory_transaction_item_id, is_active, item_batch, item_batch_id, quantity, updated_on
+2024-05-01 02:40:37,136 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:40:43,080 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:40:45,786 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:40:48,340 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:40:53,967 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:40:55,525 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:41:08,484 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:41:10,163 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:41:15,876 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:41:17,461 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:46:10,011 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:46:18,879 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:46:20,519 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:46:37,591 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:46:41,299 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:46:43,871 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:46:51,554 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:46:53,115 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:46:54,627 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:46:56,123 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:47:02,828 - WARNING - Bad Request: /transaction/indent/
+2024-05-01 02:47:10,833 - WARNING - Bad Request: /transaction/indent/
+2024-05-01 02:49:04,503 - WARNING - Not Found: /transaction/95431fd3-d2f3-4946-a091-c4be1755c358
+2024-05-01 02:49:29,622 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 02:49:31,389 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 02:49:33,719 - ERROR - Internal Server Error: /transaction/95431fd3-d2f3-4946-a091-c4be1755c358/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/views.py", line 15, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py", line 166, in get_item_batch_stock_info
+    return ItemBatchStockInfoSerializer(obj.item_batches.all(), many=True).data
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 1148, in get_field_names
+    assert field_name in fields, (
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: The field 'stock_in_hand' was declared on serializer ItemBatchStockInfoSerializer, but has not been included in the 'fields' option.
+2024-05-01 02:50:00,918 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 02:50:03,615 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 02:50:05,152 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 02:50:11,868 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py changed, reloading.
+2024-05-01 02:51:32,317 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:51:34,127 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:51:36,684 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:51:38,210 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:54:23,689 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:54:26,487 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:54:32,184 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 02:55:27,113 - ERROR - Internal Server Error: /transaction/indent/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py", line 59, in create
+    InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 677, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/dispatch/dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py", line 13, in post_save_inventory_transaction_item
+    transaction_type = instance.inventory_transaction.transaction_type
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IndentInventoryTransaction' object has no attribute 'transaction_type'
+2024-05-01 05:24:18,459 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:24:21,650 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:24:23,190 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:24:24,734 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:24:26,230 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:24:29,823 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:24:35,508 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:32:50,749 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:32:52,462 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:32:53,960 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:32:55,446 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:33:00,026 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:33:01,552 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:33:04,092 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:33:08,833 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:33:10,841 - WARNING - Bad Request: /transaction/indent/
+2024-05-01 05:33:32,630 - WARNING - Bad Request: /transaction/indent/
+2024-05-01 05:34:37,851 - ERROR - Internal Server Error: /transaction/indent/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/serializers.py", line 59, in create
+    InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 677, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/base.py", line 924, in save_base
+    post_save.send(
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/dispatch/dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py", line 19, in post_save_inventory_transaction_item
+    transaction_type = instance.inventory_transaction.transaction_type
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IndentInventoryTransaction' object has no attribute 'transaction_type'
+2024-05-01 05:36:29,426 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:36:59,632 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:37:08,522 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:37:10,269 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:37:12,789 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:37:14,308 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 05:37:46,204 - WARNING - Bad Request: /transaction/indent/
+2024-05-01 05:40:37,137 - WARNING - Not Found: /transaction/4de6913f-6c9a-4541-b3be-ad659d6f871d/
+2024-05-01 05:40:47,028 - WARNING - Not Found: /transactions/4de6913f-6c9a-4541-b3be-ad659d6f871d/
+2024-05-01 05:40:55,687 - WARNING - Not Found: /transaction/4de6913f-6c9a-4541-b3be-ad659d6f871d/
+2024-05-01 05:47:26,164 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 05:47:30,038 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 05:47:40,957 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.

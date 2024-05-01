@@ -5,41 +5,30 @@ from features.inventory_transaction.inventory_transaction.models import Inventor
 
 @receiver(post_save, sender=InventoryTransactionItem)
 def post_save_inventory_transaction_item(sender, instance, created, **kwargs):
-   
     if created:
-        # --get the latest item stock info
-        item=instance.item_batch.item
-        previous_quantity_inhand = 0
-        previous_stock_info=ItemStockInfo.objects.filter(item=item).last()
-        if previous_stock_info is not None:
-            previous_quantity_inhand = previous_stock_info.quantity
-        # else:
-        #     print(len(ItemStockInfo.objects.filter(item=item)))
-       
-        # print('item:', item_stock_info)
-        transaction_type=instance.inventory_transaction.inventory_transaction_type
-        if(transaction_type==InventoryTransaction.TransactionTypes.INDENT):
+        item_batch = instance.item_batch
+        print('ItemBatch created' )
+        previous_stock_info = ItemStockInfo.get_latest_by_item_batch_id(item_batch.id)
 
-           ItemStockInfo.objects.create(
-                item=item,
-                quantity=previous_quantity_inhand+instance.quantity,
+        print('previous_stock_info', previous_stock_info)
+
+        previous_quantity_inhand = previous_stock_info.quantity if previous_stock_info else 0
+
+        print('previous_quantity_inhand', previous_quantity_inhand)
+        
+        transaction_type = instance.inventory_transaction.inventory_transaction_type
+        print(transaction_type)
+        if transaction_type == InventoryTransaction.TransactionTypes.INDENT:
+            ItemStockInfo.objects.create(
+                item_batch=item_batch,
+                quantity=previous_quantity_inhand + instance.quantity,
                 inventory_transaction_item=instance,
             )
-        
-            
-        elif (
-            transaction_type == InventoryTransaction.TransactionTypes.ITEM_ISSUE or 
-            transaction_type == InventoryTransaction.TransactionTypes.DISPENSE
-            ):      
-            if(previous_quantity_inhand<instance.quantity):
-                # print('previous quantity inhand:', previous_quantity_inhand)
+        elif transaction_type in [InventoryTransaction.TransactionTypes.ITEM_ISSUE, InventoryTransaction.TransactionTypes.DISPENSE]:
+            if previous_quantity_inhand < instance.quantity:
                 raise ValueError('Item stock is less than the quantity to be issued')
-            else:
-                new_item_stock_info=ItemStockInfo.objects.create(
-                item=item,
-                quantity=previous_quantity_inhand-instance.quantity,
+            ItemStockInfo.objects.create(
+                item_batch=item_batch,
+                quantity=previous_quantity_inhand - instance.quantity,
                 inventory_transaction_item=instance,
-
-                )
-                # print('new_item_stock_info:', new_item_stock_info.quantity)
- 
+            )

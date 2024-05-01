@@ -65,9 +65,26 @@ class InventoryTransactionItem(TimeStampedAbstractModelClass):
 
 # --every inventory transaction item will update this
 # --this will be used to calculate the stock of the item
+# class ItemStockInfo(TimeStampedAbstractModelClass):
+#     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='item_stock_info') 
+#     inventory_transaction_item = models.OneToOneField(InventoryTransactionItem, on_delete=models.CASCADE, related_name='item_stock_info')
+#     quantity = models.PositiveIntegerField(null=False, blank=False)
+
+#     class Meta:
+#         app_label = 'inventory_transaction'
+
+#     @classmethod
+#     def get_latest_by_item_id(cls, item_id):
+#         # data_list=cls.objects.filter(item_id=item_id)
+#         # for data in data_list:
+#         #     print(data.quantity)
+#         return cls.objects.filter(item_id=item_id).last()
+    
+# --every inventory transaction item will update this
+# --this will be used to calculate the stock of the item
 class ItemStockInfo(TimeStampedAbstractModelClass):
-    item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='item_stock_info') 
-    inventory_transaction_item = models.OneToOneField(InventoryTransactionItem, on_delete=models.CASCADE, related_name='item_stock_info')
+    item_batch = models.ForeignKey(ItemBatch, on_delete=models.CASCADE, related_name='item_batch_stock_info') 
+    inventory_transaction_item = models.OneToOneField(InventoryTransactionItem, on_delete=models.CASCADE, related_name='item_batch_stock_info')
     quantity = models.PositiveIntegerField(null=False, blank=False)
 
     class Meta:
@@ -75,10 +92,17 @@ class ItemStockInfo(TimeStampedAbstractModelClass):
 
     @classmethod
     def get_latest_by_item_id(cls, item_id):
-        # data_list=cls.objects.filter(item_id=item_id)
-        # for data in data_list:
-        #     print(data.quantity)
-        return cls.objects.filter(item_id=item_id).last()
+        # Assuming ItemBatch has a direct link to Item which needs to be confirmed
+        return cls.objects.filter(item_batch__item__id=item_id).order_by('created_on').last()
+    
+    @classmethod
+    def get_latest_by_item_batch_id(cls, item_batch_id):
+        # Assuming ItemBatch has a direct link to Item which needs to be confirmed
+        return cls.objects.filter(item_batch=item_batch_id).order_by('created_on').last()
+    
+    
+
+
      
   
 
