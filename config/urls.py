@@ -93,8 +93,14 @@ urlpatterns = [
     # re_path(r'^item/(?P<item_id>[0-9a-f-]+)/batches/$', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),
     re_path(r'^item/(?P<item_id>[0-9a-f-]+)/batches/$', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id', 'post': 'create'}), name='item-batches'),
 
+    path(
+        'prescription-with-stock-detail-for-dispense/<uuid:prescription_id>/', 
+        PrescriptionViewSetForDispense.as_view({'get': 'retrieve_prescription_with_stock_detail_for_dispense'}), 
+        name='prescription-with-stock-detail-for-dispense'),
+    
     path('item/<uuid:item_id>/<str:batch_id>/', ItemBatchViewSet.as_view({'get': 'retrieve_batch'}), name='item-batch-detail'),
     
+
     path('transaction/<uuid:pk>/', ItemTransactionsView.as_view({'get':'retrieve'}), name='item-transactions-detail'),
     
     re_path(r'^item/(?P<item_id>[0-9a-f-]+)/batches/$', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),

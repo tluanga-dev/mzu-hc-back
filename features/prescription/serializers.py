@@ -1,5 +1,6 @@
 from datetime import datetime
 from rest_framework import serializers
+from features.inventory_transaction.inventory_transaction.models import ItemStockInfo
 from features.inventory_transaction.inventory_transaction.serializers import ItemTransactionDetailSerializer
 from features.item.models import Item, ItemBatch, UnitOfMeasurement
 from features.item.serializers import ItemBatchSerializer, ItemSerializer, UnitOfMeasurementSerializerForUser
@@ -152,14 +153,22 @@ class PrescriptionSerializer(serializers.ModelSerializer):
 
 
 # we are going to return Prescription item with medicined, in more detai;
+class MecineSerializerForDispense(serializers.ModelSerializer):
+    stock_in_hand=serializers.SerializerMethodField()
 
+    def get_stock_in_hand(self, obj):
+        stock_in_hand=ItemStockInfo.get_latest_by_item_id(obj.id).stock_in_hand
+        return stock_in_hand
+    class Meta:
+        model = Item
+        fields = ['id', 'name', 'contents', 'unit_of_measurement', 'stock_in_hand']
 
 class PrescribedItemSerializerForDispense(PrescriptionItemSerializer):
     # Correctly overrides the 'medicine' field with a more detailed serializer
     dosages = MedicineDosageSerializer(many=True)
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['medicine'] = ItemTransactionDetailSerializer(instance.medicine).data
+        representation['medicine'] = MecineSerializerForDispense(instance.medicine).data
         return representation
 
     class Meta:

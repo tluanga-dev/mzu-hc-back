@@ -24958,3 +24958,174 @@ AttributeError: 'InventoryTransactionItem' object has no attribute 'item'
 2024-05-01 08:27:22,809 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
 2024-05-01 08:27:24,323 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
 2024-05-01 08:27:34,159 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/signals.py changed, reloading.
+2024-05-01 08:48:41,299 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:48:44,103 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:48:57,041 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:49:13,323 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:50:49,402 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:50:56,139 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:50:57,683 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:51:04,345 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:51:06,898 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:51:08,428 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:51:15,079 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:51:19,008 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:51:20,551 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:51:22,126 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:51:24,638 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 08:52:21,087 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:52:22,783 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:53:05,061 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:53:17,090 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:53:18,840 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:53:20,392 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:53:22,011 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:53:23,591 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:53:25,122 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:53:28,689 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:53:30,228 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:53:53,548 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:53:55,292 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:53:59,905 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:54:07,694 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:54:19,572 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:54:21,233 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:54:22,765 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:54:24,271 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:54:59,035 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:00,778 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:04,325 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:09,962 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:11,496 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:13,002 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:19,642 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:21,189 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:22,685 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:26,243 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:32,952 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:34,533 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:36,067 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:37,576 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:55,712 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:55:57,483 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:56:00,315 - ERROR - Error in processing request: Cannot resolve keyword 'prescription_id' into field. Choices are: advice_and_instructions, chief_complaints, code, created_on, date_and_time, diagnosis, dispened_prescription, doctor, doctor_id, id, is_active, note, patient, patient_id, prescribed_item_set, prescription_dispense_status, updated_on
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 86, in retrieve_prescription_with_stock_detail_for_dispense
+    item_batch = self.get_queryset().get(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 633, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1602, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1634, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1484, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1296, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1761, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'prescription_id' into field. Choices are: advice_and_instructions, chief_complaints, code, created_on, date_and_time, diagnosis, dispened_prescription, doctor, doctor_id, id, is_active, note, patient, patient_id, prescribed_item_set, prescription_dispense_status, updated_on
+2024-05-01 08:56:00,340 - ERROR - Internal Server Error: /prescription-with-stock-detail-for-dispense/8b0f84e3-cb17-40ac-a09b-e51eb6513164/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 76, in handle_exception
+    return super().handle_exception(exc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 86, in retrieve_prescription_with_stock_detail_for_dispense
+    item_batch = self.get_queryset().get(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 633, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1602, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1634, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1484, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1296, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/query.py", line 1761, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'prescription_id' into field. Choices are: advice_and_instructions, chief_complaints, code, created_on, date_and_time, diagnosis, dispened_prescription, doctor, doctor_id, id, is_active, note, patient, patient_id, prescribed_item_set, prescription_dispense_status, updated_on
+2024-05-01 08:56:26,242 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:56:28,995 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:56:31,634 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py changed, reloading.
+2024-05-01 08:57:38,768 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:58:02,691 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:58:10,679 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:58:13,347 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:58:18,667 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:58:20,231 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:58:21,847 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:58:28,181 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:58:52,463 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:58:56,027 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:15,131 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:16,840 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:23,843 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:25,414 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:26,937 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:29,475 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:31,062 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:42,937 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:44,657 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:46,259 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:47,774 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:49,271 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:50,802 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:55,431 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 08:59:57,052 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:00:01,632 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:00:05,244 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:00:06,765 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:00:08,350 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-01 09:00:22,465 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.

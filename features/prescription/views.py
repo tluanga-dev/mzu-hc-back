@@ -1,8 +1,11 @@
+from django.http import Http404
+from rest_framework.response import Response
 from rest_framework import viewsets, permissions
 from django_filters import rest_framework as filters
 from features.prescription.models import Prescription
 from features.prescription.serializers import PrescriptionSerializer, PrescriptionSerializerForDispense
 import logging
+from rest_framework.decorators import action
 
 logger = logging.getLogger(__name__)
 
@@ -74,5 +77,20 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
 
 
 class PrescriptionViewSetForDispense(PrescriptionViewSet):
-     serializer_class = PrescriptionSerializerForDispense
+    serializer_class = PrescriptionSerializerForDispense
      
+    @action(detail=True, methods=['get'])
+    def retrieve_prescription_with_stock_detail_for_dispense(self, request, prescription_id=None):
+
+        try:
+            item_batch = self.get_queryset().get(
+                id=prescription_id,
+                )
+            print('prescription', item_batch)
+            serializer = self.get_serializer(item_batch)
+            return Response(serializer.data)
+        except Prescription.DoesNotExist:
+            raise Http404
+        
+
+        # 8b0f84e3-cb17-40ac-a09b-e51eb6513164
