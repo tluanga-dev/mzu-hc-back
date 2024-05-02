@@ -11,6 +11,9 @@ class DispenseInventoryTransaction(InventoryTransaction):
     prescription=models.ForeignKey(
         Prescription, on_delete=models.CASCADE, related_name='dispened_prescription')
     
+    pharmacist=models.CharField(max_length=255)
+    
+    
     def save(self, *args, **kwargs):
         if self.pk is None:
             self.inventory_transaction_type = self.TransactionTypes.DISPENSE

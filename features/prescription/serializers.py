@@ -29,7 +29,12 @@ from features.utils.print_json import print_json_string
 class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
     quantity_in_stock=serializers.SerializerMethodField()
     def get_quantity_in_stock(self, obj):
-        quantity_in_stock=ItemStockInfo.get_latest_by_item_id(obj.id).quantity_in_stock
+        # quantity_in_stock=ItemStockInfo.get_latest_by_item_id(obj.id).quantity_in_stock
+        #  Fetch the latest stock information by item ID
+        item_stock_info = ItemStockInfo.get_latest_by_item_id(obj.id)
+
+        # Check if item_stock_info is None and assign 0 if so, otherwise get the quantity_in_stock
+        quantity_in_stock = 0 if item_stock_info is None else item_stock_info.quantity_in_stock
         return quantity_in_stock
 
     def to_representation(self, instance):

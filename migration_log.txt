@@ -26368,3 +26368,641 @@ AttributeError: 'ItemStockInfo' object has no attribute 'quantity_in_stock'
 2024-05-01 09:37:33,615 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
 2024-05-01 09:37:35,393 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
 2024-05-01 09:37:37,922 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 09:52:37,033 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 09:53:50,779 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/inventory_transaction/models.py changed, reloading.
+2024-05-01 09:59:51,847 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/models.py changed, reloading.
+2024-05-01 10:00:21,683 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/models.py changed, reloading.
+2024-05-01 10:00:24,403 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/models.py changed, reloading.
+2024-05-01 10:00:39,627 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/models.py changed, reloading.
+2024-05-01 10:01:25,777 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/models.py changed, reloading.
+2024-05-01 10:01:27,553 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/models.py changed, reloading.
+2024-05-01 10:09:01,013 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/models.py changed, reloading.
+2024-05-01 10:09:04,875 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/models.py changed, reloading.
+2024-05-01 10:09:08,478 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/models.py changed, reloading.
+2024-05-01 10:09:21,372 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:09:29,255 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:09:31,951 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:10:09,780 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:11:51,455 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:11:55,271 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:11:56,806 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:11:58,376 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:07,533 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:10,496 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:13,044 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:14,577 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:16,125 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:20,714 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:23,271 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:24,872 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:26,403 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:29,964 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:34,999 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:36,493 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:40,044 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:42,608 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:44,115 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:45,605 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:48,129 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:54,561 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:57,113 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:12:58,625 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:00,146 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:04,750 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:06,258 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:16,036 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:19,794 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:21,456 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:32,286 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:35,004 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:42,749 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:44,289 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:45,792 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:47,351 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:52,995 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:54,555 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:56,047 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:13:57,593 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:00,112 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:01,626 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:03,146 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:04,665 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:06,233 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:07,747 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:09,252 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:10,762 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:12,270 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:13,832 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:15,401 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:16,913 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:18,411 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:20,039 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:22,555 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:24,126 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:25,733 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:27,236 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:28,732 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:30,251 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:32,767 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:36,315 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:48,208 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:14:52,981 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:18:50,930 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/utils/find_item_batch_with_earliest_expiry_date_n_stock_in_hand_greater_than_zero.py changed, reloading.
+2024-05-01 10:34:58,388 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/config/urls.py changed, reloading.
+2024-05-01 10:35:08,343 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/models.py changed, reloading.
+2024-05-01 10:35:11,497 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/models.py changed, reloading.
+2024-05-01 10:35:18,174 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/models.py changed, reloading.
+2024-05-01 10:36:58,396 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 10:58:29,368 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 10:58:31,110 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 10:58:57,910 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 10:58:59,677 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 10:59:01,225 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 10:59:02,815 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 10:59:04,326 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 10:59:05,854 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 10:59:07,371 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 10:59:08,878 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 10:59:16,576 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 10:59:53,249 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 10:59:54,786 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 10:59:57,330 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 11:00:30,911 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 11:00:32,657 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 11:00:34,156 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 11:01:47,976 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 16:28:00,784 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-01 23:47:49,582 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/views.py changed, reloading.
+2024-05-01 23:49:23,322 - ERROR - Internal Server Error: /transaction/dispense/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: dispense_transaction_dispenseinventorytransaction.pharmacist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 398, in __iter__
+    self._fetch_all()
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 1926, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: dispense_transaction_dispenseinventorytransaction.pharmacist
+2024-05-01 23:53:13,456 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-02 05:25:24,833 - ERROR - Internal Server Error: /transaction/dispense/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/response.py", line 70, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/renderers.py", line 723, in render
+    context = self.get_context(data, accepted_media_type, renderer_context)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/renderers.py", line 654, in get_context
+    raw_data_post_form = self.get_raw_data_form(data, view, 'POST', request)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/renderers.py", line 562, in get_raw_data_form
+    data = serializer.data.copy()
+           ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 257, in data
+    self._data = self.get_initial()
+                 ^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 405, in get_initial
+    for field in self.fields.values()
+                 ^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 1148, in get_field_names
+    assert field_name in fields, (
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: The field 'dispense_item_set' was declared on serializer DispenseInventoryTransactionSerializer, but has not been included in the 'fields' option.
+2024-05-02 05:29:38,478 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-02 05:30:00,515 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-02 05:30:09,471 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-02 05:30:24,489 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-02 05:30:27,071 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-02 05:30:29,680 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-02 05:33:31,412 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-02 05:33:39,781 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/inventory_transaction/dispense_transaction/serializers.py changed, reloading.
+2024-05-02 06:25:16,291 - ERROR - Error in processing request: 'NoneType' object has no attribute 'quantity_in_stock'
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_quantity_in_stock
+    quantity_in_stock=ItemStockInfo.get_latest_by_item_id(obj.id).quantity_in_stock
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'quantity_in_stock'
+2024-05-02 06:25:16,315 - ERROR - Internal Server Error: /prescription/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 55, in handle_exception
+    return super().handle_exception(exc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_quantity_in_stock
+    quantity_in_stock=ItemStockInfo.get_latest_by_item_id(obj.id).quantity_in_stock
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'quantity_in_stock'
+2024-05-02 06:25:24,692 - ERROR - Error in processing request: 'NoneType' object has no attribute 'quantity_in_stock'
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_quantity_in_stock
+    quantity_in_stock=ItemStockInfo.get_latest_by_item_id(obj.id).quantity_in_stock
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'quantity_in_stock'
+2024-05-02 06:25:24,706 - ERROR - Internal Server Error: /prescription/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 55, in handle_exception
+    return super().handle_exception(exc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_quantity_in_stock
+    quantity_in_stock=ItemStockInfo.get_latest_by_item_id(obj.id).quantity_in_stock
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'quantity_in_stock'
+2024-05-02 06:26:42,913 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-02 06:26:44,984 - INFO - Supplier migration complete. Migrated: 5, Failed: 0
+2024-05-02 06:26:45,005 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-02 06:26:45,830 - INFO - Unit of Measurement migration complete. Migrated: 50, Failed: 0
+2024-05-02 06:26:45,834 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-02 06:26:46,621 - INFO - Item Category migration complete. Migrated: 5, Failed: 0
+2024-05-02 06:26:46,626 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-02 06:26:47,424 - INFO - Item Type migration complete. Migrated: 75, Failed: 0
+2024-05-02 06:26:47,424 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-02 06:26:48,990 - INFO - Item migration complete. Migrated: 443, Failed: 0
+2024-05-02 06:26:49,004 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-02 06:26:49,996 - INFO - Person Type migration complete. Migrated: 4, Failed: 0
+2024-05-02 06:26:50,009 - INFO - file_cache is only supported with oauth2client<4.0.0
+2024-05-02 06:26:51,017 - INFO - Person migration complete. Migrated: 385, Failed: 0
+2024-05-02 06:26:51,027 - ERROR - Internal Server Error: /setup/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/setup/views.py", line 10, in list
+    return Response(data)
+           ^^^^^^^^^^^^^^
+TypeError: Response.__init__() takes 1 positional argument but 2 were given
+2024-05-02 06:28:34,765 - ERROR - Error in processing request: 'NoneType' object has no attribute 'quantity_in_stock'
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_quantity_in_stock
+    quantity_in_stock=ItemStockInfo.get_latest_by_item_id(obj.id).quantity_in_stock
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'quantity_in_stock'
+2024-05-02 06:28:34,787 - ERROR - Internal Server Error: /prescription/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/views.py", line 55, in handle_exception
+    return super().handle_exception(exc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 143, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 50, in to_representation
+    representation['medicine'] = PrescribeMedicineItemSerializer(instance.medicine).data
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 36, in to_representation
+    representation = super().to_representation(instance)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py", line 32, in get_quantity_in_stock
+    quantity_in_stock=ItemStockInfo.get_latest_by_item_id(obj.id).quantity_in_stock
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'quantity_in_stock'
+2024-05-02 06:32:51,803 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-02 06:32:53,717 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-02 06:33:01,504 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-02 06:33:13,380 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-02 06:33:28,523 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-02 06:33:44,555 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.

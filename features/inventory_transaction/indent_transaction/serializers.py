@@ -14,8 +14,8 @@ class IndentInventoryTransactionSerializer(InventoryTransactionSerializer):
         return model_to_dict(obj.supplier)
 
     def to_internal_value(self, data):
-        if 'supply_order_no' in data:
-            print('the inputted supply order ', data['supply_order_no'])
+        # if 'supply_order_no' in data:
+        #     print('the inputted supply order ', data['supply_order_no'])
 
     # def to_internal_value(self, data):
     #     # Convert the incoming date_and_time to the database format

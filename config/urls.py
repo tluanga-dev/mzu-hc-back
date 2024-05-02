@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework.routers import DefaultRouter
 from features.id_manager.views import IdManagerViewSet
-from features.inventory_transaction.dispense_transaction.views import DispenseInventoryTransactionViewSet, ItemInformationForDispenseTransactionViewSet
+from features.inventory_transaction.dispense_transaction.views import DispenseInventoryTransactionViewSet
 from features.inventory_transaction.indent_transaction.views import IndentInventoryTransactionViewSet
 from features.inventory_transaction.inventory_transaction.views import ItemTransactionsView
 from features.inventory_transaction.issue_transaction.views import IssueItemInventoryTransactionViewSet
@@ -59,9 +59,7 @@ router.register(r'transaction/indent', IndentInventoryTransactionViewSet, basena
 router.register(r'transaction/issue_item', IssueItemInventoryTransactionViewSet, basename='issue-item-inventory-transactions')
 
 # ------Dispense Transaction-------
-router.register(r'transaction/dispense/item_info_for_dispense', 
-                ItemInformationForDispenseTransactionViewSet,
-         basename='item_info_for_dispense-inventory-transactions')
+
 router.register(r'transaction/dispense', DispenseInventoryTransactionViewSet, basename='dispense-inventory-transactions')
 
 
