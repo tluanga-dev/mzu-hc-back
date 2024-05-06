@@ -36,6 +36,7 @@ def setup_indent_for_test(item_type, unit_of_measurement):
            date_of_expiry=date(2025, 12, 12),
             item=item
         )
+    item_batch1.save()
     item_batch2 = ItemBatch.objects.create(
             batch_id='B2',
             description='Test Batch 2',
@@ -43,6 +44,23 @@ def setup_indent_for_test(item_type, unit_of_measurement):
             item=item
     )
     item_batch2.save()
+
+    # -already expired  
+    item_batch3 = ItemBatch.objects.create(
+            batch_id='B3',
+            description='Test Batch 3',
+            date_of_expiry=date(2023, 12, 12),
+            item=item
+    )
+    item_batch3.save()
+    # --Item batch that do not have any stock info entry
+    item_batch4 = ItemBatch.objects.create(
+            batch_id='B4',
+            description='Test Batch 4',
+            date_of_expiry=date(2024, 10, 12),
+            item=item
+    )
+    item_batch4.save()
 
     indent_transaction_data = {
             'inventory_transaction_type': InventoryTransaction.TransactionTypes.INDENT,
@@ -61,6 +79,13 @@ def setup_indent_for_test(item_type, unit_of_measurement):
                 },
                 {
                     'item_batch': item_batch2.id,
+                    'quantity': 5,
+                    'is_active': True,
+                    'inventory_transaction_type': InventoryTransaction.TransactionTypes.INDENT,
+
+                },
+                {
+                    'item_batch': item_batch3.id,
                     'quantity': 5,
                     'is_active': True,
                     'inventory_transaction_type': InventoryTransaction.TransactionTypes.INDENT,

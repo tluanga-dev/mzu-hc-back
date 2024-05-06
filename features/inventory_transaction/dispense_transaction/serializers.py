@@ -1,4 +1,4 @@
-from features.inventory_transaction.dispense_transaction import generate_dispense_list
+from features.inventory_transaction.dispense_transaction.generate_dispense_list import generate_dispense_list
 from features.inventory_transaction.dispense_transaction.models import DispenseInventoryTransaction
 from features.inventory_transaction.inventory_transaction.models import InventoryTransaction, InventoryTransactionItem
 from features.inventory_transaction.inventory_transaction.serializers import InventoryTransactionItemSerializer, InventoryTransactionSerializer
@@ -9,7 +9,7 @@ from features.prescription.serializers import PrescriptionSerializer
 from rest_framework import serializers
 
 class DispenseItemSerializer(serializers.ModelSerializer):
-    item_id = serializers.IntegerField()
+    item_id = serializers.UUIDField()
     quantity = serializers.IntegerField()
     def validate(self, data):
         # Optionally, add validation to check if item exists and quantity is sufficient
@@ -20,7 +20,7 @@ class DispenseItemSerializer(serializers.ModelSerializer):
         return data
     class Meta:
         model = InventoryTransactionItem
-        fields = ['item', 'quantity']
+        fields = ['item_id', 'quantity']
 
 
 class DispenseInventoryTransactionSerializer(InventoryTransactionSerializer):
@@ -28,12 +28,18 @@ class DispenseInventoryTransactionSerializer(InventoryTransactionSerializer):
     inventory_transaction_item_set = InventoryTransactionItemSerializer(many=True, read_only=True)
     def create(self, validated_data):
         try:
-            transaction_items_data = validated_data.pop('inventory_transaction_item_set')
-            transaction = InventoryTransaction.model.objects.create(**validated_data)
+            transaction_items_data = validated_data.pop('dispense_item_set')
+            print('transaction items data',transaction_items_data)
+
+            transaction = DispenseInventoryTransaction.objects.create(**validated_data)
             transaction.save()  # Ensure the transaction is saved
             for transaction_item_data in transaction_items_data:
-                data=generate_dispense_list(transaction_item_data.item, transaction_item_data.quantity)
-                InventoryTransactionItem.objects.create(inventory_transaction=transaction, **data)
+                print('transaction item data',transaction_item_data) 
+                data = generate_dispense_list(transaction_item_data['item_id'], transaction_item_data['quantity'])
+                print('\n\n\after generate dispense list')
+                print(data)
+                print('\n')
+                # InventoryTransactionItem.objects.create(inventory_transaction=transaction, **data)
             return transaction
       
         except ValueError as e:
