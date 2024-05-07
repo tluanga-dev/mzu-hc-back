@@ -76,8 +76,12 @@ class ItemStockInfo(TimeStampedAbstractModelClass):
     item=models.ForeignKey(Item, on_delete=models.CASCADE, related_name='item_batch_stock_info') 
     item_batch_name=models.CharField(max_length=255)
     item_batch = models.ForeignKey(ItemBatch, on_delete=models.CASCADE, related_name='item_batch_stock_info') 
+    # --quantity for that transaction
     quantity = models.PositiveIntegerField(null=False, blank=False)
-    quantity_in_stock = models.PositiveIntegerField(null=False, blank=False)
+    # --latest quantity in stock after the transaction for the item-including all batches
+    item_quantity_in_stock = models.PositiveIntegerField(null=False, blank=False)
+    # --latest quantity in stock after the transaction for the item batch
+    item_batch_quantity_in_stock = models.PositiveIntegerField(null=False, blank=False)
 
     class Meta:
         app_label = 'inventory_transaction'
@@ -102,7 +106,19 @@ class ItemStockInfo(TimeStampedAbstractModelClass):
         # Assuming ItemBatch has a direct link to Item which needs to be confirmed
         return cls.objects.filter(item_batch=item_batch_id).order_by('created_on').last()
     
-    
+    @classmethod
+    def get_latest_stock_info_of_item_batch(cls, item_batch_id):
+        try:
+            data = cls.objects.filter(item_batch=item_batch_id).order_by('created_on').last()
+            if data:
+                print(f'Successfully found latest stock info for item_batch_id {item_batch_id}: {data}')
+            else:
+                print(f'No stock info found for item_batch_id {item_batch_id}')
+                return None
+            return data
+        except Exception as e:
+            print(f'Error retrieving stock info for item_batch_id {item_batch_id}: {str(e)}')
+            return None
 
 
      

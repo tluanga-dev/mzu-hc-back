@@ -34,7 +34,7 @@ class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
         item_stock_info = ItemStockInfo.get_latest_by_item_id(obj.id)
 
         # Check if item_stock_info is None and assign 0 if so, otherwise get the quantity_in_stock
-        quantity_in_stock = 0 if item_stock_info is None else item_stock_info.quantity_in_stock
+        quantity_in_stock = 0 if item_stock_info is None else item_stock_info.item_quantity_in_stock
         return quantity_in_stock
 
     def to_representation(self, instance):

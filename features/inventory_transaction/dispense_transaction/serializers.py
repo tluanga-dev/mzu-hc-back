@@ -29,22 +29,27 @@ class DispenseInventoryTransactionSerializer(InventoryTransactionSerializer):
     def create(self, validated_data):
         try:
             transaction_items_data = validated_data.pop('dispense_item_set')
-            print('transaction items data',transaction_items_data)
+            print('transaction items data', transaction_items_data)
 
             transaction = DispenseInventoryTransaction.objects.create(**validated_data)
             transaction.save()  # Ensure the transaction is saved
             for transaction_item_data in transaction_items_data:
-                print('transaction item data',transaction_item_data) 
-                data = generate_dispense_list(transaction_item_data['item_id'], transaction_item_data['quantity'])
-                print('\n\n\after generate dispense list')
-                print(data)
-                print('\n')
-                # InventoryTransactionItem.objects.create(inventory_transaction=transaction, **data)
+                print('transaction item data', transaction_item_data)
+                datas = generate_dispense_list(transaction, transaction_item_data['item_id'], transaction_item_data['quantity'])
+                print(datas)
+                for data in datas:
+                  
+                    InventoryTransactionItem.objects.create(
+                        inventory_transaction=transaction,
+                        item_batch=data.item_batch,
+                        quantity=data.quantity
+                    )
             return transaction
-      
         except ValueError as e:
             print(f"ValueError: {e}")
             raise serializers.ValidationError(str(e))
+      
+       
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation['prescription'] = PrescriptionSerializer(instance.prescription).data

@@ -147,12 +147,13 @@ class ItemTransactionDetailSerializerV1(serializers.ModelSerializer):
 
 class ItemBatchStockInfoSerializer(serializers.ModelSerializer):
     quantity_in_stock = serializers.SerializerMethodField()
+
     def get_quantity_in_stock(self, obj):
         
         return obj.quantity_in_stock
     class Meta:
         model = ItemBatch
-        fields=['batch_id']
+        fields=['batch_id', 'quantity_in_stock','date_of_expiry']
 
 class ItemTransactionDetailSerializer(serializers.ModelSerializer):
     quantity_in_stock = serializers.SerializerMethodField()
