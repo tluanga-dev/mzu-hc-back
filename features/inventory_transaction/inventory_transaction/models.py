@@ -92,10 +92,10 @@ class ItemStockInfo(TimeStampedAbstractModelClass):
             # Ensure the query is correctly capturing the latest item stock info
             # Using '-created_on' to ensure we get the most recent record first
             data = cls.objects.filter(item=item_id).order_by('created_on').last()
-            if data:
-                print(f'Successfully found latest stock info for item_id {item_id}: {data}')
-            else:
-                print(f'No stock info found for item_id {item_id}')
+            # if data:
+            #     print(f'Successfully found latest stock info for item_id {item_id}: {data}')
+            # else:
+            #     print(f'No stock info found for item_id {item_id}')
             return data
         except Exception as e:
             print(f'Error retrieving stock info for item_id {item_id}: {str(e)}')
@@ -111,11 +111,13 @@ class ItemStockInfo(TimeStampedAbstractModelClass):
         try:
             data = cls.objects.filter(item_batch=item_batch_id).order_by('created_on').last()
             if data:
-                print(f'Successfully found latest stock info for item_batch_id {item_batch_id}: {data}')
+                # print(f'Successfully found latest stock info for item_batch_id {item_batch_id}: {data}')
+                return data
+                
             else:
-                print(f'No stock info found for item_batch_id {item_batch_id}')
+                # print(f'No stock info found for item_batch_id {item_batch_id}')
                 return None
-            return data
+            
         except Exception as e:
             print(f'Error retrieving stock info for item_batch_id {item_batch_id}: {str(e)}')
             return None

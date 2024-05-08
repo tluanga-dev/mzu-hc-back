@@ -5,21 +5,18 @@ from features.item.models import Item, ItemBatch
 from features.item.serializers import ItemBatchSerializer
 
 def generate_dispense_list(inventory_transaction_id,  item_id, required_quantity):
-    print('\n')
-    print('------------Generate Dispense List------------')
+    
 
 
     # -----Setup for testing purpose
     required_quantity=6
     
-    print('item_id', item_id)
-    print('required_quantity', required_quantity)
     
 
     try:
         item = Item.objects.get(id=item_id)
     except Item.DoesNotExist:
-        print("Item not found")
+        
         return None
 
     # Fetching non-expired item_batches of an item
@@ -30,11 +27,11 @@ def generate_dispense_list(inventory_transaction_id,  item_id, required_quantity
     
 
     if not non_expired_batches:
-        print("No available batches which are not expired found")
+       
         return None
     # --find the latest stock info for item
     latest_item_quantity_in_stock=ItemStockInfo.get_latest_by_item_id(item_id).item_quantity_in_stock
-    print('latest_item_quantity_in_stock',latest_item_quantity_in_stock)
+   
 
     # ---find the latest stock info for each batch
     latest_stock_levels = []

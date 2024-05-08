@@ -101,7 +101,7 @@ def setup_indent_for_test(item_type, unit_of_measurement):
 
     if (serializer.is_valid()):
             serializer.save()
-            print('indent transaction setup completeted')
+           
             return {'serializer_data': serializer.data, 'medicine': item}
     else:
             print('serializer is not valid')

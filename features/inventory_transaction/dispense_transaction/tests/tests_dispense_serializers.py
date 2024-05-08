@@ -13,7 +13,7 @@ from features.utils.print_json import print_json_string
 
 class DispenseInventoryTransactionSerializerTestCase(BaseTestCase):
     def setUp(self):
-        print('-------Setup starting------')
+        # print('-------Setup starting------')
         super().setUp()
         
   
@@ -32,11 +32,11 @@ class DispenseInventoryTransactionSerializerTestCase(BaseTestCase):
         serializer=DispenseInventoryTransactionSerializer(data=self.dispense_transaction_data)
         if (serializer.is_valid()):
             data=serializer.save()
-            print('Dispense serializer is valid\n\n')
+            # print('Dispense serializer is valid\n\n')
             # print(data)
             # print(DispenseInventoryTransactionSerializer(data).data)
-            print_json_string(DispenseInventoryTransactionSerializer(data).data)
-            # return serializer.data
+            # print_json_string(DispenseInventoryTransactionSerializer(data).data)
+            return serializer.data
         else:
             print('Dispense Serializer is not valid')
             print(serializer.errors)

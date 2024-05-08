@@ -95,7 +95,7 @@ def setup_prescription_for_test(medicine):
 
     if (serializer.is_valid()):
         serializer.save()
-        print('prescription setup completeted')
+       
         return serializer.data
     else:
         print('Prescriptionserializer is not valid')

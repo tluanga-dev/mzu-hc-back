@@ -30,9 +30,8 @@ class DispenseInventoryTransactionSerializer(InventoryTransactionSerializer):
     inventory_transaction_item_set = serializers.SerializerMethodField()
 
     def get_inventory_transaction_item_set(self, instance):
-        print('Inside get_inventory_transaction_item_set')
         inventory_transaction_items = instance.inventory_transaction_item_set.all()
-        print(inventory_transaction_items)
+        
         serialized_items = []
         item_data={}
         for item in inventory_transaction_items:
@@ -42,11 +41,7 @@ class DispenseInventoryTransactionSerializer(InventoryTransactionSerializer):
             item_id = item_batch.item.id
             item_name = item_batch.item.name
             quantity = item.quantity
-            # Access other attributes of the item as needed
-            print('item id',item_id)
-            print('item name',item_name)
-            print('item quantity',quantity)
-
+         
             item_existed_in_serialized_item = None
             for serialized_item in serialized_items:
                 if serialized_item['item_id'] == item_id:
@@ -75,31 +70,6 @@ class DispenseInventoryTransactionSerializer(InventoryTransactionSerializer):
                     }]
                 }
                 serialized_items.append(item_data)
-            print('serialized_items')
-            for serialized_item in serialized_items:
-                
-                print(serialized_item)
-                print('\n')
-            print('search result',item)
-           
-        
-        #     quantity=quantity+item_data["item_quantity"]
-        #     item_data={
-        #             "item_id": item_id,
-        #             "item_name": item_name,
-        #             "total_quantity_dispense":quantity,
-        #             "transaction": {
-        #                 "id": item.id,
-        #                 "item_batch_id": item.item_batch,
-        #                 "inventory_transaction": item.inventory_transaction.id,
-        #                 "item_batch": item.item_batch,
-        #                 "quantity": item.quantity
-        #             }
-        #     }
-        
-        # serialized_items.append(item_data)
-   
-        # return inventory_transaction_items
         return serialized_items
 
     def create(self, validated_data):
