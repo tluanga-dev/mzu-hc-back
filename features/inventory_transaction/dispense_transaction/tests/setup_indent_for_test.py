@@ -15,6 +15,7 @@ def setup_indent_for_test(item_type, unit_of_measurement):
             name="Test Item",
             description="Test Description",
             type=item_type,
+            contents="Test Contents",
             unit_of_measurement=unit_of_measurement,
             is_active=True
         )

@@ -27006,3 +27006,4 @@ AttributeError: 'NoneType' object has no attribute 'quantity_in_stock'
 2024-05-02 06:33:13,380 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
 2024-05-02 06:33:28,523 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
 2024-05-02 06:33:44,555 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
+2024-05-08 10:43:21,865 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/prescription/serializers.py changed, reloading.
