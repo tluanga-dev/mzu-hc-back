@@ -7,6 +7,7 @@ from features.inventory_transaction.dispense_transaction.tests.setup_prescriptio
 
 
 from features.base.base_test_setup_class import BaseTestCase
+from features.utils.print_json import print_json_string
 
 
 
@@ -30,8 +31,11 @@ class DispenseInventoryTransactionSerializerTestCase(BaseTestCase):
         # print(self.dispense_transaction_data)
         serializer=DispenseInventoryTransactionSerializer(data=self.dispense_transaction_data)
         if (serializer.is_valid()):
-            serializer.save()
-            print('Dispense serializer is valid')
+            data=serializer.save()
+            print('Dispense serializer is valid\n\n')
+            # print(data)
+            # print(DispenseInventoryTransactionSerializer(data).data)
+            print_json_string(DispenseInventoryTransactionSerializer(data).data)
             # return serializer.data
         else:
             print('Dispense Serializer is not valid')
