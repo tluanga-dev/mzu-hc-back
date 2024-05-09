@@ -75,6 +75,9 @@ INSTALLED_APPS = [
     # --------Person---------
     'features.person',
 
+    # --------Person---------
+    'features.patient',
+
     # --------Prescription---------
     'features.prescription',
 

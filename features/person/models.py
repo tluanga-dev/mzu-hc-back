@@ -50,10 +50,3 @@ class Person(TimeStampedAbstractModelClass):
     class Meta:
         app_label = "person"
 
-class Patient(Person):
-    illness = models.JSONField(blank=True, null=True, default=list)
-    allergy = models.JSONField(blank=True, null=True, default=list)
-
-    class Meta:
-        app_label = "person"
-    

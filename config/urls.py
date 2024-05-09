@@ -24,6 +24,7 @@ from features.inventory_transaction.inventory_transaction.views import ItemTrans
 from features.inventory_transaction.issue_transaction.views import IssueItemInventoryTransactionViewSet
 from features.item.views import ItemBatchViewSet, ItemCategoryViewSet, ItemTypeViewSet, ItemViewSet, ItemWithStockInfoViewSet, UnitOfMeasurementViewSet
 from features.medicine.views import  MedicineDosageViewSet
+from features.patient.views import PatientViewSet
 from features.person.views import DepartmentViewSet, PersonTypeViewSet, PersonViewSet
 from features.prescription.views import PrescriptionViewSet
 from features.setup.views import SetupView
@@ -36,10 +37,10 @@ from features.supplier.views import SupplierViewSet
 
 
 router = DefaultRouter()
+router.register(r'item/item_with_stock_info', ItemWithStockInfoViewSet, basename='item-with-stock-info')
 router.register(r'item/units-of-measurement', UnitOfMeasurementViewSet,basename='unit-of-measurement')
 router.register(r'item/item_category', ItemCategoryViewSet)
 router.register(r'item/item_type', ItemTypeViewSet)
-router.register(r'item_with_stock_info', ItemWithStockInfoViewSet)
 
 router.register(r'item', ItemViewSet, basename='item')
 
@@ -67,6 +68,9 @@ router.register(r'transaction/dispense', DispenseInventoryTransactionViewSet, ba
 router.register(r'department', DepartmentViewSet, basename='department')
 router.register(r'person_type', PersonTypeViewSet,basename='person-type')
 router.register(r'person', PersonViewSet,basename='person')
+
+# ---------Patient---------
+router.register(r'patient', PatientViewSet,basename='patient')
 
 
 # --------Prescription---------

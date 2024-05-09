@@ -2,6 +2,7 @@
 
 from rest_framework import serializers
 
+from features.inventory_transaction.inventory_transaction.models import ItemStockInfo
 from features.utils.convert_date import DateConverter
 from .models import Item, ItemBatch, ItemCategory, ItemType, UnitOfMeasurement
 
@@ -105,7 +106,9 @@ class ItemWithStockInfoSerializer(ItemSerializerForUser):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['quantity_in_stock'] = 0
+        item_stock_info = ItemStockInfo.get_latest_by_item_id(instance.id)
+        quantity_in_stock = item_stock_info.item_quantity_in_stock if item_stock_info else 0
+        representation['quantity_in_stock'] = quantity_in_stock
         return representation
 
     class Meta:

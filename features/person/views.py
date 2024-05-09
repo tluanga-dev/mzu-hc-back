@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 import django_filters.rest_framework
-from features.person.models import Department, Patient, Person, PersonType
-from features.person.serializers import DepartmentSerializer, PatientSerializer, PersonSerializer, PersonTypeSerializer
+from features.person.models import Department,  Person, PersonType
+from features.person.serializers import DepartmentSerializer,  PersonSerializer, PersonTypeSerializer
 
 class DepartmentViewSet(viewsets.ModelViewSet):
     queryset = Department.objects.all()
@@ -27,7 +27,3 @@ class PersonViewSet(viewsets.ModelViewSet):
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
     filterset_class = PersonFilter
 
-class PatientViewSet(viewsets.ModelViewSet):
-    queryset = Patient.objects.all()
-    serializer_class = PatientSerializer
-  
