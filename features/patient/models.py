@@ -1,13 +1,14 @@
 import uuid
-from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
 from django.db import models
 from features.person.models import Person
+from datetime import datetime
 
-
-class Patient(TimeStampedAbstractModelClass):
-    # --Health Centre Id
+class Patient(models.Model):
+    # UUID field as a health centre ID
     mzu_hc_id = models.UUIDField(default=uuid.uuid4, editable=False)
+    # Link to a Person model
     mzu_user = models.ForeignKey(Person, on_delete=models.DO_NOTHING, null=True, blank=True)
+    # Choices for type of patient
     PATIENT_TYPE_CHOICES = [
         ('Employee', 'Employee'),
         ('Employee Dependent', 'Employee Dependent'),
@@ -17,18 +18,30 @@ class Patient(TimeStampedAbstractModelClass):
     patient_type = models.CharField(max_length=255, choices=PATIENT_TYPE_CHOICES)
     name = models.CharField(max_length=255)
     gender = models.CharField(max_length=255)
-    age = models.IntegerField(blank=True, null=True)
+    # Automatically computed year of birth
+    year_of_birth = models.IntegerField(editable=False)
     student_id = models.CharField(max_length=255, blank=True, null=True)
     mobile_number = models.CharField(max_length=255, blank=True, null=True)
     illness = models.JSONField(blank=True, null=True, default=list)
     allergy = models.JSONField(blank=True, null=True, default=list)
-    
-    def save(self, *args, **kwargs):
-        if self.patient_type == 'Other':
-            self.mzu_user = None
-        if not self.mzu_hc_id:
-            self.mzu_hc_id = uuid.uuid4().hex[:8]
 
+    @property
+    def age(self):
+        return datetime.now().year - self.year_of_birth
+
+    @age.setter
+    def age(self, value):
+        current_year = datetime.now().year
+        self.year_of_birth = current_year - value
+
+    def save(self, *args, **kwargs):
+        # Check if patient already exists
+        existing_patients = Patient.objects.filter(name=self.name, gender=self.gender, year_of_birth=self.year_of_birth)
+        if existing_patients.exists():
+            raise ValueError("Patient already exists in the system.")
+            return existing_patients.first()
+
+        # Other validations based on patient type
         if self.patient_type == 'Employee Dependent':
             if not self.mzu_user:
                 raise ValueError("mzu_user is required for Employee Dependent patients.")
@@ -52,7 +65,6 @@ class Patient(TimeStampedAbstractModelClass):
             raise ValueError("Invalid patient_type value.")
 
         super().save(*args, **kwargs)
-    
-    
+
     class Meta:
         app_label = "patient"

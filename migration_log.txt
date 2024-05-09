@@ -27285,3 +27285,274 @@ django.db.utils.OperationalError: no such column: patient_patient.student_id
 2024-05-09 08:25:52,949 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
 2024-05-09 08:27:53,153 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
 2024-05-09 08:27:55,899 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:28:27,671 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:28:41,790 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:28:49,637 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:28:52,285 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:28:53,821 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:28:55,352 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:28:56,830 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:28:58,346 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:29:01,923 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:29:08,660 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:29:10,197 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:29:11,704 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:29:13,236 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:29:14,742 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:29:16,253 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:29:18,805 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:33:03,002 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:33:04,838 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:33:06,335 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:33:07,820 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:33:10,334 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:33:17,041 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:33:21,032 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:33:22,559 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:33:27,168 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:34:58,269 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:35:08,296 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:35:10,107 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:35:12,663 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:35:14,177 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:35:16,717 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:36:14,546 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:36:16,398 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:36:17,924 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:36:21,486 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:36:22,994 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:36:24,497 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:36:26,017 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:37:17,473 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:37:19,114 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:37:55,003 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:50:28,515 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:50:32,343 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:50:35,955 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-09 08:51:00,403 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:51:04,155 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:52:43,588 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:52:56,700 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:53:04,915 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:53:34,638 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:54:01,278 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:54:04,000 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:54:06,571 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:54:08,075 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:54:10,592 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:54:12,098 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:54:13,599 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:54:15,113 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:54:17,666 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:54:20,214 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:54:29,076 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:56:07,235 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:57:29,252 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:57:31,000 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:57:32,521 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:57:54,816 - ERROR - Internal Server Error: /patient/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py", line 36, in create
+    return super().create(validated_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 962, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 677, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py", line 65, in save
+    raise ValueError("Invalid patient_type value.")
+ValueError: Invalid patient_type value.
+2024-05-09 08:58:04,259 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:58:10,226 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:58:11,744 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:58:26,324 - ERROR - Internal Server Error: /patient/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py", line 37, in create
+    return super().create(validated_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 962, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 677, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py", line 60, in save
+    raise ValueError("mzu_user is required for Employee patients.")
+ValueError: mzu_user is required for Employee patients.
+2024-05-09 08:58:39,729 - ERROR - Internal Server Error: /patient/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py", line 37, in create
+    return super().create(validated_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 962, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/db/models/query.py", line 677, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py", line 55, in save
+    raise ValueError("mobile_number is required for Other patients.")
+ValueError: mobile_number is required for Other patients.
+2024-05-09 08:58:49,893 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:58:51,624 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:59:22,370 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:59:29,238 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 08:59:31,749 - ERROR - Internal Server Error: /patient/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 1148, in get_field_names
+    assert field_name in fields, (
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: The field 'age_input' was declared on serializer PatientSerializer, but has not been included in the 'fields' option.
+2024-05-09 08:59:42,216 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 09:00:14,218 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 09:01:03,804 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 09:01:10,727 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 09:01:36,446 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 09:02:55,145 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 09:29:26,697 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
