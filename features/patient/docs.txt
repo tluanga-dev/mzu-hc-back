@@ -1,0 +1,4 @@
+Patient will be not directly created from the front end
+if the patient is for employee,student, employee attendant- at the time of submission- Patient data for 
+payload will be copied from employee data
+if the patient is for others. end user will need to fill in the name, age and gender

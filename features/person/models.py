@@ -4,28 +4,36 @@ from django.db import models
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
 from features.utils.convert_date import DateConverter
 
-class Department(TimeStampedAbstractModelClass):
-    name = models.CharField(max_length=255)
-    description = models.TextField()
 
-    class Meta:
-        app_label = "person"
 
-class PersonType(TimeStampedAbstractModelClass):
-    name = models.CharField(max_length=255)
-    description = models.TextField()
-    abbreviation=models.TextField()
-    class Meta:
-        app_label = "person"
+class User(TimeStampedAbstractModelClass):
+    USER_TYPE_CHOICES = [
+        ('Doctor', 'Doctor '),
+        ('Female', 'Female'),
+        ('Other', 'Other'),
+    ]
+    name= models.CharField(max_length=255)
+    designation=models.CharField(max_length=255)
+    user_type=models.CharField(max_length=255,choices=USER_TYPE_CHOICES)
+
+
+
 
 class Person(TimeStampedAbstractModelClass):
+    GENDER_TYPE_CHOICES = [
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+        ('Other', 'Other'),
+    ]
+    PERSON_TYPE_CHOICES = [
+        ('Employee', 'Employee'),
+        ('Employee Dependent', 'Employee Dependent'),
+        ('Student', 'Student'),
+    ]
     name= models.CharField(max_length=255)
-    gender = models.CharField(max_length=255, blank=True, null=True)
-    mzu_id = models.CharField(max_length=255, unique=True)
+    gender = models.CharField(max_length=255, choices=GENDER_TYPE_CHOICES)
     date_of_birth = models.DateField(blank=True, null=True)
     department=models.CharField(max_length=255, blank=True, null=True)
-    designation=models.CharField(max_length=255, blank=True, null=True)
-    person_type=models.ForeignKey(PersonType, on_delete=models.CASCADE)
     mobile_no=models.PositiveBigIntegerField(null=True, blank=True)
     email = models.EmailField(max_length=255, unique=False, null=False, blank=False)
 
@@ -48,5 +56,27 @@ class Person(TimeStampedAbstractModelClass):
         super().save(*args, **kwargs)
 
     class Meta:
+        abstract = True
+# ------------Employee Part----------------
+class Employee(Person):
+    employee_id = models.CharField(max_length=255, unique=True)
+    designation = models.CharField(max_length=255)
+
+    class Meta:
         app_label = "person"
+
+class EmployeeDependent(TimeStampedAbstractModelClass):
+    name = models.CharField(max_length=255)
+    relation = models.CharField(max_length=255)
+    date_of_birth = models.DateField(blank=True, null=True)
+    employee = models.ForeignKey('Employee', on_delete=models.CASCADE)
+
+
+# --Student Part--
+class Student(Person):
+    student_id = models.CharField(max_length=255, unique=True)
+    department = models.CharField(max_length=255)
+    class Meta:
+        app_label = "person"
+
 

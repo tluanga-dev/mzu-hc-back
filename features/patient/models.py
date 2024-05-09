@@ -1,13 +1,15 @@
 import uuid
 from django.db import models
-from features.person.models import Person
+from features.person.models import Employee, EmployeeDependent, Person, Student
 from datetime import datetime
 
 class Patient(models.Model):
     # UUID field as a health centre ID
     mzu_hc_id = models.UUIDField(default=uuid.uuid4, editable=False)
     # Link to a Person model
-    mzu_user = models.ForeignKey(Person, on_delete=models.DO_NOTHING, null=True, blank=True)
+    employee = models.ForeignKey(Employee, on_delete=models.DO_NOTHING, null=True, blank=True)
+    student = models.ForeignKey(Student, on_delete=models.DO_NOTHING, null=True, blank=True)
+    employee_dependent = models.ForeignKey(EmployeeDependent, on_delete=models.DO_NOTHING, null=True, blank=True)
     # Choices for type of patient
     PATIENT_TYPE_CHOICES = [
         ('Employee', 'Employee'),

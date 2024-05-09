@@ -6,13 +6,14 @@ from features.item.models import Item, ItemBatch, UnitOfMeasurement
 from features.item.serializers import ItemBatchSerializer, ItemSerializer, UnitOfMeasurementSerializerForUser
 from features.medicine.models import MedicineDosage, MedicineDosageTiming
 from features.medicine.serializers import MedicineDosageSerializer
-from features.person.models import Department, Person
-# from features.person.serializers import PersonSerializer
+from features.patient.models import Patient
+from features.person.models import Student, Employee, EmployeeDependent
+
 from django.utils.timezone import make_aware
 
-from features.person.serializers import PersonSerializer
+
 from features.prescription.models import Prescription, PrescriptionItem
-from features.utils.convert_date import DateConverter
+
 from django.db import transaction
 from rest_framework import serializers
 from datetime import datetime
@@ -70,25 +71,22 @@ class PrescriptionItemSerializer(serializers.ModelSerializer):
         return prescription_item
     
     
-class PrescriptionDepartmentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Department
-        fields = ['id','name']
 
 
-class PrescriptionPersonSerializer(serializers.ModelSerializer):
+
+class PrescriptionPatientSerializer(serializers.ModelSerializer):
     age = serializers.SerializerMethodField()
 
-    def get_age(self, person):
-        # Since date_of_birth is already a date object, we just use it directly
-        date_of_birth = person.date_of_birth
-        # Calculate the age based on today's date
-        today = datetime.today().date()
-        age = today.year - date_of_birth.year - ((today.month, today.day) < (date_of_birth.month, date_of_birth.day))
-        return age
+    # def get_age(self, person):
+    #     # Since date_of_birth is already a date object, we just use it directly
+    #     date_of_birth = person.date_of_birth
+    #     # Calculate the age based on today's date
+    #     today = datetime.today().date()
+    #     age = today.year - date_of_birth.year - ((today.month, today.day) < (date_of_birth.month, date_of_birth.day))
+    #     return age
 
     class Meta:
-        model = Person
+        model = Patient
         fields = ['id','name','age','gender','person_type','designation', 'department','mzu_id']
 
 
@@ -146,7 +144,7 @@ class PrescriptionSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['patient'] = PrescriptionPersonSerializer(instance.patient).data
+        representation['patient'] = PrescriptionPatientSerializer(instance.patient).data
         representation['doctor'] = PrescriptionPersonSerializer(instance.doctor).data
         return representation
   

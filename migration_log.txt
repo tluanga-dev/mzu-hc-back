@@ -27556,3 +27556,10 @@ AssertionError: The field 'age_input' was declared on serializer PatientSerializ
 2024-05-09 09:01:36,446 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
 2024-05-09 09:02:55,145 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
 2024-05-09 09:29:26,697 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/serializers.py changed, reloading.
+2024-05-09 09:31:35,396 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-09 09:31:49,979 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-09 09:31:58,738 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-09 09:32:00,294 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-09 09:32:01,789 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-09 09:32:17,014 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-09 09:32:19,527 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
