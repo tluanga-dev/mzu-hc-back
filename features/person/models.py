@@ -75,7 +75,7 @@ class EmployeeDependent(TimeStampedAbstractModelClass):
     name = models.CharField(max_length=255)
     relation = models.CharField(max_length=255)
     date_of_birth = models.DateField(blank=True, null=True)
-    employee = models.ForeignKey('Employee', on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='employee_dependents')
 
 
 # --Student Part--

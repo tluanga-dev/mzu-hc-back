@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 import django_filters.rest_framework
-from features.person.models import Employee 
-from features.person.serializers import  EmployeeSerializer
+from features.person.models import Employee, EmployeeDependent 
+from features.person.serializers import  EmployeeDependentSerializer, EmployeeSerializer
 
 
 
@@ -25,6 +25,11 @@ class EmployeeViewSet(viewsets.ModelViewSet):
 
 # --------Employee Dependent-------
 
+class EmployeeDependentViewSet(viewsets.ModelViewSet):
+    queryset = EmployeeDependent.objects.all()
+    serializer_class = EmployeeDependentSerializer
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_fields = ['name', 'relation', 'employee__name']
 
 # ---------Student-------------
 
