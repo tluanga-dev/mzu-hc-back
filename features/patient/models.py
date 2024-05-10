@@ -22,7 +22,7 @@ class Patient(models.Model):
     gender = models.CharField(max_length=255)
     # Automatically computed year of birth
     year_of_birth = models.IntegerField(editable=False)
-    student_id = models.CharField(max_length=255, blank=True, null=True)
+    mzu_student_id = models.CharField(max_length=255, blank=True, null=True)
     mobile_number = models.CharField(max_length=255, blank=True, null=True)
     illness = models.JSONField(blank=True, null=True, default=list)
     allergy = models.JSONField(blank=True, null=True, default=list)

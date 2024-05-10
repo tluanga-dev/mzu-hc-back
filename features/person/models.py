@@ -59,7 +59,13 @@ class Person(TimeStampedAbstractModelClass):
         abstract = True
 # ------------Employee Part----------------
 class Employee(Person):
-    employee_id = models.CharField(max_length=255, unique=True)
+    EMPLOYEE_TYPE_CHOICES = [
+        ('Employee', 'Employee'),
+        ('Employee Dependent', 'Employee Dependent'),
+        ('Student', 'Student'),
+    ]
+    employee_type=models.CharField(max_length=255,choices=EMPLOYEE_TYPE_CHOICES)
+    mzu_employee_id = models.CharField(max_length=255, unique=True)
     designation = models.CharField(max_length=255)
 
     class Meta:
@@ -74,7 +80,7 @@ class EmployeeDependent(TimeStampedAbstractModelClass):
 
 # --Student Part--
 class Student(Person):
-    student_id = models.CharField(max_length=255, unique=True)
+    mzu_student_id = models.CharField(max_length=255, unique=True)
     department = models.CharField(max_length=255)
     class Meta:
         app_label = "person"

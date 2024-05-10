@@ -1,9 +1,8 @@
 
 from django.db import models
 from features.inventory_transaction.inventory_transaction.models import InventoryTransaction
-from features.person.models import Person
 from features.prescription.models import Prescription
-from features.supplier.models import Supplier
+
 
 # -Dispense medicine to patient
 class DispenseInventoryTransaction(InventoryTransaction):

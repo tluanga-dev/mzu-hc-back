@@ -25,7 +25,7 @@ from features.inventory_transaction.issue_transaction.views import IssueItemInve
 from features.item.views import ItemBatchViewSet, ItemCategoryViewSet, ItemTypeViewSet, ItemViewSet, ItemWithStockInfoViewSet, UnitOfMeasurementViewSet
 from features.medicine.views import  MedicineDosageViewSet
 from features.patient.views import PatientViewSet
-from features.person.views import DepartmentViewSet, PersonTypeViewSet, PersonViewSet
+from features.person.views import EmployeeViewSet
 from features.prescription.views import PrescriptionViewSet
 from features.setup.views import SetupView
 
@@ -37,6 +37,7 @@ from features.supplier.views import SupplierViewSet
 
 
 router = DefaultRouter()
+
 router.register(r'item/item_with_stock_info', ItemWithStockInfoViewSet, basename='item-with-stock-info')
 router.register(r'item/units-of-measurement', UnitOfMeasurementViewSet,basename='unit-of-measurement')
 router.register(r'item/item_category', ItemCategoryViewSet)
@@ -65,9 +66,7 @@ router.register(r'transaction/dispense', DispenseInventoryTransactionViewSet, ba
 
 
 # -------Person-----
-router.register(r'department', DepartmentViewSet, basename='department')
-router.register(r'person_type', PersonTypeViewSet,basename='person-type')
-router.register(r'person', PersonViewSet,basename='person')
+router.register(r'employee', EmployeeViewSet, basename='employee')
 
 # ---------Patient---------
 router.register(r'patient', PatientViewSet,basename='patient')
@@ -83,8 +82,16 @@ router.register(r'setup', SetupView, basename='setup')
 
 # --------Utilities---------
 router.register(r'id_manager', IdManagerViewSet)
+
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView
+)
+
+
 urlpatterns = [
-    # path("admin/", admin.site.urls),
+    path("admin/", admin.site.urls),
     # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     # path('api/register/', CreateUserView.as_view(), name='register'),
@@ -102,7 +109,11 @@ urlpatterns = [
     path('transaction/<uuid:pk>/', ItemTransactionsView.as_view({'get':'retrieve'}), name='item-transactions-detail'),
     
     re_path(r'^item/(?P<item_id>[0-9a-f-]+)/batches/$', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),
-   
+    
+
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
   
     path('', include(router.urls)),
 ]

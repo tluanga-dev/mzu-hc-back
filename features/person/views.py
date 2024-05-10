@@ -1,29 +1,30 @@
 from rest_framework import viewsets
 import django_filters.rest_framework
-from features.person.models import Department,  Person, PersonType
-from features.person.serializers import DepartmentSerializer,  PersonSerializer, PersonTypeSerializer
-
-class DepartmentViewSet(viewsets.ModelViewSet):
-    queryset = Department.objects.all()
-    serializer_class = DepartmentSerializer
-
-class PersonTypeViewSet(viewsets.ModelViewSet):
-    queryset = PersonType.objects.all()
-    serializer_class = PersonTypeSerializer
+from features.person.models import Employee 
+from features.person.serializers import  EmployeeSerializer
 
 
-class PersonFilter(django_filters.FilterSet):
-    mzu_id = django_filters.CharFilter(field_name='mzu_id', lookup_expr='icontains')
+
+# -------Employee
+
+class EmployeeFilter(django_filters.FilterSet):
+    mzu_id = django_filters.CharFilter(field_name='employee_id', lookup_expr='icontains')
     name = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
     department = django_filters.CharFilter(field_name='department', lookup_expr='icontains')
 
     class Meta:
-        model = Person
+        model = Employee
         fields = []
 
-class PersonViewSet(viewsets.ModelViewSet):
-    queryset = Person.objects.all()
-    serializer_class = PersonSerializer
+class EmployeeViewSet(viewsets.ModelViewSet):
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-    filterset_class = PersonFilter
+    filterset_class = EmployeeFilter
+
+
+# --------Employee Dependent-------
+
+
+# ---------Student-------------
 

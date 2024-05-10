@@ -6,8 +6,9 @@ from features.id_manager.models import IdManager
 from features.item.models import Item
 from features.medicine.models import MedicineDosage
 from features.patient.models import Patient
-from features.person.models import Person
 from django.db import transaction
+
+from features.user.models import CustomUser
 
 PRESCRIPTION_ABBREVIATION = 'PRESC'
 class Prescription(TimeStampedAbstractModelClass):
@@ -18,7 +19,7 @@ class Prescription(TimeStampedAbstractModelClass):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     code=models.CharField(max_length=255,unique=True)
     patient = models.ForeignKey(Patient, related_name='prescriptions_patient', on_delete=models.CASCADE)
-    doctor = models.ForeignKey(Person, related_name='prescriptions_doctor', on_delete=models.CASCADE)
+    doctor = models.ForeignKey(CustomUser, related_name='prescriptions_doctor', on_delete=models.CASCADE)
     chief_complaints=models.TextField()
     diagnosis = models.TextField()
     advice_and_instructions=models.TextField()

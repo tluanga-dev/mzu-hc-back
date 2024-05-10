@@ -3,7 +3,7 @@ from googleapiclient.discovery import build
 from features.id_manager.models import IdManager
 from features.item.models import Item, ItemCategory, ItemType, UnitOfMeasurement
 from features.item.serializers import ItemTypeSerializer
-from features.person.models import Person, PersonType
+from features.person.models import Person
 from features.supplier.models import Supplier
 
 from features.utils.convert_date import DateConverter
@@ -177,28 +177,28 @@ def migrate_item():
     logger.info(f"Item migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
 
 
-def migrate_person_type():
-    sheet_name = 'person_type'
-    PersonType.objects.all().delete()
-    sheets = authenticate()
-    data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+# def migrate_person_type():
+#     sheet_name = 'person_type'
+#     PersonType.objects.all().delete()
+#     sheets = authenticate()
+#     data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
 
-    migrated_count = 0
-    failed_count = 0
+#     migrated_count = 0
+#     failed_count = 0
 
-    for row in data['values'][1:]:
-        try:
-            PersonType.objects.create(
-                name=row[1],
-                abbreviation=row[2],
-                description=row[3],
-            )
-            migrated_count += 1
-        except Exception as e:
-            failed_count += 1
-            logger.error(f"Failed to migrate person type '{row[1]}': {e}")
+#     for row in data['values'][1:]:
+#         try:
+#             PersonType.objects.create(
+#                 name=row[1],
+#                 abbreviation=row[2],
+#                 description=row[3],
+#             )
+#             migrated_count += 1
+#         except Exception as e:
+#             failed_count += 1
+#             logger.error(f"Failed to migrate person type '{row[1]}': {e}")
 
-    logger.info(f"Person Type migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
+#     logger.info(f"Person Type migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
 
 
 def migrate_person():
@@ -212,7 +212,7 @@ def migrate_person():
 
     for row in data['values'][1:]:
         try:
-            person_type = PersonType.objects.get(name=row[7])
+            person_type = 'Non-Teaching'
             # date_of_birth=row[7],
             # print('\n----------------')
             # print('date of birth',date_of_birth)
@@ -247,7 +247,7 @@ def migrate():
     migrate_item_category()
     migrate_item_type()
     migrate_item()
-    migrate_person_type()
+    # migrate_person_type()
     migrate_person()
     
 
