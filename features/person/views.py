@@ -23,13 +23,23 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     filterset_class = EmployeeFilter
 
 
-# --------Employee Dependent-------
 
+class EmployeeDependentFilter(django_filters.FilterSet):
+    mzu_employee_id = django_filters.CharFilter(field_name='employee__mzu_employee_id', lookup_expr='exact')
+    employee_name = django_filters.CharFilter(field_name='employee__name', lookup_expr='icontains')
+    name = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
+    class Meta:
+        model = EmployeeDependent
+        fields = ['name', 'relation', 'employee__name', 'employee__mzu_employee_id']
+
+
+
+# --------Employee Dependent-------
 class EmployeeDependentViewSet(viewsets.ModelViewSet):
-    queryset = EmployeeDependent.objects.all()
+    queryset = EmployeeDependent.objects.all().select_related('employee')
     serializer_class = EmployeeDependentSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-    filterset_fields = ['name', 'relation', 'employee__name']
+    filterset_class = EmployeeDependentFilter
 
 # ---------Student-------------
 
