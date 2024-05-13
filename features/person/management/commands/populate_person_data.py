@@ -16,8 +16,11 @@ class Command(BaseCommand):
                     gender=fake.random_element(elements=('Male', 'Female', 'Other')),
                     date_of_birth=fake.date_of_birth(),
                     mobile_no=fake.random_number(digits=10),
+                    employee_type=fake.random_element(elements=('Teaching', 'Non-Teaching' )),
                     email=fake.email(),
-                    employee_type=fake.random_element(elements=('Employee', 'Employee Dependent', 'Student')),
+                    
+                    department=fake.random_element(elements=('Administration', 'Examinations', 'Finance', 'Library', 'Registrar', 'Research', 'Student Affairs')),
+
                     mzu_employee_id=fake.unique.random_number(digits=8),
                     designation=fake.job()
                 )
@@ -55,6 +58,11 @@ class Command(BaseCommand):
         employees = create_employees(10)
         dependents = create_employee_dependents(employees)
         students = create_students(20)
+    
+        # -Clear previous data-
+        Employee.objects.all().delete()
+        EmployeeDependent.objects.all().delete()
+        Student.objects.all().delete()
 
         # Insert into the database
         Employee.objects.bulk_create(employees)

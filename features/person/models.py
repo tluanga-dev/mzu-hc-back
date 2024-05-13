@@ -60,9 +60,9 @@ class Person(TimeStampedAbstractModelClass):
 # ------------Employee Part----------------
 class Employee(Person):
     EMPLOYEE_TYPE_CHOICES = [
-        ('Employee', 'Employee'),
-        ('Employee Dependent', 'Employee Dependent'),
-        ('Student', 'Student'),
+        ('Teaching', 'Teaching'),
+        ('Non-Teaching', 'Non-Teaching'),
+    
     ]
     employee_type=models.CharField(max_length=255,choices=EMPLOYEE_TYPE_CHOICES)
     mzu_employee_id = models.CharField(max_length=255, unique=True)

@@ -28264,3 +28264,157 @@ django.core.exceptions.ImproperlyConfigured: Field name `employee_dependents` is
 2024-05-10 09:52:06,664 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/views.py changed, reloading.
 2024-05-10 09:52:15,703 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/views.py changed, reloading.
 2024-05-10 09:52:19,450 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/views.py changed, reloading.
+2024-05-10 09:54:50,457 - WARNING - Not Found: /person/
+2024-05-10 09:54:51,485 - WARNING - Not Found: /person/
+2024-05-10 09:54:53,509 - WARNING - Not Found: /person/
+2024-05-10 09:54:57,537 - WARNING - Not Found: /person/
+2024-05-10 09:59:34,371 - WARNING - Not Found: /person/
+2024-05-11 05:07:47,594 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/patient/models.py changed, reloading.
+2024-05-11 17:00:03,719 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-11 17:00:11,797 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-11 17:00:14,533 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-11 17:00:16,209 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-11 17:00:18,751 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-11 17:00:21,321 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-11 17:00:22,861 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-11 17:00:24,388 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-11 17:00:27,951 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-11 17:00:29,491 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-11 17:00:31,060 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/models.py changed, reloading.
+2024-05-11 17:11:21,150 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-11 17:11:30,724 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-11 17:11:34,426 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-11 17:11:35,963 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-11 17:11:42,584 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-11 17:11:44,083 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-13 01:55:37,374 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-13 02:04:06,371 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-13 02:04:09,190 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-13 02:04:20,527 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-13 02:04:22,092 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-13 02:04:27,763 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-13 02:04:47,515 - ERROR - Internal Server Error: /employee/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 1148, in get_field_names
+    assert field_name in fields, (
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: The field 'age' was declared on serializer EmployeeSerializer, but has not been included in the 'fields' option.
+2024-05-13 02:04:53,463 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-13 02:04:55,236 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-13 02:04:56,727 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-13 02:04:58,215 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-13 02:04:59,809 - ERROR - Internal Server Error: /employee/
+Traceback (most recent call last):
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+           ^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/env/lib/python3.11/site-packages/rest_framework/fields.py", line 1838, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "/Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py", line 29, in get_age
+    today = datetime.date.today()
+            ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'method_descriptor' object has no attribute 'today'
+2024-05-13 02:05:16,602 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-13 02:05:22,505 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-13 05:49:01,836 - WARNING - Not Found: /person/
+2024-05-13 05:49:20,861 - WARNING - Not Found: /person/
+2024-05-13 05:49:32,119 - WARNING - Not Found: /person/
+2024-05-13 05:51:15,878 - WARNING - Not Found: /person/
+2024-05-13 05:51:16,895 - WARNING - Not Found: /person/
+2024-05-13 05:51:18,923 - WARNING - Not Found: /person/
+2024-05-13 05:51:22,957 - WARNING - Not Found: /person/
+2024-05-13 05:51:45,193 - WARNING - Not Found: /person/
+2024-05-13 05:51:46,203 - WARNING - Not Found: /person/
+2024-05-13 05:51:48,217 - WARNING - Not Found: /person/
+2024-05-13 05:51:52,231 - WARNING - Not Found: /person/
+2024-05-13 06:10:00,951 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-13 06:10:02,722 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
