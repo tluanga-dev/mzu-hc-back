@@ -2,6 +2,7 @@ import uuid
 from django.db import models
 
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
+from features.organisation_unit.models import OrganisationUnit
 from features.utils.convert_date import DateConverter
 
 
@@ -33,7 +34,13 @@ class Person(TimeStampedAbstractModelClass):
     name= models.CharField(max_length=255)
     gender = models.CharField(max_length=255, choices=GENDER_TYPE_CHOICES)
     date_of_birth = models.DateField(blank=True, null=True)
-    department=models.CharField(max_length=255, blank=True, null=True)
+    organisation_unit=models.ForeignKey(
+        OrganisationUnit, 
+        on_delete=models.DO_NOTHING, 
+        related_name='%(class)s_organization_section',
+        null=True, 
+        blank=True
+    )
     mobile_no=models.PositiveBigIntegerField(null=True, blank=True)
     email = models.EmailField(max_length=255, unique=False, null=False, blank=False)
 
@@ -72,8 +79,10 @@ class Employee(Person):
         app_label = "person"
 
 class EmployeeDependent(TimeStampedAbstractModelClass):
+    mzu_employee_dependent_id = models.CharField(max_length=255, unique=True, null=True, blank=True)
     name = models.CharField(max_length=255)
     relation = models.CharField(max_length=255)
+    gender=models.CharField(max_length=255)
     date_of_birth = models.DateField(blank=True, null=True)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='employee_dependents')
 
@@ -81,7 +90,9 @@ class EmployeeDependent(TimeStampedAbstractModelClass):
 # --Student Part--
 class Student(Person):
     mzu_student_id = models.CharField(max_length=255, unique=True)
-    department = models.CharField(max_length=255)
+    programme=models.CharField(max_length=255,null=True, blank=True)
+    year_of_admission=models.PositiveIntegerField(null=True, blank=True)
+
     class Meta:
         app_label = "person"
 

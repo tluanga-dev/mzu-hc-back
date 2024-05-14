@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 import django_filters.rest_framework
-from features.person.models import Employee, EmployeeDependent 
-from features.person.serializers import  EmployeeDependentSerializer, EmployeeSerializer
+from features.person.models import Employee, EmployeeDependent, Student 
+from features.person.serializers import  EmployeeDependentSerializer, EmployeeSerializer, StudentSerializer
 
 
 
@@ -24,6 +24,8 @@ class EmployeeViewSet(viewsets.ModelViewSet):
 
 
 
+# ---------Employee Dependent-------------
+
 class EmployeeDependentFilter(django_filters.FilterSet):
     mzu_employee_id = django_filters.CharFilter(field_name='employee__mzu_employee_id', lookup_expr='exact')
     employee_name = django_filters.CharFilter(field_name='employee__name', lookup_expr='icontains')
@@ -34,7 +36,7 @@ class EmployeeDependentFilter(django_filters.FilterSet):
 
 
 
-# --------Employee Dependent-------
+
 class EmployeeDependentViewSet(viewsets.ModelViewSet):
     queryset = EmployeeDependent.objects.all().select_related('employee')
     serializer_class = EmployeeDependentSerializer
@@ -42,4 +44,18 @@ class EmployeeDependentViewSet(viewsets.ModelViewSet):
     filterset_class = EmployeeDependentFilter
 
 # ---------Student-------------
+class StudentFilter(django_filters.FilterSet):
+    mzu_student_id = django_filters.CharFilter(field_name='mzu_student_id', lookup_expr='exact')
+    name = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
+    class Meta:
+        model = Student
+        fields = ['name', 'mzu_student_id']
 
+
+
+# --------Employee Dependent-------
+class StudentViewSet(viewsets.ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_class = StudentFilter

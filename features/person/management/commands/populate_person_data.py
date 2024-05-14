@@ -31,9 +31,11 @@ class Command(BaseCommand):
             dependents = []
             for _ in range(20):
                 dependent = EmployeeDependent(
+                    mzu_employee_dependent_id=fake.lexify('????') + str(fake.random_number(digits=6)) + fake.lexify('???'),
                     name=fake.name(),
                     relation=fake.random_element(elements=('Son', 'Daughter', 'Spouse')),
                     date_of_birth=fake.date_of_birth(),
+                    gender=fake.random_element(elements=('Male', 'Female', 'Other')),
                     employee=fake.random_element(elements=employees)
                 )
                 dependents.append(dependent)
@@ -49,7 +51,9 @@ class Command(BaseCommand):
                     department=fake.random_element(elements=('Engineering', 'Business', 'Literature')),
                     mobile_no=fake.random_number(digits=10),
                     email=fake.email(),
-                    mzu_student_id=fake.unique.random_number(digits=8)
+                    mzu_student_id=fake.unique.random_number(digits=8),
+                    programme=fake.random_element(elements=('Msc', 'MA', 'MBA')),
+                    year_of_admission=fake.year()
                 )
                 students.append(student)
             return students

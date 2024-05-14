@@ -4,10 +4,10 @@ from django.db import models
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
 from features.id_manager.models import IdManager
 
-# Create your models here.
-class OrganisationSection(TimeStampedAbstractModelClass):
+# -----Department-----
+class OrganisationUnit(TimeStampedAbstractModelClass):
     name = models.CharField(max_length=100,null=False, blank=False)
-    code = models.CharField(max_length=100, unique=True, null=False, blank=False)
+    abbreviation = models.CharField(max_length=100, unique=True, null=False, blank=False)
     description = models.TextField()
   
     def __str__(self):
@@ -15,4 +15,4 @@ class OrganisationSection(TimeStampedAbstractModelClass):
    
     
     class Meta:
-        app_label = "organisation_section"
+        app_label = "organisation_unit"

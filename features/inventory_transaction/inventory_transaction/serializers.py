@@ -3,7 +3,7 @@ from rest_framework import serializers
 from features.item.models import Item, ItemBatch
 
 
-from features.organisation_section.serializers import OrganisationSectionSerializer
+from features.organisation_unit.serializers import OrganisationUnitSerializer
 from features.utils.convert_date import DateConverter
 
 

@@ -2,14 +2,14 @@ import uuid
 from django.db import models
 
 from features.inventory_transaction.inventory_transaction.models import InventoryTransaction
-from features.organisation_section.models import OrganisationSection
+from features.organisation_unit.models import OrganisationUnit
 
 
 class IssueItemInventoryTransaction(InventoryTransaction):
     issue_date=models.DateField(blank=False, null=False)
     item_receiver=models.CharField(max_length=200, blank=False, null=False)
     issue_to=models.ForeignKey(
-        OrganisationSection, 
+        OrganisationUnit, 
         on_delete=models.CASCADE, 
         related_name='issue_to',
         null=False,

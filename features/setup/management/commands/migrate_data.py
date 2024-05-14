@@ -1,10 +1,10 @@
-
+from django.core.management.base import BaseCommand
 from googleapiclient.discovery import build
 from features.id_manager.models import IdManager
 from features.item.models import Item, ItemCategory, ItemType, UnitOfMeasurement
 from features.item.serializers import ItemTypeSerializer
-from features.organisation_unit.models import OrganisationUnit
-from features.person.models import Person
+from features.organisation_unit.models import OrganisationSection
+from features.person.models import Employee, Person
 from features.supplier.models import Supplier
 
 from features.utils.convert_date import DateConverter
@@ -200,9 +200,9 @@ def migrate_item():
 #             logger.error(f"Failed to migrate person type '{row[1]}': {e}")
 
 #     logger.info(f"Person Type migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
-def migrate_organisation_unit():
+def migrate_organisation_section():
     sheet_name = 'organisation_unit'
-    OrganisationUnit.objects.all().delete()
+    OrganisationSection.objects.all().delete()
     sheets = authenticate()
     data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
 
@@ -224,9 +224,9 @@ def migrate_organisation_unit():
     logger.info(f"Item Category migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
 
 
-def migrate_person():
+def migrate_employee():
     sheet_name = 'person_nt'
-    Person.objects.all().delete()
+    Employee.objects.all().delete()
     sheets = authenticate()
     data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
 
@@ -240,8 +240,8 @@ def migrate_person():
             # print('\n----------------')
             # print('date of birth',date_of_birth)
             # print('-------\n')
-            Person.objects.create(
-                mzu_id=row[0],
+            Employee.objects.create(
+                mzu_employee_id=row[0],
                 name=row[1],
                 gender=row[2],
                 email=row[3],
@@ -250,14 +250,14 @@ def migrate_person():
                 designation=row[6],
                 # date_of_birth='22-12-1970', --working
                 date_of_birth=row[8],
-                person_type=person_type
+                employee_type=person_type
             )
             migrated_count += 1
         except Exception as e:
             failed_count += 1
-            logger.error(f"Failed to migrate person '{row[1]}': {e}")
+            logger.error(f"Failed to migrate employee '{row[1]}': {e}")
 
-    logger.info(f"Person migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
+    logger.info(f"Employee migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
 
 
 
@@ -271,8 +271,15 @@ def migrate():
     migrate_item_type()
     migrate_item()
     # migrate_person_type()
-    migrate_person()
+    migrate_employee()
     
 
 if __name__ == "__main__":
     migrate()
+
+class Command(BaseCommand):
+    help = 'Populates the database with google sheet data'
+
+    def handle(self, *args, **options):
+        migrate()
+        self.stdout.write(self.style.SUCCESS('Successfully migrate the database'))

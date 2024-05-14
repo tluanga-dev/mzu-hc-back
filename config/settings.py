@@ -75,8 +75,8 @@ INSTALLED_APPS = [
     # --------Utilities---------
     'features.id_manager',
 
-    # --------Section---------
-    'features.organisation_section',
+    # --------Organisation Unit---------
+    'features.organisation_unit',
 
     # --------Person---------
     'features.person',
@@ -86,6 +86,9 @@ INSTALLED_APPS = [
 
     # --------Prescription---------
     'features.prescription',
+
+    # --------Prescription---------
+    'features.setup',
 
 ]
 

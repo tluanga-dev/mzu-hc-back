@@ -11,7 +11,7 @@ from features.inventory_transaction.inventory_transaction.models import Inventor
 from features.inventory_transaction.issue_transaction.models import IssueItemInventoryTransaction
 
 from features.item.models import Item, ItemBatch
-from features.organisation_section.models import OrganisationSection
+from features.organisation_unit.models import OrganisationSection
 
 from features.supplier.models import Supplier
 from rest_framework.test import APIClient,APITestCase

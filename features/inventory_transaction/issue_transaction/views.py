@@ -2,7 +2,7 @@ from features.inventory_transaction.issue_transaction.models import IssueItemInv
 from rest_framework import viewsets
 
 from features.inventory_transaction.issue_transaction.serializers import IssueItemInventoryTransactionSerializer
-from features.organisation_section.models import OrganisationSection
+from features.organisation_unit.models import OrganisationUnit
 
 class IssueItemInventoryTransactionViewSet(viewsets.ModelViewSet):
     queryset = IssueItemInventoryTransaction.objects.all()
@@ -17,7 +17,7 @@ class IssueItemInventoryTransactionViewSet(viewsets.ModelViewSet):
 
         if issue_to is not None:
             
-            organisation_section = OrganisationSection.objects.get(code=issue_to)
+            organisation_section = OrganisationUnit.objects.get(code=issue_to)
             if organisation_section is not None:
                 queryset = queryset.filter(issue_to=organisation_section)
       
