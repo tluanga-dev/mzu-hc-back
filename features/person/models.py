@@ -37,7 +37,7 @@ class Person(TimeStampedAbstractModelClass):
     organisation_unit=models.ForeignKey(
         OrganisationUnit, 
         on_delete=models.DO_NOTHING, 
-        related_name='%(class)s_organization_section',
+        related_name='%(class)s_organization_unit',
         null=True, 
         blank=True
     )
@@ -92,7 +92,7 @@ class Student(Person):
     mzu_student_id = models.CharField(max_length=255, unique=True)
     programme=models.CharField(max_length=255,null=True, blank=True)
     year_of_admission=models.PositiveIntegerField(null=True, blank=True)
-
+    
     class Meta:
         app_label = "person"
 

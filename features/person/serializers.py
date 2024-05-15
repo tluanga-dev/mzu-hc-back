@@ -43,6 +43,15 @@ class EmployeeSerializer(serializers.ModelSerializer):
     date_of_birth = serializers.DateField(format='%d-%m-%Y')
     employee_dependents = EmployeeDependentSerializer(many=True, read_only=True)
     age=serializers.SerializerMethodField()
+    organisation_unit=serializers.SerializerMethodField()
+
+    def get_organisation_unit(self, obj):
+        return {
+            'id':  obj.organisation_unit.id,
+            'name': obj.organisation_unit.name,
+            'description': obj.organisation_unit.description, 
+            'abbreviation' : obj.organisation_unit.abbreviation
+        }
 
 
     def get_age(self, obj):
@@ -64,7 +73,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
             'gender',
             'email',
             'mzu_employee_id',
-            'department',
+            'organisation_unit',
             'employee_type',
             'designation',
             'mobile_no',
@@ -98,7 +107,7 @@ class StudentSerializer(serializers.ModelSerializer):
             'gender',
             'email',
             'mzu_student_id',
-            'department',
+            'organisation_unit',
             # 'employee_type',
             # 'designation',
             'mobile_no',
