@@ -7,7 +7,7 @@ from features.id_manager.models import IdManager
 # -----Department-----
 class OrganisationUnit(TimeStampedAbstractModelClass):
     name = models.CharField(max_length=100,null=False, blank=False)
-    abbreviation = models.CharField(max_length=100, unique=True, null=False, blank=False)
+    abbreviation = models.CharField(max_length=100, unique=False, null=False, blank=False)
     description = models.TextField()
   
     def __str__(self):

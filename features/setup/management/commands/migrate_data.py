@@ -1,9 +1,9 @@
-from django.core.management.base import BaseCommand
+from django.core.management import BaseCommand, call_command
 from googleapiclient.discovery import build
 from features.id_manager.models import IdManager
 from features.item.models import Item, ItemCategory, ItemType, UnitOfMeasurement
 from features.item.serializers import ItemTypeSerializer
-from features.organisation_unit.models import OrganisationSection
+from features.organisation_unit.models import OrganisationUnit
 from features.person.models import Employee, Person
 from features.supplier.models import Supplier
 
@@ -200,9 +200,9 @@ def migrate_item():
 #             logger.error(f"Failed to migrate person type '{row[1]}': {e}")
 
 #     logger.info(f"Person Type migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
-def migrate_organisation_section():
+def migrate_organisation_unit():
     sheet_name = 'organisation_unit'
-    OrganisationSection.objects.all().delete()
+    OrganisationUnit.objects.all().delete()
     sheets = authenticate()
     data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
 
@@ -211,17 +211,21 @@ def migrate_organisation_section():
 
     for row in data['values'][1:]:
         try:
-            ItemCategory.objects.create(
-                name=row[1],
-                abbreviation=row[2],
-                description=row[3],
-            )
+            name=row[0]
+            abbreviation=row[1]
+            description=row[2]
+            OrganisationUnit.objects.create(
+                name=name,
+                abbreviation=abbreviation,
+                description=description,
+            ).save()
             migrated_count += 1
         except Exception as e:
             failed_count += 1
-            logger.error(f"Failed to migrate item category '{row[1]}': {e}")
+            print(e)
+            logger.error(f"Failed to migrate Organisation Unit '{row[1]}': {e}")
 
-    logger.info(f"Item Category migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
+    logger.info(f"Organisation Unit migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
 
 
 def migrate_employee():
@@ -232,21 +236,19 @@ def migrate_employee():
 
     migrated_count = 0
     failed_count = 0
-
+    
     for row in data['values'][1:]:
         try:
             person_type = 'Non-Teaching'
-            # date_of_birth=row[7],
-            # print('\n----------------')
-            # print('date of birth',date_of_birth)
-            # print('-------\n')
+           
+            organisation_unit=OrganisationUnit.objects.get(name=row[5])
             Employee.objects.create(
                 mzu_employee_id=row[0],
                 name=row[1],
                 gender=row[2],
                 email=row[3],
                 mobile_no=int(row[4]) if len(row) > 3 and row[3].isdigit() else 0,
-                department=row[5],
+                organisation_unit=organisation_unit,
                 designation=row[6],
                 # date_of_birth='22-12-1970', --working
                 date_of_birth=row[8],
@@ -264,13 +266,14 @@ def migrate_employee():
 def migrate():
     
     # Call the migrate method
+    call_command('start_migrations')
     IdManager.objects.all().delete()    
     migrate_supplier()
     migrate_unit_of_measurement()
     migrate_item_category()
     migrate_item_type()
     migrate_item()
-    # migrate_person_type()
+    migrate_organisation_unit()
     migrate_employee()
     
 
