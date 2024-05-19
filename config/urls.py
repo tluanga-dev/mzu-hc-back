@@ -25,7 +25,7 @@ from features.inventory_transaction.issue_transaction.views import IssueItemInve
 from features.item.views import ItemBatchViewSet, ItemCategoryViewSet, ItemTypeViewSet, ItemViewSet, ItemWithStockInfoViewSet, UnitOfMeasurementViewSet
 from features.medicine.views import  MedicineDosageViewSet
 from features.patient.views import PatientViewSet
-from features.person.views import EmployeeDependentViewSet, EmployeeViewSet, StudentViewSet
+from features.person.views import EmployeeDependentViewSet, EmployeeViewSet, MZUOutsiderViewSet, StudentViewSet
 from features.prescription.views import PrescriptionViewSet
 from features.setup.views import SetupView
 
@@ -69,6 +69,8 @@ router.register(r'transaction/dispense', DispenseInventoryTransactionViewSet, ba
 router.register(r'employee', EmployeeViewSet, basename='employee')
 router.register(r'employee_dependent', EmployeeDependentViewSet, basename='employee-dependent')
 router.register(r'student', StudentViewSet, basename='student')
+router.register(r'mzu_outsider', MZUOutsiderViewSet, basename='mzu-outsider')
+
 
 # ---------Patient---------
 router.register(r'patient', PatientViewSet,basename='patient')

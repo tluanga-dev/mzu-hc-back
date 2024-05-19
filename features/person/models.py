@@ -96,4 +96,15 @@ class Student(Person):
     class Meta:
         app_label = "person"
 
-
+class MZUOutsider(TimeStampedAbstractModelClass):
+    GENDER_TYPE_CHOICES = [
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+        ('Other', 'Other'),
+    ]
+    
+    name= models.CharField(max_length=255)
+    gender = models.CharField(max_length=255, choices=GENDER_TYPE_CHOICES)
+    age = models.PositiveIntegerField()
+    class Meta:
+        app_label = "person"

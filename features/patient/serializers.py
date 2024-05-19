@@ -1,9 +1,6 @@
 from datetime import datetime
 from rest_framework import serializers
 from .models import Patient
-from datetime import datetime
-from rest_framework import serializers
-from .models import Patient
 
 class PatientSerializer(serializers.ModelSerializer):
     # Output field, computed from year_of_birth
@@ -14,29 +11,30 @@ class PatientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Patient
         fields = (
-            'id', 
-            'name',
+            'id',
+            'mzu_hc_id',
             'patient_type',
-            'gender', 
+            'illness',
+            'allergy',
             'age',
-            'year_of_birth',  # for output
-            'age_input',  # for input
-            'student_id',
-            'mobile_number'
+            'age_input',
+            'employee',
+            'student',
+            'employee_dependent',
+            'mzu_outsider_patient',
         )
 
     def validate_age_input(self, value):
         """Validate the input age."""
-        if value < 0 or value > 150:  # Basic validation for age
-            raise serializers.ValidationError("Please enter a valid age.")
+        if value is not None:
+            if value < 0 or value > 150:  # Basic validation for age
+                raise serializers.ValidationError("Please enter a valid age.")
         return value
 
     def create(self, validated_data):
         age = validated_data.pop('age_input', None)
         if age is not None:
-
             year_of_birth = datetime.now().year - age
-            
             validated_data['year_of_birth'] = year_of_birth
         return super().create(validated_data)
 
@@ -48,4 +46,29 @@ class PatientSerializer(serializers.ModelSerializer):
 
     def get_age(self, obj):
         """Compute age from year_of_birth for output."""
-        return datetime.now().year - obj.year_of_birth
+        if obj.year_of_birth:
+            return datetime.now().year - obj.year_of_birth
+        return None
+
+    def validate(self, data):
+        """Validate the patient data."""
+        patient_type = data.get('patient_type')
+        employee = data.get('employee')
+        student = data.get('student')
+        employee_dependent = data.get('employee_dependent')
+        mzu_outsider_patient = data.get('mzu_outsider_patient')
+
+        related_fields = [employee, student, employee_dependent, mzu_outsider_patient]
+        if sum(bool(field) for field in related_fields) != 1:
+            raise serializers.ValidationError("Exactly one related person (employee, student, employee dependent, or MZU outsider) must be set.")
+
+        if patient_type == 'Employee Dependent' and not employee_dependent:
+            raise serializers.ValidationError("Employee Dependent patients must have an associated employee dependent.")
+        if patient_type == 'Student' and not student:
+            raise serializers.ValidationError("Student patients must have an associated student.")
+        if patient_type == 'Other' and not mzu_outsider_patient:
+            raise serializers.ValidationError("Other patients must have an associated MZU outsider patient.")
+        if patient_type == 'Employee' and not employee:
+            raise serializers.ValidationError("Employee patients must have an associated employee.")
+
+        return data

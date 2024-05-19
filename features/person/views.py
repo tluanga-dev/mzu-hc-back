@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 import django_filters.rest_framework
-from features.person.models import Employee, EmployeeDependent, Student 
-from features.person.serializers import  EmployeeDependentSerializer, EmployeeSerializer, StudentSerializer
+from features.person.models import Employee, EmployeeDependent,  MZUOutsider, Student 
+from features.person.serializers import  EmployeeDependentSerializer, EmployeeSerializer,  MZUOutsiderSerializer, StudentSerializer
 
 
 
@@ -59,3 +59,20 @@ class StudentViewSet(viewsets.ModelViewSet):
     serializer_class = StudentSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
     filterset_class = StudentFilter
+
+
+# ---------MZU OUTSIDER-------------
+class MZUOutsiderFilter(django_filters.FilterSet):
+    # mzu_student_id = django_filters.CharFilter(field_name='mzu_student_id', lookup_expr='exact')
+    name = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
+    class Meta:
+        model = Student
+        fields = ['name']
+
+
+
+class MZUOutsiderViewSet(viewsets.ModelViewSet):
+    queryset = MZUOutsider.objects.all()
+    serializer_class = MZUOutsiderSerializer
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_class = MZUOutsiderFilter

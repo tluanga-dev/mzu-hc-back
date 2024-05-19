@@ -2,7 +2,7 @@
 import datetime
 from rest_framework import serializers
 
-from features.person.models import Employee, EmployeeDependent, Student
+from features.person.models import Employee, EmployeeDependent, MZUOutsider, Student
 
 
 class EmployeeSerializerForDependent(serializers.ModelSerializer):
@@ -116,4 +116,12 @@ class StudentSerializer(serializers.ModelSerializer):
             'is_active'
         ]
 
-
+class MZUOutsiderSerializer(serializers.ModelSerializer):
+ 
+    class Meta:
+        model = MZUOutsider
+        fields = [
+            'id',
+            'name',
+            'age',
+        ]

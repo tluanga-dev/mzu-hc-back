@@ -3,7 +3,7 @@ from django.core.management import BaseCommand, call_command
 from django.db import transaction
 from faker import Faker
 from features.organisation_unit.models import OrganisationUnit
-from features.person.models import Employee, EmployeeDependent, Student
+from features.person.models import Employee, EmployeeDependent, MZUOutsider, Student
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -98,6 +98,25 @@ class Command(BaseCommand):
             Student.objects.bulk_create(students)
             logger.info(f'Created {n} students')
             return students
+        
+        @transaction.atomic
+        def create_mzu_outsider(n):
+            """Creates n students."""
+            students = []
+            for _ in range(n):
+                try:
+                    student = MZUOutsider(
+                        name=fake.name(),
+                        gender=fake.random_element(elements=('Male', 'Female', 'Other')),
+                        age=fake.random_int(min=18, max=100),
+                       
+                    )
+                    students.append(student)
+                except Exception as e:
+                    logger.error(f'Error creating student: {e}')
+            Student.objects.bulk_create(students)
+            logger.info(f'Created {n} students')
+            return students
 
         try:
             # Run the migrations
@@ -108,8 +127,9 @@ class Command(BaseCommand):
             logger.info('Creating mock data')
             organisation_units = create_organisation_units(30)
             employees = create_employees(1000, organisation_units)
-            dependents = create_employee_dependents(30000, employees)
-            students = create_students(40000, organisation_units)
+            create_employee_dependents(30000, employees)
+            create_students(40000, organisation_units)
+            create_mzu_outsider(10000)
 
             self.stdout.write(self.style.SUCCESS('Successfully populated the database with mock data'))
         except Exception as e:
