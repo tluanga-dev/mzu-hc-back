@@ -13,6 +13,7 @@ class IdManager(TimeStampedAbstractModelClass):
     def generateId(cls, prefix):
        
         id_manager, created = cls.objects.get_or_create(prefix=prefix, defaults={'latest_id': f"{prefix}-AAA0001"})
+        
         if not created:
             # step 1, get the latest id
             latest_id = id_manager.latest_id
@@ -25,7 +26,7 @@ class IdManager(TimeStampedAbstractModelClass):
             # step 4, update  updated_on
             id_manager.updated_on = datetime.now()
             id_manager.save()  
-            
+           
             return id_manager.latest_id 
         else:
             return id_manager.latest_id

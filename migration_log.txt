@@ -34238,3 +34238,151 @@ AttributeError: 'EmployeeSerializer' object has no attribute 'get_organization_u
 2024-05-20 03:38:17,355 - ERROR - Error populating database: attempt to write a readonly database
 2024-05-20 03:39:01,231 - INFO - Running migrations
 2024-05-20 03:39:02,952 - ERROR - Error populating database: Unable to create the django_migrations table (SQLite schema editor cannot be used while foreign key constraint checks are enabled. Make sure to disable them before entering a transaction.atomic() context because SQLite does not support disabling them in the middle of a multi-statement transaction.)
+2024-05-20 07:17:50,867 - INFO - Running migrations
+2024-05-20 07:17:52,890 - INFO - Creating mock data
+2024-05-20 07:17:52,895 - INFO - Created 30 organisation units
+2024-05-20 07:17:53,127 - INFO - Created 1000 employees
+2024-05-20 07:17:57,628 - INFO - Created 30000 employee dependents
+2024-05-20 07:18:06,371 - INFO - Created 40000 students
+2024-05-20 07:18:07,387 - INFO - Created 10000 MZU outsiders
+2024-05-20 07:18:13,755 - INFO - Created 50000 patients
+2024-05-20 07:18:13,880 - INFO - Created 1000 items
+2024-05-20 07:18:22,723 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-20 07:19:21,402 - INFO - Running migrations
+2024-05-20 07:19:23,406 - INFO - Creating mock data
+2024-05-20 07:19:23,411 - INFO - Created 30 organisation units
+2024-05-20 07:19:23,645 - INFO - Created 1000 employees
+2024-05-20 07:19:28,077 - INFO - Created 30000 employee dependents
+2024-05-20 07:19:36,839 - INFO - Created 40000 students
+2024-05-20 07:19:37,907 - INFO - Created 10000 MZU outsiders
+2024-05-20 07:19:44,283 - INFO - Created 50000 patients
+2024-05-20 07:19:44,408 - INFO - Created 1000 items
+2024-05-20 07:21:01,997 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-20 08:05:14,743 - INFO - Running migrations
+2024-05-20 08:05:16,841 - INFO - Creating mock data
+2024-05-20 08:05:16,847 - INFO - Created 30 organisation units
+2024-05-20 08:05:17,082 - INFO - Created 1000 employees
+2024-05-20 08:05:22,173 - INFO - Created 30000 employee dependents
+2024-05-20 08:05:31,694 - INFO - Created 40000 students
+2024-05-20 08:05:32,750 - INFO - Created 10000 MZU outsiders
+2024-05-20 08:05:39,522 - INFO - Created 50000 patients
+2024-05-20 08:05:39,854 - INFO - Created 1000 items
+2024-05-20 08:07:14,557 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-20 08:10:29,043 - INFO - Running migrations
+2024-05-20 08:10:31,063 - INFO - Creating mock data
+2024-05-20 08:10:31,067 - INFO - Created 30 organisation units
+2024-05-20 08:10:31,071 - INFO - Created 10 employees
+2024-05-20 08:10:31,114 - INFO - Created 300 employee dependents
+2024-05-20 08:10:39,814 - INFO - Created 40000 students
+2024-05-20 08:10:39,817 - INFO - Created 10 MZU outsiders
+2024-05-20 08:10:39,825 - INFO - Created 50 patients
+2024-05-20 08:10:39,830 - INFO - Created 10 items
+2024-05-20 08:11:51,824 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-20 08:13:09,424 - INFO - Running migrations
+2024-05-20 08:13:11,544 - INFO - Creating mock data
+2024-05-20 08:13:11,549 - INFO - Created 30 organisation units
+2024-05-20 08:13:11,552 - INFO - Created 10 employees
+2024-05-20 08:13:11,599 - INFO - Created 300 employee dependents
+2024-05-20 08:13:20,659 - INFO - Created 40000 students
+2024-05-20 08:13:20,662 - INFO - Created 10 MZU outsiders
+2024-05-20 08:13:20,669 - INFO - Created 50 patients
+2024-05-20 08:13:20,674 - INFO - Created 10 items
+2024-05-20 08:14:28,034 - INFO - Running migrations
+2024-05-20 08:14:30,000 - INFO - Creating mock data
+2024-05-20 08:14:30,005 - INFO - Created 30 organisation units
+2024-05-20 08:14:30,009 - INFO - Created 10 employees
+2024-05-20 08:14:30,052 - INFO - Created 300 employee dependents
+2024-05-20 08:14:38,758 - INFO - Created 40000 students
+2024-05-20 08:14:38,760 - INFO - Created 10 MZU outsiders
+2024-05-20 08:14:38,767 - INFO - Created 50 patients
+2024-05-20 08:14:38,772 - INFO - Created 10 items
+2024-05-20 08:14:38,843 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-20 08:15:35,632 - INFO - Running migrations
+2024-05-20 08:15:37,550 - INFO - Creating mock data
+2024-05-20 08:15:37,555 - INFO - Created 30 organisation units
+2024-05-20 08:15:37,558 - INFO - Created 10 employees
+2024-05-20 08:15:37,603 - INFO - Created 300 employee dependents
+2024-05-20 08:15:46,312 - INFO - Created 40000 students
+2024-05-20 08:15:46,315 - INFO - Created 10 MZU outsiders
+2024-05-20 08:15:46,321 - INFO - Created 50 patients
+2024-05-20 08:15:46,325 - INFO - Created 10 items
+2024-05-20 08:15:46,398 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-20 08:16:12,245 - INFO - Running migrations
+2024-05-20 08:16:14,246 - INFO - Creating mock data
+2024-05-20 08:16:14,251 - INFO - Created 30 organisation units
+2024-05-20 08:16:14,255 - INFO - Created 10 employees
+2024-05-20 08:16:14,297 - INFO - Created 300 employee dependents
+2024-05-20 08:16:22,886 - INFO - Created 40000 students
+2024-05-20 08:16:22,889 - INFO - Created 10 MZU outsiders
+2024-05-20 08:16:22,896 - INFO - Created 50 patients
+2024-05-20 08:16:22,901 - INFO - Created 10 items
+2024-05-20 08:16:22,918 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-20 08:19:23,562 - INFO - Running migrations
+2024-05-20 08:19:25,589 - INFO - Creating mock data
+2024-05-20 08:19:25,594 - INFO - Created 30 organisation units
+2024-05-20 08:19:25,597 - INFO - Created 10 employees
+2024-05-20 08:19:25,602 - INFO - Created 30 employee dependents
+2024-05-20 08:19:25,612 - INFO - Created 40 students
+2024-05-20 08:19:25,613 - INFO - Created 10 MZU outsiders
+2024-05-20 08:19:25,618 - INFO - Created 50 patients
+2024-05-20 08:19:25,622 - INFO - Created 10 items
+2024-05-20 08:19:25,639 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-20 08:19:47,112 - INFO - Running migrations
+2024-05-20 08:19:48,978 - INFO - Creating mock data
+2024-05-20 08:19:48,984 - INFO - Created 30 organisation units
+2024-05-20 08:19:48,987 - INFO - Created 10 employees
+2024-05-20 08:19:48,992 - INFO - Created 30 employee dependents
+2024-05-20 08:19:49,002 - INFO - Created 40 students
+2024-05-20 08:19:49,004 - INFO - Created 10 MZU outsiders
+2024-05-20 08:19:49,009 - INFO - Created 50 patients
+2024-05-20 08:19:49,013 - INFO - Created 10 items
+2024-05-20 08:19:49,032 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-20 08:28:54,641 - INFO - Running migrations
+2024-05-20 08:28:56,905 - INFO - Creating mock data
+2024-05-20 08:28:56,910 - INFO - Created 30 organisation units
+2024-05-20 08:28:56,914 - INFO - Created 10 employees
+2024-05-20 08:28:56,919 - INFO - Created 30 employee dependents
+2024-05-20 08:28:56,930 - INFO - Created 40 students
+2024-05-20 08:28:56,932 - INFO - Created 10 MZU outsiders
+2024-05-20 08:28:56,936 - INFO - Created 50 patients
+2024-05-20 08:28:56,941 - INFO - Created 10 items
+2024-05-20 08:28:56,957 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-20 10:07:59,174 - INFO - Running migrations
+2024-05-20 10:08:01,288 - INFO - Creating mock data
+2024-05-20 10:08:01,295 - INFO - Created 30 organisation units
+2024-05-20 10:08:01,298 - INFO - Created 10 employees
+2024-05-20 10:08:01,303 - INFO - Created 30 employee dependents
+2024-05-20 10:08:01,314 - INFO - Created 40 students
+2024-05-20 10:08:01,315 - INFO - Created 10 MZU outsiders
+2024-05-20 10:08:01,320 - INFO - Created 50 patients
+2024-05-20 10:08:01,325 - INFO - Created 10 items
+2024-05-20 10:08:01,341 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-20 10:09:00,153 - INFO - Running migrations
+2024-05-20 10:09:02,118 - INFO - Creating mock data
+2024-05-20 10:09:02,124 - INFO - Created 30 organisation units
+2024-05-20 10:09:02,128 - INFO - Created 10 employees
+2024-05-20 10:09:02,133 - INFO - Created 30 employee dependents
+2024-05-20 10:09:02,143 - INFO - Created 40 students
+2024-05-20 10:09:02,145 - INFO - Created 10 MZU outsiders
+2024-05-20 10:09:02,149 - INFO - Created 50 patients
+2024-05-20 10:09:02,154 - INFO - Created 10 items
+2024-05-20 10:09:02,163 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-20 10:09:25,330 - INFO - Running migrations
+2024-05-20 10:09:27,273 - INFO - Creating mock data
+2024-05-20 10:09:27,278 - INFO - Created 30 organisation units
+2024-05-20 10:09:27,282 - INFO - Created 10 employees
+2024-05-20 10:09:27,287 - INFO - Created 30 employee dependents
+2024-05-20 10:09:27,297 - INFO - Created 40 students
+2024-05-20 10:09:27,299 - INFO - Created 10 MZU outsiders
+2024-05-20 10:09:27,304 - INFO - Created 50 patients
+2024-05-20 10:09:27,309 - INFO - Created 10 items
+2024-05-20 10:11:01,620 - INFO - Running migrations
+2024-05-20 10:11:03,728 - INFO - Creating mock data
+2024-05-20 10:11:03,734 - INFO - Created 30 organisation units
+2024-05-20 10:11:03,738 - INFO - Created 10 employees
+2024-05-20 10:11:03,743 - INFO - Created 30 employee dependents
+2024-05-20 10:11:03,754 - INFO - Created 40 students
+2024-05-20 10:11:03,756 - INFO - Created 10 MZU outsiders
+2024-05-20 10:11:03,761 - INFO - Created 50 patients
+2024-05-20 10:11:03,766 - INFO - Created 10 items
+2024-05-20 10:11:03,776 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code

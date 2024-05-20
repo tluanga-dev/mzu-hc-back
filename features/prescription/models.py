@@ -1,5 +1,6 @@
 import uuid
-from django.db import models
+from django.db import IntegrityError, models
+from django.forms import ValidationError
 
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
 from features.id_manager.models import IdManager
@@ -36,8 +37,24 @@ class Prescription(TimeStampedAbstractModelClass):
         return self.prescribed_medicine_set.filter(prescription__patient_id=patient_id)
     
     def save(self, *args, **kwargs):
-        self.code = IdManager.generateId(prefix=PRESCRIPTION_ABBREVIATION)
-        super().save(*args, **kwargs)
+        if not self.code:
+            self.code = self.generate_unique_code()
+        # Use a transaction to ensure the save operation is atomic
+        try:
+            with transaction.atomic():
+                super().save(*args, **kwargs)
+        except IntegrityError:
+            self.code = self.generate_unique_code()
+            super().save(*args, **kwargs)
+            
+    def generate_unique_code(self):
+        max_attempts = 10
+        for _ in range(max_attempts):
+            code = IdManager.generateId(prefix=PRESCRIPTION_ABBREVIATION)
+            print(code)
+            if not Prescription.objects.filter(code=code).exists():
+                return code
+        raise ValidationError("Unable to generate a unique code for the Prescription")
 
 
 class PrescriptionItem(TimeStampedAbstractModelClass):

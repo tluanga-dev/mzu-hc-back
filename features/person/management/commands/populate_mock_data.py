@@ -196,6 +196,8 @@ class Command(BaseCommand):
                     note=fake.sentence(),
                     date_and_time=fake.date_time_this_year(),
                 )
+                print('prescription_code', prescription.code)
+                prescription.save()
                 prescriptions.append(prescription)
             except Exception as e:
                 logger.error(f'Error creating prescription: {e}')
@@ -221,7 +223,7 @@ class Command(BaseCommand):
         logger.info(f'Created {n} prescription items')
         return prescription_items
 
-    @transaction.atomic
+ 
     def handle(self, *args, **kwargs):
         try:
             # Run the migrations
@@ -231,14 +233,14 @@ class Command(BaseCommand):
             # Create mock data
             logger.info('Creating mock data')
             organisation_units = self.create_organisation_units(30)
-            employees = self.create_employees(1000, organisation_units)
-            dependents = self.create_employee_dependents(30000, employees)
-            students = self.create_students(40000, organisation_units)
-            outsiders = self.create_mzu_outsiders(10000)
-            patients = self.create_patients(50000, employees, students, dependents, outsiders)
-            items = self.create_items(1000)
-            prescriptions = self.create_prescriptions(50000, patients)
-            self.create_prescription_items(100000, prescriptions, items)
+            employees = self.create_employees(10, organisation_units)
+            dependents = self.create_employee_dependents(30, employees)
+            students = self.create_students(40, organisation_units)
+            outsiders = self.create_mzu_outsiders(10)
+            patients = self.create_patients(50, employees, students, dependents, outsiders)
+            items = self.create_items(10)
+            prescriptions = self.create_prescriptions(5, patients)
+            # self.create_prescription_items(15, prescriptions, items)
 
         except Exception as e:
             logger.error(f'Error populating database: {e}')
