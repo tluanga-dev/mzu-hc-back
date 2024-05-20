@@ -101,22 +101,22 @@ class Command(BaseCommand):
         
         @transaction.atomic
         def create_mzu_outsider(n):
-            """Creates n students."""
-            students = []
+            """Creates n mzu outsider."""
+            mzu_outsiders = []
             for _ in range(n):
                 try:
-                    student = MZUOutsider(
+                    mzu_outsider = MZUOutsider(
                         name=fake.name(),
                         gender=fake.random_element(elements=('Male', 'Female', 'Other')),
                         age=fake.random_int(min=18, max=100),
                        
                     )
-                    students.append(student)
+                    mzu_outsiders.append(mzu_outsider)
                 except Exception as e:
                     logger.error(f'Error creating student: {e}')
-            Student.objects.bulk_create(students)
-            logger.info(f'Created {n} students')
-            return students
+            MZUOutsider.objects.bulk_create(mzu_outsiders)
+            logger.info(f'Created {n} mzu outsider')
+            return mzu_outsiders
 
         try:
             # Run the migrations

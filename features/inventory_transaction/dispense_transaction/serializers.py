@@ -4,10 +4,11 @@ from features.inventory_transaction.inventory_transaction.models import Inventor
 from features.inventory_transaction.inventory_transaction.serializers import InventoryTransactionItemSerializer, InventoryTransactionSerializer
 from features.item.models import Item, ItemCategory, ItemType, UnitOfMeasurement
 
-from features.prescription.serializers import PrescriptionSerializer
+
 
 from rest_framework import serializers
 
+from features.prescription.serializers.prescription_serializer import PrescriptionSerializer
 from features.utils.print_json import print_json_string
 
 class DispenseItemSerializer(serializers.ModelSerializer):

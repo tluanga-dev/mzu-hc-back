@@ -1,11 +1,17 @@
-from django.http import Http404
+
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, status
 from django_filters import rest_framework as filters
 from features.prescription.models import Prescription
-from features.prescription.serializers import PrescriptionSerializer
+from rest_framework.pagination import PageNumberPagination
 import logging
 from rest_framework.decorators import action
+from features.prescription.serializers.create_prescription_serializer import CreatePrescriptionSerializer
+from features.prescription.serializers.prescription_serializer import PrescriptionSerializer
+from features.prescription.serializers.update_prescription_serializer import UpdatePrescriptionSerializer
+
+
 
 logger = logging.getLogger(__name__)
 
@@ -14,57 +20,88 @@ class PrescriptionFilter(filters.FilterSet):
     date_to = filters.DateFilter(field_name="date_and_time", lookup_expr='lte')
     date = filters.DateFilter(field_name="date_and_time", lookup_expr='date')
     patient_id = filters.UUIDFilter(field_name="patient__id")  # Filters by the UUID of the patient
-    doctor_id = filters.UUIDFilter(field_name="doctor__id")  # Filters by the UUID of the doctor
+    # doctor_id = filters.UUIDFilter(field_name="doctor__id")  # Filters by the UUID of the doctor
     patient_mzu_id = filters.CharFilter(field_name="patient__mzu_id")  # Filters by the mzu_id of the patient
 
     class Meta:
         model = Prescription
-        fields = ['code', 'patient_id', 'doctor_id', 'prescription_dispense_status', 'patient_mzu_id']
+        fields = ['code', 'patient_id', 'prescription_dispense_status', 'patient_mzu_id']
 
-
+class PrescriptionPagination(PageNumberPagination):
+    page_size = 10  # Default page size
+    page_size_query_param = 'page_size'
+    max_page_size = 100
 
 class PrescriptionViewSet(viewsets.ModelViewSet):
-    queryset = Prescription.objects.select_related('patient', 'doctor').prefetch_related('prescribed_item_set')
+    """
+    A viewset that provides the standard actions
+    """
+    queryset = Prescription.objects.all()
     serializer_class = PrescriptionSerializer
-    permission_classes = [permissions.AllowAny]  # Consider using authenticated permissions for production
-    filter_class = PrescriptionFilter 
-    filter_backends = (filters.DjangoFilterBackend,)
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = PrescriptionFilter
+    pagination_class = PrescriptionPagination
 
-    def get_queryset(self):
+    def create(self, request):
         """
-        Optionally refines the queryset by filtering against query parameters.
+        Handle the creation of a prescription and patient.
         """
-        queryset = super().get_queryset()
-        patient_id = self.request.query_params.get('patient_id')
-        if patient_id:
-            queryset = queryset.filter(patient__id=patient_id)
-            logger.info(f"Filtered by patient_id: {patient_id}")
+        serializer = CreatePrescriptionSerializer(data=request.data)
+        if serializer.is_valid():
+            result = serializer.save()
+            return Response(result, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        patient_mzu_id = self.request.query_params.get('patient_mzu_id')
-        if patient_mzu_id:
-            queryset = queryset.filter(patient__mzu_id=patient_mzu_id)
-            logger.info(f"Filtered by patient_mzu_id: {patient_mzu_id}")
-        
-        return self.filter_queryset(queryset)
-
-    def handle_exception(self, exc):
+  
+    def update(self, request, pk=None):
         """
-        Handle exceptions and possibly perform custom adjustments or logging.
+        Handle updating of an existing prescription.
         """
-        logger.error(f'Error in processing request: {str(exc)}', exc_info=True)
-        return super().handle_exception(exc)
-
-    @action(detail=True, methods=['get'])
-    def retrieve_prescription_with_stock_detail(self, request, *args, **kwargs):
-        """
-        Retrieves prescription details along with stock details for dispensing.
-        """
-        prescription_id = kwargs.get('pk')
         try:
-            prescription = self.get_queryset().get(id=prescription_id)
-            logger.info(f'Retrieving prescription with ID {prescription_id}')
-            serializer = self.get_serializer(prescription)
-            return Response(serializer.data)
+            instance = Prescription.objects.get(pk=pk)
         except Prescription.DoesNotExist:
-            logger.error(f'Prescription with ID {prescription_id} not found')
-            raise Http404("Prescription does not exist")
+            return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
+
+        serializer = UpdatePrescriptionSerializer(instance, data=request.data)
+        if serializer.is_valid():
+            result = serializer.save()
+            return Response(result, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def retrieve(self, request, pk=None):
+        """
+        Retrieve a single prescription.
+        """
+        try:
+            instance = Prescription.objects.get(pk=pk)
+        except Prescription.DoesNotExist:
+            return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
+        
+        serializer = PrescriptionSerializer(instance)
+        return Response(serializer.data)
+
+    def list(self, request):
+        """
+        List all prescriptions.
+        """
+        queryset = self.filter_queryset(self.get_queryset())
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+    
+    def destroy(self, request, pk=None):
+        """
+        Delete a single prescription.
+        """
+        try:
+            instance = Prescription.objects.get(pk=pk)
+        except Prescription.DoesNotExist:
+            return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
+        
+        instance.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+

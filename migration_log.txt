@@ -34233,3 +34233,6 @@ AttributeError: 'EmployeeSerializer' object has no attribute 'get_organization_u
 2024-05-15 07:43:04,038 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
 2024-05-15 07:43:05,693 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
 2024-05-15 07:47:25,482 - INFO - /Users/tluanga/Dev/code/current-work/mzu-hc-back/features/person/serializers.py changed, reloading.
+2024-05-20 03:38:15,428 - INFO - Running migrations
+2024-05-20 03:38:17,350 - INFO - Creating mock data
+2024-05-20 03:38:17,355 - ERROR - Error populating database: attempt to write a readonly database
