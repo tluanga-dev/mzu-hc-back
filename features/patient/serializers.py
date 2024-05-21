@@ -1,5 +1,7 @@
 from datetime import datetime
 from rest_framework import serializers
+
+from features.utils.calculate_age import calculate_age
 from .models import Patient
 
 class PatientSerializer(serializers.ModelSerializer):
@@ -21,7 +23,7 @@ class PatientSerializer(serializers.ModelSerializer):
             'employee',
             'student',
             'employee_dependent',
-            'mzu_outsider_patient',
+            'mzu_outsider',
         )
 
     def validate_age_input(self, value):
@@ -31,23 +33,29 @@ class PatientSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError("Please enter a valid age.")
         return value
 
-    def create(self, validated_data):
-        age = validated_data.pop('age_input', None)
-        if age is not None:
-            year_of_birth = datetime.now().year - age
-            validated_data['year_of_birth'] = year_of_birth
-        return super().create(validated_data)
+    # def create(self, validated_data):
+    #     age = validated_data.pop('age_input', None)
+    #     if age is not None:
+    #         year_of_birth = datetime.now().year - age
+    #         validated_data['year_of_birth'] = year_of_birth
+    #     return super().create(validated_data)
 
-    def update(self, instance, validated_data):
-        age = validated_data.pop('age_input', None)
-        if age is not None:
-            instance.year_of_birth = datetime.now().year - age
-        return super().update(instance, validated_data)
+    # def update(self, instance, validated_data):
+    #     age = validated_data.pop('age_input', None)
+    #     if age is not None:
+    #         instance.year_of_birth = datetime.now().year - age
+    #     return super().update(instance, validated_data)
 
     def get_age(self, obj):
         """Compute age from year_of_birth for output."""
-        if obj.year_of_birth:
-            return datetime.now().year - obj.year_of_birth
+        if obj.employee is not None:
+            return calculate_age(obj.employee.date_of_birth)
+        if obj.student is not None:
+            return calculate_age(obj.student.date_of_birth) 
+        if obj.employee_dependent is not None:
+            return calculate_age(obj.employee_dependent.date_of_birth)
+        if obj.mzu_outsider is not None:
+            return obj.mzu_outsider.age
         return None
 
     def validate(self, data):
@@ -56,9 +64,9 @@ class PatientSerializer(serializers.ModelSerializer):
         employee = data.get('employee')
         student = data.get('student')
         employee_dependent = data.get('employee_dependent')
-        mzu_outsider_patient = data.get('mzu_outsider_patient')
+        mzu_outsider = data.get('mzu_outsider')
 
-        related_fields = [employee, student, employee_dependent, mzu_outsider_patient]
+        related_fields = [employee, student, employee_dependent, mzu_outsider]
         if sum(bool(field) for field in related_fields) != 1:
             raise serializers.ValidationError("Exactly one related person (employee, student, employee dependent, or MZU outsider) must be set.")
 

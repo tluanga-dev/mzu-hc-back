@@ -24,7 +24,7 @@ class StandardResultsSetPagination(PageNumberPagination):
 
 class PatientViewSet(viewsets.ModelViewSet):
     """View set for Patient model."""
-    queryset = Patient.objects.all().select_related('employee', 'student', 'employee_dependent', 'mzu_outsider_patient')
+    queryset = Patient.objects.all().select_related('employee', 'student', 'employee_dependent', 'mzu_outsider')
     serializer_class = PatientSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
     filterset_class = PatientFilter

@@ -41,7 +41,7 @@ class Prescription(TimeStampedAbstractModelClass):
     def save(self, *args, **kwargs):
         if not self.code:
             self.code = self.generate_unique_code()
-            print('the code generated is', self.code)
+          
         
         self.date_and_time = self.make_datetime_aware(self.date_and_time)
         

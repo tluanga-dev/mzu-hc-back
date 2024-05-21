@@ -12,14 +12,14 @@ class Patient(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.DO_NOTHING, null=True, blank=True)
     student = models.ForeignKey(Student, on_delete=models.DO_NOTHING, null=True, blank=True)
     employee_dependent = models.ForeignKey(EmployeeDependent, on_delete=models.DO_NOTHING, null=True, blank=True)
-    mzu_outsider_patient = models.ForeignKey(MZUOutsider, on_delete=models.DO_NOTHING, null=True, blank=True)
+    mzu_outsider = models.ForeignKey(MZUOutsider, on_delete=models.DO_NOTHING, null=True, blank=True)
 
     # Choices for type of patient
     PATIENT_TYPE_CHOICES = [
         ('Employee', 'Employee'),
         ('Employee Dependent', 'Employee Dependent'),
         ('Student', 'Student'),
-        ('Other', 'Other'),
+        ('MZU_outsider', 'MZU_outsider'),
     ]
     patient_type = models.CharField(max_length=255, choices=PATIENT_TYPE_CHOICES)
 
@@ -33,13 +33,13 @@ class Patient(models.Model):
             raise ValidationError("Employee Dependent patients must have an associated employee dependent.")
         if self.patient_type == 'Student' and not self.student:
             raise ValidationError("Student patients must have an associated student.")
-        if self.patient_type == 'Other' and not self.mzu_outsider_patient:
+        if self.patient_type == 'Other' and not self.mzu_outsider:
             raise ValidationError("Other patients must have an associated MZU outsider patient.")
         if self.patient_type == 'Employee' and not self.employee:
             raise ValidationError("Employee patients must have an associated employee.")
 
         # Ensure only one type of related person is set
-        related_fields = [self.employee, self.employee_dependent, self.student, self.mzu_outsider_patient]
+        related_fields = [self.employee, self.employee_dependent, self.student, self.mzu_outsider]
         if sum(bool(field) for field in related_fields) > 1:
             raise ValidationError("A patient can only be associated with one related person (employee, employee dependent, student, or MZU outsider).")
 

@@ -114,7 +114,7 @@ class Command(BaseCommand):
         patients = []
         for _ in range(n):
             try:
-                patient_type = fake.random_element(elements=('Employee', 'Student', 'Employee Dependent', 'Other'))
+                patient_type = fake.random_element(elements=('Employee', 'Student', 'Employee Dependent', 'MZU_outsider'))
                 if patient_type == 'Employee':
                     employee = fake.random_element(elements=employees)
                     patient = Patient(
@@ -196,7 +196,7 @@ class Command(BaseCommand):
                     note=fake.sentence(),
                     date_and_time=fake.date_time_this_year(),
                 )
-                print(prescription.code)
+               
                
                 prescriptions.append(prescription)
             except Exception as e:
@@ -236,11 +236,11 @@ class Command(BaseCommand):
             employees = self.create_employees(10, organisation_units)
             dependents = self.create_employee_dependents(30, employees)
             students = self.create_students(40, organisation_units)
-            outsiders = self.create_mzu_outsiders(10)
-            patients = self.create_patients(50, employees, students, dependents, outsiders)
-            items = self.create_items(10)
-            prescriptions = self.create_prescriptions(1, patients)
-            # self.create_prescription_items(15, prescriptions, items)
+            outsiders = self.create_mzu_outsiders(200)
+            patients = self.create_patients(5000, employees, students, dependents, outsiders)
+            items = self.create_items(100)
+            prescriptions = self.create_prescriptions(1000, patients)
+            self.create_prescription_items(15000, prescriptions, items)
 
         except Exception as e:
             logger.error(f'Error populating database: {e}')
