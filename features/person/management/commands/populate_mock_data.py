@@ -114,7 +114,9 @@ class Command(BaseCommand):
         patients = []
         for _ in range(n):
             try:
+                # patient_type = fake.random_element(elements=('Employee', 'Student', 'Employee Dependent', 'MZU_outsider'))
                 patient_type = fake.random_element(elements=('Employee', 'Student', 'Employee Dependent', 'MZU_outsider'))
+                
                 if patient_type == 'Employee':
                     employee = fake.random_element(elements=employees)
                     patient = Patient(
@@ -143,7 +145,7 @@ class Command(BaseCommand):
                     outsider = fake.random_element(elements=outsiders)
                     patient = Patient(
                         patient_type=patient_type,
-                        mzu_outsider_patient=outsider,
+                        mzu_outsider=outsider,
                         illness=fake.sentence(),
                         allergy=fake.sentence()
                     )

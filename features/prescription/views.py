@@ -21,7 +21,8 @@ class PrescriptionFilter(filters.FilterSet):
     date = filters.DateFilter(field_name="date_and_time", lookup_expr='date')
     patient_id = filters.UUIDFilter(field_name="patient__id")  # Filters by the UUID of the patient
     # doctor_id = filters.UUIDFilter(field_name="doctor__id")  # Filters by the UUID of the doctor
-    patient_mzu_id = filters.CharFilter(field_name="patient__mzu_id")  # Filters by the mzu_id of the patient
+    patient_mzu_id = filters.CharFilter(field_name="patient__mzu_id")
+    patient_type = filters.CharFilter(field_name="patient__patient_type")  # Filters by the mzu_id of the patient
 
     class Meta:
         model = Prescription
