@@ -196,8 +196,8 @@ class Command(BaseCommand):
                     note=fake.sentence(),
                     date_and_time=fake.date_time_this_year(),
                 )
-                print('prescription_code', prescription.code)
-                prescription.save()
+                print(prescription.code)
+               
                 prescriptions.append(prescription)
             except Exception as e:
                 logger.error(f'Error creating prescription: {e}')
@@ -239,7 +239,7 @@ class Command(BaseCommand):
             outsiders = self.create_mzu_outsiders(10)
             patients = self.create_patients(50, employees, students, dependents, outsiders)
             items = self.create_items(10)
-            prescriptions = self.create_prescriptions(5, patients)
+            prescriptions = self.create_prescriptions(1, patients)
             # self.create_prescription_items(15, prescriptions, items)
 
         except Exception as e:

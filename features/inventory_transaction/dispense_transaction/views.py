@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 from django.shortcuts import get_object_or_404
 from django.utils.dateparse import parse_date
+from django.core.exceptions import ValidationError
 
 from features.inventory_transaction.dispense_transaction.models import DispenseInventoryTransaction
 from features.inventory_transaction.dispense_transaction.serializers import DispenseInventoryTransactionSerializer
@@ -21,48 +22,64 @@ class DispenseInventoryTransactionViewSet(viewsets.ModelViewSet):
     pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
+        """
+        Optionally restricts the returned dispense inventory transactions by filtering against
+        query parameters in the URL.
+        """
         queryset = DispenseInventoryTransaction.objects.all().select_related(
             'prescription__patient', 'prescription__doctor'
         )
         
-        prescription_code = self.request.query_params.get('prescription', None)
-        status = self.request.query_params.get('status', None)
-        patient_code = self.request.query_params.get('patient', None)
-        doctor_code = self.request.query_params.get('doctor', None)
-        dispense_date = self.request.query_params.get('dispense_date', None)
-        dispense_date_from = self.request.query_params.get('dispense_date_from', None)
-        dispense_date_to = self.request.query_params.get('dispense_date_to', None)
+        # Extract and validate query parameters
+        prescription_code = self.request.query_params.get('prescription')
+        status = self.request.query_params.get('status')
+        patient_code = self.request.query_params.get('patient')
+        doctor_code = self.request.query_params.get('doctor')
+        dispense_date = self.request.query_params.get('dispense_date')
+        dispense_date_from = self.request.query_params.get('dispense_date_from')
+        dispense_date_to = self.request.query_params.get('dispense_date_to')
 
+        # Filter by prescription code
         if prescription_code:
-            prescription_obj = get_object_or_404(Prescription, code=prescription_code)
-            queryset = queryset.filter(prescription=prescription_obj)
+            queryset = queryset.filter(prescription__code=prescription_code)
 
+        # Filter by patient code
         if patient_code:
-            patient_obj = get_object_or_404(Patient, code=patient_code)
-            queryset = queryset.filter(prescription__patient=patient_obj)
+            queryset = queryset.filter(prescription__patient__code=patient_code)
 
-        # if doctor_code:
-        #     doctor_obj = get_object_or_404(CustomUser, code=doctor_code)
-        #     queryset = queryset.filter(prescription__doctor=doctor_obj)
+        # Filter by doctor code
+        if doctor_code:
+            queryset = queryset.filter(prescription__doctor__code=doctor_code)
 
+        # Filter by status
         if status:
             queryset = queryset.filter(status=status)
 
+        # Filter by exact dispense date
         if dispense_date:
-            dispense_date_parsed = parse_date(dispense_date)
-            if dispense_date_parsed:
-                queryset = queryset.filter(dispense_date__exact=dispense_date_parsed)
+            try:
+                dispense_date_parsed = parse_date(dispense_date)
+                if dispense_date_parsed:
+                    queryset = queryset.filter(dispense_date__date=dispense_date_parsed)
+            except ValidationError:
+                pass  # Handle invalid date format gracefully
 
+        # Filter by dispense date range
         if dispense_date_from and dispense_date_to:
-            dispense_date_from_parsed = parse_date(dispense_date_from)
-            dispense_date_to_parsed = parse_date(dispense_date_to)
-            if dispense_date_from_parsed and dispense_date_to_parsed:
-                queryset = queryset.filter(dispense_date__gte=dispense_date_from_parsed,
-                                           dispense_date__lte=dispense_date_to_parsed)
+            try:
+                dispense_date_from_parsed = parse_date(dispense_date_from)
+                dispense_date_to_parsed = parse_date(dispense_date_to)
+                if dispense_date_from_parsed and dispense_date_to_parsed:
+                    queryset = queryset.filter(dispense_date__date__range=[dispense_date_from_parsed, dispense_date_to_parsed])
+            except ValidationError:
+                pass  # Handle invalid date range format gracefully
 
         return queryset
 
     def list(self, request, *args, **kwargs):
+        """
+        Return a paginated list of dispense inventory transactions.
+        """
         queryset = self.get_queryset()
         page = self.paginate_queryset(queryset)
         if page is not None:
@@ -73,6 +90,9 @@ class DispenseInventoryTransactionViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     def retrieve(self, request, *args, **kwargs):
+        """
+        Return a single dispense inventory transaction instance.
+        """
         instance = self.get_object()
         serializer = self.get_serializer(instance)
         return Response(serializer.data)

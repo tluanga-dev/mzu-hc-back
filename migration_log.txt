@@ -34386,3 +34386,83 @@ AttributeError: 'EmployeeSerializer' object has no attribute 'get_organization_u
 2024-05-20 10:11:03,761 - INFO - Created 50 patients
 2024-05-20 10:11:03,766 - INFO - Created 10 items
 2024-05-20 10:11:03,776 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-21 00:08:44,473 - INFO - Running migrations
+2024-05-21 00:08:46,521 - INFO - Creating mock data
+2024-05-21 00:08:46,526 - INFO - Created 30 organisation units
+2024-05-21 00:08:46,530 - INFO - Created 10 employees
+2024-05-21 00:08:46,535 - INFO - Created 30 employee dependents
+2024-05-21 00:08:46,545 - INFO - Created 40 students
+2024-05-21 00:08:46,547 - INFO - Created 10 MZU outsiders
+2024-05-21 00:08:46,552 - INFO - Created 50 patients
+2024-05-21 00:08:46,558 - INFO - Created 10 items
+2024-05-21 00:08:46,572 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-21 00:09:53,225 - INFO - Running migrations
+2024-05-21 00:09:55,131 - INFO - Creating mock data
+2024-05-21 00:09:55,136 - INFO - Created 30 organisation units
+2024-05-21 00:09:55,140 - INFO - Created 10 employees
+2024-05-21 00:09:55,145 - INFO - Created 30 employee dependents
+2024-05-21 00:09:55,155 - INFO - Created 40 students
+2024-05-21 00:09:55,156 - INFO - Created 10 MZU outsiders
+2024-05-21 00:09:55,161 - INFO - Created 50 patients
+2024-05-21 00:09:55,165 - INFO - Created 10 items
+2024-05-21 00:09:55,168 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-21 00:29:02,932 - INFO - Running migrations
+2024-05-21 00:29:05,039 - INFO - Creating mock data
+2024-05-21 00:29:05,045 - INFO - Created 30 organisation units
+2024-05-21 00:29:05,048 - INFO - Created 10 employees
+2024-05-21 00:29:05,053 - INFO - Created 30 employee dependents
+2024-05-21 00:29:05,064 - INFO - Created 40 students
+2024-05-21 00:29:05,065 - INFO - Created 10 MZU outsiders
+2024-05-21 00:29:05,070 - INFO - Created 50 patients
+2024-05-21 00:29:05,074 - INFO - Created 10 items
+2024-05-21 00:29:05,077 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-21 00:30:10,258 - INFO - Running migrations
+2024-05-21 00:30:12,524 - INFO - Creating mock data
+2024-05-21 00:30:12,529 - INFO - Created 30 organisation units
+2024-05-21 00:30:12,532 - INFO - Created 10 employees
+2024-05-21 00:30:12,538 - INFO - Created 30 employee dependents
+2024-05-21 00:30:12,548 - INFO - Created 40 students
+2024-05-21 00:30:12,550 - INFO - Created 10 MZU outsiders
+2024-05-21 00:30:12,554 - INFO - Created 50 patients
+2024-05-21 00:30:12,559 - INFO - Created 10 items
+2024-05-21 00:30:12,561 - INFO - Created 1 prescriptions
+2024-05-21 00:40:11,946 - INFO - Running migrations
+2024-05-21 00:40:14,297 - INFO - Creating mock data
+2024-05-21 00:40:14,305 - INFO - Created 30 organisation units
+2024-05-21 00:40:14,309 - INFO - Created 10 employees
+2024-05-21 00:40:14,315 - INFO - Created 30 employee dependents
+2024-05-21 00:40:14,326 - INFO - Created 40 students
+2024-05-21 00:40:14,328 - INFO - Created 10 MZU outsiders
+2024-05-21 00:40:14,333 - INFO - Created 50 patients
+2024-05-21 00:40:14,339 - INFO - Created 10 items
+2024-05-21 00:40:14,343 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-21 01:02:27,988 - INFO - Running migrations
+2024-05-21 01:02:30,076 - INFO - Creating mock data
+2024-05-21 01:02:30,081 - INFO - Created 30 organisation units
+2024-05-21 01:02:30,085 - INFO - Created 10 employees
+2024-05-21 01:02:30,090 - INFO - Created 30 employee dependents
+2024-05-21 01:02:30,100 - INFO - Created 40 students
+2024-05-21 01:02:30,102 - INFO - Created 10 MZU outsiders
+2024-05-21 01:02:30,107 - INFO - Created 50 patients
+2024-05-21 01:02:30,112 - INFO - Created 10 items
+2024-05-21 01:02:30,114 - ERROR - Error populating database: UNIQUE constraint failed: prescription_prescription.code
+2024-05-21 01:03:19,196 - INFO - Running migrations
+2024-05-21 01:03:21,576 - INFO - Creating mock data
+2024-05-21 01:03:21,580 - INFO - Created 30 organisation units
+2024-05-21 01:03:21,583 - INFO - Created 10 employees
+2024-05-21 01:03:21,588 - INFO - Created 30 employee dependents
+2024-05-21 01:03:21,598 - INFO - Created 40 students
+2024-05-21 01:03:21,601 - INFO - Created 10 MZU outsiders
+2024-05-21 01:03:21,605 - INFO - Created 50 patients
+2024-05-21 01:03:21,610 - INFO - Created 10 items
+2024-05-21 01:03:21,612 - INFO - Created 1 prescriptions
+2024-05-21 01:03:48,932 - INFO - Running migrations
+2024-05-21 01:03:50,955 - INFO - Creating mock data
+2024-05-21 01:03:50,960 - INFO - Created 30 organisation units
+2024-05-21 01:03:50,964 - INFO - Created 10 employees
+2024-05-21 01:03:50,969 - INFO - Created 30 employee dependents
+2024-05-21 01:03:50,979 - INFO - Created 40 students
+2024-05-21 01:03:50,981 - INFO - Created 10 MZU outsiders
+2024-05-21 01:03:50,986 - INFO - Created 50 patients
+2024-05-21 01:03:50,990 - INFO - Created 10 items
+2024-05-21 01:03:50,992 - INFO - Created 1 prescriptions
