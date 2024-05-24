@@ -74,7 +74,7 @@ class PatientSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Employee Dependent patients must have an associated employee dependent.")
         if patient_type == 'Student' and not student:
             raise serializers.ValidationError("Student patients must have an associated student.")
-        if patient_type == 'Other' and not mzu_outsider_patient:
+        if patient_type == 'Other' and not mzu_outsider:
             raise serializers.ValidationError("Other patients must have an associated MZU outsider patient.")
         if patient_type == 'Employee' and not employee:
             raise serializers.ValidationError("Employee patients must have an associated employee.")

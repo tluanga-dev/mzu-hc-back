@@ -1,0 +1,31 @@
+{
+  "patient_type": "Employee",
+  "patient_data": {
+    "patient_type": "Employee",
+    "employee": "237c1c80-47af-434e-9f1e-7d199577627d"
+  },
+  "prescription_data": {
+    "chief_complaints": "Chief complaint",
+    "diagnosis": "Diagnosis",
+    "advice_and_instructions": "Advice",
+    "date_and_time": "2024-05-22T11:58:04",
+    "prescribed_item_set": [
+      {
+        "medicine": "8ca42b6e-b156-4c4c-83d3-9ae0d8d6086e",
+        "dosages": [
+          {
+            "duration_value": 30,
+            "duration_type": "days",
+            "medicine_dosage_timing_set": [
+              {
+                "quantity_in_one_take": 1,
+                "day_med_schedule": "Morning",
+                "medicine_timing": "before_meal"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

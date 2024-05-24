@@ -12,7 +12,10 @@ class DispenseInventoryTransaction(InventoryTransaction):
     # dispense_date=models.DateField()
     # prescription=models.ForeignKey(
     #     Prescription, on_delete=models.CASCADE, related_name='dispened_prescription')
-    patient = models.ForeignKey(Patient, related_name='dispense_patient', on_delete=models.DO_NOTHING)
+    patient = models.ForeignKey(
+        Patient, 
+        related_name='dispense_patient', 
+        on_delete=models.DO_NOTHING)
     pharmacist=models.CharField(max_length=255)
     
     def save(self, *args, **kwargs):

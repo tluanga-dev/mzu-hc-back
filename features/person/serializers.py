@@ -12,7 +12,7 @@ class EmployeeSerializerForDependent(serializers.ModelSerializer):
             'id',
            
             'name',
-            'department',
+            'organisation_unit',
             'mzu_employee_id',
         ]
 

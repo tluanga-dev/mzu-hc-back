@@ -10,7 +10,7 @@ from features.prescription.serializers.prescription_serializer import Prescripti
 
 
 class UpdatePrescriptionSerializer(serializers.Serializer):
-    patient_type = serializers.ChoiceField(choices=Patient.PATIENT_TYPE_CHOICES)
+    patient_type = serializers.ChoiceField(choices=Patient.PatientType.choices)
     patient_data = PatientSerializer()
     prescription_data = serializers.JSONField()  # We'll manually handle nested validation
     mzu_outsider_data = MZUOutsiderSerializer(required=False)
