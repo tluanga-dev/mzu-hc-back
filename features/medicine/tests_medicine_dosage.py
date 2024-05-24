@@ -70,7 +70,7 @@ class MedicineDosageSerializerTestCase(BaseTestCase):
 
     def test_contains_expected_fields(self):
         data = self.serializer.data
-        self.assertCountEqual(data.keys(), ['id', 'quantity_in_one_take', 'how_many_times_in_a_day', 'name', 'item', 'updated_on'])
+        self.assertCountEqual(data.keys(), ['id', 'quantity_in_one_take', 'how_many_times_in_a_day', 'name', 'item', 'updated_at'])
 
     def test_content(self):
         data = self.serializer.data
@@ -79,4 +79,4 @@ class MedicineDosageSerializerTestCase(BaseTestCase):
         self.assertEqual(data['how_many_times_in_a_day'], self.medicine_dosage.how_many_times_in_a_day)
         self.assertEqual(data['name'], self.medicine_dosage.name)
         self.assertEqual(data['item'], self.medicine_dosage.item.id)
-        self.assertEqual(data['updated_on'], self.medicine_dosage.updated_on.strftime('%Y-%m-%dT%H:%M:%S.%fZ'))
+        self.assertEqual(data['updated_at'], self.medicine_dosage.updated_at.strftime('%Y-%m-%dT%H:%M:%S.%fZ'))

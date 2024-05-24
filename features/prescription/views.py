@@ -49,9 +49,7 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
         """
 
         serializer = CreatePrescriptionSerializer(data=request.data)
-        print('\n-----------------')
-        print(request.data)
-        print('----------------\n')
+      
         if serializer.is_valid():
             result = serializer.save()
             return Response(result, status=status.HTTP_201_CREATED)

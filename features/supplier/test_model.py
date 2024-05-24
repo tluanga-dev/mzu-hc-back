@@ -46,14 +46,14 @@ class SupplierModelTest(TestCase):
         field_label = supplier._meta.get_field('is_active').verbose_name
         self.assertEqual(field_label, 'is active')
 
-    def test_created_on_label(self):
+    def test_created_at_label(self):
         supplier = Supplier.objects.get(id=str(self.supplier.id))
-        field_label = supplier._meta.get_field('created_on').verbose_name
+        field_label = supplier._meta.get_field('created_at').verbose_name
         self.assertEqual(field_label, 'created on')
 
-    def test_updated_on_label(self):
+    def test_updated_at_label(self):
         supplier = Supplier.objects.get(id=str(self.supplier.id))
-        field_label = supplier._meta.get_field('updated_on').verbose_name
+        field_label = supplier._meta.get_field('updated_at').verbose_name
         self.assertEqual(field_label, 'updated on')
 
     def test_name_max_length(self):

@@ -166,8 +166,8 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
         expected_data['id'] = str(issue_item_transaction.id)
         expected_data['is_active']=True
         expected_data['issue_to']=OrganisationSectionSerializer(self.organization_section).data 
-        del expected_data['issue_to']['created_on']
-        del expected_data['issue_to']['updated_on']
+        del expected_data['issue_to']['created_at']
+        del expected_data['issue_to']['updated_at']
         expected_data['inventory_transaction_item_set'] = [
             {
                 'id': str(item.id),
@@ -182,22 +182,22 @@ class IsssueItemInventoryTransactionSerializerTestCase(BaseTestCase):
         serializer_data=serializer.data
         # serializer_data = json.loads(json.dumps(serializer.data))
        
-        if 'created_on' in serializer_data:
-            del serializer_data['created_on']
-        if 'updated_on' in serializer_data:
-            del serializer_data['updated_on']
+        if 'created_at' in serializer_data:
+            del serializer_data['created_at']
+        if 'updated_at' in serializer_data:
+            del serializer_data['updated_at']
 
-# Remove 'created_on' and 'updated_on' from the 'issue_to' dictionary
+# Remove 'created_at' and 'updated_at' from the 'issue_to' dictionary
         if 'issue_to' in serializer_data:
-            if 'created_on' in serializer_data['issue_to']:
-                del serializer_data['issue_to']['created_on']
-            if 'updated_on' in serializer_data['issue_to']:
-                del serializer_data['issue_to']['updated_on']
+            if 'created_at' in serializer_data['issue_to']:
+                del serializer_data['issue_to']['created_at']
+            if 'updated_at' in serializer_data['issue_to']:
+                del serializer_data['issue_to']['updated_at']
         # del serializer_data['inventory_transaction_id']
         
      
-        # serializer_data.pop('created_on', None)
-        # serializer_data.pop('updated_on', None)
+        # serializer_data.pop('created_at', None)
+        # serializer_data.pop('updated_at', None)
         
         # print('\n\nexpected data, ',expected_data)
         # print('\n\nserializer data, ',serializer_data)

@@ -21,7 +21,6 @@ class CreatePrescriptionSerializer(serializers.Serializer):
     mzu_outsider_data = MZUOutsiderSerializer(required=False)
 
     def validate(self, attrs):
-        logger.debug('Validating data: %s', attrs)
         patient_type = attrs.get('patient_type')
         mzu_outsider_data = attrs.get('mzu_outsider_data')
 
@@ -30,67 +29,70 @@ class CreatePrescriptionSerializer(serializers.Serializer):
         
         return attrs
 
-    @transaction.atomic
     def create(self, validated_data):
-        logger.debug('---inside create---')
-        logger.debug('Validated data: %s', validated_data)
         patient_type = validated_data.get('patient_type')
         patient_data = validated_data.get('patient_data')
         prescription_data = validated_data.get('prescription_data')
         mzu_outsider_data = validated_data.get('mzu_outsider_data', None)
 
         try:
-            # Create or get patient based on patient_type
-            if patient_type == Patient.PatientType.EMPLOYEE:
-                employee = Employee.objects.get(pk=patient_data.pop('employee'))
-                patient, created = Patient.objects.get_or_create(employee=employee, defaults=patient_data)
-            elif patient_type == Patient.PatientType.STUDENT:
-                student = Student.objects.get(pk=patient_data.pop('student'))
-                patient, created = Patient.objects.get_or_create(student=student, defaults=patient_data)
-            elif patient_type == Patient.PatientType.EMPLOYEE_DEPENDENT:
-                employee_dependent = EmployeeDependent.objects.get(pk=patient_data.pop('employee_dependent'))
-                patient, created = Patient.objects.get_or_create(employee_dependent=employee_dependent, defaults=patient_data)
-            elif patient_type == Patient.PatientType.MZU_OUTSIDER:
-                mzu_outsider_patient = MZUOutsider.objects.create(**mzu_outsider_data)
-                patient, created = Patient.objects.get_or_create(mzu_outsider=mzu_outsider_patient, defaults=patient_data)
-            else:
-                raise serializers.ValidationError("Invalid patient type or missing MZUOutsider data")
+            with transaction.atomic():
+                # Create or get patient based on patient_type
+                if patient_type == Patient.PatientType.EMPLOYEE:
+                    if isinstance(patient_data['employee'], Employee):
+                        patient_data['employee'] = patient_data['employee'].pk
+                    employee = Employee.objects.select_for_update().get(pk=patient_data.pop('employee'))
+                    patient, created = Patient.objects.get_or_create(employee=employee, defaults=patient_data)
+                elif patient_type == Patient.PatientType.STUDENT:
+                    if isinstance(patient_data['student'], Student):
+                        patient_data['student'] = patient_data['student'].pk
+                    student = Student.objects.select_for_update().get(pk=patient_data.pop('student'))
+                    patient, created = Patient.objects.get_or_create(student=student, defaults=patient_data)
+                elif patient_type == Patient.PatientType.EMPLOYEE_DEPENDENT:
+                    if isinstance(patient_data['employee_dependent'], EmployeeDependent):
+                        patient_data['employee_dependent'] = patient_data['employee_dependent'].pk
+                    employee_dependent = EmployeeDependent.objects.select_for_update().get(pk=patient_data.pop('employee_dependent'))
+                    patient, created = Patient.objects.get_or_create(employee_dependent=employee_dependent, defaults=patient_data)
+                elif patient_type == Patient.PatientType.MZU_OUTSIDER:
+                    mzu_outsider_patient = MZUOutsider.objects.create(**mzu_outsider_data)
+                    patient, created = Patient.objects.get_or_create(mzu_outsider=mzu_outsider_patient, defaults=patient_data)
+                else:
+                    raise serializers.ValidationError("Invalid patient type or missing MZUOutsider data")
 
-            # Convert date and time to a datetime object
-            date_and_time_str = prescription_data.pop('date_and_time')
-            date_and_time = parse_datetime(date_and_time_str)
-            if date_and_time is None:
-                raise serializers.ValidationError("Invalid date and time format.")
+                # Convert date and time to a datetime object
+                date_and_time_str = prescription_data.pop('date_and_time')
+                date_and_time = parse_datetime(date_and_time_str)
+                if date_and_time is None:
+                    raise serializers.ValidationError("Invalid date and time format.")
 
-            # Create prescription with the associated patient
-            prescription_data['patient'] = patient  # Assign the Patient instance, not the UUID
-            prescription_data['date_and_time'] = date_and_time  # Assign the converted datetime object
-            logger.debug('Prescription data: %s', prescription_data)
-            prescribed_item_set_data = prescription_data.pop('prescribed_item_set', [])
+                # Create prescription with the associated patient
+                prescription_data['patient'] = patient  # Assign the Patient instance, not the UUID
+                prescription_data['date_and_time'] = date_and_time  # Assign the converted datetime object
 
-            # Save the prescription first
-            new_prescription = Prescription.objects.create(**prescription_data)
-            logger.debug('Prescription created: %s', new_prescription)
+                prescribed_item_set_data = prescription_data.pop('prescribed_item_set', [])
 
-            if new_prescription:
-                for prescribed_item_data in prescribed_item_set_data:
-                    medicine_id = prescribed_item_data.pop('medicine')
-                    logger.debug('Fetching medicine with id: %s', medicine_id)
-                    medicine = Item.objects.get(id=medicine_id)
-                    logger.debug('Medicine fetched: %s', medicine)
-                    medicine_dosage_list_data = prescribed_item_data.pop('dosages', [])
-                    prescription_item = PrescriptionItem.objects.create(prescription=new_prescription, medicine=medicine)
-                    logger.debug('PrescriptionItem created: %s', prescription_item)
+                # Save the prescription first
+                new_prescription = Prescription.objects.create(**prescription_data)
+                new_prescription.save()  # Ensure the prescription is saved and its ID is generated
 
-                    for medicine_dosage_data in medicine_dosage_list_data:
-                        medicine_dosage_timing_set_data = medicine_dosage_data.pop('medicine_dosage_timing_set', [])
-                        medicine_dosage = MedicineDosage.objects.create(**medicine_dosage_data, medicine=medicine)
-                        prescription_item.dosages.add(medicine_dosage)
-                        logger.debug('MedicineDosage created: %s', medicine_dosage)
+                def create_prescription_items():
+                    if new_prescription:
+                        for prescribed_item_data in prescribed_item_set_data:
+                            medicine_id = prescribed_item_data.pop('medicine')
+                            medicine = Item.objects.select_for_update().get(id=medicine_id)
+                            medicine_dosage_list_data = prescribed_item_data.pop('dosages', [])
+                            prescription_item = PrescriptionItem.objects.create(prescription=new_prescription, medicine=medicine)
 
-                        for medicine_dosage_timing_data in medicine_dosage_timing_set_data:
-                            MedicineDosageTiming.objects.create(**medicine_dosage_timing_data, medicine_dosage=medicine_dosage)
-                            logger.debug('MedicineDosageTiming created: %s', medicine_dosage_timing_data)
+                            for medicine_dosage_data in medicine_dosage_list_data:
+                                medicine_dosage_timing_set_data = medicine_dosage_data.pop('medicine_dosage_timing_set', [])
+                                medicine_dosage = MedicineDosage.objects.create(**medicine_dosage_data, medicine=medicine)
+                                prescription_item.dosages.add(medicine_dosage)
+
+                                for medicine_dosage_timing_data in medicine_dosage_timing_set_data:
+                                    MedicineDosageTiming.objects.create(**medicine_dosage_timing_data, medicine_dosage=medicine_dosage)
+
+                # Ensure prescription items are created only after the prescription is committed
+                transaction.on_commit(create_prescription_items)
 
             return {
                 'patient': PatientSerializer(patient).data,

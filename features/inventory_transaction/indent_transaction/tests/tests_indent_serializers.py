@@ -163,9 +163,9 @@ class IndentInventoryTransactionSerializerTestCase(BaseTestCase):
             json.dumps(serializer.data, cls=UUIDEncoder))
 
         del serializer_data['inventory_transaction_id']
-        # Remove 'created_on' and 'updated_on' from serializer_data
-        serializer_data.pop('created_on', None)
-        serializer_data.pop('updated_on', None)
+        # Remove 'created_at' and 'updated_at' from serializer_data
+        serializer_data.pop('created_at', None)
+        serializer_data.pop('updated_at', None)
 
         print('\nserializer_data\n', serializer_data)
 

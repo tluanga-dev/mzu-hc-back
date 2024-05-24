@@ -90,8 +90,8 @@ class ItemStockInfo(TimeStampedAbstractModelClass):
     def get_latest_by_item_id(cls, item_id):
         try:
             # Ensure the query is correctly capturing the latest item stock info
-            # Using '-created_on' to ensure we get the most recent record first
-            data = cls.objects.filter(item=item_id).order_by('created_on').last()
+            # Using '-created_at' to ensure we get the most recent record first
+            data = cls.objects.filter(item=item_id).order_by('created_at').last()
             # if data:
             #     print(f'Successfully found latest stock info for item_id {item_id}: {data}')
             # else:
@@ -104,12 +104,12 @@ class ItemStockInfo(TimeStampedAbstractModelClass):
     @classmethod
     def get_latest_by_item_batch_id(cls, item_batch_id):
         # Assuming ItemBatch has a direct link to Item which needs to be confirmed
-        return cls.objects.filter(item_batch=item_batch_id).order_by('created_on').last()
+        return cls.objects.filter(item_batch=item_batch_id).order_by('created_at').last()
     
     @classmethod
     def get_latest_stock_info_of_item_batch(cls, item_batch_id):
         try:
-            data = cls.objects.filter(item_batch=item_batch_id).order_by('created_on').last()
+            data = cls.objects.filter(item_batch=item_batch_id).order_by('created_at').last()
             if data:
                 # print(f'Successfully found latest stock info for item_batch_id {item_batch_id}: {data}')
                 return data

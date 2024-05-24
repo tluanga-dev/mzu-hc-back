@@ -88,11 +88,11 @@
         
         
 
-#         serializer.data["department"].pop('created_on', None)
-#         serializer.data["department"].pop('updated_on', None)
-#         serializer.data["person_type"].pop('created_on', None)
-#         serializer.data["person_type"].pop('updated_on', None)
-#         # serializer.data.pop('updated_on', None)
+#         serializer.data["department"].pop('created_at', None)
+#         serializer.data["department"].pop('updated_at', None)
+#         serializer.data["person_type"].pop('created_at', None)
+#         serializer.data["person_type"].pop('updated_at', None)
+#         # serializer.data.pop('updated_at', None)
 #         # print('serializer data',json.dumps(serializer.data, indent=4))
 #         # print('expected data',json.dumps(expected_data, indent=4))
        

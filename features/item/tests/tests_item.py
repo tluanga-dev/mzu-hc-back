@@ -86,7 +86,7 @@ class ItemSerializerTestCase(BaseTestCase):
 
     def test_contains_expected_fields(self):
         data = self.serializer.data
-        self.assertCountEqual(data.keys(), ['id', 'name', 'description', 'type', 'is_active', 'created_on', 'updated_on'])
+        self.assertCountEqual(data.keys(), ['id', 'name', 'description', 'type', 'is_active', 'created_at', 'updated_at'])
 
 class ItemViewSetTestCase(BaseTestCase):
     def setUp(self):

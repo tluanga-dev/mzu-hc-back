@@ -23,8 +23,8 @@ class IdManager(TimeStampedAbstractModelClass):
            
             # step 3, update the latest id
             id_manager.latest_id = next_id
-            # step 4, update  updated_on
-            id_manager.updated_on = datetime.now()
+            # step 4, update  updated_at
+            id_manager.updated_at = datetime.now()
             id_manager.save()  
            
             return id_manager.latest_id 

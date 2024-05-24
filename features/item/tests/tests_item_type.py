@@ -45,8 +45,8 @@ class ItemTypeSerializerTest(TestCase):
             'example': 'Test Example', 
             'category': self.item_category.id, 
             'is_active': True, 
-            'created_on': itemtype.created_on.isoformat().replace('+00:00', 'Z'),  # Replace this line
-            'updated_on': itemtype.updated_on.isoformat().replace('+00:00', 'Z')  # And this line
+            'created_at': itemtype.created_at.isoformat().replace('+00:00', 'Z'),  # Replace this line
+            'updated_at': itemtype.updated_at.isoformat().replace('+00:00', 'Z')  # And this line
         }
         self.assertEqual(serializer.data, expected_data)
 

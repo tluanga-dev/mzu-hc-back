@@ -63,8 +63,8 @@
 #         'inventory_transaction_item_set': dispense_list
 #     }
 #     this data will be processed by this serializer-class InventoryTransactionSerializer(serializers.ModelSerializer):
-#     created_on = serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
-#     updated_on = serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S", read_only=True)
+#     created_at = serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
+#     updated_at = serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S", read_only=True)
 
 #     inventory_transaction_id = serializers.CharField(read_only=True)
 #     inventory_transaction_item_set = serializers.ListSerializer(
@@ -72,7 +72,7 @@
 #         read_only=False
 #     )
 #     inventory_transaction_type=serializers.CharField(read_only=True)
-#     created_on = serializers.SerializerMethodField()
+#     created_at = serializers.SerializerMethodField()
 
 #     def create(self, validated_data):
 #         try:
@@ -111,6 +111,6 @@
 
 #         return instance
     
-#     def get_created_on(self, obj):
-#         return obj.created_on.strftime('%d-%m-%Y %H:%M')
+#     def get_created_at(self, obj):
+#         return obj.created_at.strftime('%d-%m-%Y %H:%M')
     

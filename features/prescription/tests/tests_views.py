@@ -30,14 +30,7 @@ class PrescriptionViewSetTestCase(APITestCase):
             mzu_employee_id=self.fake.unique.random_number(digits=8),
             designation=self.fake.job()
         )
-
-        # Set up patient
-        self.patient = Patient.objects.create(
-            patient_type='Employee',
-            employee=self.employee,
-            illness=self.fake.sentence(),
-            allergy=self.fake.sentence()
-        )
+        
 
         # Set up unit of measurement
         self.unit_of_measurement = UnitOfMeasurement.objects.create(
@@ -101,10 +94,10 @@ class PrescriptionViewSetTestCase(APITestCase):
 
     def test_create_prescription(self):
         url = reverse('prescription-list')
-        print(self.prescription_data)
+
         response = self.client.post(url, self.prescription_data, format='json')
         # print(response.status_code)
-        print(response.data)  # Print response data to see the validation errors
+
         self.assertEqual(response.status_code, 201)
         self.assertIn('patient', response.data)
         self.assertIn('prescription', response.data)

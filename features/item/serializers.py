@@ -17,7 +17,7 @@ class ItemCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = ItemCategory
         fields = ['id', 'name', 'abbreviation', 'description',
-                  'is_active', 'created_on', 'updated_on']
+                  'is_active', 'created_at', 'updated_at']
 
 
 class ItemCategorySerializerForUser(serializers.ModelSerializer):
@@ -32,7 +32,7 @@ class ItemTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ItemType
         fields = ['id', 'name', 'abbreviation', 'description',
-                  'example', 'category', 'is_active', 'created_on', 'updated_on']
+                  'example', 'category', 'is_active', 'created_at', 'updated_at']
 
 
 class ItemTypeSerializerForUser(serializers.ModelSerializer):
@@ -55,7 +55,7 @@ class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = ['id', 'name', 'description', 'type',
-                  'is_active', 'created_on', 'updated_on']
+                  'is_active', 'created_at', 'updated_at']
 
 
 class CustomDateField(serializers.DateField):
@@ -76,7 +76,7 @@ class ItemBatchSerializer(serializers.ModelSerializer):
     class Meta:
         model = ItemBatch
         fields = ['id', 'batch_id', 'description', 'date_of_expiry',
-                  'item', 'is_active', 'created_on', 'updated_on']
+                  'item', 'is_active', 'created_at', 'updated_at']
 class UnitOfMeasurementSerializerForUser(serializers.ModelSerializer):
   
     class Meta:

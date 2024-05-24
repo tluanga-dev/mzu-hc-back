@@ -17,7 +17,7 @@ class MedicineDosageTimingSerializer(serializers.ModelSerializer):
             'day_med_schedule',
             'medicine_timing',
             'medicine_dosage',
-            'updated_on'
+            'updated_at'
         ]
 
 
