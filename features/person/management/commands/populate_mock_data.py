@@ -112,6 +112,7 @@ class Command(BaseCommand):
 
     def create_patients(self, n, employees, students, dependents, outsiders):
         patients = []
+        created_patients_info = []
         patient_lookup = {
             Patient.PatientType.EMPLOYEE: lambda: fake.random_element(elements=employees),
             Patient.PatientType.STUDENT: lambda: fake.random_element(elements=students),
@@ -119,7 +120,11 @@ class Command(BaseCommand):
             Patient.PatientType.MZU_OUTSIDER: lambda: fake.random_element(elements=outsiders)
         }
 
-        for _ in range(n):
+        attempts = 0
+        max_attempts = n * 2  # To avoid infinite loops, set a reasonable upper limit on attempts
+
+        while len(patients) < n and attempts < max_attempts:
+            attempts += 1
             try:
                 patient_type = fake.random_element(elements=[
                     Patient.PatientType.EMPLOYEE,
@@ -130,48 +135,60 @@ class Command(BaseCommand):
 
                 related_entity = patient_lookup[patient_type]()
 
-                if patient_type == Patient.PatientType.EMPLOYEE:
-                    patient, created = Patient.objects.get_or_create(
-                        employee=related_entity,
-                        defaults={
-                            'patient_type': Patient.PatientType.EMPLOYEE,
-                            'illness': fake.sentence(),
-                            'allergy': fake.sentence()
-                        }
-                    )
-                elif patient_type == Patient.PatientType.STUDENT:
-                    patient, created = Patient.objects.get_or_create(
-                        student=related_entity,
-                        defaults={
-                            'patient_type': Patient.PatientType.STUDENT,
-                            'illness': fake.sentence(),
-                            'allergy': fake.sentence()
-                        }
-                    )
-                elif patient_type == Patient.PatientType.EMPLOYEE_DEPENDENT:
-                    patient, created = Patient.objects.get_or_create(
-                        employee_dependent=related_entity,
-                        defaults={
-                            'patient_type': Patient.PatientType.EMPLOYEE_DEPENDENT,
-                            'illness': fake.sentence(),
-                            'allergy': fake.sentence()
-                        }
-                    )
-                elif patient_type == Patient.PatientType.MZU_OUTSIDER:
-                    patient, created = Patient.objects.get_or_create(
-                        mzu_outsider=related_entity,
-                        defaults={
-                            'patient_type': Patient.PatientType.MZU_OUTSIDER,
-                            'illness': fake.sentence(),
-                            'allergy': fake.sentence()
-                        }
-                    )
+                with transaction.atomic():
+                    if patient_type == Patient.PatientType.EMPLOYEE:
+                        patient, created = Patient.objects.get_or_create(
+                            employee=related_entity,
+                            defaults={
+                                'patient_type': Patient.PatientType.EMPLOYEE,
+                                'illness': fake.sentence(),
+                                'allergy': fake.sentence()
+                            }
+                        )
+                    elif patient_type == Patient.PatientType.STUDENT:
+                        patient, created = Patient.objects.get_or_create(
+                            student=related_entity,
+                            defaults={
+                                'patient_type': Patient.PatientType.STUDENT,
+                                'illness': fake.sentence(),
+                                'allergy': fake.sentence()
+                            }
+                        )
+                    elif patient_type == Patient.PatientType.EMPLOYEE_DEPENDENT:
+                        patient, created = Patient.objects.get_or_create(
+                            employee_dependent=related_entity,
+                            defaults={
+                                'patient_type': Patient.PatientType.EMPLOYEE_DEPENDENT,
+                                'illness': fake.sentence(),
+                                'allergy': fake.sentence()
+                            }
+                        )
+                    elif patient_type == Patient.PatientType.MZU_OUTSIDER:
+                        patient, created = Patient.objects.get_or_create(
+                            mzu_outsider=related_entity,
+                            defaults={
+                                'patient_type': Patient.PatientType.MZU_OUTSIDER,
+                                'illness': fake.sentence(),
+                                'allergy': fake.sentence()
+                            }
+                        )
 
-                if created:
-                    patients.append(patient)
+                    if created:
+                        patients.append(patient)
+                        created_patients_info.append({
+                            'patient_id': patient.mzu_hc_id,
+                            'patient_type': patient.get_patient_type_display(),
+                            'related_entity': str(related_entity)
+                        })
 
             except Exception as e:
                 logger.error(f'Error creating patient: {e}')
+
+        # if len(patients) < n:
+        #     logger.warning(f'Only created {len(patients)} out of {n} patients after {attempts} attempts.')
+
+        # for info in created_patients_info:
+        #     print(f"Created patient with ID {info['patient_id']} of type {info['patient_type']} related to {info['related_entity']}")
 
         logger.info(f'Created {len(patients)} patients')
         return patients
@@ -261,8 +278,8 @@ class Command(BaseCommand):
             outsiders = self.create_mzu_outsiders(200)
             items = self.create_items(100)
             patients = self.create_patients(100, employees, students, dependents, outsiders)
-            # prescriptions = self.create_prescriptions(10, patients)
-            # self.create_prescription_items(15, prescriptions, items)
+            prescriptions = self.create_prescriptions(10, patients)
+            self.create_prescription_items(15, prescriptions, items)
 
         except Exception as e:
             logger.error(f'Error populating database: {e}')
