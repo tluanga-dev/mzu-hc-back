@@ -10,11 +10,12 @@ from features.person.serializers import  EmployeeDependentSerializer, EmployeeSe
 class EmployeeFilter(django_filters.FilterSet):
     mzu_id = django_filters.CharFilter(field_name='employee_id', lookup_expr='icontains')
     name = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
-    department = django_filters.CharFilter(field_name='department', lookup_expr='icontains')
+    # organisation_unit = django_filters.CharFilter(field_name='organisation_unit', lookup_expr='icontains')
+    employee_type = django_filters.CharFilter(field_name='employee_type', lookup_expr='iexact')
 
     class Meta:
         model = Employee
-        fields = []
+        fields = ['mzu_id', 'name', 'employee_type']
 
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
@@ -66,7 +67,7 @@ class MZUOutsiderFilter(django_filters.FilterSet):
     # mzu_student_id = django_filters.CharFilter(field_name='mzu_student_id', lookup_expr='exact')
     name = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
     class Meta:
-        model = Student
+        model = MZUOutsider
         fields = ['name']
 
 
