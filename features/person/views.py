@@ -13,14 +13,14 @@ class StandardResultsSetPagination(PageNumberPagination):
 # -------Employee
 
 class EmployeeFilter(django_filters.FilterSet):
-    mzu_id = django_filters.CharFilter(field_name='employee_id', lookup_expr='icontains')
+    mzu_employee_id = django_filters.CharFilter(field_name='mzu_employee_id', lookup_expr='icontains')
     name = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
     organisation_unit = django_filters.CharFilter(field_name='organisation_unit', lookup_expr='icontains')
     employee_type = django_filters.CharFilter(field_name='employee_type', lookup_expr='iexact')
 
     class Meta:
         model = Employee
-        fields = ['mzu_id', 'name', 'employee_type']
+        fields = [ 'name', 'employee_type','organisation_unit','mzu_employee_id']
 
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
