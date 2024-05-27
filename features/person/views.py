@@ -33,19 +33,16 @@ class EmployeeViewSet(viewsets.ModelViewSet):
 # ---------Employee Dependent-------------
 
 class EmployeeDependentFilter(django_filters.FilterSet):
-    mzu_employee_id = django_filters.CharFilter(field_name='employee__mzu_employee_id', lookup_expr='exact')
-    employee_name = django_filters.CharFilter(field_name='employee__name', lookup_expr='icontains')
     name = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
-   
+    employee_name = django_filters.CharFilter(field_name='employee__name', lookup_expr='icontains')
+    mzu_employee_id = django_filters.CharFilter(field_name='employee__mzu_employee_id', lookup_expr='icontains')
+
     class Meta:
         model = EmployeeDependent
-        fields = ['name', 'relation', 'employee__name', 'employee__mzu_employee_id']
-
-
-
+        fields = ['name', 'employee_name', 'mzu_employee_id']
 
 class EmployeeDependentViewSet(viewsets.ModelViewSet):
-    queryset = EmployeeDependent.objects.all().select_related('employee')
+    queryset = EmployeeDependent.objects.all().select_related('employee')  # Ensure related fields are selected
     serializer_class = EmployeeDependentSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
     filterset_class = EmployeeDependentFilter

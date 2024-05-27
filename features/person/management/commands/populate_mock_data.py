@@ -272,12 +272,12 @@ class Command(BaseCommand):
             # Create mock data
             logger.info('Creating mock data')
             organisation_units = self.create_organisation_units(30)
-            employees = self.create_employees(10, organisation_units)
-            dependents = self.create_employee_dependents(30, employees)
-            students = self.create_students(40, organisation_units)
+            employees = self.create_employees(500, organisation_units)
+            dependents = self.create_employee_dependents(300, employees)
+            students = self.create_students(400, organisation_units)
             outsiders = self.create_mzu_outsiders(200)
             items = self.create_items(100)
-            patients = self.create_patients(100, employees, students, dependents, outsiders)
+            patients = self.create_patients(1000, employees, students, dependents, outsiders)
             prescriptions = self.create_prescriptions(10, patients)
             self.create_prescription_items(15, prescriptions, items)
 
