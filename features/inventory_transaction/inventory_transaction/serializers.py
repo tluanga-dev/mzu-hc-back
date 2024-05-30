@@ -3,6 +3,7 @@ from rest_framework import serializers
 from features.item.models import Item, ItemBatch
 
 
+from features.item.serializers import ItemBatchSerializer
 from features.organisation_unit.serializers import OrganisationUnitSerializer
 from features.utils.convert_date import DateConverter
 
@@ -15,14 +16,7 @@ class InventoryTransactionItemSerializer(serializers.ModelSerializer):
     inventory_transaction = serializers.PrimaryKeyRelatedField(read_only=True)
     # inventory_transaction_type = serializers.SerializerMethodField() 
     item=serializers.SerializerMethodField()
-    item_batch=serializers.SerializerMethodField()
-
-    def get_item_batch(self,obj):
-        item_batch={
-            'batch_id':obj.item_batch.batch_id,
-            'date_of_expiry':obj.item_batch.date_of_expiry
-        }
-        return item_batch
+    
 
     def get_item(self,obj):
         item={
@@ -35,6 +29,15 @@ class InventoryTransactionItemSerializer(serializers.ModelSerializer):
     # def get_inventory_transaction_type(self, obj):
     #     return obj.inventory_transaction.inventory_transaction_type
     
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['item_batch'] = {
+            'batch_id': instance.item_batch.batch_id,
+            'date_of_expiry': instance.item_batch.date_of_expiry
+        }
+
+        return representation
+
     class Meta:
         model = InventoryTransactionItem
         fields = [
