@@ -1,15 +1,21 @@
 # views.py
 from django.http import Http404
 from rest_framework import status
-
+import django_filters.rest_framework
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from features.utils.convert_date import DateConverter
-
+from rest_framework.pagination import PageNumberPagination
 from features.utils.print_json import print_json_string
 from .models import Item, ItemBatch, ItemCategory, ItemType, UnitOfMeasurement
-from .serializers import ItemBatchSerializer, ItemCategorySerializer, ItemSerializer, ItemSerializerForUser, ItemTypeSerializer, ItemWithStockInfoSerializer, UnitOfMeasurementSerializer
+from .serializers import ItemBatchSerializer, ItemCategorySerializer, ItemDetailSerializerForReport, ItemSerializer, ItemSerializerForUser, ItemTypeSerializer, ItemWithStockInfoSerializer, UnitOfMeasurementSerializer
+
+class StandardResultsSetPagination(PageNumberPagination):
+    """Standard pagination settings for the API results."""
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 100
 
 
 class UnitOfMeasurementViewSet(viewsets.ModelViewSet):
@@ -33,9 +39,21 @@ class ItemViewSet(viewsets.ModelViewSet):
     serializer_class = ItemSerializerForUser
 
 
+# -----Item Stock info viewset--
+class ItemWithStockInfoFilter(django_filters.FilterSet):
+    item_id = django_filters.CharFilter(field_name='id', lookup_expr='icontains')
+    name = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
+   
+    class Meta:
+        model = Item
+        fields = ['item_id', 'name']
+
 class ItemWithStockInfoViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemWithStockInfoSerializer
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_class = ItemWithStockInfoFilter
+    pagination_class = StandardResultsSetPagination
 
 class ItemBatchViewSet(viewsets.ModelViewSet):
     queryset = ItemBatch.objects.all()
@@ -79,3 +97,12 @@ class ItemBatchViewSet(viewsets.ModelViewSet):
             raise Http404
 
 
+class ItemDetailForReportViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Item.objects.all()
+    serializer_class = ItemDetailSerializerForReport
+
+    @action(detail=True, methods=['get'])
+    def revieve_item_detail_by_batch_id(self, request, pk=None):
+        item_detail = self.get_object()
+        serializer = self.get_serializer(item_detail)
+        return Response(serializer.data)

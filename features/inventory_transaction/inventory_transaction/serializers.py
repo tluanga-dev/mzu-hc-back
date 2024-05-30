@@ -15,11 +15,20 @@ class InventoryTransactionItemSerializer(serializers.ModelSerializer):
     inventory_transaction = serializers.PrimaryKeyRelatedField(read_only=True)
     # inventory_transaction_type = serializers.SerializerMethodField() 
     item=serializers.SerializerMethodField()
+    item_batch=serializers.SerializerMethodField()
+
+    def get_item_batch(self,obj):
+        item_batch={
+            'batch_id':obj.item_batch.batch_id,
+            'date_of_expiry':obj.item_batch.date_of_expiry
+        }
+        return item_batch
 
     def get_item(self,obj):
         item={
             'name': obj.item_batch.item.name,
             'type':obj.item_batch.item.type.name
+            
         }
         return  item
 
@@ -54,6 +63,7 @@ class InventoryTransactionSerializer(serializers.ModelSerializer):
         try:
             transaction_items_data = validated_data.pop('inventory_transaction_item_set')
             transaction = self.Meta.model.objects.create(**validated_data)
+            
             transaction.save()  # Ensure the transaction is saved
             for transaction_item_data in transaction_items_data:
                 InventoryTransactionItem.objects.create(inventory_transaction=transaction, **transaction_item_data)
@@ -154,6 +164,8 @@ class ItemBatchStockInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ItemBatch
         fields=['batch_id', 'quantity_in_stock','date_of_expiry']
+
+
 
 class ItemTransactionDetailSerializer(serializers.ModelSerializer):
     quantity_in_stock = serializers.SerializerMethodField()

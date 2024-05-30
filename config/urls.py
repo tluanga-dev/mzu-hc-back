@@ -22,7 +22,7 @@ from features.inventory_transaction.dispense_transaction.views import DispenseIn
 from features.inventory_transaction.indent_transaction.views import IndentInventoryTransactionViewSet
 from features.inventory_transaction.inventory_transaction.views import ItemTransactionsView
 from features.inventory_transaction.issue_transaction.views import IssueItemInventoryTransactionViewSet
-from features.item.views import ItemBatchViewSet, ItemCategoryViewSet, ItemTypeViewSet, ItemViewSet, ItemWithStockInfoViewSet, UnitOfMeasurementViewSet
+from features.item.views import ItemBatchViewSet, ItemCategoryViewSet, ItemDetailForReportViewSet, ItemTypeViewSet, ItemViewSet, ItemWithStockInfoViewSet, UnitOfMeasurementViewSet
 from features.medicine.views import  MedicineDosageViewSet
 from features.patient.views import PatientViewSet
 from features.person.views import EmployeeDependentViewSet, EmployeeViewSet, MZUOutsiderViewSet, StudentViewSet
@@ -47,7 +47,7 @@ router.register(r'item', ItemViewSet, basename='item')
 
 
 
-
+router.register(r'item_detail_for_report', ItemDetailForReportViewSet, basename='item-detail-for-report')
 
 
 # --------Medicine---------
@@ -108,7 +108,7 @@ urlpatterns = [
    
     
     path('item/<uuid:item_id>/<str:batch_id>/', ItemBatchViewSet.as_view({'get': 'retrieve_batch'}), name='item-batch-detail'),
-    
+    path('item_detail_for_report/<int:pk>/', ItemDetailForReportViewSet.as_view({'get':'revieve_item_detail_by_batch_id'}), name='item_detail_for_report_api'),
 
     path('transaction/<uuid:pk>/', ItemTransactionsView.as_view({'get':'retrieve'}), name='item-transactions-detail'),
     

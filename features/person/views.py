@@ -42,7 +42,7 @@ class EmployeeDependentFilter(django_filters.FilterSet):
         fields = ['name', 'employee_name', 'mzu_employee_id']
 
 class EmployeeDependentViewSet(viewsets.ModelViewSet):
-    queryset = EmployeeDependent.objects.all().select_related('employee')  # Ensure related fields are selected
+    queryset = EmployeeDependent.objects.all()
     serializer_class = EmployeeDependentSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
     filterset_class = EmployeeDependentFilter
