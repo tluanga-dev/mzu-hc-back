@@ -41,6 +41,7 @@ class Item(TimeStampedAbstractModelClass):
     description = models.TextField()
     type = models.ForeignKey(ItemType, null=True, on_delete=models.SET_NULL)
     unit_of_measurement = models.ForeignKey(UnitOfMeasurement, on_delete=models.CASCADE)
+    
     is_consumable = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):

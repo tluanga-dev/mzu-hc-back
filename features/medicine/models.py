@@ -3,6 +3,13 @@ from django.db import models
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
 
 from features.item.models import Item
+class MedicineQuantityInOneTakeUnit(TimeStampedAbstractModelClass):
+    item=models.ManyToManyField(Item, related_name='medicine_quantity_in_one_take_unit')
+    name = models.CharField(max_length=255, unique=True)
+
+    class Meta:
+        app_label = 'medicine'
+
 
 class MedicineDosage(TimeStampedAbstractModelClass):
     DURATION_CHOICES = [
@@ -23,6 +30,7 @@ class MedicineDosage(TimeStampedAbstractModelClass):
 
 class MedicineDosageTiming(TimeStampedAbstractModelClass):
     quantity_in_one_take = models.IntegerField()
+    quantity_in_one_take_unit = models.ManyToManyField(MedicineQuantityInOneTakeUnit)
     # dayMedSchedule can have values like-morning, afternoon, evening,noon
     day_med_schedule = models.CharField(max_length=255)
     # medicineTiming can have values like- before meal, after meal,

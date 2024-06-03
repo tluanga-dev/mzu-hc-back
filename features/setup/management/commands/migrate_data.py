@@ -3,6 +3,7 @@ from googleapiclient.discovery import build
 from features.id_manager.models import IdManager
 from features.item.models import Item, ItemCategory, ItemType, UnitOfMeasurement
 from features.item.serializers import ItemTypeSerializer
+from features.medicine.models import MedicineQuantityInOneTakeUnit
 from features.organisation_unit.models import OrganisationUnit
 from features.person.models import Employee, Person
 from features.supplier.models import Supplier
@@ -162,7 +163,7 @@ def migrate_item():
             unit_of_measurement = UnitOfMeasurement.objects.get(name=row[3])
             is_consumable = row[4].lower() == 'true'
             contents = row[5] if len(row) > 5 and row[5] is not None else ''
-            Item.objects.create(
+            item=Item.objects.create(
                 name=row[1],
                 contents=contents,
                 type=type,
@@ -170,6 +171,43 @@ def migrate_item():
                 is_consumable=is_consumable,
                 description='',
             )
+            quantity_in_one_take_unit_1 = row[6] if len(row) > 6 and row[6] is not None else ''
+            quantity_in_one_take_unit_2 = row[7] if len(row) > 7 and row[7] is not None else ''
+            quantity_in_one_take_unit_3 = row[8] if len(row) > 8 and row[8] is not None else ''
+            if(quantity_in_one_take_unit_1!=''):
+                # -check that it is not already exist in the database
+                medicine_quantity_unit, created = MedicineQuantityInOneTakeUnit.objects.get_or_create(
+                    name=quantity_in_one_take_unit_1,
+                    defaults={
+                        'name': quantity_in_one_take_unit_1,  # Provide the default values for other fields
+                    }
+                )
+                medicine_quantity_unit.item.add(item)
+            
+            if(quantity_in_one_take_unit_2!=''):
+                # -check that it is not already exist in the database
+                medicine_quantity_unit, created = MedicineQuantityInOneTakeUnit.objects.get_or_create(
+                    name=quantity_in_one_take_unit_2,
+                    defaults={
+                        'name': quantity_in_one_take_unit_2,  # Provide the default values for other fields
+                    }
+                )
+                medicine_quantity_unit.item.add(item)
+            
+            if(quantity_in_one_take_unit_3!=''):
+                # -check that it is not already exist in the database
+                medicine_quantity_unit, created = MedicineQuantityInOneTakeUnit.objects.get_or_create(
+                    name=quantity_in_one_take_unit_3,
+                    defaults={
+                        'name': quantity_in_one_take_unit_3,  # Provide the default values for other fields
+                    }
+                )
+                medicine_quantity_unit.objects.add(item)
+
+
+            
+
+           
             migrated_count += 1
         except Exception as e:
             failed_count += 1
