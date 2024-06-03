@@ -14,7 +14,7 @@ class Patient(TimeStampedAbstractModelClass):
         EMPLOYEE = 'Employee', _('Employee')
         EMPLOYEE_DEPENDENT = 'Employee Dependent', _('Employee Dependent')
         STUDENT = 'Student', _('Student')
-        MZU_OUTSIDER = 'MZU_outsider', _('MZU Outsider')
+        MZU_OUTSIDER = 'MZU Outsider', _('MZU Outsider')
 
     mzu_hc_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     employee = models.OneToOneField(Employee, on_delete=models.DO_NOTHING, null=True, blank=True, unique=True)
@@ -71,6 +71,34 @@ class Patient(TimeStampedAbstractModelClass):
 
     def __str__(self):
         return f"Patient {self.mzu_hc_id} ({self.get_patient_type_display()})"
+    
+    def get_name(self):
+        """Returns the name of the patient."""
+        if self.patient_type == self.PatientType.EMPLOYEE:
+            return self.employee.get_name()
+        if self.patient_type == self.PatientType.EMPLOYEE_DEPENDENT:
+            return self.employee_dependent.get_name()
+        if self.patient_type == self.PatientType.STUDENT:
+            return self.student.get_name()
+        if self.patient_type == self.PatientType.MZU_OUTSIDER:
+            name= self.mzu_outsider.name
+            print('name for mzu outsider',name)
+            return name
+        return None
+    
+    def get_mzu_id(self):
+        """Returns the name of the patient."""
+        if self.patient_type == self.PatientType.EMPLOYEE:
+            return self.employee.mzu_employee_id
+        if self.patient_type == self.PatientType.EMPLOYEE_DEPENDENT:
+            return self.employee_dependent.mzu_employee_dependent_id
+        if self.patient_type == self.PatientType.STUDENT:
+            return self.student.mzu_student_id
+        if self.patient_type == self.PatientType.MZU_OUTSIDER:
+            return self.mzu_hc_id
+        return None
+    
+
     
     @property
     def related_person(self):

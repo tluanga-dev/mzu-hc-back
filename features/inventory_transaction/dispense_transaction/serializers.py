@@ -1,14 +1,14 @@
 from features.inventory_transaction.dispense_transaction.generate_dispense_list import generate_dispense_list
 from features.inventory_transaction.dispense_transaction.models import DispenseInventoryTransaction
-from features.inventory_transaction.inventory_transaction.models import InventoryTransaction, InventoryTransactionItem
-from features.inventory_transaction.inventory_transaction.serializers import InventoryTransactionItemSerializer, InventoryTransactionSerializer
+from features.inventory_transaction.inventory_transaction.models import  InventoryTransactionItem
+from features.inventory_transaction.inventory_transaction.serializers import  InventoryTransactionSerializer
 from features.item.models import Item, ItemCategory, ItemType, UnitOfMeasurement
 
 
 
 from rest_framework import serializers
 
-from features.prescription.serializers.prescription_serializer import PrescriptionSerializer
+from features.prescription.serializers.prescription_serializer import PrescriptionDetailSerializer
 from features.utils.print_json import print_json_string
 
 class DispenseItemSerializer(serializers.ModelSerializer):
@@ -93,7 +93,7 @@ class DispenseInventoryTransactionSerializer(InventoryTransactionSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['prescription'] = PrescriptionSerializer(instance.prescription).data
+        representation['prescription'] = PrescriptionDetailSerializer(instance.prescription).data
         return representation
     
     class Meta:

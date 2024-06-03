@@ -3,7 +3,30 @@ from features.prescription.models import Prescription, PrescriptionItem
 from features.patient.serializers import PatientSerializer
 from features.prescription.serializers.prescription_item_serializer import PrescriptionItemSerializer
 
-class PrescriptionSerializer(serializers.ModelSerializer):
+class PrescriptionListSerializer(serializers.ModelSerializer):
+    date_and_time = serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
+
+    class Meta:
+        model = Prescription
+        fields = [
+            'id',
+            'code', 
+            'date_and_time', 
+            'prescription_dispense_status'
+        ]
+        read_only_fields = ['code']
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['patient'] = {
+            'id':instance.patient.id,
+            'name': instance.patient.get_name(),
+            'patient_type': instance.patient.patient_type,
+            'mzu_id': instance.patient.get_mzu_id()
+        } 
+        return representation
+
+class PrescriptionDetailSerializer(serializers.ModelSerializer):
     prescribed_item_set = PrescriptionItemSerializer(many=True)
     date_and_time = serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
 

@@ -6,7 +6,8 @@ from features.prescription.models import Prescription, PrescriptionItem
 from features.medicine.models import MedicineDosage, MedicineDosageTiming
 from features.patient.serializers import PatientSerializer
 from features.person.serializers import MZUOutsiderSerializer
-from features.prescription.serializers.prescription_serializer import PrescriptionSerializer
+from features.prescription.serializers.prescription_serializer import PrescriptionDetailSerializer
+
 
 
 class UpdatePrescriptionSerializer(serializers.Serializer):
@@ -78,7 +79,7 @@ class UpdatePrescriptionSerializer(serializers.Serializer):
 
             return {
                 'patient': PatientSerializer(patient).data,
-                'prescription': PrescriptionSerializer(instance).data
+                'prescription': PrescriptionDetailSerializer(instance).data
             }
 
         except Exception as e:

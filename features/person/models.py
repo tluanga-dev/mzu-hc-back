@@ -47,7 +47,7 @@ class Person(TimeStampedAbstractModelClass):
     def formatted_date_of_birth(self):
         # Returns the date in dd-mm-yyyy format if the date is not None
         return self.date_of_birth.strftime('%d-%m-%Y') if self.date_of_birth else None
- 
+
     @classmethod
     def create(cls, **kwargs):
         if 'date_of_birth' in kwargs and isinstance(kwargs['date_of_birth'], str):
@@ -56,6 +56,8 @@ class Person(TimeStampedAbstractModelClass):
         instance.full_clean()  # Validates model fields before saving
         instance.save()
         return instance
+    def get_name(cls):
+        return cls.name
 
     def save(self, *args, **kwargs):
         if isinstance(self.date_of_birth, str):
@@ -74,7 +76,8 @@ class Employee(Person):
     employee_type=models.CharField(max_length=255,choices=EMPLOYEE_TYPE_CHOICES)
     mzu_employee_id = models.CharField(max_length=255, unique=True)
     designation = models.CharField(max_length=255)
-
+    def get_mzu_employee_id(self):
+        return self.mzu_employee_id
     class Meta:
         app_label = "person"
 
@@ -86,6 +89,8 @@ class EmployeeDependent(TimeStampedAbstractModelClass):
     date_of_birth = models.DateField(blank=True, null=True)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='employee_dependents')
 
+    def get_name(cls):
+        return cls.name
 
 # --Student Part--
 class Student(Person):
@@ -102,9 +107,14 @@ class MZUOutsider(TimeStampedAbstractModelClass):
         ('Female', 'Female'),
         ('Other', 'Other'),
     ]
-    
     name= models.CharField(max_length=255)
     gender = models.CharField(max_length=255, choices=GENDER_TYPE_CHOICES)
     age = models.PositiveIntegerField()
+
+    def get_name(cls):
+        print('getting name for outsider')
+        name=cls.name
+        print(name)
+        return name
     class Meta:
         app_label = "person"

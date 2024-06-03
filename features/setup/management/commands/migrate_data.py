@@ -228,7 +228,7 @@ def migrate_organisation_unit():
     logger.info(f"Organisation Unit migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
 
 
-def migrate_employee():
+def migrate_nt_employee():
     sheet_name = 'person_nt'
     Employee.objects.all().delete()
     sheets = authenticate()
@@ -261,6 +261,39 @@ def migrate_employee():
 
     logger.info(f"Employee migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
 
+def migrate_t_employee():
+    sheet_name = 'person_t'
+    
+    sheets = authenticate()
+    data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+
+    migrated_count = 0
+    failed_count = 0
+    
+    for row in data['values'][1:]:
+        try:
+            person_type = 'Teaching'
+           
+            organisation_unit=OrganisationUnit.objects.get(name=row[5])
+            Employee.objects.create(
+                mzu_employee_id=row[0],
+                name=row[1],
+                gender=row[2],
+                email=row[3],
+                mobile_no=int(row[4]) if len(row) > 3 and row[3].isdigit() else 0,
+                organisation_unit=organisation_unit,
+                designation=row[6],
+                # date_of_birth='22-12-1970', --working
+                date_of_birth=row[8],
+                employee_type=person_type
+            )
+            migrated_count += 1
+        except Exception as e:
+            failed_count += 1
+            logger.error(f"Failed to migrate  Employee Teaching employee '{row[1]}': {e}")
+
+    logger.info(f"Employee  Teacher migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
+
 
 
 def migrate():
@@ -274,7 +307,8 @@ def migrate():
     migrate_item_type()
     migrate_item()
     migrate_organisation_unit()
-    migrate_employee()
+    migrate_nt_employee()
+    migrate_t_employee()
     
 
 if __name__ == "__main__":

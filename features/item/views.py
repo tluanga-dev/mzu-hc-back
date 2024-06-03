@@ -33,20 +33,19 @@ class ItemTypeViewSet(viewsets.ModelViewSet):
     serializer_class = ItemTypeSerializer
 
 
-class ItemViewSet(viewsets.ModelViewSet):
 
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializerForUser
 
 
 # -----Item Stock info viewset--
 class ItemWithStockInfoFilter(django_filters.FilterSet):
     item_id = django_filters.CharFilter(field_name='id', lookup_expr='icontains')
     name = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
+    type = django_filters.CharFilter(field_name='type__name', lookup_expr='icontains')
+    category = django_filters.CharFilter(field_name='type__category__name', lookup_expr='icontains')
    
     class Meta:
         model = Item
-        fields = ['item_id', 'name']
+        fields = ['item_id', 'name','category']
 
 class ItemWithStockInfoViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
@@ -97,6 +96,8 @@ class ItemBatchViewSet(viewsets.ModelViewSet):
             raise Http404
 
 
+
+
 class ItemDetailForReportViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemDetailSerializerForReport
@@ -105,4 +106,59 @@ class ItemDetailForReportViewSet(viewsets.ReadOnlyModelViewSet):
     def revieve_item_detail_by_batch_id(self, request, pk=None):
         item_detail = self.get_object()
         serializer = self.get_serializer(item_detail)
+        return Response(serializer.data)
+
+class ItemFilter(django_filters.FilterSet):
+    item_id = django_filters.CharFilter(field_name='id', lookup_expr='icontains')
+    name = django_filters.CharFilter(field_name='name', lookup_expr='icontains')
+    type = django_filters.CharFilter(field_name='type__name', lookup_expr='icontains')
+    category = django_filters.CharFilter(field_name='type__category__name', lookup_expr='icontains')
+   
+    class Meta:
+        model = Item
+        fields = ['item_id', 'name','category']
+
+#example- http://localhost:8000/api/products/?detail=1    
+class ItemViewSet(viewsets.ModelViewSet):
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializerForUser
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_class = ItemFilter
+    pagination_class = StandardResultsSetPagination
+
+    def get_serializer_class(self):
+        detail_flag = self.request.query_params.get('detail', '1')
+        if detail_flag == '1':
+            return ItemSerializerForUser
+        elif detail_flag == '2':
+            return ItemWithStockInfoSerializer
+        elif detail_flag == '3':
+            return ItemDetailSerializerForReport
+        return ItemSerializerForUser
+    
+    # def list(self, request, *args, **kwargs):
+    #     print('returning list of items')
+    #     queryset = self.filter_queryset(self.get_queryset())
+    #     serializer_class = self.get_serializer_class()
+    #     serializer = serializer_class(queryset, many=True)
+        
+    #     return Response(serializer.data)
+
+    def list(self, request, *args, **kwargs):
+        print('returning list of items')
+        queryset = self.filter_queryset(self.get_queryset())
+        page = self.paginate_queryset(queryset)  # Use the paginate_queryset method
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        serializer_class = self.get_serializer_class()
+        serializer = serializer_class(queryset, many=True)
+        return Response(serializer.data)
+
+    def retrieve(self, request, *args, **kwargs):
+        print('retrieve method called')
+        instance = self.get_object()
+        print('instance', instance)
+        serializer_class = self.get_serializer_class()
+        serializer = serializer_class(instance)
         return Response(serializer.data)

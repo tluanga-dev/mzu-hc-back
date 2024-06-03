@@ -9,7 +9,8 @@ from features.prescription.models import Prescription, PrescriptionItem
 from features.medicine.models import MedicineDosage, MedicineDosageTiming
 from features.patient.serializers import PatientSerializer
 from features.person.serializers import MZUOutsiderSerializer
-from features.prescription.serializers.prescription_serializer import PrescriptionSerializer
+from features.prescription.serializers.prescription_serializer import PrescriptionDetailSerializer
+
 
 # Configure logging
 logger = logging.getLogger(__name__)
@@ -96,7 +97,7 @@ class CreatePrescriptionSerializer(serializers.Serializer):
 
             return {
                 'patient': PatientSerializer(patient).data,
-                'prescription': PrescriptionSerializer(new_prescription).data
+                'prescription': PrescriptionDetailSerializer(new_prescription).data
             }
 
         except Exception as e:

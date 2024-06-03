@@ -148,4 +148,4 @@ class ItemDetailSerializerForReport(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ['id', 'name', 'description', 'type', 'unit_of_measurement','item_batches','quantity_in_stock']
+        fields = ['id', 'name', 'contents','description', 'type', 'unit_of_measurement','item_batches','quantity_in_stock']

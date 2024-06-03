@@ -8,7 +8,7 @@ from rest_framework.pagination import PageNumberPagination
 import logging
 from rest_framework.decorators import action
 from features.prescription.serializers.create_prescription_serializer import CreatePrescriptionSerializer
-from features.prescription.serializers.prescription_serializer import PrescriptionSerializer
+from features.prescription.serializers.prescription_serializer import PrescriptionDetailSerializer, PrescriptionListSerializer
 from features.prescription.serializers.update_prescription_serializer import UpdatePrescriptionSerializer
 
 
@@ -38,17 +38,26 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
     A viewset that provides the standard actions
     """
     queryset = Prescription.objects.all()
-    serializer_class = PrescriptionSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = PrescriptionFilter
     pagination_class = PrescriptionPagination
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return PrescriptionListSerializer
+        if self.action == 'retrieve':
+            return PrescriptionDetailSerializer
+        if self.action == 'create':
+            return CreatePrescriptionSerializer
+        if self.action == 'update':
+            return UpdatePrescriptionSerializer
+        return PrescriptionDetailSerializer
 
     def create(self, request):
         """
         Handle the creation of a prescription and patient.
         """
-
-        serializer = CreatePrescriptionSerializer(data=request.data)
+        serializer = self.get_serializer(data=request.data)
       
         if serializer.is_valid():
             result = serializer.save()
@@ -66,7 +75,7 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
         except Prescription.DoesNotExist:
             return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
 
-        serializer = UpdatePrescriptionSerializer(instance, data=request.data)
+        serializer = self.get_serializer(instance, data=request.data)
         if serializer.is_valid():
             result = serializer.save()
             return Response(result, status=status.HTTP_200_OK)
@@ -81,7 +90,7 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
         except Prescription.DoesNotExist:
             return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
         
-        serializer = PrescriptionSerializer(instance)
+        serializer = self.get_serializer(instance)
         return Response(serializer.data)
 
     def list(self, request):
@@ -108,4 +117,3 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
         
         instance.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-
