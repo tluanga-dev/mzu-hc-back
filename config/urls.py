@@ -10,7 +10,7 @@ from features.item.views import (
     ItemBatchViewSet, ItemCategoryViewSet, ItemDetailForReportViewSet, ItemTypeViewSet, 
     ItemViewSet, ItemWithStockInfoViewSet, UnitOfMeasurementViewSet
 )
-from features.medicine.views import MedicineDosageViewSet
+from features.medicine.views import MedicineDosageViewSet, MedicineViewSet
 from features.patient.views import PatientViewSet
 from features.person.views import EmployeeDependentViewSet, EmployeeViewSet, MZUOutsiderViewSet, StudentViewSet
 from features.prescription.views import PrescriptionViewSet
@@ -44,6 +44,9 @@ router.register(r'patient', PatientViewSet, basename='patient')
 router.register(r'prescription', PrescriptionViewSet, basename='prescription')
 router.register(r'setup', SetupView, basename='setup')
 router.register(r'id_manager', IdManagerViewSet)
+
+# --medicine
+router.register(r'medicine', MedicineViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),

@@ -133,6 +133,7 @@ class ItemDetailSerializerForReport(serializers.ModelSerializer):
     item_batches = ItemBatchSerializer(many=True, read_only=True)
     unit_of_measurement = UnitOfMeasurementSerializerForUser(read_only=True)
     quantity_in_stock = serializers.IntegerField(read_only=True)
+    
 
     # ---- get all the 
 
