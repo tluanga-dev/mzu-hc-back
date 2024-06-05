@@ -6,9 +6,12 @@ from features.item.models import Item
 class MedicineQuantityInOneTakeUnit(TimeStampedAbstractModelClass):
     item=models.ManyToManyField(Item, related_name='medicine_quantity_in_one_take_unit')
     name = models.CharField(max_length=255, unique=True)
-
     class Meta:
         app_label = 'medicine'
+
+
+
+
 
 
 class MedicineDosage(TimeStampedAbstractModelClass):

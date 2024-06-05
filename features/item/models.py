@@ -34,6 +34,8 @@ class ItemType(TimeStampedAbstractModelClass):
 
 
 
+
+
 class Item(TimeStampedAbstractModelClass):
     name = models.CharField(max_length=255)
     contents=models.TextField(blank=True, null=True)
@@ -54,6 +56,14 @@ class Item(TimeStampedAbstractModelClass):
 
     class Meta:
         app_label = 'item'
+
+class MedicinePackaging(TimeStampedAbstractModelClass):
+    name=models.CharField(max_length=255)
+    label=models.CharField(max_length=255,unique=True)
+    unit=models.CharField(max_length=255)
+    item=models.ManyToManyField(Item, related_name='medicine_packaging')
+    class Meta:
+        app_label = 'medicine'
 
 class ItemBatch(TimeStampedAbstractModelClass):
     batch_id = models.CharField(max_length=255)

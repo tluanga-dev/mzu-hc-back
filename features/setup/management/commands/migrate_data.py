@@ -171,43 +171,58 @@ def migrate_item():
                 is_consumable=is_consumable,
                 description='',
             )
-            quantity_in_one_take_unit_1 = row[6] if len(row) > 6 and row[6] is not None else ''
-            quantity_in_one_take_unit_2 = row[7] if len(row) > 7 and row[7] is not None else ''
-            quantity_in_one_take_unit_3 = row[8] if len(row) > 8 and row[8] is not None else ''
-            if(quantity_in_one_take_unit_1!=''):
-                # -check that it is not already exist in the database
-                medicine_quantity_unit, created = MedicineQuantityInOneTakeUnit.objects.get_or_create(
-                    name=quantity_in_one_take_unit_1,
-                    defaults={
-                        'name': quantity_in_one_take_unit_1,  # Provide the default values for other fields
-                    }
-                )
-                medicine_quantity_unit.item.add(item)
+            # quantity_in_one_take_unit_1 = row[6] if len(row) > 6 and row[6] is not None else ''
+            # quantity_in_one_take_unit_2 = row[7] if len(row) > 7 and row[7] is not None else ''
+            # quantity_in_one_take_unit_3 = row[8] if len(row) > 8 and row[8] is not None else ''
             
-            if(quantity_in_one_take_unit_2!=''):
-                # -check that it is not already exist in the database
-                medicine_quantity_unit, created = MedicineQuantityInOneTakeUnit.objects.get_or_create(
-                    name=quantity_in_one_take_unit_2,
-                    defaults={
-                        'name': quantity_in_one_take_unit_2,  # Provide the default values for other fields
-                    }
-                )
-                medicine_quantity_unit.item.add(item)
-            
-            if(quantity_in_one_take_unit_3!=''):
-                # -check that it is not already exist in the database
-                medicine_quantity_unit, created = MedicineQuantityInOneTakeUnit.objects.get_or_create(
-                    name=quantity_in_one_take_unit_3,
-                    defaults={
-                        'name': quantity_in_one_take_unit_3,  # Provide the default values for other fields
-                    }
-                )
-                medicine_quantity_unit.objects.add(item)
-
-
-            
-
-           
+            if(type.category.name=='Medicine'):
+                if(unit_of_measurement=='Tablet'):
+                    quantity_in_one_take_units=['Tablet','mg']
+                    for(quantity_in_one_take_unit) in quantity_in_one_take_units:
+                        # -check that it is not already exist in the database
+                        medicine_quantity_unit, created = MedicineQuantityInOneTakeUnit.objects.get_or_create(
+                                name=quantity_in_one_take_unit,
+                                defaults={
+                                    'name': quantity_in_one_take_unit,  # Provide the default values for other fields
+                                }
+                            )
+                        medicine_quantity_unit.item.add(item)
+                if(unit_of_measurement=='Bottle'):
+                    quantity_in_one_take_units=['ml','teaspoon']
+                    for(quantity_in_one_take_unit) in quantity_in_one_take_units:
+                        # -check that it is not already exist in the database
+                        medicine_quantity_unit, created = MedicineQuantityInOneTakeUnit.objects.get_or_create(
+                                name=quantity_in_one_take_unit,
+                                defaults={
+                                    'name': quantity_in_one_take_unit,  # Provide the default values for other fields
+                                }
+                            )
+                        medicine_quantity_unit.item.add(item)
+                if(unit_of_measurement=='Ampoule'):
+                    quantity_in_one_take_units=['Ampoule']
+                    for(quantity_in_one_take_unit) in quantity_in_one_take_units:
+                        # -check that it is not already exist in the database
+                        medicine_quantity_unit, created = MedicineQuantityInOneTakeUnit.objects.get_or_create(
+                                name=quantity_in_one_take_unit,
+                                defaults={
+                                    'name': quantity_in_one_take_unit,  # Provide the default values for other fields
+                                }
+                            )
+                        medicine_quantity_unit.item.add(item)
+                if(unit_of_measurement=='Ampoule'):
+                    quantity_in_one_take_units=['Ampoule']
+                    for(quantity_in_one_take_unit) in quantity_in_one_take_units:
+                        # -check that it is not already exist in the database
+                        medicine_quantity_unit, created = MedicineQuantityInOneTakeUnit.objects.get_or_create(
+                                name=quantity_in_one_take_unit,
+                                defaults={
+                                    'name': quantity_in_one_take_unit,  # Provide the default values for other fields
+                                }
+                            )
+                        medicine_quantity_unit.item.add(item)
+                
+                   
+               
             migrated_count += 1
         except Exception as e:
             failed_count += 1

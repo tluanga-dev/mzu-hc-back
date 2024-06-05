@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from features.item.models import Item
 from features.item.serializers import ItemDetailSerializerForReport
-from features.medicine.models import MedicineDosage, MedicineDosageTiming, MedicineQuantityInOneTakeUnit
+from features.medicine.models import MedicineDosage, MedicineDosageTiming, MedicinePackaging, MedicineQuantityInOneTakeUnit
 
 class MedicineQuantityInOneTakeUnitSerializer(serializers.ModelSerializer):
     class Meta:
@@ -47,12 +47,18 @@ class MedicineDosageSerializer(serializers.ModelSerializer):
             MedicineDosageTiming.objects.create(medicine_dosage=dosage, **timing_data)
         return dosage
 
+class MedicinePackagingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedicinePackaging
+        fields = ['id','name', 'label', 'unit']
+
+
 
 class MedicineSerializer(ItemDetailSerializerForReport):
     # return the item details like name, description, type, unit_of_measurement
     # medicine_dosage = MedicineDosageSerializer(MedicineDosage, read_only=True)
     medicine_quantity_in_one_take_unit= MedicineQuantityInOneTakeUnitSerializer(many=True, read_only=True)
-
+    medicine_packaging = serializers.MedicinePackagingSerializer(many=True, read_only=True)
 
 
     class Meta:
