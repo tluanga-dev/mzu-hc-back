@@ -1,11 +1,12 @@
 from django.core.management import BaseCommand, call_command
 from googleapiclient.discovery import build
 from features.id_manager.models import IdManager
-from features.item.models import Item, ItemCategory, ItemType, UnitOfMeasurement
+from features.item.models import Item, ItemCategory, ItemPackaging, ItemType, MedicineDosageUnit, UnitOfMeasurement
 from features.item.serializers import ItemTypeSerializer
 from features.medicine.models import MedicineQuantityInOneTakeUnit
 from features.organisation_unit.models import OrganisationUnit
 from features.person.models import Employee, Person
+from features.setup.management.commands.migration_functions.get_medicine_dosage_unit import get_medicine_dosage_unit
 from features.supplier.models import Supplier
 
 from features.utils.convert_date import DateConverter
@@ -148,6 +149,57 @@ def migrate_item_type():
     logger.info(f"Item Type migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
 
 
+def migrate_item_packaging():
+    sheet_name = 'item_packaging'
+    ItemPackaging.objects.all().delete()
+    sheets = authenticate()
+    data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+
+    migrated_count = 0
+    failed_count = 0
+
+    for row in data['values'][1:]:
+        try:
+            
+            ItemPackaging.objects.create(
+                label=row[1],
+                name=row[2],
+                unit=row[3],
+            )
+            migrated_count += 1
+        except Exception as e:
+            failed_count += 1
+            logger.error(f"Failed to migrate item packaging '{row[1]}': {e}")
+    print('-----------------------------')
+    logger.info(f"Item Packaging migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
+    print('-----------------------------')
+
+def migrate_medicine_dosage_unit():
+    sheet_name = 'dosage_unit'
+    MedicineDosageUnit.objects.all().delete()
+    sheets = authenticate()
+    data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
+
+    migrated_count = 0
+    failed_count = 0
+
+    for row in data['values'][1:]:
+        try:
+        
+            MedicineDosageUnit.objects.create(
+                name=row[1],
+                description=row[2],
+                example=row[3],
+                dosage_example=row[4],
+            )
+            migrated_count += 1
+        except Exception as e:
+            failed_count += 1
+            logger.error(f"Failed to migrate item MedicineDosageUnit '{row[1]}': {e}")
+
+    logger.info(f"Item MedicineDosageUnit migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
+
+
 def migrate_item():
     sheet_name = 'item'
     Item.objects.all().delete()
@@ -159,69 +211,26 @@ def migrate_item():
 
     for row in data['values'][1:]:
         try:
+      
             type = ItemType.objects.get(name=row[2])
             unit_of_measurement = UnitOfMeasurement.objects.get(name=row[3])
             is_consumable = row[4].lower() == 'true'
             contents = row[5] if len(row) > 5 and row[5] is not None else ''
+           
+            packaging=ItemPackaging.objects.get(label=row[6])
+            medicine_dosage_unit=get_medicine_dosage_unit(packaging.label)
+
             item=Item.objects.create(
                 name=row[1],
                 contents=contents,
                 type=type,
                 unit_of_measurement=unit_of_measurement,
+                packaging=packaging,
+                
                 is_consumable=is_consumable,
                 description='',
             )
-            # quantity_in_one_take_unit_1 = row[6] if len(row) > 6 and row[6] is not None else ''
-            # quantity_in_one_take_unit_2 = row[7] if len(row) > 7 and row[7] is not None else ''
-            # quantity_in_one_take_unit_3 = row[8] if len(row) > 8 and row[8] is not None else ''
-            
-            if(type.category.name=='Medicine'):
-                if(unit_of_measurement=='Tablet'):
-                    quantity_in_one_take_units=['Tablet','mg']
-                    for(quantity_in_one_take_unit) in quantity_in_one_take_units:
-                        # -check that it is not already exist in the database
-                        medicine_quantity_unit, created = MedicineQuantityInOneTakeUnit.objects.get_or_create(
-                                name=quantity_in_one_take_unit,
-                                defaults={
-                                    'name': quantity_in_one_take_unit,  # Provide the default values for other fields
-                                }
-                            )
-                        medicine_quantity_unit.item.add(item)
-                if(unit_of_measurement=='Bottle'):
-                    quantity_in_one_take_units=['ml','teaspoon']
-                    for(quantity_in_one_take_unit) in quantity_in_one_take_units:
-                        # -check that it is not already exist in the database
-                        medicine_quantity_unit, created = MedicineQuantityInOneTakeUnit.objects.get_or_create(
-                                name=quantity_in_one_take_unit,
-                                defaults={
-                                    'name': quantity_in_one_take_unit,  # Provide the default values for other fields
-                                }
-                            )
-                        medicine_quantity_unit.item.add(item)
-                if(unit_of_measurement=='Ampoule'):
-                    quantity_in_one_take_units=['Ampoule']
-                    for(quantity_in_one_take_unit) in quantity_in_one_take_units:
-                        # -check that it is not already exist in the database
-                        medicine_quantity_unit, created = MedicineQuantityInOneTakeUnit.objects.get_or_create(
-                                name=quantity_in_one_take_unit,
-                                defaults={
-                                    'name': quantity_in_one_take_unit,  # Provide the default values for other fields
-                                }
-                            )
-                        medicine_quantity_unit.item.add(item)
-                if(unit_of_measurement=='Ampoule'):
-                    quantity_in_one_take_units=['Ampoule']
-                    for(quantity_in_one_take_unit) in quantity_in_one_take_units:
-                        # -check that it is not already exist in the database
-                        medicine_quantity_unit, created = MedicineQuantityInOneTakeUnit.objects.get_or_create(
-                                name=quantity_in_one_take_unit,
-                                defaults={
-                                    'name': quantity_in_one_take_unit,  # Provide the default values for other fields
-                                }
-                            )
-                        medicine_quantity_unit.item.add(item)
-                
-                   
+            item.medicine_dosage_unit.set(medicine_dosage_unit)
                
             migrated_count += 1
         except Exception as e:
@@ -358,6 +367,8 @@ def migrate():
     migrate_unit_of_measurement()
     migrate_item_category()
     migrate_item_type()
+    migrate_item_packaging()
+    migrate_medicine_dosage_unit()
     migrate_item()
     migrate_organisation_unit()
     migrate_nt_employee()

@@ -57,11 +57,17 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
         """
         Handle the creation of a prescription and patient.
         """
+        print('create called',request.data)
+        
         serializer = self.get_serializer(data=request.data)
-      
+     
+        
         if serializer.is_valid():
+            print('serializer valid')
             result = serializer.save()
             return Response(result, status=status.HTTP_201_CREATED)
+        else:
+            print('serializer errors', serializer.errors)
        
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

@@ -4,7 +4,7 @@ from rest_framework import serializers
 
 from features.inventory_transaction.inventory_transaction.models import ItemStockInfo
 from features.utils.convert_date import DateConverter
-from .models import Item, ItemBatch, ItemCategory, ItemType, UnitOfMeasurement
+from .models import Item, ItemBatch, ItemCategory, ItemPackaging, ItemType, MedicineDosageUnit, UnitOfMeasurement
 
 
 class UnitOfMeasurementSerializer(serializers.ModelSerializer):
@@ -128,12 +128,23 @@ class ItemWithStockInfoSerializer(serializers.ModelSerializer):
             'quantity_in_stock'
         ]
 
+class ItemPackagingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ItemPackaging
+        fields = ['id', 'name', 'label','unit', 'is_active']
+
+class MedicineDosageUnitSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedicineDosageUnit
+        fields = ['id', 'name', 'description','example','dosage_example', 'is_active']
+
 class ItemDetailSerializerForReport(serializers.ModelSerializer):
     type = ItemTypeSerializerForUser(read_only=True)
     item_batches = ItemBatchSerializer(many=True, read_only=True)
     unit_of_measurement = UnitOfMeasurementSerializerForUser(read_only=True)
     quantity_in_stock = serializers.IntegerField(read_only=True)
-    
+    packaging=ItemPackagingSerializer(read_only=True)
+    medicine_dosage_unit = MedicineDosageUnitSerializer(many=True, read_only=True)
 
     # ---- get all the 
 

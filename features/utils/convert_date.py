@@ -28,6 +28,8 @@ class DateConverter:
             print(f"Error occurred while converting date: {e}")
             date_time = None
 
+        print('converted date time',date_time)
+
         return date_time
     
     # -----Date Formatter-------

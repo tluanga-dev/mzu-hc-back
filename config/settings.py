@@ -47,11 +47,6 @@ INSTALLED_APPS = [
     "corsheaders",
     'django_filters',
     # --------Items---------
-    # 'features.item.unit_of_measurement',
-    # 'features.item.item_category',
-    # 'features.item.item_type',
-    # 'features.item.item',
-    # 'features.item.item_batch',
     'features.item',
 
     # --------Users---------
@@ -60,14 +55,11 @@ INSTALLED_APPS = [
     # ------Medicine---------
     'features.medicine',
 
-
-
     # --------Inventory-Transactions---------
     'features.inventory_transaction.inventory_transaction',
     'features.inventory_transaction.indent_transaction',
     'features.inventory_transaction.issue_transaction',
     'features.inventory_transaction.dispense_transaction',
-
 
     # --------Suppliers---------
     'features.supplier',
@@ -81,15 +73,14 @@ INSTALLED_APPS = [
     # --------Person---------
     'features.person',
 
-    # --------Person---------
+    # --------Patient---------
     'features.patient',
 
     # --------Prescription---------
     'features.prescription',
 
-    # --------Prescription---------
+    # --------Setup---------
     'features.setup',
-
 ]
 
 MIDDLEWARE = [
@@ -102,8 +93,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-
-
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -136,12 +125,30 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
+# -----supabase--
+# project_name=mzu_hc_manager
+#databasepassword H*rY!#PQT8TUkw3
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres.pjqxydjyjeklzjuliaob',
+        'PASSWORD': 'H*rY!#PQT8TUkw3',
+        'HOST': 'aws-0-ap-south-1.pooler.supabase.com',
+        'PORT': '6543',
     }
 }
+
+
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
@@ -190,14 +197,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = "static/"
 
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-DATETIME_INPUT_FORMATS = ['%d-%m-%Y %H:%M']
+DATETIME_INPUT_FORMATS = ['%d-%m-%Y %H:%M','%d-%m-%Y %H:%M:%S', ]
 
 REST_FRAMEWORK = {
     "DATE_INPUT_FORMATS": ["%d-%m-%Y"],
@@ -208,7 +213,6 @@ REST_FRAMEWORK = {
     # 'DEFAULT_PERMISSION_CLASSES': (
     #     'rest_framework.permissions.IsAuthenticated',  # Default permission class
     # ),
-  
 }
 
 SIMPLE_JWT = {
@@ -219,41 +223,43 @@ SIMPLE_JWT = {
 }
 
 
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'console': {
-#             'class': 'logging.StreamHandler',
-#         },
-#     },
-#     'root': {
-#         'handlers': ['console'],
-#         'level': 'DEBUG',
-#     },
-# }
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-# -------LOGGING
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'file': {
-#             'level': 'DEBUG',
-#             'class': 'logging.FileHandler',
-#             'filename': '/logfile.log',
-#         },
-#     },
-#     'loggers': {
-#         'django': {
-#             'handlers': ['file'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#         '__main__': {  # Allows logging to capture logs from __name__ == '__main__'
-#             'handlers': ['file'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#     },
-# }
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'debug.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',  # Capture only ERROR and above for django logger
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['file'],
+            'level': 'ERROR',  # Capture only ERROR and above for django.request logger
+            'propagate': False,
+        },
+        'django.server': {
+            'handlers': ['file'],
+            'level': 'ERROR',  # Capture only ERROR and above for django.server logger
+            'propagate': False,
+        },
+        'django.db.backends': {
+            'handlers': ['file'],
+            'level': 'ERROR',  # Capture only ERROR and above for django.db.backends logger
+            'propagate': False,
+        },
+        'features.prescription': {  # Use the name of your Django app here
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}

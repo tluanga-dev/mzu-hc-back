@@ -8,7 +8,7 @@ class PatientSerializer(serializers.ModelSerializer):
     # Output field, computed from year_of_birth
     age = serializers.SerializerMethodField()
     # Input field, not saved directly
-    age_input = serializers.IntegerField(write_only=True, required=False)
+    # age_input = serializers.IntegerField(write_only=True, required=False)
 
     class Meta:
         model = Patient
@@ -19,19 +19,18 @@ class PatientSerializer(serializers.ModelSerializer):
             'illness',
             'allergy',
             'age',
-            'age_input',
             'employee',
             'student',
             'employee_dependent',
             'mzu_outsider',
         )
 
-    def validate_age_input(self, value):
-        """Validate the input age."""
-        if value is not None:
-            if value < 0 or value > 150:  # Basic validation for age
-                raise serializers.ValidationError("Please enter a valid age.")
-        return value
+    # def validate_age_input(self, value):
+    #     """Validate the input age."""
+    #     if value is not None:
+    #         if value < 0 or value > 150:  # Basic validation for age
+    #             raise serializers.ValidationError("Please enter a valid age.")
+    #     return value
 
     # def create(self, validated_data):
     #     age = validated_data.pop('age_input', None)
