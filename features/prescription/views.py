@@ -4,11 +4,13 @@ from rest_framework import viewsets, status
 from django_filters import rest_framework as filters
 from rest_framework.pagination import PageNumberPagination
 import logging
-from features.prescription.models import Prescription
+from features.medicine.models import MedicineDosage
+from features.prescription.models import Prescription, PrescriptionItem
 from features.prescription.serializers.create_prescription_serializer import CreatePrescriptionSerializer
 from features.prescription.serializers.prescription_detail_serializer import PrescriptionDetailSerializer
 from features.prescription.serializers.prescription_serializer import PrescriptionListSerializer, PrescriptionSerializer
 from features.prescription.serializers.update_prescription_serializer import UpdatePrescriptionSerializer
+from django.db.models import Prefetch
 
 logger = logging.getLogger(__name__)
 
@@ -30,7 +32,11 @@ class PrescriptionPagination(PageNumberPagination):
     max_page_size = 100
 
 class PrescriptionViewSet(viewsets.ModelViewSet):
-    queryset = Prescription.objects.all()
+    queryset = Prescription.objects.all().select_related('patient').prefetch_related(
+        Prefetch('prescribed_item_set', queryset=PrescriptionItem.objects.select_related('medicine').prefetch_related(
+            Prefetch('dosages', queryset=MedicineDosage.objects.prefetch_related('medicine_dosage_timing_set'))
+        ))
+    )
     filter_backends = [DjangoFilterBackend]
     filterset_class = PrescriptionFilter
     pagination_class = PrescriptionPagination

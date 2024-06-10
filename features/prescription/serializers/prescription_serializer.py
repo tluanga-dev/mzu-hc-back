@@ -39,7 +39,7 @@ class PrescriptionListSerializer(serializers.ModelSerializer):
 
 
 class PrescriptionSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
+    id = serializers.UUIDField(read_only=True)
     code = serializers.CharField(read_only=True)
     patient_type = serializers.ChoiceField(choices=Patient.PatientType.choices, write_only=True)
     patient_data = PatientSerializer(write_only=True)
