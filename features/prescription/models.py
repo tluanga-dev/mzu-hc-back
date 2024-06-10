@@ -14,48 +14,48 @@ from features.user.models import CustomUser
 
 PRESCRIPTION_ABBREVIATION = 'PRESC'
 
+
 class Prescription(TimeStampedAbstractModelClass):
     
-    class PresciptionDispenseStatus(models.TextChoices):
+    class PrescriptionDispenseStatus(models.TextChoices):
         DISPENSED = 'dispensed', 'Dispensed'
         NOT_DISPENSED = 'not_dispensed', 'Not Dispensed'
     
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     code = models.CharField(max_length=255, unique=True, blank=True)
     patient = models.ForeignKey(Patient, related_name='prescriptions_patient', on_delete=models.CASCADE)
-    # doctor = models.ForeignKey(CustomUser, related_name='prescriptions_doctor', on_delete=models.CASCADE)
     chief_complaints = models.TextField()
     diagnosis = models.TextField()
     advice_and_instructions = models.TextField()
-    note = models.TextField()
+    note = models.TextField(blank=True, default='')
     date_and_time = models.DateTimeField()
     prescription_dispense_status = models.CharField(
         max_length=100, 
-        choices=PresciptionDispenseStatus.choices, 
-        default=PresciptionDispenseStatus.NOT_DISPENSED
+        choices=PrescriptionDispenseStatus.choices, 
+        default=PrescriptionDispenseStatus.NOT_DISPENSED
     )
 
-    def get_prescribed_medicine_by_patient(self, patient_id):
-        return self.prescribed_medicine_set.filter(prescription__patient_id=patient_id)
+    # def get_prescribed_medicine_by_patient(self, patient_id):
+    #     return self.prescribed_medicine_set.filter(prescription__patient_id=patient_id)
     
     def save(self, *args, **kwargs):
-        if not self.code:
-            self.code = self.generate_unique_code()
-          
-        
         self.date_and_time = self.make_datetime_aware(self.date_and_time)
         
-        # # Attempt to save with unique code
-        # for attempt in range(10):  # Retry up to 10 times
-        #     try:
-        #         with transaction.atomic():
-        #             super().save(*args, **kwargs)
-        #         return
-        #     except IntegrityError as e:
-        #         if attempt == 9:  # Last attempt, log and raise the error
-        #             # Log the error here if logging is configured
-        #             raise ValidationError(f"Unable to save Prescription: {e}")
-        #         self.code = self.generate_unique_code()
+        if not self.code:
+            self.code = self.generate_unique_code()
+
+        for attempt in range(10):
+            try:
+                with transaction.atomic():
+                    # Check if the code is unique within the transaction
+                    if Prescription.objects.filter(code=self.code).exists():
+                        self.code = self.generate_unique_code()
+                    super().save(*args, **kwargs)
+                return
+            except IntegrityError as e:
+                if attempt == 9:
+                    # Log the error here if logging is configured
+                    raise ValidationError(f"Unable to save Prescription: {e}")
+
 
     def generate_unique_code(self):
         for _ in range(10):
@@ -89,8 +89,3 @@ class PrescriptionItem(TimeStampedAbstractModelClass):
     class Meta:
         app_label = "prescription"
 
-# Signal to automatically save Prescription object after initialization
-@receiver(post_init, sender=Prescription)
-def post_init_prescription(sender, instance, **kwargs):
-    if not instance.code:
-        instance.save()

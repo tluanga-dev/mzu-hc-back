@@ -6,15 +6,29 @@ from features.prescription.models import Prescription, PrescriptionItem
 from features.medicine.models import MedicineDosage, MedicineDosageTiming
 from features.patient.serializers import PatientSerializer
 from features.person.serializers import MZUOutsiderSerializer
-from features.prescription.serializers.prescription_serializer import PrescriptionDetailSerializer
+from features.prescription.serializers.prescription_detail_serializer import PrescriptionDetailSerializer
+class PrescriptionItemSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    medicine_name = serializers.CharField(read_only=True)
+    dosage = serializers.CharField(read_only=True)
 
-
+    def to_representation(self, instance):
+        return {
+            'id': instance.id,
+            'medicine_name': instance.medicine_name,
+            'dosage': instance.dosage,
+        }
 
 class UpdatePrescriptionSerializer(serializers.Serializer):
-    patient_type = serializers.ChoiceField(choices=Patient.PatientType.choices)
-    patient_data = PatientSerializer()
-    prescription_data = serializers.JSONField()  # We'll manually handle nested validation
-    mzu_outsider_data = MZUOutsiderSerializer(required=False)
+    id = serializers.IntegerField(read_only=True)
+    code = serializers.CharField(read_only=True)
+    patient = serializers.SerializerMethodField()
+    chief_complaints = serializers.CharField()
+    diagnosis = serializers.CharField()
+    advice_and_instructions = serializers.CharField()
+    date_and_time = serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
+    prescription_dispense_status = serializers.CharField()
+    prescribed_item_set = PrescriptionItemSerializer(many=True)
 
     def validate(self, attrs):
         patient_type = attrs.get('patient_type')
@@ -22,8 +36,17 @@ class UpdatePrescriptionSerializer(serializers.Serializer):
 
         if patient_type == 'Other' and not mzu_outsider_data:
             raise serializers.ValidationError("MZUOutsider data is required for 'Other' patient type.")
-        
         return attrs
+    
+    def get_patient(self, instance):
+        return {
+            'id': instance.patient.id,
+            'name': instance.patient.get_name(),
+            'patient_type': instance.patient.patient_type,
+            'mzu_id': instance.patient.get_mzu_id(),
+            'age': instance.patient.get_age(),
+            'organisation_unit': instance.patient.get_organisation_unit()
+        }
 
     @transaction.atomic
     def update(self, instance, validated_data):

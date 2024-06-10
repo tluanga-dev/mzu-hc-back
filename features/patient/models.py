@@ -98,6 +98,30 @@ class Patient(TimeStampedAbstractModelClass):
             return self.mzu_hc_id
         return None
     
+    def get_age(self):
+        """Returns the name of the patient."""
+        if self.patient_type == self.PatientType.EMPLOYEE:
+            return self.employee.get_age()
+        if self.patient_type == self.PatientType.EMPLOYEE_DEPENDENT:
+            return self.employee_dependent.get_age()
+        if self.patient_type == self.PatientType.STUDENT:
+            return self.student.get_age()
+        if self.patient_type == self.PatientType.MZU_OUTSIDER:
+            return self.mzu_hc_id.get_age()
+        return None
+    
+    def get_organisation_unit(self):
+        """Returns the name of the patient."""
+        if self.patient_type == self.PatientType.EMPLOYEE:
+            return self.employee.organisation_unit.name
+        if self.patient_type == self.PatientType.EMPLOYEE_DEPENDENT:
+            return ''
+        if self.patient_type == self.PatientType.STUDENT:
+            return self.student.organisation_unit.name
+        if self.patient_type == self.PatientType.MZU_OUTSIDER:
+            return ''
+        return None
+    
 
     
     @property
