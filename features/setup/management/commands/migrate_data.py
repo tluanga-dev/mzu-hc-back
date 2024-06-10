@@ -5,7 +5,7 @@ from features.item.models import Item, ItemCategory, ItemPackaging, ItemType, Me
 from features.item.serializers import ItemTypeSerializer
 from features.medicine.models import MedicineQuantityInOneTakeUnit
 from features.organisation_unit.models import OrganisationUnit
-from features.person.models import Employee, Person
+from features.person.models import Employee, EmployeeDependent, Person
 from features.setup.management.commands.migration_functions.get_medicine_dosage_unit import get_medicine_dosage_unit
 from features.supplier.models import Supplier
 
@@ -356,7 +356,34 @@ def migrate_t_employee():
 
     logger.info(f"Employee  Teacher migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
 
+def migrate_employee_dependent():
+    sheet_name = 'person_ed'
+    EmployeeDependent.objects.all().delete()
+    sheets = authenticate()
+    data = sheets.values().get(spreadsheetId=sheet_id, range=sheet_name).execute()
 
+    migrated_count = 0
+    failed_count = 0
+    
+    for row in data['values'][1:]:
+        try:
+    
+            employee=Employee.objects.get(mzu_employee_id=row[4])
+            EmployeeDependent.objects.create(
+                mzu_employee_dependent_id=row[0],
+                name=row[1],
+                gender=row[2],
+                # date_of_birth='22-12-1970', --working
+                date_of_birth=row[3],
+                employee=employee,
+                relation=row[5],
+            )
+            migrated_count += 1
+        except Exception as e:
+            failed_count += 1
+            logger.error(f"Failed to migrate employee dependent '{row[1]}': {e}")
+
+    logger.info(f"Employee Dependent migration complete. Migrated: {migrated_count}, Failed: {failed_count}")
 
 def migrate():
     
@@ -373,6 +400,7 @@ def migrate():
     migrate_organisation_unit()
     migrate_nt_employee()
     migrate_t_employee()
+    migrate_employee_dependent()
     
 
 if __name__ == "__main__":

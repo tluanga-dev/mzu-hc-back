@@ -98,11 +98,14 @@ class Employee(Person):
 class EmployeeDependent(TimeStampedAbstractModelClass):
     mzu_employee_dependent_id = models.CharField(max_length=255, unique=True, null=True, blank=True)
     name = models.CharField(max_length=255)
-    relation = models.CharField(max_length=255)
     gender=models.CharField(max_length=255)
     date_of_birth = models.DateField(blank=True, null=True)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='employee_dependents')
-
+    relation = models.CharField(max_length=255)
+    def save(self, *args, **kwargs):
+        if isinstance(self.date_of_birth, str):
+            self.date_of_birth = DateConverter.convert_to_date_field(self.date_of_birth)
+        super().save(*args, **kwargs)
     def get_name(cls):
         return cls.name
 
@@ -112,6 +115,8 @@ class Student(Person):
     programme=models.CharField(max_length=255,null=True, blank=True)
     year_of_admission=models.PositiveIntegerField(null=True, blank=True)
     
+
+
     class Meta:
         app_label = "person"
 
@@ -124,7 +129,12 @@ class MZUOutsider(TimeStampedAbstractModelClass):
     name= models.CharField(max_length=255)
     gender = models.CharField(max_length=255, choices=GENDER_TYPE_CHOICES)
     age = models.PositiveIntegerField()
+    date_of_birth = models.DateField(blank=True, null=True)
 
+    def save(self, *args, **kwargs):
+        if isinstance(self.date_of_birth, str):
+            self.date_of_birth = DateConverter.convert_to_date_field(self.date_of_birth)
+        super().save(*args, **kwargs)
     def get_name(cls):
         print('getting name for outsider')
         name=cls.name
