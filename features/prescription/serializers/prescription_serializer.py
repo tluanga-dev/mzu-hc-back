@@ -52,6 +52,7 @@ class PrescriptionSerializer(serializers.Serializer):
     prescription_dispense_status = serializers.CharField()
     prescribed_item_set = PrescriptionItemSerializer(many=True)
 
+
     def validate(self, attrs):
         patient_type = attrs.get('patient_type')
         mzu_outsider_data = attrs.get('mzu_outsider_data')
@@ -61,10 +62,12 @@ class PrescriptionSerializer(serializers.Serializer):
         return attrs
 
     def get_patient(self, instance):
+       
         return {
             'id': instance.patient.id,
             'name': instance.patient.get_name(),
             'patient_type': instance.patient.patient_type,
+            'gender':instance.patient.get_gender(),
             'mzu_id': instance.patient.get_mzu_id(),
             'age': instance.patient.get_age(),
             'organisation_unit': instance.patient.get_organisation_unit()

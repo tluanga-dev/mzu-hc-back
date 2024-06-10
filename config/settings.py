@@ -126,27 +126,27 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
 
 # -----supabase--
 # project_name=mzu_hc_manager
 #databasepassword H*rY!#PQT8TUkw3
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres.pjqxydjyjeklzjuliaob',
-        'PASSWORD': 'H*rY!#PQT8TUkw3',
-        'HOST': 'aws-0-ap-south-1.pooler.supabase.com',
-        'PORT': '6543',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres.pjqxydjyjeklzjuliaob',
+#         'PASSWORD': 'H*rY!#PQT8TUkw3',
+#         'HOST': 'aws-0-ap-south-1.pooler.supabase.com',
+#         'PORT': '6543',
+#     }
+# }
 
 
 CACHES = {

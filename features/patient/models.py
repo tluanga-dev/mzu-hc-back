@@ -110,6 +110,15 @@ class Patient(TimeStampedAbstractModelClass):
             return self.mzu_hc_id.get_age()
         return None
     
+    def get_gender(self):
+        """Returns the gender of the patient."""
+        if self.patient_type == self.PatientType.EMPLOYEE:
+            return self.employee.gender
+        if self.patient_type == self.PatientType.STUDENT:
+            return self.student.gender
+        else:
+            return ''
+    
     def get_organisation_unit(self):
         """Returns the name of the patient."""
         if self.patient_type == self.PatientType.EMPLOYEE:
