@@ -29,12 +29,13 @@ class PrescriptionListSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['patient'] = {
-            'id':instance.patient.id,
-            'name': instance.patient.get_name(),
-            'patient_type': instance.patient.patient_type,
-            'mzu_id': instance.patient.get_mzu_id()
-        } 
+        # representation['patient'] = {
+        #     'id':instance.patient.id,
+        #     'name': instance.patient.get_name(),
+        #     'patient_type': instance.patient.patient_type,
+        #     'mzu_id': instance.patient.get_mzu_id()
+        # } 
+        representation['patient_name']=instance.patient.get_name()
         return representation
 
 
