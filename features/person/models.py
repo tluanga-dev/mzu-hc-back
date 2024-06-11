@@ -3,6 +3,7 @@ from django.db import models
 
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
 from features.organisation_unit.models import OrganisationUnit
+from features.utils.calculate_age_3 import get_age_3
 from features.utils.convert_date import DateConverter
 from datetime import date
 
@@ -60,17 +61,24 @@ class Person(TimeStampedAbstractModelClass):
     def get_name(cls):
         return cls.name
     
+    # def get_age(self):
+    #     if self.date_of_birth:
+    #         # calculate_age
+    #         def calculate_age(date_of_birth):
+    #             today = date.today()
+    #             age = today.year - date_of_birth.year - ((today.month, today.day) < (date_of_birth.month, date_of_birth.day))
+    #             return age
+
+    #         age = calculate_age(self.date_of_birth)
+    #         return age
+            
+    #     return None
+    
     def get_age(self):
         if self.date_of_birth:
             # calculate_age
-            def calculate_age(date_of_birth):
-                today = date.today()
-                age = today.year - date_of_birth.year - ((today.month, today.day) < (date_of_birth.month, date_of_birth.day))
-                return age
-
-            age = calculate_age(self.date_of_birth)
+            age = get_age_3(self.date_of_birth)
             return age
-            
         return None
 
     def save(self, *args, **kwargs):
@@ -108,6 +116,12 @@ class EmployeeDependent(TimeStampedAbstractModelClass):
         super().save(*args, **kwargs)
     def get_name(cls):
         return cls.name
+    def get_age(self):
+        if self.date_of_birth:
+            # calculate_age
+            age = get_age_3(self.date_of_birth)
+            return age
+        return None
 
 # --Student Part--
 class Student(Person):
@@ -130,6 +144,13 @@ class MZUOutsider(TimeStampedAbstractModelClass):
     gender = models.CharField(max_length=255, choices=GENDER_TYPE_CHOICES)
     age = models.PositiveIntegerField()
     date_of_birth = models.DateField(blank=True, null=True)
+
+    def get_age(self):
+        if self.date_of_birth:
+            # calculate_age
+            age = get_age_3(self.date_of_birth)
+            return age
+        return None
 
     def save(self, *args, **kwargs):
         if isinstance(self.date_of_birth, str):
