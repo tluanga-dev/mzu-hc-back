@@ -98,6 +98,12 @@ class Employee(Person):
     employee_type=models.CharField(max_length=255,choices=EMPLOYEE_TYPE_CHOICES)
     mzu_employee_id = models.CharField(max_length=255, unique=True)
     designation = models.CharField(max_length=255)
+
+    def get_age(self):
+        if self.date_of_birth:
+            # calculate_age
+            age = get_age_3(self.date_of_birth)
+            return age
     def get_mzu_employee_id(self):
         return self.mzu_employee_id
     class Meta:

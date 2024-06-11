@@ -7,7 +7,10 @@ from features.person.models import Employee, EmployeeDependent, MZUOutsider, Stu
 
 class EmployeeSerializerForDependent(serializers.ModelSerializer):
     organisation_unit=serializers.SerializerMethodField()
+    age=serializers.SerializerMethodField()
 
+    def get_age(self, obj):
+       return obj.get_age()
     def get_organisation_unit(self, obj):
         return {
             'id':  obj.organisation_unit.id,
@@ -20,8 +23,10 @@ class EmployeeSerializerForDependent(serializers.ModelSerializer):
         fields = [
             'id',
             'name',
+            'age',
             'organisation_unit',
             'mzu_employee_id',
+
         ]
 
 class EmployeeDependentSerializer(serializers.ModelSerializer):
@@ -52,6 +57,9 @@ class EmployeeSerializer(serializers.ModelSerializer):
     age=serializers.SerializerMethodField()
     organisation_unit=serializers.SerializerMethodField()
 
+    def get_age(self, obj):
+       return obj.get_age()
+     
     def get_organisation_unit(self, obj):
         return {
             'id':  obj.organisation_unit.id,
@@ -61,16 +69,6 @@ class EmployeeSerializer(serializers.ModelSerializer):
         }
 
 
-    def get_age(self, obj):
-        today = datetime.date.today()
-        return today.year - obj.date_of_birth.year - ((today.month, today.day) < (obj.date_of_birth.month, obj.date_of_birth.day))
-
-    # def to_representation(self, instance):
-    #     representation = super().to_representation(instance)
-    #     representation['employee_dependents'] = EmployeeDependentSerializer(
-    #         instance.employee_dependents.all(), many=True
-    #     ).data
-    #     return representation
     class Meta:
         model = Employee
         fields = [
