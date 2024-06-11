@@ -114,6 +114,8 @@ class Patient(TimeStampedAbstractModelClass):
         """Returns the gender of the patient."""
         if self.patient_type == self.PatientType.EMPLOYEE:
             return self.employee.gender
+        if self.patient_type == self.PatientType.EMPLOYEE_DEPENDENT:
+            return self.employee_dependent.gender
         if self.patient_type == self.PatientType.STUDENT:
             return self.student.gender
         else:

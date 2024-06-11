@@ -22,6 +22,7 @@ class PrescriptionDetailSerializer(serializers.Serializer):
             'patient_type': instance.patient.patient_type,
             'mzu_id': instance.patient.get_mzu_id(),
             'age': instance.patient.get_age(),
+            'gender':instance.patient.get_gender(),
             'organisation_unit': instance.patient.get_organisation_unit()
         }
 
