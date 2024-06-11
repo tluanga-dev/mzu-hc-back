@@ -1,10 +1,7 @@
 from datetime import date
 from typing import Tuple
-from django.db import models
 
-# Example Django model
-class Person(models.Model):
-    date_of_birth = models.DateField()
+
 
 def get_age_3(date_of_birth: date) -> Tuple[int, int, int]:
     today = date.today()
@@ -33,8 +30,3 @@ def get_age_3(date_of_birth: date) -> Tuple[int, int, int]:
             days += (date(today.year, today.month, 1) - date(today.year, previous_month, 1)).days
 
     return years, months, days
-
-# Example usage with a Django model instance
-person = Person(date_of_birth=date(1991, 3, 13))
-age_years, age_months, age_days = get_age(person.date_of_birth)
-print(f"{age_years} years, {age_months} months, and {age_days} days")

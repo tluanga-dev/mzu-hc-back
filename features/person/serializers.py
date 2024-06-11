@@ -28,10 +28,9 @@ class EmployeeDependentSerializer(serializers.ModelSerializer):
     employee=EmployeeSerializerForDependent()
     age=serializers.SerializerMethodField()
 
-
     def get_age(self, obj):
-        today = datetime.date.today()
-        return today.year - obj.date_of_birth.year - ((today.month, today.day) < (obj.date_of_birth.month, obj.date_of_birth.day))
+       return obj.get_age()
+    
     class Meta:
         model = EmployeeDependent
         fields = [

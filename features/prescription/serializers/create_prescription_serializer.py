@@ -7,10 +7,8 @@ from features.patient.models import Patient
 from features.person.models import MZUOutsider, Student, Employee, EmployeeDependent
 from features.prescription.models import Prescription, PrescriptionItem
 from features.medicine.models import MedicineDosage, MedicineDosageTiming
-from features.patient.serializers import PatientSerializer
 from features.person.serializers import MZUOutsiderSerializer
 from features.prescription.serializers.prescription_item_serializer import PrescriptionItemSerializer
-
 
 logger = logging.getLogger('features.prescription')
 
@@ -59,14 +57,17 @@ class CreatePrescriptionSerializer(serializers.Serializer):
                         patient_data['student'] = patient_data['student'].pk
                     student = Student.objects.select_for_update().get(pk=patient_data.pop('student'))
                     patient, created = Patient.objects.get_or_create(student=student, defaults=patient_data)
+                    patient_data=Patient.objects.select_for_update().get(id=patient.id)
                 elif patient_type == Patient.PatientType.EMPLOYEE_DEPENDENT:
                     if isinstance(patient_data['employee_dependent'], EmployeeDependent):
                         patient_data['employee_dependent'] = patient_data['employee_dependent'].pk
                     employee_dependent = EmployeeDependent.objects.select_for_update().get(pk=patient_data.pop('employee_dependent'))
                     patient, created = Patient.objects.get_or_create(employee_dependent=employee_dependent, defaults=patient_data)
+                    patient_data=Patient.objects.select_for_update().get(id=patient.id)
                 elif patient_type == Patient.PatientType.MZU_OUTSIDER:
                     mzu_outsider_patient = MZUOutsider.objects.create(**mzu_outsider_data)
                     patient, created = Patient.objects.get_or_create(mzu_outsider=mzu_outsider_patient, defaults=patient_data)
+                    patient_data=Patient.objects.select_for_update().get(id=patient.id)
                 else:
                     logger.error("Invalid patient type or missing MZUOutsider data")
                     raise serializers.ValidationError("Invalid patient type or missing MZUOutsider data")
