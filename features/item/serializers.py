@@ -77,6 +77,9 @@ class ItemBatchSerializer(serializers.ModelSerializer):
         model = ItemBatch
         fields = ['id', 'batch_id', 'description', 'date_of_expiry',
                   'item', 'is_active', 'created_at', 'updated_at']
+        
+
+
 class UnitOfMeasurementSerializerForUser(serializers.ModelSerializer):
   
     class Meta:

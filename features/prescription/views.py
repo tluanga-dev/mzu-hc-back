@@ -42,9 +42,15 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
     pagination_class = PrescriptionPagination
 
     def get_serializer_class(self):
+        detail_flag = self.request.query_params.get('detail', '1')
         logger.debug('Action: %s', self.action)
+        # example urls-http://localhost:8000/prescription?detail=2
+        
         if self.action == 'list':
-            return PrescriptionListSerializer
+            if detail_flag == '1':
+                return PrescriptionListSerializer
+            elif detail_flag == '2':
+                return PrescriptionDetailSerializer
         if self.action == 'retrieve':
             return PrescriptionSerializer
         if self.action == 'create':

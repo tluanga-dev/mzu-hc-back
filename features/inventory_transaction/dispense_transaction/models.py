@@ -17,6 +17,10 @@ class DispenseInventoryTransaction(InventoryTransaction):
         related_name='dispense_patient', 
         on_delete=models.DO_NOTHING)
     pharmacist=models.CharField(max_length=255)
+    prescription=models.ForeignKey(
+        Prescription, 
+        related_name='dispensed_prescription', 
+        on_delete=models.DO_NOTHING)
     
     def save(self, *args, **kwargs):
         if self.pk is None:

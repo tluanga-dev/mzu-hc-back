@@ -4,6 +4,16 @@ from features.item.models import Item, ItemPackaging, MedicineDosageUnit
 from features.item.serializers import ItemDetailSerializerForReport
 from features.medicine.models import MedicineDosage, MedicineDosageTiming,  MedicineQuantityInOneTakeUnit
 
+class MedicineBatchWithStockInfoSerializer(serializers.ModelSerializer):
+    date_of_expiry = CustomDateField()
+
+    class Meta:
+        model = ItemBatch
+        fields = ['id', 'batch_id', 'description', 'date_of_expiry',
+                  'item', 'is_active', 'created_at', 'updated_at']
+
+
+
 class MedicineQuantityInOneTakeUnitSerializer(serializers.ModelSerializer):
     class Meta:
         model = MedicineQuantityInOneTakeUnit

@@ -20,6 +20,7 @@ class PrescribeMedicineItemSerializer(serializers.ModelSerializer):
         representation = super().to_representation(instance)
         # Accessing only the name of the unit of measurement
         representation['unit_of_measurement'] = instance.unit_of_measurement.abbreviation if instance.unit_of_measurement else None
+        representation['package_unit']=instance.packaging.name if instance.packaging else None
         return representation
 
     class Meta:

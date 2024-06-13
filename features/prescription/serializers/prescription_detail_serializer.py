@@ -5,7 +5,7 @@ from features.prescription.serializers.prescription_item_serializer import Presc
 
 
 class PrescriptionDetailSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
+    id = serializers.UUIDField(read_only=True)
     code = serializers.CharField(read_only=True)
     patient = serializers.SerializerMethodField()
     chief_complaints = serializers.CharField()

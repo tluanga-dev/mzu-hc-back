@@ -102,3 +102,4 @@ class ItemBatch(TimeStampedAbstractModelClass):
         indexes = [
             models.Index(fields=['batch_id'], name='itembatch_batch_id_idx'),
         ]
+

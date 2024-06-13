@@ -68,7 +68,6 @@ class EmployeeSerializer(serializers.ModelSerializer):
             'abbreviation' : obj.organisation_unit.abbreviation
         }
 
-
     class Meta:
         model = Employee
         fields = [
@@ -93,6 +92,8 @@ class StudentSerializer(serializers.ModelSerializer):
     age=serializers.SerializerMethodField()
 
     organisation_unit=serializers.SerializerMethodField()
+    def get_age(self, obj):
+       return obj.get_age()
 
     def get_organisation_unit(self, obj):
         return {
@@ -101,11 +102,6 @@ class StudentSerializer(serializers.ModelSerializer):
             'description': obj.organisation_unit.description, 
             'abbreviation' : obj.organisation_unit.abbreviation
         }
-
-
-    def get_age(self, obj):
-        today = datetime.date.today()
-        return today.year - obj.date_of_birth.year - ((today.month, today.day) < (obj.date_of_birth.month, obj.date_of_birth.day))
 
     
     class Meta:
