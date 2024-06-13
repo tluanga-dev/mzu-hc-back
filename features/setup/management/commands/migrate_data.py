@@ -2,15 +2,13 @@ from django.core.management import BaseCommand, call_command
 from googleapiclient.discovery import build
 from features.id_manager.models import IdManager
 from features.item.models import Item, ItemCategory, ItemPackaging, ItemType, MedicineDosageUnit, UnitOfMeasurement
-from features.item.serializers import ItemTypeSerializer
+
 from features.medicine.models import MedicineQuantityInOneTakeUnit
 from features.organisation_unit.models import OrganisationUnit
 from features.person.models import Employee, EmployeeDependent, Person
 from features.setup.management.commands.migration_functions.get_medicine_dosage_unit import get_medicine_dosage_unit
 from features.supplier.models import Supplier
 
-from features.utils.convert_date import DateConverter
-from features.utils.print_json import print_json_string
 import logging
 
 

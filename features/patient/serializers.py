@@ -1,7 +1,8 @@
 from datetime import datetime
 from rest_framework import serializers
 
-from features.utils.calculate_age import calculate_age
+from features.common.utils.calculate_age import calculate_age
+
 from .models import Patient
 
 class PatientSerializer(serializers.ModelSerializer):

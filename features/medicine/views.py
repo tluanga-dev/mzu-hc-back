@@ -1,13 +1,13 @@
 
 from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
-from features.medicine.models import MedicineDosage, MedicineDosageTiming
-from features.medicine.serializers import   MedicineDosageSerializer
+from features.medicine.models import MedicineDosage
+from features.medicine.serializers import   MedicineDosageSerializer, MedicineSerializer
 import django_filters.rest_framework
 
 from rest_framework import generics
 from .models import Item
-from .serializers import MedicineSerializer
+
 
 # Create your views here.
 

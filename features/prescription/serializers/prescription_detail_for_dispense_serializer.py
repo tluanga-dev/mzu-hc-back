@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from features.item.serializers import CustomDateField
+
+from features.inventory_transaction.inventory_transaction.models import ItemStockInfo
 from features.prescription.models import Prescription, PrescriptionItem
 from features.item.models import Item, ItemBatch
 from features.medicine.serializers import MedicineDosageSerializer

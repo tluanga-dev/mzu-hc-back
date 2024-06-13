@@ -1,16 +1,9 @@
 from rest_framework import serializers
 
 from features.item.models import Item, ItemPackaging, MedicineDosageUnit
-from features.item.serializers import ItemDetailSerializerForReport
+
+from features.item.serializers.item_serializers import ItemDetailSerializerForReport
 from features.medicine.models import MedicineDosage, MedicineDosageTiming,  MedicineQuantityInOneTakeUnit
-
-class MedicineBatchWithStockInfoSerializer(serializers.ModelSerializer):
-    date_of_expiry = CustomDateField()
-
-    class Meta:
-        model = ItemBatch
-        fields = ['id', 'batch_id', 'description', 'date_of_expiry',
-                  'item', 'is_active', 'created_at', 'updated_at']
 
 
 
@@ -28,7 +21,8 @@ class MedicineDosageTimingSerializer(serializers.ModelSerializer):
         model = MedicineDosageTiming
         fields = [
             'id', 
-            'quantity_in_one_take', 
+            'quantity_in_one_take',
+            'quantity_in_one_take_unit', 
             'day_med_schedule',
             'medicine_timing',
             'medicine_dosage',
@@ -70,4 +64,3 @@ class MedicineSerializer(ItemDetailSerializerForReport):
     class Meta:
         model = Item 
         fields = '__all__'
-            

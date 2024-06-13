@@ -1,13 +1,10 @@
 from django.utils import timezone
 from features.inventory_transaction.inventory_transaction.models import InventoryTransactionItem, ItemStockInfo
-from features.inventory_transaction.inventory_transaction.serializers import ItemStockInfoSerializer
 from features.item.models import Item, ItemBatch
-from features.item.serializers import ItemBatchSerializer
+
 
 def generate_dispense_list(inventory_transaction_id,  item_id, required_quantity):
     
-
-
     # -----Setup for testing purpose
     required_quantity=6
     

@@ -2,9 +2,10 @@ import uuid
 from django.db import models
 
 from features.base.time_stamped_abstract_class import TimeStampedAbstractModelClass
+from features.common.utils.calculate_age_3 import get_age_3
+from features.common.utils.convert_date import DateConverter
 from features.organisation_unit.models import OrganisationUnit
-from features.utils.calculate_age_3 import get_age_3
-from features.utils.convert_date import DateConverter
+
 from datetime import date
 
 

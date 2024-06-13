@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework.routers import DefaultRouter
+from features.common.views import ItemWithBatchStockInfoView
 from features.id_manager.views import IdManagerViewSet
 from features.inventory_transaction.dispense_transaction.views import DispenseInventoryTransactionViewSet
 from features.inventory_transaction.indent_transaction.views import IndentInventoryTransactionViewSet
@@ -16,6 +17,7 @@ from features.person.views import EmployeeDependentViewSet, EmployeeViewSet, MZU
 from features.prescription.views import PrescriptionViewSet
 from features.setup.views import SetupView
 from features.supplier.views import SupplierViewSet
+from features.common.views.ItemWithBatchStockInfoView import ItemWithBatchStockInfoListView
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -25,11 +27,15 @@ from rest_framework_simplejwt.views import (
 router = DefaultRouter()
 
 # Registering all viewsets with the router
+# ----------------Item-------------------
 router.register(r'item/item_with_stock_info', ItemWithStockInfoViewSet, basename='item-with-stock-info')
 router.register(r'item/units-of-measurement', UnitOfMeasurementViewSet, basename='unit-of-measurement')
 router.register(r'item/item_category', ItemCategoryViewSet)
 router.register(r'item/item_type', ItemTypeViewSet)
 router.register(r'item', ItemViewSet, basename='item')
+
+
+
 router.register(r'item_detail_for_report', ItemDetailForReportViewSet, basename='item-detail-for-report')
 router.register(r'medicine/medicine_dosage', MedicineDosageViewSet)
 router.register(r'supplier', SupplierViewSet)
@@ -51,6 +57,8 @@ router.register(r'medicine', MedicineViewSet)
 urlpatterns = [
     path("admin/", admin.site.urls),
 
+    path('api/items_with_batch_stock_info/', ItemWithBatchStockInfoListView.as_view(), name='item_with_batch_stock_info_list'),
+
     # JWT Authentication URLs
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
@@ -69,6 +77,7 @@ urlpatterns = [
 
     # Removed redundant pattern
     # re_path(r'^item/(?P<item_id>[0-9a-f-]+)/batches/$', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),
+    
 
     # Include all routes defined in the router
     path('', include(router.urls)),

@@ -33,7 +33,7 @@ class MedicineDosage(TimeStampedAbstractModelClass):
 
 class MedicineDosageTiming(TimeStampedAbstractModelClass):
     quantity_in_one_take = models.IntegerField()
-    quantity_in_one_take_unit = models.ManyToManyField(MedicineQuantityInOneTakeUnit)
+    quantity_in_one_take_unit = models.ForeignKey(MedicineQuantityInOneTakeUnit, on_delete=models.CASCADE,related_name='medicine_quantity_in_one_take_unit')
     # dayMedSchedule can have values like-morning, afternoon, evening,noon
     day_med_schedule = models.CharField(max_length=255)
     # medicineTiming can have values like- before meal, after meal,

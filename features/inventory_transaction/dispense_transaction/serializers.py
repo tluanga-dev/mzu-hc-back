@@ -10,7 +10,7 @@ from rest_framework import serializers
 
 
 from features.prescription.serializers.prescription_detail_serializer import PrescriptionDetailSerializer
-from features.utils.print_json import print_json_string
+
 
 class DispenseInventoryTrasactionSerializerForList(serializers.ModelSerializer):
 
