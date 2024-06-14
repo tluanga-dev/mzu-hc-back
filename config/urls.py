@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework.routers import DefaultRouter
-from features.common.views import ItemWithBatchStockInfoView
+
 from features.id_manager.views import IdManagerViewSet
 from features.inventory_transaction.dispense_transaction.views import DispenseInventoryTransactionViewSet
 from features.inventory_transaction.indent_transaction.views import IndentInventoryTransactionViewSet
@@ -17,7 +17,7 @@ from features.person.views import EmployeeDependentViewSet, EmployeeViewSet, MZU
 from features.prescription.views import PrescriptionViewSet
 from features.setup.views import SetupView
 from features.supplier.views import SupplierViewSet
-from features.common.views.ItemWithBatchStockInfoView import ItemWithBatchStockInfoListView
+
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -28,6 +28,7 @@ router = DefaultRouter()
 
 # Registering all viewsets with the router
 # ----------------Item-------------------
+
 router.register(r'item/item_with_stock_info', ItemWithStockInfoViewSet, basename='item-with-stock-info')
 router.register(r'item/units-of-measurement', UnitOfMeasurementViewSet, basename='unit-of-measurement')
 router.register(r'item/item_category', ItemCategoryViewSet)
@@ -56,8 +57,6 @@ router.register(r'medicine', MedicineViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-
-    path('api/items_with_batch_stock_info/', ItemWithBatchStockInfoListView.as_view(), name='item_with_batch_stock_info_list'),
 
     # JWT Authentication URLs
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

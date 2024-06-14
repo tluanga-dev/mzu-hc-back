@@ -10,6 +10,7 @@ from features.item.serializers.item_batch_serializers import ItemBatchSerializer
 from features.item.serializers.item_category_serializer import ItemCategorySerializer
 from features.item.serializers.item_serializers import ItemDetailSerializerForReport, ItemSerializerForUser, ItemWithStockInfoSerializer
 from features.item.serializers.item_type_serializers import ItemTypeSerializer
+from features.item.serializers.item_with_batch_stock_info_serializer import ItemDetailWithBatchStockInfoSerializer
 from features.item.serializers.unit_of_measurement_serializers import UnitOfMeasurementSerializer
 from .models import Item, ItemBatch, ItemCategory, ItemType, UnitOfMeasurement
 
@@ -135,7 +136,7 @@ class ItemViewSet(viewsets.ModelViewSet):
         elif detail_flag == '2':
             return ItemWithStockInfoSerializer
         elif detail_flag == '3':
-            return ItemDetailSerializerForReport
+            return ItemDetailWithBatchStockInfoSerializer
         return ItemSerializerForUser
     
     # def list(self, request, *args, **kwargs):

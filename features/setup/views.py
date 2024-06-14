@@ -1,7 +1,8 @@
 from requests import Response
 from rest_framework import viewsets
 
-from features.common.utils.migrate import migrate
+from features.core.utils import migrate
+
 
 
 

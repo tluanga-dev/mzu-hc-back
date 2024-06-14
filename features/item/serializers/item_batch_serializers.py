@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from features.common.serializers.custom_date_field_serializers import CustomDateField
+
+from features.core.serializers.custom_date_field_serializer import CustomDateField
 from features.inventory_transaction.inventory_transaction.models import ItemStockInfo
 from features.item.models import ItemBatch
 
