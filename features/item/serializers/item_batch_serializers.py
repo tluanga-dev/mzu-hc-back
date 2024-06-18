@@ -2,11 +2,12 @@ from rest_framework import serializers
 
 from features.core.serializers.custom_date_field_serializer import CustomDateField
 from features.inventory_transaction.inventory_transaction.models import ItemStockInfo
-from features.item.models import ItemBatch
+from features.item.models import Item, ItemBatch
 
 class ItemBatchSerializer(serializers.ModelSerializer):
     date_of_expiry = CustomDateField()
 
+   
     class Meta:
         model = ItemBatch
         fields = ['id', 'batch_id', 'description', 'date_of_expiry',

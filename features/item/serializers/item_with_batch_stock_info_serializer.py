@@ -14,7 +14,7 @@ class ItemDetailWithBatchStockInfoSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'name', 'contents', 'description', 'type', 
             'unit_of_measurement', 'item_batches', 'quantity_in_stock',
-            'packaging', 'medicine_dosage_unit'
+            'packaging'
         ]
 
 
@@ -43,12 +43,7 @@ class ItemDetailWithBatchStockInfoSerializer(serializers.ModelSerializer):
             'name': instance.packaging.name,
         } if instance.packaging else None
 
-        representation['medicine_dosage_unit'] = [
-            {
-                'id': unit.id,
-                'name': unit.name,
-            } for unit in instance.medicine_dosage_unit.all()
-        ] if instance.medicine_dosage_unit.exists() else []
+
 
         representation['item_batches'] = [
             self.get_batch_representation(batch) for batch in instance.item_batches.all()
@@ -60,16 +55,18 @@ class ItemDetailWithBatchStockInfoSerializer(serializers.ModelSerializer):
         """
         Custom representation of each item batch, including the latest stock info.
         """
-        batch_representation = {
-            'id': batch.id,
-            'batch_number': batch.batch_number,
-            'expiry_date': batch.expiry_date,
-            'quantity': batch.quantity,  # Default quantity
-        }
-
         # Get the latest stock info for the batch
+        quantity_in_stock=0
         latest_stock_info = ItemStockInfo.get_latest_stock_info_of_item_batch(batch.id)
         if latest_stock_info:
-            batch_representation['quantity'] = latest_stock_info.quantity  # Update with the latest stock quantity
+            quantity_in_stock = latest_stock_info.quantity  # Update with the latest stock quantity
+        batch_representation = {
+            'id': batch.id,
+            'batch_number': batch.batch_id,
+            'date_of_expiry': batch.date_of_expiry,
+            'quantity_in_stock':quantity_in_stock
+        }
+
+        
 
         return batch_representation

@@ -97,6 +97,7 @@ class ItemBatch(TimeStampedAbstractModelClass):
     date_of_expiry = models.DateField()
     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='item_batches')
 
+ 
     class Meta:
         app_label = 'item'
         indexes = [
