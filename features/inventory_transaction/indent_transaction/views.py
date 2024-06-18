@@ -42,8 +42,11 @@ class IndentInventoryTransactionViewSet(viewsets.ModelViewSet):
     filterset_class = IndentInventoryTransactionFilter
 
     def get_serializer_class(self):
-        if self.action == 'list':
+        detail_flag = self.request.query_params.get('detail', '1')
+        if detail_flag == '1':
             return IndentInventoryTransactionListSerializer
+        elif detail_flag == '2':
+            return IndentInventoryTransactionDetailSerializer
         return IndentInventoryTransactionDetailSerializer
 
     # def get_queryset(self):
