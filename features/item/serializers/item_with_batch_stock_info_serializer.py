@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from features.core.utils.convert_date import DateConverter
 from features.inventory_transaction.inventory_transaction.models import ItemStockInfo
 from features.item.models import Item, ItemType, ItemBatch, UnitOfMeasurement, ItemPackaging, MedicineDosageUnit
 
@@ -7,6 +8,7 @@ from features.item.models import Item, ItemType, ItemBatch, UnitOfMeasurement, I
 
 class ItemDetailWithBatchStockInfoSerializer(serializers.ModelSerializer):
     quantity_in_stock = serializers.IntegerField(read_only=True)
+    
     class Meta:
         model = Item
     
@@ -63,7 +65,7 @@ class ItemDetailWithBatchStockInfoSerializer(serializers.ModelSerializer):
         batch_representation = {
             'id': batch.id,
             'batch_number': batch.batch_id,
-            'date_of_expiry': batch.date_of_expiry,
+            'date_of_expiry': batch.date_of_expiry.strftime("%d-%m-%Y"),
             'quantity_in_stock':quantity_in_stock
         }
 
