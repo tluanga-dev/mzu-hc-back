@@ -52,8 +52,8 @@ router.register(r'prescription', PrescriptionViewSet, basename='prescription')
 router.register(r'setup', SetupView, basename='setup')
 router.register(r'id_manager', IdManagerViewSet)
 
-# --medicine
-router.register(r'medicine', MedicineViewSet)
+
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
