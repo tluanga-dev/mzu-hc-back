@@ -1,11 +1,13 @@
+from rest_framework.response import Response
 from rest_framework import viewsets
 from django_filters import rest_framework as filters
 from features.core.utils.convert_date import DateConverter
 from features.inventory_transaction.indent_transaction.models import IndentInventoryTransaction
 from features.inventory_transaction.indent_transaction.serializers import IndentInventoryTransactionDetailSerializer, IndentInventoryTransactionListSerializer
-
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
+
+from features.item.serializers.item_with_batch_stock_info_serializer import ItemDetailWithBatchStockInfoSerializer
 
 class StandardResultsSetPagination(PageNumberPagination):
     """Standard pagination settings for the API results."""
@@ -33,10 +35,9 @@ class IndentInventoryTransactionFilter(filters.FilterSet):
             supply_order_date__lte=DateConverter.convert_date_time_format_to_django_default(date_to)
         )
 
-
-
 class IndentInventoryTransactionViewSet(viewsets.ModelViewSet):
-    queryset = IndentInventoryTransaction.objects.all() 
+    queryset = IndentInventoryTransaction.objects.all()
+    serializer_class = IndentInventoryTransactionListSerializer
     pagination_class = StandardResultsSetPagination
     filter_backends = [DjangoFilterBackend]
     filterset_class = IndentInventoryTransactionFilter
@@ -49,23 +50,7 @@ class IndentInventoryTransactionViewSet(viewsets.ModelViewSet):
             return IndentInventoryTransactionDetailSerializer
         return IndentInventoryTransactionDetailSerializer
 
-    # def get_queryset(self):
-    #     queryset = IndentInventoryTransaction.objects.all()
-    #     supply_order_no = self.request.query_params.get('supply_order_no', None)
-    #     supplier = self.request.query_params.get('supplier', None)
-    #     supply_order_date = self.request.query_params.get('supply_order_date', None)
-    #     supply_order_dateFrom = self.request.query_params.get('supply_order_dateFrom', None)
-    #     supply_order_dateTo = self.request.query_params.get('supply_order_dateTo', None)
-
-    #     if supply_order_no is not None:
-            
-    #         queryset = queryset.filter(supply_order_no=supply_order_no)
-    #     if supplier is not None:
-    #         queryset = queryset.filter(supplier=supplier)
-    #     if supply_order_date is not None:
-    #         queryset = queryset.filter(supply_order_date__exact=DateConverter.convert_date_time_format_to_django_default(supply_order_date)  )
-    #     if supply_order_dateFrom is not None and supply_order_dateTo is not None:
-    #         queryset = queryset.filter(supply_order_date__gte=DateConverter.convert_date_time_format_to_django_default(supply_order_dateFrom), 
-    #                                    supply_order_date__lte=DateConverter.convert_date_time_format_to_django_default(supply_order_dateTo))
-
-    #     return queryset
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = IndentInventoryTransactionDetailSerializer(instance)
+        return Response(serializer.data)
