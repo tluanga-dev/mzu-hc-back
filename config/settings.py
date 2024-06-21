@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'rest_framework',
+    'drf_yasg',
     'rest_framework_simplejwt',
     "corsheaders",
     'django_filters',
@@ -82,6 +83,8 @@ INSTALLED_APPS = [
     # --------Setup---------
     'features.setup',
 ]
+
+
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -207,6 +210,7 @@ DATETIME_INPUT_FORMATS = ['%d-%m-%Y %H:%M','%d-%m-%Y %H:%M:%S', ]
 REST_FRAMEWORK = {
     "DATE_INPUT_FORMATS": ["%d-%m-%Y"],
     "DATETIME_INPUT_FORMATS": ["%d-%m-%Y %H:%M:%S"],
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
     # 'DEFAULT_AUTHENTICATION_CLASSES': (
     #     'rest_framework_simplejwt.authentication.JWTAuthentication',
     # ),
