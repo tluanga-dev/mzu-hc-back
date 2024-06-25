@@ -62,7 +62,7 @@ class ItemDetailWithBatchStockInfoSerializer(serializers.ModelSerializer):
         """
         batch_representation = {
             'id': batch.id,
-            'batch_number': batch.batch_number,
+            'batch_id': batch.batch_id,
             'expiry_date': batch.expiry_date,
             'quantity': batch.quantity,  # Default quantity
         }

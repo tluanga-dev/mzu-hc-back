@@ -85,9 +85,6 @@ class MedicineWithStockInfoSerializer(serializers.ModelSerializer):
     dosage_timing = serializers.SerializerMethodField()
     quantity_in_stock = serializers.IntegerField(read_only=True)
     type=serializers.CharField(source='type.name')
-  
-
-
 
 
     def get_packaging(self, instance):

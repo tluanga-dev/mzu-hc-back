@@ -36,7 +36,8 @@ from rest_framework_simplejwt.views import (
 router = DefaultRouter()
 
 
-
+router.register(r'medicines', MedicineViewSet, basename='medicines')
+router.register(r'medicine-dosages', MedicineDosageViewSet, basename='medicine-dosages')
 
 # Registering all viewsets with the router
 # ----------------Item-------------------
@@ -107,8 +108,8 @@ urlpatterns = [
     # Removed redundant pattern
     # re_path(r'^item/(?P<item_id>[0-9a-f-]+)/batches/$', ItemBatchViewSet.as_view({'get': 'item_batches_by_item_id'}), name='item-batches'),
     
-    # -------Medicine------
-    path('api/', include('features.medicine.urls')),
+    # # -------Medicine------
+    # path('api/', include('features.medicine.urls')),
     # Include all routes defined in the router
     path('', include(router.urls)),
 ]
