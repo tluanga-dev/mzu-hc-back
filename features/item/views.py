@@ -16,7 +16,7 @@ from .models import Item, ItemBatch, ItemCategory, ItemType, UnitOfMeasurement
 
 class StandardResultsSetPagination(PageNumberPagination):
     """Standard pagination settings for the API results."""
-    page_size = 10
+    page_size = 8
     page_size_query_param = 'page_size'
     max_page_size = 100
 
@@ -139,18 +139,23 @@ class ItemViewSet(viewsets.ModelViewSet):
             return ItemDetailWithBatchStockInfoSerializer
         return ItemSerializerForUser
     
-    # def list(self, request, *args, **kwargs):
-    #     print('returning list of items')
-    #     queryset = self.filter_queryset(self.get_queryset())
-    #     serializer_class = self.get_serializer_class()
-    #     serializer = serializer_class(queryset, many=True)
-        
-    #     return Response(serializer.data)
+    def get_paginate_queryset(self, queryset):
+        page_size = self.request.query_params.get('page_size', None)
+        if page_size:
+            try:
+                page_size = int(page_size)
+                self.pagination_class.page_size = min(page_size, self.pagination_class.max_page_size)
+            except ValueError:
+                pass
+        return super().paginate_queryset(queryset)
+    
+ 
 
     def list(self, request, *args, **kwargs):
         print('returning list of items')
         queryset = self.filter_queryset(self.get_queryset())
         page = self.paginate_queryset(queryset)  # Use the paginate_queryset method
+     
         if page is not None:
             serializer = self.get_serializer(page, many=True)
             return self.get_paginated_response(serializer.data)
@@ -165,3 +170,4 @@ class ItemViewSet(viewsets.ModelViewSet):
         serializer_class = self.get_serializer_class()
         serializer = serializer_class(instance)
         return Response(serializer.data)
+# http://localhost:8000/api/products/?detail=3&page_size=20

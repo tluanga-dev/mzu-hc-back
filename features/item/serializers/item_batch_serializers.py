@@ -6,7 +6,6 @@ from features.item.models import Item, ItemBatch
 
 class ItemBatchSerializer(serializers.ModelSerializer):
     date_of_expiry = CustomDateField()
-
    
     class Meta:
         model = ItemBatch
