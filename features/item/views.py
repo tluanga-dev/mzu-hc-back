@@ -119,7 +119,7 @@ class ItemFilter(django_filters.FilterSet):
    
     class Meta:
         model = Item
-        fields = ['item_id', 'name','category']
+        fields = ['item_id', 'name','category','type']
 
 #example- http://localhost:8000/api/products/?detail=1    
 class ItemViewSet(viewsets.ModelViewSet):
@@ -162,6 +162,9 @@ class ItemViewSet(viewsets.ModelViewSet):
         serializer_class = self.get_serializer_class()
         serializer = serializer_class(queryset, many=True)
         return Response(serializer.data)
+
+
+
 
     def retrieve(self, request, *args, **kwargs):
         print('retrieve method called')

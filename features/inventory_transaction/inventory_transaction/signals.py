@@ -2,7 +2,9 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 
 from features.inventory_transaction.inventory_transaction.models import InventoryTransaction, InventoryTransactionItem, ItemStockInfo
-
+from features.item.models import Item
+from features.item.serializers.item_with_batch_stock_info_serializer import ItemDetailWithBatchStockInfoSerializer
+from django.core.cache import cache
 
 @receiver(post_save, sender=InventoryTransactionItem)
 def post_save_inventory_transaction_item(sender, instance, created, **kwargs):
@@ -63,3 +65,6 @@ def post_save_inventory_transaction_item(sender, instance, created, **kwargs):
                 inventory_transaction_item=instance,
             )
             item_stock_info.save()
+        items=Item.objects.all()
+        serializer=ItemDetailWithBatchStockInfoSerializer(items, many=True)
+        cache.set('item_detail_with_batch_stock_info_cache_key', serializer.data)
